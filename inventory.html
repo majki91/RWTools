@@ -59,9 +59,9 @@
     h3{
       width: 50%;
     }
-    #errors{
-      color: red;
-      width: 40%;
+    hr{
+      width: 90px;
+      margin-left: 0;
     }
     
     
@@ -78,6 +78,8 @@
     <option value="section1">Oven 1</option>
     <option value="section2">Kabina</option> 
     <option value="section3">Kurtyna</option> 
+    <option value="section4">Ring 1</option> 
+    <option value="section5">Ring 2</option> 
   </select>
   <select id="select1">
    <option value="rlx">rlx</option>
@@ -124,6 +126,25 @@
  </div>
  </div>
 
+<div id="section4">
+  <h3>Ring 1</h3>
+  <hr>
+   
+<div class="box-container" id="box-container4">
+  
+ </div>
+ </div>
+ 
+<div id="section5">
+  <h3>Ring 2</h3>
+  <hr>
+   
+<div class="box-container" id="box-container5">
+  
+ </div>
+ </div>
+
+
 </div>
 
 <div id="summary">
@@ -153,10 +174,14 @@
  const section1Div = document.getElementById("section1");
  const section2Div = document.getElementById("section2");
  const section3Div = document.getElementById("section3");
+ const section4Div = document.getElementById("section4");
+ const section5Div = document.getElementById("section5");
+ 
  const boxContainer1 = document.getElementById("box-container1");
  const boxContainer2 = document.getElementById("box-container2");
  const boxContainer3 = document.getElementById("box-container3");
- const errorP = document.getElementById("errors");
+ const boxContainer4 = document.getElementById("box-container4");
+ const boxContainer5 = document.getElementById("box-container5");
  
  function create(){
    //funkcja do tworzenia elementów podglądu (dane + przycisk do usunięcia )
@@ -215,6 +240,14 @@
     if(sectionSelect.value === "section3"){
       section3Div.appendChild(boxContainer3);
       boxContainer3.appendChild(box);
+    }
+    if(sectionSelect.value === "section4"){
+      section4Div.appendChild(boxContainer3);
+      boxContainer4.appendChild(box);
+    }
+    if(sectionSelect.value === "section5"){
+      section5Div.appendChild(boxContainer3);
+      boxContainer5.appendChild(box);
     }
     //boxContainer.appendChild(box);
     
@@ -593,6 +626,7 @@
    for (let j=0;j<removeB.length;j++){
      //console.log(j+ " " + removeB[j]);
      removeB[j].classList.add("hide");
+     removeB[j].setAttribute("disabled","true");
      }
    //sumowanie danych do zmiennych pomocniczych 
    for (let i=0;i<akzoData.length;i++){
@@ -644,6 +678,9 @@
    boxContainer1.innerHTML="";
    boxContainer2.innerHTML="";
    boxContainer3.innerHTML="";
+   boxContainer4.innerHTML="";
+   boxContainer5.innerHTML="";
+   
    objParag.innerHTML ="";
    data.length =0;
    akzoData.length =0;
