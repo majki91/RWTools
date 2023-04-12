@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Inwentaryzacja</title>
   <style>
   
   #inputSection{
@@ -20,15 +20,25 @@
   #section1{
     margin-top: 100px;
   }
-  
+  select{
+    border: 2px solid black;
+    background: white;
+    margin: 0 3px;
+  }
   #select1{
     width: 80px;
   }
     input {
+      border: 2px solid black;
       width: 60px;
     }
     
+    .butn{
+      border: 2px solid black;
+      background: white;
+    }
     .btn {
+      border: 2px solid black;
       background: white;
       margin: 5px;
     }
@@ -64,7 +74,9 @@
       margin-left: 0;
     }
     
-    
+    #summaryContainer{
+      display: flex;
+    }
     
 
 
@@ -97,7 +109,7 @@
    <option value="kg">kg</option>
   </select>
   
-<button onclick="create()">dodaj</button>
+<button class="butn" onclick="create()">dodaj</button>
 </div>
 
 <div id="section1">
@@ -148,11 +160,13 @@
 </div>
 
 <div id="summary">
-  <p id="summaryP"></p>
-  <p id="objP"></p>
-  <button onclick="result()">Summary</button>
+  <div id="summaryContainer">
+    <p id="summaryP"></p>
+    <p id="objP"></p>
+  </div>
+  <button class="butn" onclick="result()">wynik</button>
 
-  <button onclick="clearing()">Clear</button>
+  <button class="butn" onclick="clearing()">wyczyść</button>
 </div>
 <script>
 
@@ -621,6 +635,7 @@
    let gevecoatBuf = 0;
    
    const summaryParag = document.getElementById("summaryP");
+   const summaryDiv = document.getElementById("summaryContainer");
    const objParag = document.getElementById("objP");
    //ukrywanie przycisku usunięcia poprzez dodanie klasy hide
    for (let j=0;j<removeB.length;j++){
@@ -656,6 +671,13 @@
    summaryParag.innerText = "akzo:"+akzoBuf+"kg\n" + "rlx:" + rlxBuf + "kg\n"+
    "7307:" + sevenThreeBuf + "kg\n" + "magellan:" + magellanBuf + "kg\n"+
    "gevecoat:" + gevecoatBuf + "kg\n";
+   
+   /*const akzoLabel = document.createElement("p");
+   const akzoResult = document.createElement("p");
+   akzoLabel.innerText = "akzo: ";
+   akzoResult.innerText = akzoBuf;
+   summaryDiv.appendChild(akzoLabel);
+   summaryDiv.appendChild(akzoResult);*/
  }
  //funkcja obsługi obiektów
  function objects(name,amount,unit){
