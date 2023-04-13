@@ -5,8 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Inwentaryzacja</title>
-  <style>
   
+  <style>
+  html{
+    scroll-behavior: smooth;
+  }
+
+  body{
+  }
   #inputSection{
     top: 0;
     left: 0;
@@ -41,6 +47,7 @@
       border: 2px solid black;
       background: white;
       margin: 5px;
+      width: 100px;
     }
     #summary button{
       margin-top: 20px;
@@ -53,17 +60,28 @@
       opacity: 1;
     }
     
+    .showBorder{
+      border :1px solid black;
+    }
+    
+    .hideBorder{
+      border:0px;
+    }
+    
     .box-container{
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
       margin-top: 10px;
-      border: 1px solid black;
     }
     
     #box{
       padding: 3px 20px;
       display: flex;
+      justify-content: space-around;
+      border: 1px solid black;
+      margin : 5px 0;
+      
     }
     
     h3{
@@ -75,7 +93,19 @@
     }
     
     #summaryContainer{
+      width:80%;
+      margin: 10px auto;
+      border: 1px solid black;
       display: flex;
+      text-align: center;
+    }
+    
+    #smrConFirstHalf{
+      flex: 50%;
+    }
+    
+    #smrConSecondHalf{
+      flex:50%;
     }
     
 
@@ -160,13 +190,27 @@
 </div>
 
 <div id="summary">
-  <div id="summaryContainer">
-    <p id="summaryP"></p>
-    <p id="objP"></p>
+  <div class="hide" id="summaryContainer">
+    <div id="smrConFirstHalf">
+      <p id="akzoLabel"></p>
+      <p id="rlxLabel"></p>
+      <p id="sevenThreeLabel"></p>
+      <p id="magellanLabel"></p>
+      <p id="gevecoatLabel"></p>
+    </div>
+    <div id="smrConSecondHalf">
+      <p id="akzoResult"></p>
+      <p id="rlxResult"></p>
+      <p id="sevenThreeResult"></p>
+      <p id="magellanResult"></p>
+      <p id="gevecoatResult"></p>
+    </div>
   </div>
+  <p id="summaryP"></p>
+    <p id="objP"></p>
   <button class="butn" onclick="result()">wynik</button>
 
-  <button class="butn" onclick="clearing()">wyczyść</button>
+  <button id="clr" class="butn" onclick="clearing()">wyczyść</button>
 </div>
 <script>
 
@@ -256,11 +300,11 @@
       boxContainer3.appendChild(box);
     }
     if(sectionSelect.value === "section4"){
-      section4Div.appendChild(boxContainer3);
+      section4Div.appendChild(boxContainer4);
       boxContainer4.appendChild(box);
     }
     if(sectionSelect.value === "section5"){
-      section5Div.appendChild(boxContainer3);
+      section5Div.appendChild(boxContainer5);
       boxContainer5.appendChild(box);
     }
     //boxContainer.appendChild(box);
@@ -269,6 +313,7 @@
     box.appendChild(amountParag);
     //box.appendChild(editButton);
     box.appendChild(removeButton);
+    
     
     // porównanie danych i wprowadzenie ich do odpowiednich tablic
       if (select1.value === "akzo")
@@ -633,9 +678,10 @@
    let sevenThreeBuf =0;
    let magellanBuf = 0;
    let gevecoatBuf = 0;
-   
-   const summaryParag = document.getElementById("summaryP");
+  
    const summaryDiv = document.getElementById("summaryContainer");
+   const firstHalf = document.getElementById("smrConFirstHalf");
+   const secondHalf = document.getElementById("smrConSecondHalf");
    const objParag = document.getElementById("objP");
    //ukrywanie przycisku usunięcia poprzez dodanie klasy hide
    for (let j=0;j<removeB.length;j++){
@@ -668,16 +714,20 @@
      objParag.innerText += data[i].showTxtData() + "\n";
    }*/
    //wyświetlanie danych
-   summaryParag.innerText = "akzo:"+akzoBuf+"kg\n" + "rlx:" + rlxBuf + "kg\n"+
-   "7307:" + sevenThreeBuf + "kg\n" + "magellan:" + magellanBuf + "kg\n"+
-   "gevecoat:" + gevecoatBuf + "kg\n";
    
-   /*const akzoLabel = document.createElement("p");
-   const akzoResult = document.createElement("p");
-   akzoLabel.innerText = "akzo: ";
-   akzoResult.innerText = akzoBuf;
-   summaryDiv.appendChild(akzoLabel);
-   summaryDiv.appendChild(akzoResult);*/
+   summaryContainer.classList.add("show");
+   
+   akzoLabel.innerText = "akzo";
+   akzoResult.innerText = akzoBuf + " kg";
+   rlxLabel.innerText = "rlx";
+   rlxResult.innerText = rlxBuf + " kg";
+   sevenThreeLabel.innerText = "7307";
+   sevenThreeResult.innerText = sevenThreeBuf + " kg";
+   magellanLabel.innerText = "magellan";
+   magellanResult.innerText = magellanBuf + " kg";
+   gevecoatLabel.innerText = "gevecoat";
+   gevecoatResult.innerText = gevecoatBuf + " kg";
+   document.getElementById("clr" ).scrollIntoView();
  }
  //funkcja obsługi obiektów
  function objects(name,amount,unit){
@@ -694,14 +744,27 @@
 }
  //funkcja czyszczenia wszystkich danych
  function clearing(){
-   const summaryParag = document.getElementById("summaryP");
    const objParag = document.getElementById("objP");
-   summaryParag.innerHTML="";
+ 
    boxContainer1.innerHTML="";
    boxContainer2.innerHTML="";
    boxContainer3.innerHTML="";
    boxContainer4.innerHTML="";
    boxContainer5.innerHTML="";
+   
+   akzoLabel.innerText = "";
+   akzoResult.innerText ="";
+   rlxLabel.innerText ="";
+   rlxResult.innerText ="";
+   sevenThreeLabel.innerText = "";
+   sevenThreeResult.innerText = "";
+   magellanLabel.innerText ="";
+   magellanResult.innerText ="";
+   gevecoatLabel.innerText = "";
+   gevecoatResult.innerText = "";
+   
+   summaryContainer.classList.remove("show");
+   summaryContainer.classList.add("hide");
    
    objParag.innerHTML ="";
    data.length =0;
