@@ -5,13 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Inwentaryzacja</title>
-  
+  <script
+  src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+  integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <style>
+  
   html{
     scroll-behavior: smooth;
   }
 
   body{
+    z-index: -1;
   }
   #inputSection{
     top: 0;
@@ -21,10 +26,25 @@
     width: 100%;
     background: white;
     border-bottom: 1px solid black;
+    z-index: 1;
+    
   }
   
   #section1{
-    margin-top: 100px;
+    margin-top: 110px;
+    scroll-margin-top: 110px;
+  }
+  
+  #section1 a{
+   margin-left: 70%;
+   margin-top: -10px;
+   position: absolute;
+   width: 50px;
+   text-align: center;
+   text-decoration: none;
+   color:black;
+   z-index: 0;
+   
   }
   select{
     border: 2px solid black;
@@ -42,16 +62,13 @@
     .butn{
       border: 2px solid black;
       background: white;
-      padding:15px 30px;
+      padding:10px 10px;
     }
     .btn {
       border: 2px solid black;
       background: white;
       margin: 5px;
       width: 100px;
-    }
-    #summary button{
-      margin-top: 20px;
     }
     .hide{
       opacity: 0;
@@ -84,6 +101,10 @@
       margin : 5px 0;
       
     }
+    .last{
+      background: green;
+      color : white;
+    }
     
     h3{
       width: 50%;
@@ -108,8 +129,16 @@
     #smrConSecondHalf{
       flex:50%;
     }
-    
-
+    #downButtons{
+      display: flex;
+      justify-content: space-around;
+    }
+    #summary a{
+      width: 50px;
+      text-align: center;
+      text-decoration: none;
+      color:black;
+    }
 
 
   </style>
@@ -117,7 +146,7 @@
 <body>
 <div id="main">
   <div id="inputSection">
-  <select id="sectionSelect">
+  <select id="sectionSelect" onchange="clrClass()">
     <option value="section1">Oven 1</option>
     <option value="section2">Kabina/k2</option> 
     <option value="section3">Kurtyna 1</option> 
@@ -144,6 +173,7 @@
 </div>
 
 <div id="section1">
+  <a href="#clr" class="butn"><i class="fa-solid fa-arrow-down"></i></a>
   <h3>Oven 1</h3>
   <hr>
    
@@ -209,9 +239,13 @@
   </div>
   <p id="summaryP"></p>
     <p id="objP"></p>
-  <button class="butn" onclick="result()">wynik</button>
+  <div id="downButtons">
+   <button class="butn" onclick="result()">wynik</button>
 
-  <button id="clr" class="butn" onclick="clearing()">wyczyść</button>
+   <button id="clr" class="butn" onclick="clearing()">wyczyść</button>
+   
+   <a href="#section1" class="butn"><i class="fa-solid fa-arrow-up"></i></a>
+  </div>
 </div>
 <script>
 
@@ -241,6 +275,12 @@
  const boxContainer3 = document.getElementById("box-container3");
  const boxContainer4 = document.getElementById("box-container4");
  const boxContainer5 = document.getElementById("box-container5");
+ 
+ function clrClass(){
+   for(let i = 0;i<box.length;i++)
+   box[i].classList.remove("last");
+ }
+ 
  
  function create(){
    //funkcja do tworzenia elementów podglądu (dane + przycisk do usunięcia )
@@ -312,8 +352,14 @@
     
     //przypisanie reszty wyswietlanych elementów podgladu do kontenera glownego
     box.appendChild(amountParag);
-    //box.appendChild(editButton);
+
     box.appendChild(removeButton);
+    
+    clrClass();
+    box.classList.add("last");
+    //box.previousElementSibling.classList.remove("last");
+    
+    
     
     
     // porównanie danych i wprowadzenie ich do odpowiednich tablic
@@ -399,6 +445,7 @@
       
     }
    amountInput.value='';
+   document.getElementById("clr" ).scrollIntoView();
  }
  
  function removeElement(element){
