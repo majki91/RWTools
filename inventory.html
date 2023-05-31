@@ -87,6 +87,7 @@
     }
     
     .box-container{
+      display: block;
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
@@ -94,12 +95,16 @@
     }
     
     #box{
+      display: block;
       padding: 3px 20px;
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       border: 1px solid black;
       margin : 5px 0;
       
+    }
+    #box p {
+      min-width: 40%;
     }
     .last{
       background: green;
@@ -138,6 +143,9 @@
       text-align: center;
       text-decoration: none;
       color:black;
+    }
+    span{
+      display: block;
     }
 
 
@@ -180,6 +188,7 @@
 <div class="box-container" id="box-container1">
   
 </div>
+<span id="endSec1"></span>
 </div>
 <div id="section2">
   <h3>Kabina/Kurtyna 2</h3>
@@ -188,6 +197,7 @@
 <div class="box-container" id="box-container2">
   
  </div>
+ <span id="endSec2"></span>
  </div>
  
  <div id="section3">
@@ -197,6 +207,7 @@
 <div class="box-container" id="box-container3">
   
  </div>
+<span id="endSec3"></span>
  </div>
 
 <div id="section4">
@@ -206,6 +217,7 @@
 <div class="box-container" id="box-container4">
   
  </div>
+<span id="endSec4"></span>
  </div>
  
 <div id="section5">
@@ -215,6 +227,7 @@
 <div class="box-container" id="box-container5">
   
  </div>
+<span id="endSec5"></span>
  </div>
 
 
@@ -445,7 +458,21 @@
       
     }
    amountInput.value='';
-   document.getElementById("clr" ).scrollIntoView();
+		
+   if (sectionSelect.value === "section1")
+     document.getElementById("endSec1").scrollIntoView();
+     
+   if (sectionSelect.value === "section2")
+     document.getElementById("endSec2").scrollIntoView();
+     
+   if (sectionSelect.value === "section3")
+     document.getElementById("endSec3").scrollIntoView();
+   if (sectionSelect.value === "section4")
+     document.getElementById("endSec4").scrollIntoView();
+   if (sectionSelect.value === "section5")
+     document.getElementById("endSec5").scrollIntoView();
+      
+   //document.getElementById("clr" ).scrollIntoView();
  }
  
  function removeElement(element){
