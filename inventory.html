@@ -146,6 +146,7 @@
     }
     span{
       display: block;
+      scroll-margin-top: 300px;
     }
 
 
@@ -188,8 +189,11 @@
 <div class="box-container" id="box-container1">
   
 </div>
-<span id="endSec1"></span>
 </div>
+<span id="endSec1"></span>
+<!-- pomocniczy span do śledzenia ostatniego elementu -->
+
+
 <div id="section2">
   <h3>Kabina/Kurtyna 2</h3>
   <hr>
@@ -197,8 +201,8 @@
 <div class="box-container" id="box-container2">
   
  </div>
- <span id="endSec2"></span>
  </div>
+ <span id="endSec2"></span>
  
  <div id="section3">
   <h3>Kurtyna1</h3>
@@ -207,8 +211,8 @@
 <div class="box-container" id="box-container3">
   
  </div>
-<span id="endSec3"></span>
  </div>
+ <span id="endSec3"></span>
 
 <div id="section4">
   <h3>Ring 1</h3>
@@ -217,8 +221,8 @@
 <div class="box-container" id="box-container4">
   
  </div>
-<span id="endSec4"></span>
  </div>
+<span id="endSec4"></span>
  
 <div id="section5">
   <h3>Ring 2</h3>
@@ -227,9 +231,8 @@
 <div class="box-container" id="box-container5">
   
  </div>
-<span id="endSec5"></span>
  </div>
-
+<span id="endSec5"></span>
 
 </div>
 
@@ -293,7 +296,7 @@
    for(let i = 0;i<box.length;i++)
    box[i].classList.remove("last");
  }
- 
+ // funkcja do usuwania koloru z ostatnio dodanego elementu
  
  function create(){
    //funkcja do tworzenia elementów podglądu (dane + przycisk do usunięcia )
@@ -370,7 +373,6 @@
     
     clrClass();
     box.classList.add("last");
-    //box.previousElementSibling.classList.remove("last");
     
     
     
