@@ -22,7 +22,7 @@
     top: 0;
     left: 0;
     position: fixed;
-    padding: 30px 0;
+    padding: 15px 0;
     width: 100%;
     background: white;
     border-bottom: 1px solid black;
@@ -31,8 +31,8 @@
   }
   
   #section1{
-    margin-top: 110px;
-    scroll-margin-top: 110px;
+    margin-top: 140px;
+    scroll-margin-top: 140px;
   }
   
   #section1 a{
@@ -148,6 +148,20 @@
       display: block;
       scroll-margin-top: 300px;
     }
+     #menu{
+      margin-top:0px;
+      display:flex;
+      justify-content: space-evenly;
+      margin-bottom:15px;
+    }
+    #menu a{
+      width: 45%;
+      text-align: center;
+      border: 2px solid black ;
+      text-decoration: none;
+      padding:5px 0;
+      color: black;
+    }
 
 
   </style>
@@ -155,6 +169,10 @@
 <body>
 <div id="main">
   <div id="inputSection">
+    <div id="menu">
+       <a href="https://majki91.github.io/RWTools/edge.html">Krawędzie</a>
+       <a href="https://majki91.github.io/RWTools/inventory.html">Inwentura</a>
+    </div>
   <select id="sectionSelect" onchange="clrClass()">
     <option value="section1">Oven 1</option>
     <option value="section2">Kabina/k2</option> 

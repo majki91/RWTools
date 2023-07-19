@@ -64,7 +64,7 @@
       text-align: center;
     }
     #mainContainer{
-      margin-top: 180px;
+      margin-top: 220px;
     }
     .tabButtons{
       display: flex;
@@ -131,11 +131,27 @@
       display: flex;
       flex-direction: column;
     }
+    #menu{
+      display:flex;
+      justify-content: space-evenly;
+    }
+    #menu a{
+      width: 45%;
+      text-align: center;
+      border: 1px solid black ;
+      text-decoration: none;
+      padding:5px 0;
+      color: black;
+    }
     
   </style>
 </head>
 <body onload="reloadClock()">
   <div id="inputSection">
+    <div id="menu">
+       <a href="https://majki91.github.io/RWTools/edge.html">Krawędzie</a>
+       <a href="https://majki91.github.io/RWTools/inventory.html">Inwentura</a>
+    </div>
     <div id="inputFirstRow">
       <select id="productSelection" class="inputSelect">
         <option value="Artic">Artic</option>
@@ -242,6 +258,7 @@
       </div>
       
       <button class="buttons" id="summaryButton" onclick="create()">oblicz</button>
+      <button class="buttons" onclick="showTab()">tab</button>
       
     </div>
     
@@ -704,20 +721,7 @@
       objects(clockSpan.innerText,productSpan.innerText,mal1EdgeSpan.innerText,mal2EdgeSpan.innerText,averageMalWeight.innerText);
       malObjTab.push(malObj);
       
-      displayMalTab(gridContainer1,gridRow,gridItem1,gridItem2,gridItem3,clockSpan,productSpan,mal1EdgeSpan);
-     //gridContainer1.appendChild(gridRow);
-     //gridRow.appendChild(gridItem1);
-     //gridItem1.appendChild(clockSpan);
-     //gridRow.appendChild(gridItem2);
-     //gridItem2.appendChild(productSpan);
-     //gridRow.appendChild(gridItem3);
-     //gridItem3.appendChild(mal1EdgeSpan);
-     gridRow.appendChild(gridItem4);
-     gridItem4.appendChild(mal2EdgeSpan);
-     gridRow.appendChild(gridItem5);
-     gridItem5.appendChild(averageMalWeight);
-     gridRow.appendChild(delButton);
-     openTab("malResContainer");
+      displayMalTab(gridContainer1,gridRow,gridItem1,gridItem2,gridItem3,gridItem4,gridItem5,clockSpan,productSpan,mal1EdgeSpan,mal2EdgeSpan,averageMalWeight,delButton);
     }
     
     
@@ -728,20 +732,8 @@
     
     
     impObjTab.push(impObj);
-
-     gridContainer2.appendChild(gridRow2);
-     gridRow2.appendChild(gridItem6);
-     gridItem6.appendChild(clockSpan2);
-     gridRow2.appendChild(gridItem7);
-     gridItem7.appendChild(productSpan2);
-     gridRow2.appendChild(gridItem8);
-     gridItem8.appendChild(imp1EdgeSpan);
-     gridRow2.appendChild(gridItem9);
-     gridItem9.appendChild(imp2EdgeSpan);
-     gridRow2.appendChild(gridItem10);
-     gridItem10.appendChild(averageImpWeight);
-     gridRow2.appendChild(delButton2);
-     openTab("impResContainer");
+    
+    displayImpTab(gridContainer2,gridRow2,gridItem6,gridItem7,gridItem8,gridItem9,gridItem10,clockSpan2,productSpan2,imp1EdgeSpan,imp2EdgeSpan,averageImpWeight,delButton2);
     }
      //malWeightInput1.value="";
      //malWeightInput2.value="";
@@ -755,6 +747,16 @@
    for (let i=0;i<impObjTab.length;i++){
      console.log("imp :"+ i+"."+ impObjTab[i].showTxtData());
    }
+  }
+  
+  function showTab(){
+    console.log("showTab " +malObjTab.length);
+    for (let i=0;malObjTab.length>i;i++){
+       //displayMalTab(gridContainer1,gridRow,gridItem1,gridItem2,gridItem3,gridItem4,gridItem5,malObjTab[i].hour,malObjTab[i].product,malObjTab[i].weight1,malObjTab[i].weight2,malObjTab[i].averageWeight,delButton);
+       
+       console.log(malObjTab[i].hour,malObjTab[i].product,malObjTab[i].weight1,malObjTab[i].weight2,malObjTab[i].averageWeight)
+       //objects(hour,product,weight1,weight2,averageWeight)
+    }
   }
   
   function reloadClock(){
@@ -773,7 +775,7 @@
   }
   
   function
-  displayMalTab(gridCon1,gridR,gridI1,gridI2,gridI3,clockS,productS,mal1ES){
+  displayMalTab(gridCon1,gridR,gridI1,gridI2,gridI3,gridI4,gridI5,clockS,productS,mal1ES,mal2ES,avrMW,delBut){
      gridCon1.appendChild(gridR);
      gridR.appendChild(gridI1);
      gridI1.appendChild(clockS);
@@ -781,12 +783,32 @@
      gridI2.appendChild(productS);
      gridR.appendChild(gridI3);
      gridI3.appendChild(mal1ES);
-     /*gridRow.appendChild(gridItem4);
-     gridItem4.appendChild(mal2EdgeSpan);
-     gridRow.appendChild(gridItem5);
-     gridItem5.appendChild(averageMalWeight);
-     gridRow.appendChild(delButton);
-     openTab("malResContainer");*/
+     gridR.appendChild(gridI4);
+     gridI4.appendChild(mal2ES);
+     gridR.appendChild(gridI5);
+     gridI5.appendChild(avrMW);
+     gridR.appendChild(delBut);
+     openTab("malResContainer");
+  }
+  
+  function
+  displayImpTab(gridCon2,gridR2,gridI6,gridI7,gridI8,gridI9,gridI10,clockS2,productS2,imp1ES,imp2ES,avrIW,delBut2){
+    
+     gridCon2.appendChild(gridR2);
+     gridR2.appendChild(gridI6);
+     gridI6.appendChild(clockS2);
+     gridR2.appendChild(gridI7);
+     gridI7.appendChild(productS2);
+     gridR2.appendChild(gridI8);
+     gridI8.appendChild(imp1ES);
+     gridR2.appendChild(gridI9);
+     gridI9.appendChild(imp2ES);
+     gridR2.appendChild(gridI10);
+     gridI10.appendChild(avrIW);
+     gridR2.appendChild(delBut2);
+     openTab("impResContainer");
+    
+    
   }
   
   function setMalAConverterFromTable(thin){
