@@ -244,8 +244,7 @@
       <span id="clockSpan">:</span>
       <input id="minInput" class="hrInputs"  type="number" placeholder="min">
       </div>
-      <button id="refreshHour" class="buttons icon-button" onclick="reloadClock()"><i class="fa fa-refresh fa-spin"></i></i></button>
-      <button onclick="showTabs()" class="buttons icon-button"><i class="fa-solid fa-eye"></i></button>
+      <button id="refreshHour" class="buttons icon-button" onclick="showTabs()"><i class="fa fa-refresh fa-spin"></i></i></button>
       <button class="buttons icon-button" id="summaryButton" onclick="create()"><i class="fa-solid fa-equals"></i></button>
       <button id="raportButton" onclick="generateRaport()" disabled="true"
       class="buttons icon-button"><i class="fas fa-th-list"></i></button>
@@ -587,6 +586,7 @@
   }
   
   function showTabs(){
+    reloadClock();
     showTab(malObjTab,tbody1);
     showTab(impObjTab,tbody2);
   }
