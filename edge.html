@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +8,9 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
   integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <title>Document</title>
-  <style>
-    #inputSection{
+  <title>Edge v2</title>
+<style>
+   #inputSection{
       display: flex;
       flex-direction: column;
       gap: 12px;
@@ -22,115 +22,7 @@
       position: fixed;
       background: white;
       border-bottom: 1px black solid;
-    }  
-    #inputFirstRow{
-      display: flex;
-      justify-content: space-evenly;
-      gap: 2px;
-    }
-    #inputSecondRow{
-      display: flex;
-      justify-content: space-evenly;
-      gap: 2px;
-    }
-    #inputThirdRow{
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      gap: 2px;
-    }
-    .weightInputs{
-      margin: auto;
-      width: 2.3rem;
-      text-align: center;
-    }
-    .inputLabels{
-      display: block;
-      font-size: 12px;
-      text-align: center;
-      margin-bottom: 3px;
-    }
-    .inputColumns{
-      display: flex;
-      flex-direction: column;
-    }
-    .hrInputs{
-      height: 1.4rem;
-      width: 2rem;
-      margin: 3px;
-      text-align: center;
-    }
-    #clockSpan{
-      text-align: center;
-    }
-    #mainContainer{
-      margin-top: 220px;
-    }
-    .tabButtons{
-      display: flex;
-      justify-content: space-between;
-    }
-    .buttons{
-      background: white;
-      height: 2rem;
-    }
-    .tabButtons button{
-      width: 50%;
-      height: 2rem;
-      background: white;
-      
-    }
-    .tabTitle{
-      margin: 1rem auto;
-      text-align: center;
-    }
-    .tabResults{
-      margin: 2px 0;
-      border:1px solid black;
-    }
-    .bActive{
-      color: white;
-      background-color: green !important;
-    }
-    .defaultGrid{
-      display: grid;
-      grid: 150px;
-      gap:0.5px;
-      margin: 0.5px 0.5px;
-      grid-template-columns: 0.5fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr;
-      background: lightgray;
-    }
-    .defaultGrid div{
-      border: 1px solid black;
-      text-align: center;
-    }
-    #gridRow, #gridRow2{
-      display: grid;
-      gap: 0.5px;
-      margin: 0.5px 0.5px;
-      grid-template-columns: 0.5fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr;
-    }
-    .gridItem{
-      border: 1px solid black;
-      text-align: center;
-    }
-    
-    .gridItem{
-      display: block;
-    }
-    .spanMargin{
-      display: block;
-      margin-top:9px;
-    }
-    #converters{
-      display: flex;
-      flex-direction: column;
-      font-size: 12px;
-    }
-    .converterColumn{
-      display: flex;
-      flex-direction: column;
-    }
+    } 
     #menu{
       display:flex;
       justify-content: space-evenly;
@@ -143,17 +35,129 @@
       padding:5px 0;
       color: black;
     }
+    #inputFirstRow{
+      display: flex;
+      justify-content: space-evenly;
+      gap: 2px;
+    }
+    #inputSecondRow{
+      display: flex;
+      justify-content: space-evenly;
+      gap: 2px;
+      margin-bottom: -12px;
+    }
+    #inputSecondRow span{
+      font-size: 11px;
+    }
+    #inputThirdRow{
+      display: flex;
+      justify-content: space-evenly;
+      gap: 2px;
+    }
+    #inputThirdRow input{
+      width: 3rem;
+      text-align: center;
+    }
+    #inputFourthRow{
+      display: flex;
+      justify-content: space-evenly;
+      gap: 4px;
+      margin-top: -12px;
+    }
+    #inputFourthRow span{
+      font-size: 11px;
+      width: 3rem;
+      text-align: center;
+    }
+    #inputFifthRow{
+      display: flex;
+      justify-content: space-evenly;
+      gap: 2px;
+    }
+    #inputFifthRow input{
+      width: 1.8rem;
+      height: 1.65rem;
+      text-align: center;
+    }
+    .buttons{
+      background: white;
+      height: 2rem;
+    }
+    #mainContainer{
+      margin-top: 220px;
+    }
+    .tabButtons{
+      display: flex;
+      justify-content: space-between;
+    }
+    .tabButtons button{
+      width: 50%;
+      height: 2rem;
+      background: white;
+    }
+    .bActive{
+      color: white;
+      background-color: green !important;
+    }
+    .tabTitle{
+      margin: 0;
+      text-align: center;
+      border-left: 1px solid;
+      border-right: 1px solid;
+      border-top: 1px solid;
+      padding: 1rem 0;
+    }
     
-  </style>
+    #malTable,#impTable{
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    #malTable thead tr{
+      text-align: center;
+      margin: auto;
+      background: lightgrey;
+    }
+    #impTable thead tr{
+      text-align: center;
+      margin: auto;
+      background: lightgrey;
+    }
+    
+    #malTable th{
+      border: 1px solid black;
+    }
+    #impTable th{
+      border: 1px solid black;
+    }
+    #tbody1 td{
+      text-align: center;
+      border: 1px solid black;
+    }
+    #tbody2 td{
+      text-align: center;
+      border: 1px solid black;
+    }
+    .deleteBtn{
+      padding:5px 8px;
+      border: none;
+      background: red;
+      font-weight: 1000;
+    }
+    .icon-button{
+      width: 3rem;
+    }
+    
+</style>
 </head>
 <body onload="reloadClock()">
-  <div id="inputSection">
+<div id="inputSection">
     <div id="menu">
        <a href="https://majki91.github.io/RWTools/edge.html">Krawędzie</a>
        <a href="https://majki91.github.io/RWTools/inventory.html">Inwentura</a>
     </div>
     <div id="inputFirstRow">
-      <select id="productSelection" class="inputSelect">
+     <select id="productSelection" class="inputSelect">
         <option value="Artic">Artic</option>
         <option value="Pacific">Pacific</option>
         <option value="PagOris">Pag. Oris</option>
@@ -165,9 +169,8 @@
         <option value="Medicare">Medicare</option>
         <option value="Koral">Koral</option>
         <option value="Sonar">Sonar</option>
-      </select>
-      
-      <select class="inputSelect" id="edgeSelection" onchange="setThinByEdge()">
+     </select>
+     <select class="inputSelect" id="edgeSelection" onchange="setThinByEdge()">
         <option value="A">A</option>
         <option value="E15S6">E15S6</option>
         <option value="E24S6">E24S6</option>
@@ -208,129 +211,387 @@
         <option value="50">50</option>
       </select>
     </div>
-    <div id="inputSecondRow">
-      <div class="inputColumns">
-        <span class="inputLabels" id="mal1Label">mal waga 1</span>
-        <input id="malWeightInput1" class="weightInputs" type="number">
-      </div>
-      <div class="inputColumns">
-       <span class="inputLabels" id="mal2Label">mal waga 2</span>
-       <input id="malWeightInput2" class="weightInputs" type="number">
-      </div>
-      <div class="inputColumns">
-        <span class="inputLabels" id="imp1Label">imp waga 1</span>
-        <input id="impWeightInput1" class="weightInputs" type="number">
-      </div>
-      <div class="inputColumns">
-        <span class="inputLabels" id="imp2Label">imp waga 2</span>
-        <input id="impWeightInput2" class="weightInputs" type="number">
-      </div>
-    </div>
     
+    <div id="inputSecondRow">
+      <span class="inputLabels" id="imp1Label">imp waga 1</span>
+      <span class="inputLabels" id="imp2Label">imp waga 2</span>
+      <span class="inputLabels" id="mal1Label">mal waga 1</span>
+      <span class="inputLabels" id="mal2Label">mal waga 2</span>
+    </div>
     <div id="inputThirdRow">
-      <div id="converters">
-       
-          <div id="malKr1ConverterColumn" class="convertersColumn">
-          <span>mal kr1</span>
+      <input id="impWeightInput1" class="weightInputs" type="number">
+      <input id="impWeightInput2" class="weightInputs" type="number">
+      <input id="malWeightInput1" class="weightInputs" type="number">
+      <input id="malWeightInput2" class="weightInputs" type="number">
+    </div>
+    <div id="inputFourthRow">
+          <span id="impConverterValue1">
+           0.0000
+          </span>
+          <span id="impConverterValue2">
+           0.0000
+          </span>
           <span id="malConverterValue1">
            0.0000
           </span>
-          </div>
-         <div id="malKr2ConverterColumn" class="convertersColumn">
-         <span>mal kr2</span>
-         <span id="malConverterValue2">0.0000</span>
-         </div>
-         
-        <div id="impKr1ConverterColumn" class="convertersColumn">
-          <span>imp kr1</span>
-          <span id="impConverterValue1">0.0000</span>
-        </div>
-        <div id="impKr2ConverterColumn" class="convertersColumn">
-          <span>imp kr2</span>
-          <span id="impConverterValue2">0.0000</span>
-          </div>
+          <span id="malConverterValue2">
+           0.0000
+          </span>
       </div>
-      
+      <div id="inputFifthRow">
       <div id="clock">
       <input id="hrInput" class="hrInputs" type="number" placeholder="godz">
       <span id="clockSpan">:</span>
       <input id="minInput" class="hrInputs"  type="number" placeholder="min">
       </div>
-      
-      <button class="buttons" id="summaryButton" onclick="create()">oblicz</button>
-      <!--<button class="buttons" onclick="showTab()">tab</button>-->
-      
-    </div>
-    
-  </div>
-  
- <div id="mainContainer">
-   
+      <button id="refreshHour" class="buttons icon-button" onclick="reloadClock()"><i class="fa fa-refresh fa-spin"></i></i></button>
+      <button onclick="showTabs()" class="buttons icon-button"><i class="fa-solid fa-eye"></i></button>
+      <button class="buttons icon-button" id="summaryButton" onclick="create()"><i class="fa-solid fa-equals"></i></button>
+      <button id="raportButton" onclick="generateRaport()" disabled="true"
+      class="buttons icon-button"><i class="fas fa-th-list"></i></button>
+      <!--<button id="clearButton" onclick="" disabled="true"
+      class="buttons">usuń dane</button>-->
+      </div>
+</div>
+
+<div id="mainContainer">
   <div class="tabButtons">
-  <button id="firstTabButton" class="tabButton bActive"
-  onclick="openTab('malResContainer')">mal</button>
-  <button id="secondTabButton" class="tabButton"
+  <button id="firstTabButton" class="tabButton"
   onclick="openTab('impResContainer')">imp</button>
+  <button id="secondTabButton" class="tabButton bActive"
+  onclick="openTab('malResContainer')">mal</button>
   </div>
 
   <div id="malResContainer" class="tabResults">
     <h2 class="tabTitle">mal</h2>
-    <div class="defaultGrid">
-      <div>Godz</div>
-      <div>Asortyment</div>
-      <div>kr.1</div>
-      <div>kr.2</div>
-      <div>Śr.</div>
-      <div>Edit</div>
-    </div>
-     <div id="gridContainer1">
-   
-    </div>
+    <table id="malTable">
+      <thead>
+        <tr>
+          <th>Godz</th>
+          <th>Asortyment</th>
+          <th>Kr.1</th>
+          <th>Kr.2</th>
+          <th>Śr.</th>
+          <th>X</th>
+        </tr>
+      </thead>
+      <tbody id="tbody1"></tbody>
+    </table>
   </div>
   
   <div id="impResContainer" class="tabResults" style="display:none;">
     <h2 class="tabTitle">imp</h2>
-    <div class="defaultGrid">
-      <div>Godz</div>
-      <div>Asortyment</div>
-      <div>kr.1</div>
-      <div>kr.2</div>
-      <div>Śr.</div>
-      <div>Edit</div>
-    </div>
-     <div id="gridContainer2">
-    
-    </div>
-  </div>
+    <table id="impTable">
+      <thead>
+        <tr>
+          <th>Godz</th>
+          <th>Asortyment</th>
+          <th>Kr.1</th>
+          <th>Kr.2</th>
+          <th>Śr.</th>
+          <th>X</th>
+        </tr>
+      </thead>
+      <tbody id="tbody2"></tbody>
+    </table>
  </div>
-  <script>
-  
-  const mainDiv = document.getElementById("main");
-  const dim1Selection = document.getElementById("dim1Selection");
-  const dim2Selection = document.getElementById("dim2Selection");
-  const productSelection = document.getElementById("productSelection");
-  const edgeSelection = document.getElementById("edgeSelection");
-  
-  const impWeightInput1 = document.getElementById("impWeightInput1");
-  impWeightInput1.value="";
-  const impWeightInput2 = document.getElementById("impWeightInput2");
-  impWeightInput2.value="";
-  const malWeightInput1 = document.getElementById("malWeightInput1");
-  malWeightInput1.value="";
-  const malWeightInput2 = document.getElementById("malWeightInput2");
-  malWeightInput2.value="";
-  
-  let malEdge1Converter = 0;
-  let malEdge2Converter = 0;
-  let impEdge1Converter = 0;
-  let impEdge2Converter = 0;
-  
-  let malObjTab =[];
-  let impObjTab = [];
-  
+<script>
 
+  let malObjTab = [];
+  let impObjTab = [];
+
+  const tbodyEl1 = document.querySelector("tbody");
+  const tbodyEl2 = document.querySelector("tbody2");
+  const maltableEl = document.getElementById("malTable")
+  const impTableEl = document.getElementById("impTable");
   
-    function setThinByEdge(){
+  function create(e) {
+    const hrInput = document.getElementById("hrInput").value;
+    const minInput = document.getElementById("minInput").value;
+    const productSelection = document.getElementById("productSelection").value;
+    const edgeSelection = document.getElementById("edgeSelection").value;
+    const dim1Selection = document.getElementById("dim1Selection").value;
+    const dim2Selection = document.getElementById("dim2Selection").value;
+    const thinSelection = document.getElementById("thinSelection").value;
+    
+    
+    const malWeightInput1
+    =parseInt(document.getElementById("malWeightInput1").value,10);
+    const malWeightInput2
+    =parseInt(document.getElementById("malWeightInput2").value,10);
+    const impWeightInput1
+    =parseInt(document.getElementById("impWeightInput1").value,10);
+    const impWeightInput2
+    =parseInt(document.getElementById("impWeightInput2").value,10);
+    
+    const malConverterValue1
+    = document.getElementById("malConverterValue1");
+    const malConverterValue2
+    = document.getElementById("malConverterValue2");
+    const impConverterValue1
+    = document.getElementById("impConverterValue1");
+    const impConverterValue2
+    = document.getElementById("impConverterValue2");
+    
+    
+        
+    let fullHour = hrInput+":"+minInput;
+    let productName = productSelection + " " + edgeSelection + " " +
+    dim1Selection + "x" + dim2Selection + "x" + thinSelection;
+    
+    let malEdge1Converter =0;
+    let malEdge2Converter =0;
+    let impEdge1Converter =0;
+    let impEdge2Converter =0;
+    
+   if(validateData()==false)
+     return false;
+   
+  if (edgeSelection === "A"){
+        malEdge1Converter =
+        setConverterByEdge(setMalAConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
+        
+        malEdge1Converter= malEdge1Converter.toFixed(4);
+        
+        malConverterValue1.innerText = malEdge1Converter;
+       
+        malEdge2Converter =
+        setConverterByEdge(setMalAConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
+        
+        malEdge2Converter= malEdge2Converter.toFixed(4);
+        
+        malConverterValue2.innerText = malEdge2Converter;
+    } 
+    
+    if (edgeSelection === "E15S8"){
+        malEdge1Converter =
+        setConverterByEdge(setMalES8E15ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
+        
+        malEdge1Converter= malEdge1Converter.toFixed(4);
+        
+        malConverterValue1.innerText = malEdge1Converter;
+        
+        malEdge2Converter =
+        setConverterByEdge(setMalES8E15ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
+        
+        malEdge2Converter= malEdge2Converter.toFixed(4);
+        
+        malConverterValue2.innerText = malEdge2Converter;
+        
+     impEdge1Converter =
+        setConverterByEdge(setImpES8E15ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
+        
+        impEdge1Converter= impEdge1Converter.toFixed(4);
+        
+        impConverterValue1.innerText = impEdge1Converter;
+        
+        impEdge2Converter =
+        setConverterByEdge(setImpES8E15ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
+        
+        impEdge2Converter= impEdge2Converter.toFixed(4);
+        
+        impConverterValue2.innerText = impEdge2Converter;
+    } 
+    
+    if (edgeSelection === "E24S8"){
+        malEdge1Converter =
+        setConverterByEdge(setMalES8E24ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
+        
+        malEdge1Converter= malEdge1Converter.toFixed(4);
+        
+        malConverterValue1.innerText = malEdge1Converter;
+        
+        malEdge2Converter =
+        setConverterByEdge(setMalES8E24ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
+        
+        malEdge2Converter= malEdge2Converter.toFixed(4);
+        
+        malConverterValue2.innerText = malEdge2Converter;
+        
+     impEdge1Converter =
+        setConverterByEdge(setImpES8E24ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
+        
+        impEdge1Converter= impEdge1Converter.toFixed(4);
+        
+        impConverterValue1.innerText = impEdge1Converter;
+        
+        impEdge2Converter =
+        setConverterByEdge(setImpES8E24ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
+        
+        impEdge2Converter= impEdge2Converter.toFixed(4);
+        
+        impConverterValue2.innerText = impEdge2Converter;
+    } 
+    
+     if (edgeSelection === "E24S6" || edgeSelection === "E15S6" ){
+        malEdge1Converter =
+        setConverterByEdge(setMalES6ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
+        
+        malEdge1Converter= malEdge1Converter.toFixed(4);
+        
+        malConverterValue1.innerText = malEdge1Converter;
+        
+        malEdge2Converter =
+        setConverterByEdge(setMalES6ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
+        
+        malEdge2Converter= malEdge2Converter.toFixed(4);
+        
+        malConverterValue2.innerText = malEdge2Converter;
+        
+     impEdge1Converter =
+        setConverterByEdge(setImpES6ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
+        
+        impEdge1Converter= impEdge1Converter.toFixed(4);
+        
+        impConverterValue1.innerText = impEdge1Converter;
+        
+        impEdge2Converter =
+        setConverterByEdge(setImpES6ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
+        
+        impEdge2Converter= impEdge2Converter.toFixed(4);
+        
+        impConverterValue2.innerText = impEdge2Converter;
+    } 
+    
+    if (edgeSelection === "X"){
+        malEdge1Converter =
+        setConverterByEdge(setMalXConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
+        
+        malEdge1Converter= malEdge1Converter.toFixed(4);
+        
+        malConverterValue1.innerText = malEdge1Converter;
+        
+        malEdge2Converter =
+        setConverterByEdge(setMalXConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
+        
+        malEdge2Converter= malEdge2Converter.toFixed(4);
+        
+        malConverterValue2.innerText = malEdge2Converter;
+        
+     impEdge1Converter =
+        setConverterByEdge(setImpX2ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
+        
+        impEdge1Converter= impEdge1Converter.toFixed(4);
+        
+        impConverterValue1.innerText = impEdge1Converter;
+        
+        impEdge2Converter =
+        setConverterByEdge(setImpX1ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
+        
+        impEdge2Converter= impEdge2Converter.toFixed(4);
+        
+        impConverterValue2.innerText = impEdge2Converter;
+    } 
+    
+    let mal1Result = malWeightInput1/ malEdge1Converter;
+    let mal2Result = malWeightInput2/ malEdge2Converter;
+    
+    let imp1Result = impWeightInput1/ impEdge1Converter;
+    let imp2Result = impWeightInput2/ impEdge2Converter;
+    
+    mal1Result = mal1Result.toFixed(0);
+    mal1Result = Math.round(mal1Result / 10)*10;
+    
+    mal2Result = mal2Result.toFixed(0);
+    mal2Result = Math.round(mal2Result / 10)*10;
+ 
+    imp1Result = imp1Result.toFixed(0);
+    imp1Result = Math.round(imp1Result / 10)*10;
+    
+    imp2Result = imp2Result.toFixed(0);
+    imp2Result = Math.round(imp2Result / 10)*10;
+ 
+  
+    let avrMalWeight = (mal1Result+mal2Result)/2;
+    let avrImpWeight = (imp1Result+imp2Result)/2;  
+    
+    let malObj =
+    createObject(fullHour,productName,mal1Result,mal2Result,avrMalWeight);
+    
+    let impObj =
+    createObject(fullHour,productName,imp1Result,imp2Result,avrImpWeight);
+     
+    if(malWeightInput1>0 && malWeightInput2>0) malObjTab.push(malObj);
+    if(impWeightInput1>0 && impWeightInput2>0) impObjTab.push(impObj);
+    
+    showTab(malObjTab,tbody1);
+    showTab(impObjTab,tbody2);
+  }
+   
+   
+   function showTab(tab,tbody){
+     tbody.innerHTML=""
+     let fullHour="";
+     let productName="";
+     let malWeightInput1="";
+     let malWeightInput2="";
+     let avrMalWeight="";
+     
+     for(let i=0;tab.length>i;i++){
+       fullHour = tab[i].hour;
+       productName = tab[i].product;
+       malWeightInput1 = tab[i].weight1;
+       malWeightInput2 = tab[i].weight2;
+       avrMalWeight = tab[i].averageWeight;
+       
+       tbody.innerHTML += `
+            <tr>
+                
+                <td>${fullHour}</td>
+                <td>${productName}</td>
+                <td>${malWeightInput1}</td>
+                <td>${malWeightInput2}</td>
+                <td>${avrMalWeight}</td>
+                <td>
+                <button class="deleteBtn">
+                X</button>
+                </td>
+            </tr>
+        `;
+     }
+   }
+      function onDeleteRowMal(e) {
+        if (!e.target.classList.contains("deleteBtn")) {
+          return;
+        }
+
+        const btn = e.target;
+        btn.closest("tr").remove();
+      }
+      
+     function onDeleteRowImp(e) {
+        if (!e.target.classList.contains("deleteBtn")) {
+          return;
+        }
+
+        const btn = e.target;
+        btn.closest("tr").remove();
+      }
+
+      maltableEl.addEventListener("click", onDeleteRowMal);
+      impTableEl.addEventListener("click",onDeleteRowImp);
+      
+
+ function reloadClock(){
+    const date = new Date();
+    const hour = date.getHours();
+    const minutes = date.getMinutes();
+    
+    hrInput.value = hour;
+    
+    if(minutes<10)
+    minInput.value = "0"+minutes;
+    else
+    minInput.value = minutes;
+    setThinByEdge();
+  }
+  
+  function showTabs(){
+    showTab(malObjTab,tbody1);
+    showTab(impObjTab,tbody2);
+  }
+  
+  function setThinByEdge(){
     const thinSelection = document.getElementById("thinSelection");
     const edgeSelection = document.getElementById("edgeSelection");
    
@@ -377,13 +638,13 @@
     {
       impWeightInput1.disabled=true;
       impWeightInput2.disabled=true;
-      secondTabButton.disabled=true;
+      firstTabButton.disabled=true;
     }
     else
     {
       impWeightInput1.disabled=false;
       impWeightInput2.disabled=false;
-      secondTabButton.disabled=false;
+      firstTabButton.disabled=false;
     }
   }
   
@@ -409,12 +670,12 @@
   let x = document.getElementsByClassName("tabResults");
   let b = document.getElementsByClassName("tabButton");
   
-  if(tabName === "impResContainer")
+  if(tabName === "malResContainer")
   {
     firstTabButton.classList.remove("bActive");
     secondTabButton.classList.add("bActive")
   }
-  else if (tabName === "malResContainer"){
+  else if (tabName === "impResContainer"){
     firstTabButton.classList.add("bActive");
     secondTabButton.classList.remove("bActive");
   }
@@ -425,393 +686,7 @@
   document.getElementById(tabName).style.display = "block";
 }
 
-  function create(){
-    
-    const delButton = document.createElement("button");
-    delButton.innerHTML = '<i class="fa-solid fa-xmark" style="padding:2px"></i>';
-    delButton.setAttribute("onclick","removeElement(this)");
-    
-    const delButton2 = document.createElement("button");
-    delButton2.innerHTML = '<i class="fa-solid fa-xmark" style="padding:2px"></i>';
-    delButton2.setAttribute("onclick","removeElement(this)");
-    
-    const gridContainer1 = document.getElementById("gridContainer1");
-    const gridContainer2 = document.getElementById("gridContainer2");
-    const gridRow = document.createElement("div");
-    gridRow.id="gridRow";
-    const gridRow2 = document.createElement("div");
-    gridRow2.id="gridRow2";
-    const gridItem1 = document.createElement("div");
-    const gridItem2 = document.createElement("div");
-    const gridItem3 = document.createElement("div");
-    const gridItem4 = document.createElement("div");
-    const gridItem5 = document.createElement("div");
-    const gridItem6 = document.createElement("div");
-    const gridItem7 = document.createElement("div");
-    const gridItem8 = document.createElement("div");
-    const gridItem9 = document.createElement("div");
-    const gridItem10 = document.createElement("div");
-    const gridItem11 = document.createElement("div");
-    const gridItem12 = document.createElement("div");
-    
-    const clockSpan = document.createElement("span");
-    clockSpan.classList.add("spanMargin");
-    const clockSpan2 = document.createElement("span");
-    clockSpan.classList.add("spanMargin");
-    clockSpan2.classList.add("spanMargin");
-    
-    const productSpan = document.createElement("span");
-    const productSpan2 = document.createElement("span");
-    
-    const mal1EdgeSpan = document.createElement("span");
-    mal1EdgeSpan.classList.add("spanMargin");
-    const mal2EdgeSpan = document.createElement("span");
-    mal2EdgeSpan.classList.add("spanMargin");
-    const imp1EdgeSpan = document.createElement("span");
-    imp1EdgeSpan.classList.add("spanMargin");
-    const imp2EdgeSpan = document.createElement("span");
-    imp2EdgeSpan.classList.add("spanMargin");
-    
-    const averageMalWeight = document.createElement("span");
-    averageMalWeight.classList.add("spanMargin");
-    const averageImpWeight = document.createElement("span");
-    averageImpWeight.classList.add("spanMargin");
-    
-    if (impWeightInput1.value ===""){
-      impWeightInput1.value =0;
-    }
-    if (impWeightInput2.value ==="")
-      impWeightInput2.value =0;
-    
-    if (malWeightInput1.value ==="")
-      malWeightInput1.value =0;
-    if (malWeightInput2.value ==="")
-      malWeightInput2.value =0;  
-    
-    let impWeightInput1Value = parseFloat(impWeightInput1.value,10);
-    let impWeightInput2Value = parseFloat(impWeightInput2.value,10);
-    
-    let malWeightInput1Value = parseFloat(malWeightInput1.value,10);
-    //zmienna przechowuje dane z inputa
-    
-    let malWeightInput2Value = parseFloat(malWeightInput2.value,10);
-    
-    if (edgeSelection.value === "A"){
-       malEdge1Converter =
-        setConverterByEdge(setMalAConverterFromTable(parseInt(thinSelection.value,10)),parseInt(dim1Selection.value,10));
-        
-        malEdge1Converter= malEdge1Converter.toFixed(4);
-        
-        malConverterValue1.innerText = malEdge1Converter;
-       
-        malEdge2Converter =
-        setConverterByEdge(setMalAConverterFromTable(parseInt(thinSelection.value,10)),parseInt(dim2Selection.value,10));
-        
-        malEdge2Converter= malEdge2Converter.toFixed(4);
-        
-        malConverterValue2.innerText = malEdge2Converter;
-        
-    } 
-    
-    if (edgeSelection.value === "E15S8"){
-        malEdge1Converter =
-        setConverterByEdge(setMalES8E15ConverterFromTable(parseInt(thinSelection.value,10)),parseInt(dim1Selection.value,10));
-        
-        malEdge1Converter= malEdge1Converter.toFixed(4);
-        
-        malConverterValue1.innerText = malEdge1Converter;
-        
-        malEdge2Converter =
-        setConverterByEdge(setMalES8E15ConverterFromTable(parseInt(thinSelection.value,10)),parseInt(dim2Selection.value,10));
-        
-        malEdge2Converter= malEdge2Converter.toFixed(4);
-        
-        malConverterValue2.innerText = malEdge2Converter;
-        
-     impEdge1Converter =
-        setConverterByEdge(setImpES8E15ConverterFromTable(parseInt(thinSelection.value,10)),parseInt(dim1Selection.value,10));
-        
-        impEdge1Converter= impEdge1Converter.toFixed(4);
-        
-        impConverterValue1.innerText = impEdge1Converter;
-        
-        impEdge2Converter =
-        setConverterByEdge(setImpES8E15ConverterFromTable(parseInt(thinSelection.value,10)),parseInt(dim2Selection.value,10));
-        
-        impEdge2Converter= impEdge2Converter.toFixed(4);
-        
-        impConverterValue2.innerText = impEdge2Converter;
-    } 
-    
-    if (edgeSelection.value === "E24S8"){
-        malEdge1Converter =
-        setConverterByEdge(setMalES8E24ConverterFromTable(parseInt(thinSelection.value,10)),parseInt(dim1Selection.value,10));
-        
-        malEdge1Converter= malEdge1Converter.toFixed(4);
-        
-        malConverterValue1.innerText = malEdge1Converter;
-        
-        malEdge2Converter =
-        setConverterByEdge(setMalES8E24ConverterFromTable(parseInt(thinSelection.value,10)),parseInt(dim2Selection.value,10));
-        
-        malEdge2Converter= malEdge2Converter.toFixed(4);
-        
-        malConverterValue2.innerText = malEdge2Converter;
-        
-     impEdge1Converter =
-        setConverterByEdge(setImpES8E24ConverterFromTable(parseInt(thinSelection.value,10)),parseInt(dim1Selection.value,10));
-        
-        impEdge1Converter= impEdge1Converter.toFixed(4);
-        
-        impConverterValue1.innerText = impEdge1Converter;
-        
-        impEdge2Converter =
-        setConverterByEdge(setImpES8E24ConverterFromTable(parseInt(thinSelection.value,10)),parseInt(dim2Selection.value,10));
-        
-        impEdge2Converter= impEdge2Converter.toFixed(4);
-        
-        impConverterValue2.innerText = impEdge2Converter;
-    } 
-    
-    if (edgeSelection.value === "E24S6" || edgeSelection.value === "E15S6" ){
-        malEdge1Converter =
-        setConverterByEdge(setMalES6ConverterFromTable(parseInt(thinSelection.value,10)),parseInt(dim1Selection.value,10));
-        
-        malEdge1Converter= malEdge1Converter.toFixed(4);
-        
-        malConverterValue1.innerText = malEdge1Converter;
-        
-        malEdge2Converter =
-        setConverterByEdge(setMalES6ConverterFromTable(parseInt(thinSelection.value,10)),parseInt(dim2Selection.value,10));
-        
-        malEdge2Converter= malEdge2Converter.toFixed(4);
-        
-        malConverterValue2.innerText = malEdge2Converter;
-        
-     impEdge1Converter =
-        setConverterByEdge(setImpES6ConverterFromTable(parseInt(thinSelection.value,10)),parseInt(dim1Selection.value,10));
-        
-        impEdge1Converter= impEdge1Converter.toFixed(4);
-        
-        impConverterValue1.innerText = impEdge1Converter;
-        
-        impEdge2Converter =
-        setConverterByEdge(setImpES6ConverterFromTable(parseInt(thinSelection.value,10)),parseInt(dim2Selection.value,10));
-        
-        impEdge2Converter= impEdge2Converter.toFixed(4);
-        
-        impConverterValue2.innerText = impEdge2Converter;
-    } 
-    
-    if (edgeSelection.value === "X"){
-        malEdge1Converter =
-        setConverterByEdge(setMalXConverterFromTable(parseInt(thinSelection.value,10)),parseInt(dim1Selection.value,10));
-        
-        malEdge1Converter= malEdge1Converter.toFixed(4);
-        
-        malConverterValue1.innerText = malEdge1Converter;
-        
-        malEdge2Converter =
-        setConverterByEdge(setMalXConverterFromTable(parseInt(thinSelection.value,10)),parseInt(dim2Selection.value,10));
-        
-        malEdge2Converter= malEdge2Converter.toFixed(4);
-        
-        malConverterValue2.innerText = malEdge2Converter;
-        
-     impEdge1Converter =
-        setConverterByEdge(setImpX2ConverterFromTable(parseInt(thinSelection.value,10)),parseInt(dim1Selection.value,10));
-        
-        impEdge1Converter= impEdge1Converter.toFixed(4);
-        
-        impConverterValue1.innerText = impEdge1Converter;
-        
-        impEdge2Converter =
-        setConverterByEdge(setImpX1ConverterFromTable(parseInt(thinSelection.value,10)),parseInt(dim2Selection.value,10));
-        
-        impEdge2Converter= impEdge2Converter.toFixed(4);
-        
-        impConverterValue2.innerText = impEdge2Converter;
-    } 
-    
-    gridItem1.classList.add("gridItem");
-    gridItem2.classList.add("gridItem");
-    gridItem3.classList.add("gridItem");
-    gridItem4.classList.add("gridItem");
-    gridItem5.classList.add("gridItem");
-    gridItem6.classList.add("gridItem");
-    gridItem7.classList.add("gridItem");
-    gridItem8.classList.add("gridItem");
-    gridItem9.classList.add("gridItem");
-    gridItem10.classList.add("gridItem");
-    gridItem11.classList.add("gridItem");
-    gridItem12.classList.add("gridItem");
-    
-    clockSpan.innerText = hrInput.value + ":"+ minInput.value;
-    clockSpan2.innerText = hrInput.value + ":"+ minInput.value;
-    
-    productSpan.innerText = productSelection.value + " " + edgeSelection.value + " " + dim1Selection.value +
-    "x" + dim2Selection.value + "x" + thinSelection.value;
-    
-    productSpan2.innerText = productSelection.value + " " + edgeSelection.value + " " + dim1Selection.value +
-    "x" + dim2Selection.value + "x" + thinSelection.value;
-    
-    let mal1Result = malWeightInput1Value / malEdge1Converter;
-    mal1Result = mal1Result.toFixed(0);
-    mal1Result = Math.round(mal1Result / 10)*10;
-    //zaokrąglanie do dziesiątek
-    mal1EdgeSpan.innerText = mal1Result;
-    
-    let mal2Result = malWeightInput2Value / malEdge2Converter;
-    mal2Result = mal2Result.toFixed(0);
-    mal2Result = Math.round(mal2Result / 10)*10;
-    mal2EdgeSpan.innerText = mal2Result;
-    
-    let imp1Result = impWeightInput1Value / impEdge1Converter;
-    imp1Result = imp1Result.toFixed(0);
-    imp1Result = Math.round(imp1Result / 10)*10;
-    imp1EdgeSpan.innerText = imp1Result;
-  
-    let imp2Result = impWeightInput2Value / impEdge2Converter;
-    imp2Result = imp2Result.toFixed(0);
-    imp2Result = Math.round(imp2Result / 10)*10;
-    imp2EdgeSpan.innerText = imp2Result;  
-
-    
-    mal1Result = parseFloat(mal1Result,10);
-    //mal1Result = Math.round(mal1Result / 10)*10;
-    mal2Result = parseFloat(mal2Result,10);
-    imp1Result = parseFloat(imp1Result,10);
-    imp2Result = parseFloat(imp2Result,10);
-    
-    let averageMalWeightResult =(mal1Result+mal2Result)/2;
-    
-    let averageImpWeightResult =(imp1Result+imp2Result)/2;
-    
-    averageMalWeight.innerText = averageMalWeightResult;
-    
-    
-    averageImpWeight.innerText = averageImpWeightResult;
-    
-    if (impWeightInput1Value === 0 && impWeightInput2Value >0){
-      window.alert("wypelnij 1 imp");
-      return false;
-    }
-    if (impWeightInput1Value === 0 && impWeightInput2Value >0){
-      window.alert("wypelnij 1 imp");
-      return false;
-    }
-    if (impWeightInput1Value > 0 && impWeightInput2Value === 0){
-      window.alert("wypelnij 2 imp");
-      return false;
-    }
-    
-    if (malWeightInput1Value === 0 && malWeightInput2Value >0){
-      window.alert("wypelnij 1 mal");
-      return false;
-    }
-    if (malWeightInput1Value > 0 && malWeightInput2Value === 0){
-      window.alert("wypelnij 2 mal");
-      return false;
-    }
-    
-    
-    if (malWeightInput1Value>0 && malWeightInput2Value >0){
-      
-      let malObj =
-      objects(clockSpan.innerText,productSpan.innerText,mal1EdgeSpan.innerText,mal2EdgeSpan.innerText,averageMalWeight.innerText);
-      malObjTab.push(malObj);
-      
-      displayMalTab(gridContainer1,gridRow,gridItem1,gridItem2,gridItem3,gridItem4,gridItem5,clockSpan,productSpan,mal1EdgeSpan,mal2EdgeSpan,averageMalWeight,delButton);
-    }
-    
-    
-    if (impWeightInput1Value>0 && impWeightInput2Value >0){
-   
-      let impObj =
-      objects(clockSpan2.innerText,productSpan2.innerText,imp1EdgeSpan.innerText,imp2EdgeSpan.innerText,averageImpWeight.innerText);
-    
-    
-    impObjTab.push(impObj);
-    
-    displayImpTab(gridContainer2,gridRow2,gridItem6,gridItem7,gridItem8,gridItem9,gridItem10,clockSpan2,productSpan2,imp1EdgeSpan,imp2EdgeSpan,averageImpWeight,delButton2);
-    }
-     //malWeightInput1.value="";
-     //malWeightInput2.value="";
-     //impWeightInput1.value="";
-     //impWeightInput2.value="";
-    
-  for (let i=0;i<malObjTab.length;i++){
-     console.log("mal :"+ i+"."+ malObjTab[i].showTxtData());
-   }
-   
-   for (let i=0;i<impObjTab.length;i++){
-     console.log("imp :"+ i+"."+ impObjTab[i].showTxtData());
-   }
-  }
-  
-  function showTab(){
-    console.log("showTab " +malObjTab.length);
-    for (let i=0;malObjTab.length>i;i++){
-       //displayMalTab(gridContainer1,gridRow,gridItem1,gridItem2,gridItem3,gridItem4,gridItem5,malObjTab[i].hour,malObjTab[i].product,malObjTab[i].weight1,malObjTab[i].weight2,malObjTab[i].averageWeight,delButton);
-       
-       console.log(malObjTab[i].hour,malObjTab[i].product,malObjTab[i].weight1,malObjTab[i].weight2,malObjTab[i].averageWeight)
-       //objects(hour,product,weight1,weight2,averageWeight)
-    }
-  }
-  
-  function reloadClock(){
-    const date = new Date();
-    const hour = date.getHours();
-    const minutes = date.getMinutes();
-    
-    hrInput.value = hour;
-    
-    if(minutes<10)
-    minInput.value = "0"+minutes;
-    else
-    minInput.value = minutes;
-    setThinByEdge();
-    
-  }
-  
-  function
-  displayMalTab(gridCon1,gridR,gridI1,gridI2,gridI3,gridI4,gridI5,clockS,productS,mal1ES,mal2ES,avrMW,delBut){
-     gridCon1.appendChild(gridR);
-     gridR.appendChild(gridI1);
-     gridI1.appendChild(clockS);
-     gridR.appendChild(gridI2);
-     gridI2.appendChild(productS);
-     gridR.appendChild(gridI3);
-     gridI3.appendChild(mal1ES);
-     gridR.appendChild(gridI4);
-     gridI4.appendChild(mal2ES);
-     gridR.appendChild(gridI5);
-     gridI5.appendChild(avrMW);
-     gridR.appendChild(delBut);
-     openTab("malResContainer");
-  }
-  
-  function
-  displayImpTab(gridCon2,gridR2,gridI6,gridI7,gridI8,gridI9,gridI10,clockS2,productS2,imp1ES,imp2ES,avrIW,delBut2){
-    
-     gridCon2.appendChild(gridR2);
-     gridR2.appendChild(gridI6);
-     gridI6.appendChild(clockS2);
-     gridR2.appendChild(gridI7);
-     gridI7.appendChild(productS2);
-     gridR2.appendChild(gridI8);
-     gridI8.appendChild(imp1ES);
-     gridR2.appendChild(gridI9);
-     gridI9.appendChild(imp2ES);
-     gridR2.appendChild(gridI10);
-     gridI10.appendChild(avrIW);
-     gridR2.appendChild(delBut2);
-     openTab("impResContainer");
-    
-    
-  }
-  
-  function setMalAConverterFromTable(thin){
+function setMalAConverterFromTable(thin){
     switch (thin){
      case 12:
        return 0.012;
@@ -1058,12 +933,57 @@ function setImpES8E15ConverterFromTable(thin){
     return doubledConverter * dimDivided;
   }
   
-  function removeElement(element){
-    element.parentElement.remove();
+  function validateData(){
+    
+    if (impWeightInput1.value ===""){
+      impWeightInput1.value =0;
+    }
+    if (impWeightInput2.value ==="")
+      impWeightInput2.value =0;
+    
+    if (malWeightInput1.value ==="")
+      malWeightInput1.value =0;
+    if (malWeightInput2.value ==="")
+      malWeightInput2.value =0;
+    
+    let malWeightInput1Value =
+    parseInt(document.getElementById("malWeightInput1").value,10);
+    let malWeightInput2Value =
+    parseInt(document.getElementById("malWeightInput2").value,10);
+    let impWeightInput1Value =
+    parseInt(document.getElementById("impWeightInput1").value,10);
+    let impWeightInput2Value =
+    parseInt(document.getElementById("impWeightInput2").value,10);
+    
+    let message="";
+    let validated = true;
+    
+    if (impWeightInput1Value === 0 && impWeightInput2Value >0){
+      message+="wypelnij 1 imp\n";
+      validated = false;
+    }
+    if (impWeightInput1Value > 0 && impWeightInput2Value === 0){
+      message+="wypelnij 2 imp\n";
+      validated = false;
+    }
+    
+    if (malWeightInput1Value === 0 && malWeightInput2Value >0){
+      message+="wypelnij 1 mal\n";
+      validated = false;
+    }
+    if (malWeightInput1Value > 0 && malWeightInput2Value === 0){
+      message+="wypelnij 2 mal\n";
+      validated = false;
+    }
+    
+    if (validated == false) 
+      window.alert(message);
+    
+    return validated;
   }
-  
-  function objects(hour,product,weight1,weight2,averageWeight){
-  const obj ={
+
+function createObject(hour,product,weight1,weight2,averageWeight){
+  const malObj ={
     hour:hour,
     product:product,
     weight1:weight1,
@@ -1074,9 +994,9 @@ function setImpES8E15ConverterFromTable(thin){
       averageWeight;
     }
   }
-  return obj;
+  return malObj;
 }
-  
-  </script>
+
+</script>
 </body>
 </html>
