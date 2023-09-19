@@ -315,13 +315,13 @@
     
     
     const malWeightInput1
-    =parseInt(document.getElementById("malWeightInput1").value,10);
+    =document.getElementById("malWeightInput1").value;
     const malWeightInput2
-    =parseInt(document.getElementById("malWeightInput2").value,10);
+    =document.getElementById("malWeightInput2").value;
     const impWeightInput1
-    =parseInt(document.getElementById("impWeightInput1").value,10);
+    =document.getElementById("impWeightInput1").value;
     const impWeightInput2
-    =parseInt(document.getElementById("impWeightInput2").value,10);
+    =document.getElementById("impWeightInput2").value;
     
     const malConverterValue1
     = document.getElementById("malConverterValue1");
@@ -350,14 +350,16 @@
         malEdge1Converter =
         setConverterByEdge(setMalAConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
         
-        malEdge1Converter= malEdge1Converter.toFixed(4);
+        malEdge1Converter=parseFloat(
+        malEdge1Converter.toFixed(4),10);
         
         malConverterValue1.innerText = malEdge1Converter;
        
         malEdge2Converter =
         setConverterByEdge(setMalAConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
         
-        malEdge2Converter= malEdge2Converter.toFixed(4);
+        malEdge2Converter=parseFloat(malEdge2Converter.toFixed(4),10);
+        ;
         
         malConverterValue2.innerText = malEdge2Converter;
     } 
@@ -426,6 +428,7 @@
         malEdge1Converter =
         setConverterByEdge(setMalES6ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
         
+        
         malEdge1Converter= malEdge1Converter.toFixed(4);
         
         malConverterValue1.innerText = malEdge1Converter;
@@ -482,14 +485,22 @@
         impConverterValue2.innerText = impEdge2Converter;
     } 
     
+   
     let mal1Result = malWeightInput1/ malEdge1Converter;
     let mal2Result = malWeightInput2/ malEdge2Converter;
     
     let imp1Result = impWeightInput1/ impEdge1Converter;
     let imp2Result = impWeightInput2/ impEdge2Converter;
     
+  console.log("mal1:",mal1Result);
+  console.log("mal2:",mal2Result);
+  console.log("imp1:",imp1Result);
+  console.log("imp2:",imp2Result);
+   
     mal1Result = mal1Result.toFixed(0);
     mal1Result = Math.round(mal1Result / 10)*10;
+    
+  
     
     mal2Result = mal2Result.toFixed(0);
     mal2Result = Math.round(mal2Result / 10)*10;
