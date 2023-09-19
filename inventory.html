@@ -63,12 +63,13 @@
       border: 2px solid black;
       background: white;
       padding:10px 10px;
+      width: 4.5rem;
     }
     .btn {
       border: 2px solid black;
       background: white;
       margin: 5px;
-      width: 100px;
+      width: 3rem;
     }
     .hide{
       opacity: 0;
@@ -196,7 +197,7 @@
    <option value="kg">kg</option>
   </select>
   
-<button style="padding:6px;" class="butn" onclick="create()">dodaj</button>
+<button style="width:40px; height:40px;"class="butn" onclick="create()"><i class="fa-solid fa-plus"></i></button>
 </div>
 
 <div id="section1">
@@ -274,9 +275,10 @@
   <p id="summaryP"></p>
     <p id="objP"></p>
   <div id="downButtons">
-   <button class="butn" onclick="result()">wynik</button>
+   <button class="butn" onclick="result()"><i class="fa-solid fa-equals"></i></button>
 
-   <button id="clr" class="butn" onclick="clearing()">wyczyść</button>
+   <button id="clr" class="butn" onclick="clearing()"><i class="fa-solid
+   fa-trash"></i></button>
    
    <a href="#section1" class="butn"><i class="fa-solid fa-arrow-up"></i></a>
   </div>
@@ -342,7 +344,7 @@
     
     //editButton.innerText = 'edytuj';
     //uzupełnienie danych do elementów podgladu
-    removeButton.innerText ="usuń";
+    removeButton.innerHTML ='<i class="fa fa-trash"></i>';
     removeButton.setAttribute("onclick","removeElement(this)");
     amountParag.innerText = select1.value + " " + amountInput+" "+ select2.value;
     
