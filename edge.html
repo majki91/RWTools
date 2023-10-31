@@ -147,6 +147,53 @@
     .icon-button{
       width: 3rem;
     }
+    #settingsWindow{
+      border: 2px solid black;
+      text-align:center;
+      position: fixed;
+      top:0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      width:300px;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:lightgrey;
+      opacity: 0;
+      z-index: -2;
+      transition: all 0.3s ease-in-out;
+    }
+    #settingsWindow.open{
+      opacity: 1;
+      z-index: 999;
+    }
+    #settingsBox{
+    }
+    #settingsFirstRow{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: auto 20px;
+    }
+    #settingsFirstRow input{
+      width: 30px;
+      height: 20px;
+      margin: auto 15px;
+    }
+    
+    #settingsFirstRow select {
+      width: 38px;
+      height: 28px;
+      margin: auto 15px;
+    }
+    
+    
+    #settingsSecondRow{
+      margin: 20px 0;
+    }
     
 </style>
 </head>
@@ -245,15 +292,41 @@
       <input id="minInput" class="hrInputs"  type="number" placeholder="min">
       </div>
       <button id="refreshHour" class="buttons icon-button" onclick="showTabs()"><i class="fa fa-refresh fa-spin"></i></i></button>
-      <button class="buttons icon-button" id="summaryButton" onclick="create()"><i class="fa-solid fa-equals"></i></button>
+      <button class="buttons icon-button" id="summaryButton"
+      onclick="create()"><i class="fa-solid fa-plus"></i></button>
       <button id="raportButton" onclick="generateRaport()" disabled="true"
       class="buttons icon-button"><i class="fas fa-th-list"></i></button>
+      
+      <button id="settingsButton" onclick="showSettings()" class="buttons icon-button"><i
+      class="fa fa-cog"></i>
+      </button>
       <!--<button id="clearButton" onclick="" disabled="true"
       class="buttons">usuń dane</button>-->
       </div>
 </div>
 
 <div id="mainContainer">
+  <div id="settingsWindow" class="">
+    <div id="settingsBox">
+      <div id="settingsFirstRow">
+        <p style="margin-bottom:30px;">Ustawienia generowania raportów</p>
+        <p>Przedział max/min w %</p><input type="number" value="5" id="percentAmountInput">
+        <p>Ilość raportów</p>
+        <select id="resultAmount" class="inputSelect">
+        <option value="7">7</option>
+        <option value="6">6</option>
+        <option value="5">5</option>
+        <option value="4">4</option>
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+      </select>
+      </div>
+      <div id="settingsSecondRow">
+      <button id="closeSettings" class="buttons" onclick="closeSettings()">zamknij</button>
+      </div>
+    </div>
+  </div>
   <div class="tabButtons">
   <button id="firstTabButton" class="tabButton"
   onclick="openTab('impResContainer')">imp</button>
@@ -298,11 +371,23 @@
 
   let malObjTab = [];
   let impObjTab = [];
+  
+    //tablice wyników poszczególnych stron malowania i impregnacji
+  
+  let mal1ResultTab =[];
+  let mal2ResultTab =[];
+  let imp1ResultTab =[];
+  let imp2ResultTab =[];
+  
+  let percentAmount =5;
+  const percentAmountInput = document.getElementById("percentAmountInput");
 
   const tbodyEl1 = document.querySelector("tbody");
   const tbodyEl2 = document.querySelector("tbody2");
   const maltableEl = document.getElementById("malTable")
   const impTableEl = document.getElementById("impTable");
+  
+  const raportButton = document.getElementById("raportButton");
   
   function create(e) {
     const hrInput = document.getElementById("hrInput").value;
@@ -492,10 +577,7 @@
     let imp1Result = impWeightInput1/ impEdge1Converter;
     let imp2Result = impWeightInput2/ impEdge2Converter;
     
-  console.log("mal1:",mal1Result);
-  console.log("mal2:",mal2Result);
-  console.log("imp1:",imp1Result);
-  console.log("imp2:",imp2Result);
+  
    
     mal1Result = mal1Result.toFixed(0);
     mal1Result = Math.round(mal1Result / 10)*10;
@@ -521,14 +603,185 @@
     let impObj =
     createObject(fullHour,productName,imp1Result,imp2Result,avrImpWeight);
      
-    if(malWeightInput1>0 && malWeightInput2>0) malObjTab.push(malObj);
-    if(impWeightInput1>0 && impWeightInput2>0) impObjTab.push(impObj);
-    
+    if(malWeightInput1>0 && malWeightInput2>0){
+     malObjTab.push(malObj);
+     mal1ResultTab.push(mal1Result);
+     mal2ResultTab.push(mal2Result);
+     raportButton.disabled=false;
+    }
+    if(impWeightInput1>0 && impWeightInput2>0){ 
+      impObjTab.push(impObj);
+      imp1ResultTab.push(imp1Result);
+      imp2ResultTab.push(imp2Result);
+      raportButton.disabled=false;
+    }
     showTab(malObjTab,tbody1);
     showTab(impObjTab,tbody2);
   }
+  //koniec
+  function showSettings(){
+    const settingsWindow = document.getElementById("settingsWindow");
+    settingsWindow.classList.add("open");
+  }
+  function closeSettings(){
+    const settingsWindow = document.getElementById("settingsWindow");
+    settingsWindow.classList.remove("open");
+  }
+  
+   function averageNumber(averageTab){
+    let average = 0;
+    
+    for(let i=0;averageTab.length>i;i++){
+      //console.log("i:" +i);
+      //console.log(averageTab[i]);
+      average += averageTab[i];
+      //console.log(averageTab.length);
+    }
+    average = average/averageTab.length;
+    //console.log("average:"+average);
+    return average;
+  }
+  
+  function random(average,percent){
+    let percent100 = percent/100;
+    let percentDown = average-(average*percent100);
+    let percentUp = average+(average*percent100);
+    let randomNumber =0;
+    
+    randomNumber = Math.floor(Math.random() * (percentUp-percentDown)) + percentDown;
+    randomNumber = randomNumber.toFixed(0);
+    randomNumber = Math.round(randomNumber / 10)*10;
+    //console.log("rand:"+randomNumber);
+    console.log("raport funkcji random:","percent100:" + percent100
+      ,"percentDown:" + percentDown
+      ,"percentUp:" + percentUp
+      ,"randomNumber:"+randomNumber);
+    
+    return randomNumber;
+  }
+  
+  function generateRaport(){
+    let date = new Date();
+    let hour = date.getHours();
+    let min = date.getMinutes();
+    let clock = "";
+    let malO = "";
+    let productName ="";
+    let percentInput = parseInt(percentAmountInput.value,10);
+    const productSelection = document.getElementById("productSelection").value;
+    const edgeSelection = document.getElementById("edgeSelection").value;
+    const dim1Selection = document.getElementById("dim1Selection").value;
+    const dim2Selection = document.getElementById("dim2Selection").value;
+    const thinSelection = document.getElementById("thinSelection").value;
+    
+    const resultAmount = document.getElementById("resultAmount").value;
+    
+   let resultAmountValue = parseInt(resultAmount,10);
    
+   console.log("raporty:",resultAmountValue);
    
+   /*if(min<10)
+    clock = hour + ":0" + min;
+    else
+    clock = hour + ":" + min;*/
+    
+    productName = productSelection+" "+edgeSelection + " " + dim1Selection +"x"+
+    dim2Selection +"x"+ thinSelection;
+    
+    if (mal1ResultTab.length>0 && mal2ResultTab.length>0){
+   
+     let malTabLength = malObjTab.length-1;
+     
+     let malFirstHour = malObjTab[malTabLength].hour;
+     malFirstHour= parseInt(malFirstHour.slice(0,2),10);
+     
+     
+     
+     //ostatnia dodana godzina i minuta
+     let malFirstMinutes = malObjTab[malTabLength].hour;
+     malFirstMinutes = parseInt(malFirstMinutes.slice(3,5));
+     
+      for(let i=0;i<resultAmountValue;i++){
+      let randomWg1 = random(averageNumber(mal1ResultTab),percentInput);
+      let randomWg2 =random(averageNumber(mal2ResultTab),percentInput);
+      let avrW = (randomWg1 + randomWg2)/2;
+     
+        malFirstHour++;
+        if(malFirstHour>=24)
+          malFirstHour = 0;
+        
+        
+        if(malFirstHour<10)
+        clock = "0"+malFirstHour;
+        else
+         clock = malFirstHour;
+         
+        if(malFirstMinutes<10)
+         clock+= ":0" + malFirstMinutes;
+        else
+         clock+= ":" + malFirstMinutes;
+      
+      malO = createObject(clock,productName,randomWg1,randomWg2,avrW);
+      
+      console.log("mal pozycja:"+i,
+      "randomWg1:"+randomWg1,
+      "randomWg2:"+randomWg2,
+      "avrW:"+avrW);
+     
+     malObjTab.push(malO);
+     //averageNumber(mal1ResultTab);
+     //random(averageNumber(mal1ResultTab),percentInput);
+      }
+    }
+    
+      if (imp1ResultTab.length>0 && imp2ResultTab.length>0){
+        
+        let impTabLength = impObjTab.length-1;
+     
+     let impFirstHour = impObjTab[impTabLength].hour;
+     impFirstHour= parseInt(impFirstHour.slice(0,2),10);
+     
+     
+     
+     //ostatnia dodana godzina i minuta
+     let impFirstMinutes = impObjTab[impTabLength].hour;
+     impFirstMinutes = parseInt(impFirstMinutes.slice(3,5));
+        
+      for(let i=0;i<resultAmountValue;i++){
+      let randomWg1 = random(averageNumber(imp1ResultTab),percentInput);
+      let randomWg2 =random(averageNumber(imp2ResultTab),percentInput);
+      let avrW = (randomWg1 + randomWg2)/2;
+      
+        impFirstHour++;
+        if(impFirstHour>=24)
+          impFirstHour = 0;
+        
+        
+        if(impFirstHour<10)
+        clock = "0"+impFirstHour;
+        else
+        clock = impFirstHour;
+         
+        if(impFirstMinutes<10)
+         clock+= ":0" + impFirstMinutes;
+        else
+         clock+= ":" + impFirstMinutes;
+      
+      
+      impO = createObject(clock,productName,randomWg1,randomWg2,avrW);
+      
+      console.log("imp pozycja:"+i,
+      "randomWg1:"+randomWg1,
+      "randomWg2:"+randomWg2,
+      "avrW:"+avrW);
+     
+     impObjTab.push(impO);
+     //averageNumber(imp1ResultTab);
+     //random(averageNumber(imp1ResultTab),percentInput);
+      }
+    }
+    showTabs();
+  }
    function showTab(tab,tbody){
      tbody.innerHTML=""
      let fullHour="";
@@ -561,6 +814,7 @@
      }
    }
       function onDeleteRowMal(e) {
+       
         if (!e.target.classList.contains("deleteBtn")) {
           return;
         }
@@ -597,7 +851,6 @@
   }
   
   function showTabs(){
-    reloadClock();
     showTab(malObjTab,tbody1);
     showTab(impObjTab,tbody2);
   }
