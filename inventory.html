@@ -163,6 +163,11 @@
       padding:5px 0;
       color: black;
     }
+    
+    #createButton{
+      border: 2px solid black;
+      background: white;
+    }
 
 
   </style>
@@ -189,7 +194,7 @@
    <option value="gevecoat">gevecoat</option>
   </select>
   
- <input id="amountInput" type="number"></input>
+ <input id="amountInput" style="width:45px;" type="number"></input>
  
   <select id="select2">
    <option value="cm">cm</option>
@@ -197,7 +202,7 @@
    <option value="kg">kg</option>
   </select>
   
-<button style="width:40px; height:40px;"class="butn" onclick="create()"><i class="fa-solid fa-plus"></i></button>
+<button id="createButton" onclick="create()">Dodaj</button>
 </div>
 
 <div id="section1">
