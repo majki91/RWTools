@@ -300,8 +300,8 @@
       <button id="settingsButton" onclick="showSettings()" class="buttons icon-button"><i
       class="fa fa-cog"></i>
       </button>
-      <!--<button id="clearButton" onclick="" disabled="true"
-      class="buttons">usuń dane</button>-->
+      <button id="clearButton" onclick="" disabled="true"
+      class="buttons">del</button>
       </div>
 </div>
 
@@ -618,6 +618,9 @@
     showTab(malObjTab,tbody1);
     showTab(impObjTab,tbody2);
   }
+  function clickTest(){
+    console.log("clicked")
+  }
   //koniec
   function showSettings(){
     const settingsWindow = document.getElementById("settingsWindow");
@@ -820,15 +823,37 @@
         }
 
         const btn = e.target;
+        const searchedEl = btn.closest("tr").childNodes[1].innerText;
+        let delEl = malObjTab.map(object => object.hour).indexOf(searchedEl);
+        
+        console.log(searchedEl
+        ,delEl,malObjTab);
+        
+        console.log("target:",btn.closest("tr"));
         btn.closest("tr").remove();
+        malObjTab.splice(delEl,1);
+        showTabs();
       }
       
      function onDeleteRowImp(e) {
+       
         if (!e.target.classList.contains("deleteBtn")) {
           return;
+          
         }
-
         const btn = e.target;
+        const searchedEl = btn.closest("tr").childNodes[1].innerText;
+        let delEl = impObjTab.map(object => object.hour).indexOf(searchedEl);
+        
+        console.log(searchedEl
+        ,delEl,impObjTab);
+        
+        console.log("target:",btn.closest("tr"));
+        btn.closest("tr").remove();
+        impObjTab.splice(delEl,1);
+        showTabs();
+
+        
         btn.closest("tr").remove();
       }
 
