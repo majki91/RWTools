@@ -394,6 +394,9 @@
     const minInput = document.getElementById("minInput").value;
     const productSelection = document.getElementById("productSelection").value;
     const edgeSelection = document.getElementById("edgeSelection").value;
+    // uwaga
+    // trzeba zamienic dim1 z dim2 na krawedziach frezowanych poniewaz dluzsza krawedz jest na drugiej maszynie
+    
     const dim1Selection = document.getElementById("dim1Selection").value;
     const dim2Selection = document.getElementById("dim2Selection").value;
     const thinSelection = document.getElementById("thinSelection").value;
@@ -448,31 +451,34 @@
         
         malConverterValue2.innerText = malEdge2Converter;
     } 
-    
+//uwaga zamiana dimow
     if (edgeSelection === "E15S8"){
         malEdge1Converter =
-        setConverterByEdge(setMalES8E15ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
+        setConverterByEdge(setMalES8E15ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
+        
+        //uwaga zamiana dimow
         
         malEdge1Converter= malEdge1Converter.toFixed(4);
         
         malConverterValue1.innerText = malEdge1Converter;
         
         malEdge2Converter =
-        setConverterByEdge(setMalES8E15ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
+        setConverterByEdge(setMalES8E15ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
+        
         
         malEdge2Converter= malEdge2Converter.toFixed(4);
         
         malConverterValue2.innerText = malEdge2Converter;
         
      impEdge1Converter =
-        setConverterByEdge(setImpES8E15ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
+        setConverterByEdge(setImpES8E15ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
         
         impEdge1Converter= impEdge1Converter.toFixed(4);
         
         impConverterValue1.innerText = impEdge1Converter;
         
         impEdge2Converter =
-        setConverterByEdge(setImpES8E15ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
+        setConverterByEdge(setImpES8E15ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
         
         impEdge2Converter= impEdge2Converter.toFixed(4);
         
@@ -481,28 +487,28 @@
     
     if (edgeSelection === "E24S8"){
         malEdge1Converter =
-        setConverterByEdge(setMalES8E24ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
+        setConverterByEdge(setMalES8E24ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
         
         malEdge1Converter= malEdge1Converter.toFixed(4);
         
         malConverterValue1.innerText = malEdge1Converter;
         
         malEdge2Converter =
-        setConverterByEdge(setMalES8E24ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
+        setConverterByEdge(setMalES8E24ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
         
         malEdge2Converter= malEdge2Converter.toFixed(4);
         
         malConverterValue2.innerText = malEdge2Converter;
         
      impEdge1Converter =
-        setConverterByEdge(setImpES8E24ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
+        setConverterByEdge(setImpES8E24ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
         
         impEdge1Converter= impEdge1Converter.toFixed(4);
         
         impConverterValue1.innerText = impEdge1Converter;
         
         impEdge2Converter =
-        setConverterByEdge(setImpES8E24ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
+        setConverterByEdge(setImpES8E24ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
         
         impEdge2Converter= impEdge2Converter.toFixed(4);
         
@@ -511,7 +517,7 @@
     
      if (edgeSelection === "E24S6" || edgeSelection === "E15S6" ){
         malEdge1Converter =
-        setConverterByEdge(setMalES6ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
+        setConverterByEdge(setMalES6ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
         
         
         malEdge1Converter= malEdge1Converter.toFixed(4);
@@ -519,21 +525,21 @@
         malConverterValue1.innerText = malEdge1Converter;
         
         malEdge2Converter =
-        setConverterByEdge(setMalES6ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
+        setConverterByEdge(setMalES6ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
         
         malEdge2Converter= malEdge2Converter.toFixed(4);
         
         malConverterValue2.innerText = malEdge2Converter;
         
      impEdge1Converter =
-        setConverterByEdge(setImpES6ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
+        setConverterByEdge(setImpES6ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
         
         impEdge1Converter= impEdge1Converter.toFixed(4);
         
         impConverterValue1.innerText = impEdge1Converter;
         
         impEdge2Converter =
-        setConverterByEdge(setImpES6ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
+        setConverterByEdge(setImpES6ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
         
         impEdge2Converter= impEdge2Converter.toFixed(4);
         
@@ -542,28 +548,28 @@
     
     if (edgeSelection === "X"){
         malEdge1Converter =
-        setConverterByEdge(setMalXConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
+        setConverterByEdge(setMalXConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
         
         malEdge1Converter= malEdge1Converter.toFixed(4);
         
         malConverterValue1.innerText = malEdge1Converter;
         
         malEdge2Converter =
-        setConverterByEdge(setMalXConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
+        setConverterByEdge(setMalXConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
         
         malEdge2Converter= malEdge2Converter.toFixed(4);
         
         malConverterValue2.innerText = malEdge2Converter;
         
      impEdge1Converter =
-        setConverterByEdge(setImpX2ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
+        setConverterByEdge(setImpX2ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
         
         impEdge1Converter= impEdge1Converter.toFixed(4);
         
         impConverterValue1.innerText = impEdge1Converter;
         
         impEdge2Converter =
-        setConverterByEdge(setImpX1ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
+        setConverterByEdge(setImpX1ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
         
         impEdge2Converter= impEdge2Converter.toFixed(4);
         
