@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>PSO</title>
+        <style>
+            body {
+                margin: 0;
+                top: 0;
+                background-color: #fe1717;
+            }
+            header {
+                border: 4px solid white;
+                width: 100%;
+                height: 9rem;
+            }
+            h1 {
+                text-align: center;
+                font-size: 72px;
+                color: white;
+                margin-top: 2rem;
+            }
+            #main-container {
+                margin-top: 5rem;
+            }
+            table {
+                color: white;
+                width: 90%;
+                margin: auto;
+            }
+            .table-title {
+                color: white;
+                font-size: 46px;
+                text-align: center;
+            }
+            th {
+                border: 1px solid white;
+                padding: 1rem;
+                width: 20%;
+            }
+            th span {
+                font-size: 32px;
+                font-style: bold;
+            }
+            td {
+                border: 1px solid white;
+                margin: auto;
+                text-align: center;
+            }
+            td span {
+                font-size: 32px;
+                margin: 0 1rem;
+            }
+            .vehicle-span {
+                font-size: 32px;
+            }
+            .vehicle-input {
+                height: 2rem;
+                width: 35%;
+                font-size: 32px;
+                text-align: center;
+            }
+            .pump-input {
+                height: 2rem;
+                width: 20%;
+                font-size: 32px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Inwentaryzacja</h1>
+        </header>
+        <div id="main-container">
+            <table id="vehiclesTable">
+                <h3 class="table-title">Pojazdy</h3>
+                <tr>
+                    <th>
+                        <span>Nazwa</span>
+                    </th>
+                    <th>
+                        <span>Przejechany dystans [km]</span>
+                    </th>
+                    <th>
+                        <span>Postój<br />[godz] [min]</span>
+                    </th>
+                    <th>
+                        <span>Czas włączenia autopompy <br />[godz][min]</span>
+                    </th>
+                    <th>
+                        <span>Ilość rozruchów</span>
+                    </th>
+                </tr>
+                <tr>
+                    <td><span class="vehicle-span">Man TGM 13.290</span></td>
+                    <td><input class="vehicle-input" /></td>
+                    <td>
+                        <input class="vehicle-input" /><span>:</span
+                        ><input class="vehicle-input" />
+                    </td>
+                    <td>
+                        <input class="vehicle-input" /><span>:</span
+                        ><input class="vehicle-input" />
+                    </td>
+
+                    <td><input class="vehicle-input" /></td>
+                </tr>
+                <tr>
+                    <td><span class="vehicle-span">Star 266</span></td>
+                    <td><input class="vehicle-input" /></td>
+                    <td>
+                        <input class="vehicle-input" /><span>:</span
+                        ><input class="vehicle-input" />
+                    </td>
+                    <td>
+                        <input class="vehicle-input" /><span>:</span
+                        ><input class="vehicle-input" />
+                    </td>
+
+                    <td><input class="vehicle-input" /></td>
+                </tr>
+            </table>
+
+            <table id="pumpTable">
+                <h3 class="table-title">Pompy</h3>
+                <tr>
+                    <th>
+                        <span>Nazwa</span>
+                    </th>
+                    <th>
+                        <span>Czas pracy [godz] [min]</span>
+                    </th>
+                    <th>
+                        <span>Rozruchy kontrolne [min]</span>
+                    </th>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <span>Motopompa Tohatsu M-16/8</span>
+                    </td>
+                    <td>
+                        <input class="pump-input" /><span>:</span
+                        ><input class="pump-input" />
+                    </td>
+                    <td><input class="pump-input" /></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span>Pompa Szlamowa WT 30X</span>
+                    </td>
+                    <td>
+                        <input class="pump-input" /><span>:</span
+                        ><input class="pump-input" />
+                    </td>
+                    <td><input class="pump-input" /></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
