@@ -25,11 +25,20 @@
       #main-container {
         margin-top: 5rem;
       }
+      .tables{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: space-around;
+      }
       table {
         color: white;
-        width: 90%;
-        margin: auto;
+        width: 45%;
       }
+      span{
+        font-size: 20px;
+      }
+
       .table-title {
         color: white;
         font-size: 46px;
@@ -37,11 +46,9 @@
       }
       th {
         border: 1px solid white;
-        padding: 1rem;
         width: 20%;
       }
       th span {
-        font-size: 32px;
         font-style: bold;
       }
       td {
@@ -49,23 +56,20 @@
         margin: auto;
         text-align: center;
       }
+      
       td span {
-        font-size: 32px;
-        margin: 0 1rem;
+        margin: 0 0.5rem;
       }
-      .vehicle-span {
-        font-size: 32px;
-      }
-      .vehicle-input {
+      .norm-input {
         height: 2rem;
-        width: 35%;
-        font-size: 32px;
+        width: 40%;
+        font-size: 24px;
         text-align: center;
       }
-      .pump-input {
+      .short-input{
         height: 2rem;
-        width: 20%;
-        font-size: 32px;
+        width: 30%;
+        font-size: 24px;
         text-align: center;
       }
     </style>
@@ -76,9 +80,9 @@
     </header>
     <div id="main-container">
       <div class="tables">
-        <div class="table">
           <table id="vehiclesTable">
-            <h3 class="table-title">Pojazdy</h3>
+            
+            <caption class="table-title">Pojazdy</caption>
             <tr>
               <th>
                 <span>Nazwa</span>
@@ -90,46 +94,45 @@
                 <span>Postój<br />[godz] [min]</span>
               </th>
               <th>
-                <span>Czas włączenia autopompy <br />[godz][min]</span>
+                <span>Autopompa<br />[godz][min]</span>
               </th>
               <th>
                 <span>Ilość rozruchów</span>
               </th>
             </tr>
             <tr>
-              <td><span class="vehicle-span">Man TGM 13.290</span></td>
-              <td><input class="vehicle-input" /></td>
+              <td style="height: 1rem;"><span>Man 13.290</span></td>
+              <td><input class="norm-input" /></td>
               <td>
-                <input class="vehicle-input" /><span>:</span
-                ><input class="vehicle-input" />
+                <input class="short-input" /><span>:</span
+                ><input class="short-input" />
               </td>
               <td>
-                <input class="vehicle-input" /><span>:</span
-                ><input class="vehicle-input" />
+                <input class="short-input" /><span>:</span
+                ><input class="short-input" />
               </td>
 
-              <td><input class="vehicle-input" /></td>
+              <td><input class="norm-input" /></td>
             </tr>
             <tr>
-              <td><span class="vehicle-span">Star 266</span></td>
-              <td><input class="vehicle-input" /></td>
+              <td><span>Star 266</span></td>
+              <td><input class="norm-input" /></td>
               <td>
-                <input class="vehicle-input" /><span>:</span
-                ><input class="vehicle-input" />
+                <input class="short-input" /><span>:</span
+                ><input class="short-input" />
               </td>
               <td>
-                <input class="vehicle-input" /><span>:</span
-                ><input class="vehicle-input" />
+                <input class="short-input" /><span>:</span
+                ><input class="short-input" />
               </td>
 
-              <td><input class="vehicle-input" /></td>
+              <td><input class="norm-input" /></td>
             </tr>
           </table>
-        </div>
 
-        <div class="table">
           <table id="pumpTable">
-            <h3 class="table-title">Pompy</h3>
+            
+            <caption class="table-title">Pompy</caption>
             <tr>
               <th>
                 <span>Nazwa</span>
@@ -147,10 +150,10 @@
                 <span>Motopompa Tohatsu M-16/8</span>
               </td>
               <td>
-                <input class="pump-input" /><span>:</span
-                ><input class="pump-input" />
+                <input class="short-input" /><span>:</span
+                ><input class="short-input" />
               </td>
-              <td><input class="pump-input" /></td>
+              <td><input class="norm-input" /></td>
             </tr>
 
             <tr>
@@ -158,10 +161,10 @@
                 <span>Motopompa SPEC-POŻ M800</span>
               </td>
               <td>
-                <input class="pump-input" /><span>:</span
-                ><input class="pump-input" />
+                <input class="short-input" /><span>:</span
+                ><input class="short-input" />
               </td>
-              <td><input class="pump-input" /></td>
+              <td><input class="norm-input" /></td>
             </tr>
 
             <tr>
@@ -169,10 +172,10 @@
                 <span>Pompa Szlamowa WT 30X</span>
               </td>
               <td>
-                <input class="pump-input" /><span>:</span
-                ><input class="pump-input" />
+                <input class="short-input" /><span>:</span
+                ><input class="short-input" />
               </td>
-              <td><input class="pump-input" /></td>
+              <td><input class="norm-input" /></td>
             </tr>
 
             <tr>
@@ -180,16 +183,16 @@
                 <span>Pompa Pływająca Niagara 2</span>
               </td>
               <td>
-                <input class="pump-input" /><span>:</span
-                ><input class="pump-input" />
+                <input class="short-input" /><span>:</span
+                ><input class="short-input" />
               </td>
-              <td><input class="pump-input" /></td>
+              <td><input class="norm-input" /></td>
             </tr>
           </table>
-        </div>
-        <div class="table">
+       
           <table id="agrVents">
-            <h3 class="table-title">Agregaty i wentylator</h3>
+            
+            <caption class="table-title">Agregaty i wentylator</caption>
             <tr>
               <th>
                 <span>Nazwa</span>
@@ -207,10 +210,10 @@
                 <span>Agregat Prądotw. ESE 406 HGGT</span>
               </td>
               <td>
-                <input class="pump-input" /><span>:</span
-                ><input class="pump-input" />
+                <input class="short-input" /><span>:</span
+                ><input class="short-input" />
               </td>
-              <td><input class="pump-input" /></td>
+              <td><input class="norm-input" /></td>
             </tr>
 
             <tr>
@@ -218,10 +221,10 @@
                 <span>Pompa Hydr Weber V 400 SIMO</span>
               </td>
               <td>
-                <input class="pump-input" /><span>:</span
-                ><input class="pump-input" />
+                <input class="short-input" /><span>:</span
+                ><input class="short-input" />
               </td>
-              <td><input class="pump-input" /></td>
+              <td><input class="norm-input" /></td>
             </tr>
 
             <tr>
@@ -229,16 +232,17 @@
                 <span>Wentylator Oddymiający FOGO MW22</span>
               </td>
               <td>
-                <input class="pump-input" /><span>:</span
-                ><input class="pump-input" />
+                <input class="short-input" /><span>:</span
+                ><input class="short-input" />
               </td>
-              <td><input class="pump-input" /></td>
+              <td><input class="norm-input" /></td>
             </tr>
           </table>
-        </div>
-        <div class="table">
+        
+        
           <table id="saws">
-            <h3 class="table-title">Pilarki i piły</h3>
+           
+           <caption class="table-title">Pilarki i piły</caption>
             <tr>
               <th>
                 <span>Nazwa</span>
@@ -256,10 +260,10 @@
                 <span>Pilarka spalinowa STIHL MS360</span>
               </td>
               <td>
-                <input class="pump-input" /><span>:</span
-                ><input class="pump-input" />
+                <input class="short-input" /><span>:</span
+                ><input class="short-input" />
               </td>
-              <td><input class="pump-input" /></td>
+              <td><input class="norm-input" /></td>
             </tr>
 
             <tr>
@@ -267,10 +271,10 @@
                 <span>Pilarka spalinowa STIHL MS341</span>
               </td>
               <td>
-                <input class="pump-input" /><span>:</span
-                ><input class="pump-input" />
+                <input class="short-input" /><span>:</span
+                ><input class="short-input" />
               </td>
-              <td><input class="pump-input" /></td>
+              <td><input class="norm-input" /></td>
             </tr>
 
             <tr>
@@ -278,10 +282,10 @@
                 <span>Piła do stali i betonu PARTNER K650</span>
               </td>
               <td>
-                <input class="pump-input" /><span>:</span
-                ><input class="pump-input" />
+                <input class="short-input" /><span>:</span
+                ><input class="short-input" />
               </td>
-              <td><input class="pump-input" /></td>
+              <td><input class="norm-input" /></td>
             </tr>
           </table>
         </div>
