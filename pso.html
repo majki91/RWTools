@@ -1,385 +1,405 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>PSO</title>
-        <style>
-            body {
-                margin: 0;
-                top: 0;
-                padding: 0;
-                background-image: linear-gradient(
-                    to right,
-                    rgb(255, 53, 53),
-                    red,
-                    rgb(255, 53, 53)
-                );
-            }
-            header {
-                top: 0;
-                margin: 0;
-                padding: 1rem;
-                width: 100%;
-                background-color: rgb(255, 0, 0);
-                box-shadow: 1px 2px 2px rgba(255, 255, 255, 0.2);
-            }
-            
-            
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>PSO</title>
+    <style>
+      body {
+        margin: 0;
+        top: 0;
+        padding: 0;
+        background-image: linear-gradient(
+          to right,
+          rgb(255, 53, 53),
+          red,
+          rgb(255, 53, 53)
+        );
+      }
+      header {
+        top: 0;
+        margin: 0;
+        padding: 1rem;
+        width: 100%;
+        background-color: rgb(255, 0, 0);
+        box-shadow: 1px 2px 2px rgba(255, 255, 255, 0.2);
+      }
 
-            img {
-                display: block;
-                margin: 0.65rem auto;
-                border-radius: 50% 50%;
-                width: 130px;
-                height: 130px;
-            }
+      img {
+        display: block;
+        margin: 0.65rem auto;
+        border-radius: 50% 50%;
+        width: 130px;
+        height: 130px;
+      }
 
-            h1 {
-                text-align: center;
-                font-size: 72px;
-                color: white;
-                margin: 0;
-                padding: 2rem 0;
-                top: 0;
-                margin-left: 12rem;
-                width: 60%;
-            }
-            #main-container {
-                margin-top: 5rem;
-            }
-            .tables {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 5rem 0;
-                justify-content: space-around;
-            }
-            table {
-                color: white;
-                width: 49%;
-            }
-            span {
-                font-size: 20px;
-            }
+      h1 {
+        text-align: center;
+        font-size: 72px;
+        color: white;
+        margin: 0;
+        padding: 2rem 0;
+        top: 0;
+        margin-left: 12rem;
+        width: 60%;
+      }
+      #main-container {
+        margin-top: 5rem;
+        width: 100%;
+      }
+      .tables {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5rem 0;
+        justify-content: space-around;
+      }
+      table {
+        color: white;
+        width: 49%;
+      }
+      span {
+        font-size: 20px;
+      }
 
-            .table-title {
-                color: white;
-                font-size: 36px;
-                text-align: center;
-                border: 1px solid white;
-                padding: 3rem 0;
-            }
-            th {
-                border: 1px solid white;
-                width: 20%;
-            }
-            th span {
-                font-style: bold;
-            }
-            td {
-                border: 1px solid white;
-                margin: auto;
-                text-align: center;
-            }
+      .table-title {
+        color: white;
+        font-size: 36px;
+        text-align: center;
+        border: 1px solid white;
+        padding: 3rem 0;
+      }
+      th {
+        border: 1px solid white;
+        width: 20%;
+      }
+      th span {
+        font-style: bold;
+      }
+      td {
+        border: 1px solid white;
+        margin: auto;
+        text-align: center;
+      }
 
-            td span {
-                margin: 0 0.2rem;
-            }
-            .norm-input {
-                height: 2rem;
-                width: 6rem;
-                font-size: 20px;
-                text-align: center;
-            }
-            .short-input {
-                height: 2rem;
-                width: 3rem;
-                font-size: 20px;
-                text-align: center;
-            }
-            @media only screen and (max-width: 1060px) {
-              #main-container{
-                margin-top: 2rem;
-              }
-              header{
-                padding: 0.2rem;
-              }
-              img{
-                width: 60px;
-                height: 60px;
-              }
-              span{
-                font-size: 10px;
-              }
-              .tables{
-                gap: 2rem 0;
-              }
-              table{
-                width: 95%;
-              }
-              .table-title{
-                font-size: 18px;
-                padding: 1rem 0;
-              }
-              .short-input{
-                width: 1.2rem;
-                height: 1rem;
-                font-size: 10px;
-              }
-              .norm-input{
-                width: 3rem;
-                height: 1rem;
-                font-size: 10px;
-              }
-              td{
-                padding:1rem 0;
-              }
-              
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <img
-                src="https://i.ibb.co/pZm7h3D/logo.webp"
-                alt="logo"
-            />
-        </header>
-        <div id="main-container">
-            <div class="tables">
-                <table id="vehiclesTable">
-                    <caption class="table-title">
-                        Pojazdy
-                    </caption>
-                    <tr>
-                        <th>
-                            <span>Nazwa</span>
-                        </th>
-                        <th>
-                            <span>Przejechany dystans [km]</span>
-                        </th>
-                        <th>
-                            <span>Postój<br />[godz] [min]</span>
-                        </th>
-                        <th>
-                            <span>Autopompa<br />[godz][min]</span>
-                        </th>
-                        <th>
-                            <span>Ilość rozruchów</span>
-                        </th>
-                    </tr>
-                    <tr>
-                        <td><span>Man 13.290</span></td>
-                        <td>
-                            <input class="norm-input" type="number"/>
-                        </td>
-                        <td>
-                            <input
-                                class="short-input"
-                                type="number"
-                                
-                            /><span>:</span
-                            ><input
-                                class="short-input"
-                                type="number"
-                                
-                            />
-                        </td>
-                        <td>
-                            <input
-                                class="short-input"
-                                type="number"
-                                
-                            /><span>:</span
-                            ><input
-                                class="short-input"
-                                type="number"
-                                
-                            />
-                        </td>
+      td span {
+        margin: 0 0.2rem;
+      }
+      .norm-input {
+        height: 2rem;
+        width: 6rem;
+        font-size: 20px;
+        text-align: center;
+      }
+      .short-input {
+        height: 2rem;
+        width: 3rem;
+        font-size: 20px;
+        text-align: center;
+      }
+      @media only screen and (max-width: 560px) {
+        #main-container {
+          margin-top: 2rem;
+        }
+        header {
+          padding: 0.2rem;
+        }
+        img {
+          width: 60px;
+          height: 60px;
+        }
+        span {
+          font-size: 10px;
+        }
+        .tables {
+          gap: 2rem 0;
+        }
+        table {
+          width: 100%;
+          margin: auto;
+        }
+        .table-title {
+          font-size: 18px;
+          padding: 1rem 0;
+        }
+        .short-input {
+          width: 1.2rem;
+          height: 1rem;
+          font-size: 10px;
+        }
+        .norm-input {
+          width: 3rem;
+          height: 1rem;
+          font-size: 10px;
+        }
+        td {
+          padding: 1rem 0;
+        }
+      }
+      @media only screen and (max-width: 768px) and (min-width: 561px) {
+        span {
+          font-size: 18px;
+        }
+        table {
+          width: 80%;
+        }
+        .table-title {
+          font-size: 30px;
+          padding: 1rem 0;
+        }
+        .short-input {
+          width: 2rem;
+          height: 1.5rem;
+          font-size: 18px;
+        }
+        .norm-input {
+          width: 4rem;
+          height: 1.5rem;
+          font-size: 18px;
+        }
+      }
+      @media only screen and (max-width: 1024px) and (min-width: 769px) {
+        span {
+          font-size: 16px;
+        }
+        table {
+          width: 48%;
+        }
+        .short-input {
+          width: 2rem;
+          height: 1.5rem;
+          font-size: 18px;
+        }
+        .norm-input {
+          width: 4rem;
+          height: 1.5rem;
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="https://i.ibb.co/pZm7h3D/logo.webp" alt="logo" />
+    </header>
+    <div id="main-container">
+      <div class="tables">
+        <table id="vehiclesTable">
+          <caption class="table-title">
+            Pojazdy
+          </caption>
+          <tr>
+            <th>
+              <span>Nazwa</span>
+            </th>
+            <th>
+              <span>Przejechany dystans [km]</span>
+            </th>
+            <th>
+              <span>Postój<br />[godz] [min]</span>
+            </th>
+            <th>
+              <span>Autopompa<br />[godz][min]</span>
+            </th>
+            <th>
+              <span>Ilość rozruchów</span>
+            </th>
+          </tr>
+          <tr>
+            <td><span>Man 13.290</span></td>
+            <td>
+              <input class="norm-input" type="number" />
+            </td>
+            <td>
+              <input class="short-input" type="number" /><span>:</span
+              ><input class="short-input" type="number" />
+            </td>
+            <td>
+              <input class="short-input" type="number" /><span>:</span
+              ><input class="short-input" type="number" />
+            </td>
 
-                        <td>
-                            <input class="norm-input" type="number" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span>Star 266</span></td>
-                        <td><input class="norm-input" /></td>
-                        <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
-                        </td>
-                        <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
-                        </td>
+            <td>
+              <input class="norm-input" type="number" />
+            </td>
+          </tr>
+          <tr>
+            <td><span>Star 266</span></td>
+            <td><input class="norm-input" /></td>
+            <td>
+              <input class="short-input" /><span>:</span
+              ><input class="short-input" />
+            </td>
+            <td>
+              <input class="short-input" /><span>:</span
+              ><input class="short-input" />
+            </td>
 
-                        <td><input class="norm-input" /></td>
-                    </tr>
-                </table>
+            <td><input class="norm-input" /></td>
+          </tr>
+        </table>
 
-                <table id="pumpTable">
-                    <caption class="table-title">
-                        Pompy
-                    </caption>
-                    <tr>
-                        <th>
-                            <span>Nazwa</span>
-                        </th>
-                        <th>
-                            <span>Czas pracy [godz] [min]</span>
-                        </th>
-                        <th>
-                            <span>Rozruchy kontrolne [min]</span>
-                        </th>
-                    </tr>
+        <table id="pumpTable">
+          <caption class="table-title">
+            Pompy
+          </caption>
+          <tr>
+            <th>
+              <span>Nazwa</span>
+            </th>
+            <th>
+              <span>Czas pracy [godz] [min]</span>
+            </th>
+            <th>
+              <span>Rozruchy kontrolne [min]</span>
+            </th>
+          </tr>
 
-                    <tr>
-                        <td>
-                            <span>Motopompa Tohatsu M-16/8</span>
-                        </td>
-                        <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
-                        </td>
-                        <td><input class="norm-input" /></td>
-                    </tr>
+          <tr>
+            <td>
+              <span>Motopompa Tohatsu M-16/8</span>
+            </td>
+            <td>
+              <input class="short-input" /><span>:</span
+              ><input class="short-input" />
+            </td>
+            <td><input class="norm-input" /></td>
+          </tr>
 
-                    <tr>
-                        <td>
-                            <span>Motopompa SPEC-POŻ M800</span>
-                        </td>
-                        <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
-                        </td>
-                        <td><input class="norm-input" /></td>
-                    </tr>
+          <tr>
+            <td>
+              <span>Motopompa SPEC-POŻ M800</span>
+            </td>
+            <td>
+              <input class="short-input" /><span>:</span
+              ><input class="short-input" />
+            </td>
+            <td><input class="norm-input" /></td>
+          </tr>
 
-                    <tr>
-                        <td>
-                            <span>Pompa Szlamowa WT 30X</span>
-                        </td>
-                        <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
-                        </td>
-                        <td><input class="norm-input" /></td>
-                    </tr>
+          <tr>
+            <td>
+              <span>Pompa Szlamowa WT 30X</span>
+            </td>
+            <td>
+              <input class="short-input" /><span>:</span
+              ><input class="short-input" />
+            </td>
+            <td><input class="norm-input" /></td>
+          </tr>
 
-                    <tr>
-                        <td>
-                            <span>Pompa Pływająca Niagara 2</span>
-                        </td>
-                        <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
-                        </td>
-                        <td><input class="norm-input" /></td>
-                    </tr>
-                </table>
+          <tr>
+            <td>
+              <span>Pompa Pływająca Niagara 2</span>
+            </td>
+            <td>
+              <input class="short-input" /><span>:</span
+              ><input class="short-input" />
+            </td>
+            <td><input class="norm-input" /></td>
+          </tr>
+        </table>
 
-                <table id="agrVents">
-                    <caption class="table-title">
-                        Agregaty i wentylator
-                    </caption>
-                    <tr>
-                        <th>
-                            <span>Nazwa</span>
-                        </th>
-                        <th>
-                            <span>Czas pracy [godz] [min]</span>
-                        </th>
-                        <th>
-                            <span>Rozruchy kontrolne [min]</span>
-                        </th>
-                    </tr>
+        <table id="agrVents">
+          <caption class="table-title">
+            Agregaty i wentylator
+          </caption>
+          <tr>
+            <th>
+              <span>Nazwa</span>
+            </th>
+            <th>
+              <span>Czas pracy [godz] [min]</span>
+            </th>
+            <th>
+              <span>Rozruchy kontrolne [min]</span>
+            </th>
+          </tr>
 
-                    <tr>
-                        <td>
-                            <span>Agregat Prądotw. ESE 406 HGGT</span>
-                        </td>
-                        <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
-                        </td>
-                        <td><input class="norm-input" /></td>
-                    </tr>
+          <tr>
+            <td>
+              <span>Agregat Prądotw. ESE 406 HGGT</span>
+            </td>
+            <td>
+              <input class="short-input" /><span>:</span
+              ><input class="short-input" />
+            </td>
+            <td><input class="norm-input" /></td>
+          </tr>
 
-                    <tr>
-                        <td>
-                            <span>Pompa Hydr Weber V 400 SIMO</span>
-                        </td>
-                        <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
-                        </td>
-                        <td><input class="norm-input" /></td>
-                    </tr>
+          <tr>
+            <td>
+              <span>Pompa Hydr Weber V 400 SIMO</span>
+            </td>
+            <td>
+              <input class="short-input" /><span>:</span
+              ><input class="short-input" />
+            </td>
+            <td><input class="norm-input" /></td>
+          </tr>
 
-                    <tr>
-                        <td>
-                            <span>Wentylator Oddymiający FOGO MW22</span>
-                        </td>
-                        <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
-                        </td>
-                        <td><input class="norm-input" /></td>
-                    </tr>
-                </table>
+          <tr>
+            <td>
+              <span>Wentylator Oddymiający FOGO MW22</span>
+            </td>
+            <td>
+              <input class="short-input" /><span>:</span
+              ><input class="short-input" />
+            </td>
+            <td><input class="norm-input" /></td>
+          </tr>
+        </table>
 
-                <table id="saws">
-                    <caption class="table-title">
-                        Pilarki i piły
-                    </caption>
-                    <tr>
-                        <th>
-                            <span>Nazwa</span>
-                        </th>
-                        <th>
-                            <span>Czas pracy [godz] [min]</span>
-                        </th>
-                        <th>
-                            <span>Rozruchy kontrolne [min]</span>
-                        </th>
-                    </tr>
+        <table id="saws">
+          <caption class="table-title">
+            Pilarki i piły
+          </caption>
+          <tr>
+            <th>
+              <span>Nazwa</span>
+            </th>
+            <th>
+              <span>Czas pracy [godz] [min]</span>
+            </th>
+            <th>
+              <span>Rozruchy kontrolne [min]</span>
+            </th>
+          </tr>
 
-                    <tr>
-                        <td>
-                            <span>Pilarka spalinowa STIHL MS360</span>
-                        </td>
-                        <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
-                        </td>
-                        <td><input class="norm-input" /></td>
-                    </tr>
+          <tr>
+            <td>
+              <span>Pilarka spalinowa STIHL MS360</span>
+            </td>
+            <td>
+              <input class="short-input" /><span>:</span
+              ><input class="short-input" />
+            </td>
+            <td><input class="norm-input" /></td>
+          </tr>
 
-                    <tr>
-                        <td>
-                            <span>Pilarka spalinowa STIHL MS341</span>
-                        </td>
-                        <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
-                        </td>
-                        <td><input class="norm-input" /></td>
-                    </tr>
+          <tr>
+            <td>
+              <span>Pilarka spalinowa STIHL MS341</span>
+            </td>
+            <td>
+              <input class="short-input" /><span>:</span
+              ><input class="short-input" />
+            </td>
+            <td><input class="norm-input" /></td>
+          </tr>
 
-                    <tr>
-                        <td>
-                            <span>Piła do stali i betonu PARTNER K650</span>
-                        </td>
-                        <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
-                        </td>
-                        <td><input class="norm-input" /></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </body>
+          <tr>
+            <td>
+              <span>Piła do stali i betonu PARTNER K650</span>
+            </td>
+            <td>
+              <input class="short-input" /><span>:</span
+              ><input class="short-input" />
+            </td>
+            <td><input class="norm-input" /></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
 </html>
