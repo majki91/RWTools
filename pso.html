@@ -9,18 +9,32 @@
       body {
         margin: 0;
         top: 0;
-        background-color: #fe1717;
+        padding: 0;
+        background-image: linear-gradient(to right, red , rgb(102, 0, 0));
       }
       header {
-        border-bottom: 4px solid white;
+        top: 0;
+        margin: 0;
         width: 100%;
-        height: 9rem;
+        background-color: rgb(255, 0, 0);
+        display: flex;
+        justify-content:space-evenly;
       }
+
+      img{
+        margin-top: 0.65rem;
+        border-radius: 50% 50%;
+      }
+
       h1 {
         text-align: center;
         font-size: 72px;
         color: white;
-        margin-top: 2rem;
+        margin: 0;
+        padding: 2rem 0;
+        top: 0;
+        margin-left: 12rem;
+        width: 60%;
       }
       #main-container {
         margin-top: 5rem;
@@ -28,7 +42,7 @@
       .tables{
         display: flex;
         flex-wrap: wrap;
-        gap: 0.5rem;
+        gap: 5rem 0;
         justify-content: space-around;
       }
       table {
@@ -41,8 +55,9 @@
 
       .table-title {
         color: white;
-        font-size: 46px;
+        font-size: 36px;
         text-align: center;
+        margin-bottom: 1rem;
       }
       th {
         border: 1px solid white;
@@ -63,13 +78,13 @@
       .norm-input {
         height: 2rem;
         width: 40%;
-        font-size: 24px;
+        font-size: 20px;
         text-align: center;
       }
       .short-input{
         height: 2rem;
         width: 30%;
-        font-size: 24px;
+        font-size: 20px;
         text-align: center;
       }
     </style>
@@ -77,11 +92,11 @@
   <body>
     <header>
       <h1>Inwentaryzacja</h1>
+      <img src="https://i.ibb.co/pZm7h3D/logo.webp" alt="logo" border="0" width="130px" height="130px">
     </header>
     <div id="main-container">
       <div class="tables">
-          <table id="vehiclesTable">
-            
+          <table id="vehiclesTable">  
             <caption class="table-title">Pojazdy</caption>
             <tr>
               <th>
@@ -101,7 +116,7 @@
               </th>
             </tr>
             <tr>
-              <td style="height: 1rem;"><span>Man 13.290</span></td>
+              <td><span>Man 13.290</span></td>
               <td><input class="norm-input" /></td>
               <td>
                 <input class="short-input" /><span>:</span
