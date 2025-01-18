@@ -535,22 +535,20 @@
                 return result;
             }
 
-            
-            function showTabs(){
+            function showTabs() {
                 const tab = document.getElementById("carTable");
                 const manKmInputValue =
                     document.getElementById("manKmInput").value;
-                
+
                 let res = getOnByKm(manKmInputValue, 38);
 
-                tab.innerHTML+=`
+                tab.innerHTML += `
                 <tr>
                 <td><span>Man 13.290</span></td>
                 <td><span>${res}</span></td>
                 <td><span>0</span></td>
                 </tr>
                 `;
-              
             }
         </script>
     </body>
