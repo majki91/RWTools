@@ -480,6 +480,7 @@
                             <th><span>Zużycie ON</span></th>
                             <th><span>Zużycie PB</span></th>
                         </tr>
+                        <tbody id="carTableBody"></tbody>
                         <!-- <tr>
                             <td><span>Star 266</span></td>
                             <td><span>0</span></td>
@@ -536,12 +537,12 @@
             }
 
             function showTabs() {
-                const tab = document.getElementById("carTable");
+                const tab = document.getElementById("carTableBody");
                 const manKmInputValue =
                     document.getElementById("manKmInput").value;
 
                 let res = getOnByKm(manKmInputValue, 38);
-
+tab.innerHTML ="";
                 tab.innerHTML += `
                 <tr>
                 <td><span>Man 13.290</span></td>
@@ -551,5 +552,5 @@
                 `;
             }
         </script>
-    </body>
+    </tbody>
 </html>
