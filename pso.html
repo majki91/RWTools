@@ -537,13 +537,15 @@
             }
 
             function showTabs() {
-                const tab = document.getElementById("carTableBody");
+                const carTab = document.getElementById("carTableBody");
                 const manKmInputValue =
                     document.getElementById("manKmInput").value;
-
+                
+                res > 0 ? console.log("nie") : console.log("tak");
+                
                 let res = getOnByKm(manKmInputValue, 38);
-                tab.innerHTML = "";
-                tab.innerHTML += `
+                carTab.innerHTML = "";
+                carTab.innerHTML += `
                 <tr>
                 <td><span>Man 13.290</span></td>
                 <td><span>${res} l</span></td>
