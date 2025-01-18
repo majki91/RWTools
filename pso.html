@@ -98,6 +98,7 @@
                 font-size: 20px;
                 text-align: center;
             }
+            
             #resultTable {
                 background-color: white;
                 color: red;
@@ -144,7 +145,7 @@
             .buttons-box {
                 display: flex;
                 justify-content: space-around;
-                margin-top: 2rem;
+                margin: 2rem 0;
             }
             .buttons-box button {
                 background-color: blue;
@@ -463,13 +464,23 @@
                 </table>
             </div>
             <div class="buttons-box">
-                <button onclick="showTabs()">Oblicz</button>
+                <button onclick="showTabs()">Dodaj wyjazd</button>
                 <button>Wyzeruj</button>
             </div>
             <div id="resultBox" class="tables" style="gap: 0">
+                <table id="tripsTable" class="result-mini-table">
+                  <caption>Wyjazdy</caption>
+                  <tr>
+                    <th><span>Wyjazd nr.</span></th>
+                    <th><span>Nazwa</span></th>
+                    <th><span>Zużycie ON</span></th>
+                    <th><span>Zużycie PB</span></th>
+                    <th><span>Usuń</span></th>
+                  </tr>
+                </table>
                 <table id="resultTable">
                     <caption>
-                        Wynik
+                        Wyniki
                     </caption>
                     <table id="carTable" class="result-mini-table">
                         <caption>
@@ -523,9 +534,13 @@
                         </tr>
                     </table>
                 </table>
+                <div class="buttons-box">
+                  <button>Oblicz</button>
+                </div>
             </div>
         </div>
         <script>
+            // podziel tabelke na wyjazdy
             function getOnByKm(kilometers, usageOn) {
                 let km = kilometers;
                 let usage = usageOn;
@@ -541,20 +556,19 @@
                 const manKmInputValue =
                     document.getElementById("manKmInput").value;
 
-
                 let res = getOnByKm(manKmInputValue, 38);
-                
-                carTab.innerHTML="";
-                
-                res > 0 ? 
-                carTab.innerHTML += `
+
+                carTab.innerHTML = "";
+
+                res > 0
+                    ? (carTab.innerHTML += `
                 <tr>
                 <td><span>Man 13.290</span></td>
                 <td><span>${res} l</span></td>
                 <td><span>0</span></td>
                 </tr>
-                ` :
-                carTab.innerHTML = "";
+                `)
+                    : (carTab.innerHTML = "");
             }
         </script>
     </body>
