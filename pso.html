@@ -116,7 +116,8 @@
                 background-color: white;
                 width: 95%;
                 color: red;
-                gap: 0;
+                border-spacing: 0;
+      
             }
             .result-mini-table caption {
                 padding: 1rem 0;
@@ -126,15 +127,19 @@
                 font-size: 30px;
             }
             .result-mini-table tr {
-                border: 1px solid red;
+                border: 1px 0px 0 0 solid red;
+                gap:0;
             }
             .result-mini-table th {
                 border: 1px solid red;
             }
             .result-mini-table td {
                 text-align: center;
-                border: 1px solid red;
+                border:1px solid red;
                 background-color: white;
+            }
+            .name-th{
+              width: 60%;
             }
 
             @media only screen and (max-width: 560px) {
@@ -452,12 +457,37 @@
                             Pojazdy
                         </caption>
                         <tr>
-                            <th><span>Nazwa</span></th>
+                            <th class="name-th"><span>Nazwa</span></span>
                             <th><span>Zużycie ON</span></th>
                             <th><span>Zużycie PB</span></th>
                         </tr>
                         <tr>
                             <td><span>Star 266</span></td>
+                            <td><span>0</span></td>
+                            <td><span>0</span></td>
+                        </tr>
+                    </table>
+                    <table class="result-mini-table">
+                        <caption>
+                            Pompy
+                        </caption>
+                        <tr>
+                            <th class="name-th"><span>Nazwa</span></span>
+                            <th><span>Zużycie ON</span></th>
+                            <th><span>Zużycie PB</span></th>
+                        </tr>
+                        <tr>
+                            <td><span>Motopompa Tohatsu M-16/8</span></td>
+                            <td><span>0</span></td>
+                            <td><span>0</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Motopompa SPEC-POŻ M800</span></td>
+                            <td><span>0</span></td>
+                            <td><span>0</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Pompa Szlamowa WT 30X</span></td>
                             <td><span>0</span></td>
                             <td><span>0</span></td>
                         </tr>
