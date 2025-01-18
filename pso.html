@@ -264,7 +264,11 @@
                     <tr>
                         <td><span>Man 13.290</span></td>
                         <td>
-                            <input class="norm-input" type="number" />
+                            <input
+                                id="manKmInput"
+                                class="norm-input"
+                                type="number"
+                            />
                         </td>
                         <td>
                             <input class="short-input" type="number" /><span
@@ -459,7 +463,7 @@
                 </table>
             </div>
             <div class="buttons-box">
-                <button>Oblicz</button>
+                <button onclick="showTabs()">Oblicz</button>
                 <button>Wyzeruj</button>
             </div>
             <div id="resultBox" class="tables" style="gap: 0">
@@ -467,7 +471,7 @@
                     <caption>
                         Wynik
                     </caption>
-                    <table class="result-mini-table">
+                    <table id="carTable" class="result-mini-table">
                         <caption>
                             Pojazdy
                         </caption>
@@ -476,16 +480,16 @@
                             <th><span>Zużycie ON</span></th>
                             <th><span>Zużycie PB</span></th>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td><span>Star 266</span></td>
                             <td><span>0</span></td>
                             <td><span>0</span></td>
                         </tr>
                         <tr>
                             <td><span>Man 13.290</span></td>
+                            <td><span id="manUsageOnSpan">0</span></td>
                             <td><span>0</span></td>
-                            <td><span>0</span></td>
-                        </tr>
+                        </tr> -->
                     </table>
                     <table class="result-mini-table">
                         <caption>
@@ -520,17 +524,34 @@
                 </table>
             </div>
         </div>
-    <script>
-        function getOnByKm(km, usage) {
-            let km;
-            let usage;
-            let result;
-          
-          result = (km*usage)/100;
+        <script>
+            function getOnByKm(kilometers, usageOn) {
+                let km = kilometers;
+                let usage = usageOn;
+                let result = 0;
+
+                result = (km * usage) / 100;
+
+                return result;
+            }
+
             
-            return result;
-          
-        }
-    </script>
+            function showTabs(){
+                const tab = document.getElementById("carTable");
+                const manKmInputValue =
+                    document.getElementById("manKmInput").value;
+                
+                let res = getOnByKm(manKmInputValue, 38);
+
+                tab.innerHTML+=`
+                <tr>
+                <td><span>Man 13.290</span></td>
+                <td><span>${res}</span></td>
+                <td><span>0</span></td>
+                </tr>
+                `;
+              
+            }
+        </script>
     </body>
 </html>
