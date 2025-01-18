@@ -140,17 +140,17 @@
             .name-th {
                 width: 60%;
             }
-            
-            .buttons-box{
-              display: flex;
-              justify-content: space-around;
-              margin-top: 2rem;
+
+            .buttons-box {
+                display: flex;
+                justify-content: space-around;
+                margin-top: 2rem;
             }
-            .buttons-box button{
-              background-color: blue;
-              color: white;
-              border: 0;
-              padding: 0.8rem 0.5rem ;
+            .buttons-box button {
+                background-color: blue;
+                color: white;
+                border: 0;
+                padding: 0.8rem 0.5rem;
             }
 
             @media only screen and (max-width: 560px) {
@@ -459,8 +459,8 @@
                 </table>
             </div>
             <div class="buttons-box">
-            <button>Oblicz</button>
-            <button>Wyzeruj</button>
+                <button>Oblicz</button>
+                <button>Wyzeruj</button>
             </div>
             <div id="resultBox" class="tables" style="gap: 0">
                 <table id="resultTable">
@@ -520,11 +520,17 @@
                 </table>
             </div>
         </div>
-    </body>
     <script>
-      function getOnByKm (km,usage){
-        let km;
-        let usage;
-      }
+        function getOnByKm(km, usage) {
+            let km;
+            let usage;
+            let result;
+          
+          result = (km*usage)/100;
+            
+            return result;
+          
+        }
     </script>
+    </body>
 </html>
