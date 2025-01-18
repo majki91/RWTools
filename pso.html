@@ -117,7 +117,6 @@
                 width: 95%;
                 color: red;
                 border-spacing: 0;
-      
             }
             .result-mini-table caption {
                 padding: 1rem 0;
@@ -128,18 +127,30 @@
             }
             .result-mini-table tr {
                 border: 1px 0px 0 0 solid red;
-                gap:0;
+                gap: 0;
             }
             .result-mini-table th {
                 border: 1px solid red;
             }
             .result-mini-table td {
                 text-align: center;
-                border:1px solid red;
+                border: 1px solid red;
                 background-color: white;
             }
-            .name-th{
-              width: 60%;
+            .name-th {
+                width: 60%;
+            }
+            
+            .buttons-box{
+              display: flex;
+              justify-content: space-around;
+              margin-top: 2rem;
+            }
+            .buttons-box button{
+              background-color: blue;
+              color: white;
+              border: 0;
+              padding: 0.8rem 0.5rem ;
             }
 
             @media only screen and (max-width: 560px) {
@@ -447,6 +458,10 @@
                     </tr>
                 </table>
             </div>
+            <div class="buttons-box">
+            <button>Oblicz</button>
+            <button>Wyzeruj</button>
+            </div>
             <div id="resultBox" class="tables" style="gap: 0">
                 <table id="resultTable">
                     <caption>
@@ -457,12 +472,17 @@
                             Pojazdy
                         </caption>
                         <tr>
-                            <th class="name-th"><span>Nazwa</span>
+                            <th class="name-th"><span>Nazwa</span></th>
                             <th><span>Zużycie ON</span></th>
                             <th><span>Zużycie PB</span></th>
                         </tr>
                         <tr>
                             <td><span>Star 266</span></td>
+                            <td><span>0</span></td>
+                            <td><span>0</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Man 13.290</span></td>
                             <td><span>0</span></td>
                             <td><span>0</span></td>
                         </tr>
@@ -472,7 +492,7 @@
                             Pompy
                         </caption>
                         <tr>
-                            <th class="name-th"><span>Nazwa</span>
+                            <th class="name-th"><span>Nazwa</span></th>
                             <th><span>Zużycie ON</span></th>
                             <th><span>Zużycie PB</span></th>
                         </tr>
@@ -491,9 +511,20 @@
                             <td><span>0</span></td>
                             <td><span>0</span></td>
                         </tr>
+                        <tr>
+                            <td><span>Pompa Pływająca Niagara 2</span></td>
+                            <td><span>0</span></td>
+                            <td><span>0</span></td>
+                        </tr>
                     </table>
                 </table>
             </div>
         </div>
     </body>
+    <script>
+      function getOnByKm (km,usage){
+        let km;
+        let usage;
+      }
+    </script>
 </html>
