@@ -54,7 +54,7 @@
                 gap: 5rem 0;
                 justify-content: space-around;
             }
-            table {
+            .input-table {
                 color: white;
                 width: 49%;
                 border-spacing: 0px;
@@ -70,20 +70,20 @@
                 border: 1px solid white;
                 padding: 3rem 0;
             }
-            th {
+            .input-table th {
                 border: 1px solid white;
                 width: 20%;
             }
-            th span {
+            .input-table th span {
                 font-style: bold;
             }
-            td {
+            .input-table td {
                 border: 1px solid white;
                 margin: auto;
                 text-align: center;
             }
 
-            td span {
+            .input-table td span {
                 margin: 0 0.2rem;
             }
             .norm-input {
@@ -97,6 +97,34 @@
                 width: 3rem;
                 font-size: 20px;
                 text-align: center;
+            }
+            #resultTable{
+              background-color: white;
+              color: red;
+              gap: 2rem;
+              margin-top: 2rem;
+              width: 95%;
+            }
+            #resultTable caption{
+              padding: 1rem;
+              margin: 0;
+              background-color: white;
+            }
+            .result-mini-table{
+              background-color: white;
+              width: 95%;
+              color: red;
+            }
+            .result-mini-table caption{
+              padding: 1rem 0;
+              margin: 0;
+            }
+            .result-mini-table tr{
+              border: 1px solid red;
+            
+            }
+            .result-mini-table th{
+              border: 1px solid red;
             }
             @media only screen and (max-width: 560px) {
                 #main-container {
@@ -115,7 +143,7 @@
                 .tables {
                     gap: 2rem 0;
                 }
-                table {
+                .input-table {
                     width: 95%;
                     margin: auto;
                 }
@@ -133,7 +161,7 @@
                     height: 1rem;
                     font-size: 10px;
                 }
-                td {
+                .input-table td {
                     padding: 1rem 0;
                 }
             }
@@ -141,7 +169,7 @@
                 span {
                     font-size: 18px;
                 }
-                table {
+                .input-table {
                     width: 90%;
                 }
                 .table-title {
@@ -163,7 +191,7 @@
                 span {
                     font-size: 16px;
                 }
-                table {
+                .input-table {
                     width: 48%;
                 }
                 .short-input {
@@ -185,7 +213,7 @@
         </header>
         <div id="main-container">
             <div class="tables">
-                <table id="vehiclesTable">
+                <table id="vehiclesTable" class="input-table">
                     <caption class="table-title">
                         Pojazdy
                     </caption>
@@ -242,7 +270,7 @@
                     </tr>
                 </table>
 
-                <table id="pumpTable">
+                <table id="pumpTable" class="input-table">
                     <caption class="table-title">
                         Pompy
                     </caption>
@@ -303,7 +331,7 @@
                     </tr>
                 </table>
 
-                <table id="agrVents">
+                <table id="agrVents" class="input-table">
                     <caption class="table-title">
                         Agregaty i wentylator
                     </caption>
@@ -353,7 +381,7 @@
                     </tr>
                 </table>
 
-                <table id="saws">
+                <table id="saws" class="input-table">
                     <caption class="table-title">
                         Pilarki i piły
                     </caption>
@@ -402,6 +430,19 @@
                         <td><input class="norm-input" /></td>
                     </tr>
                 </table>
+            </div>
+            <div id="resultBox" class="tables">
+            <table id="resultTable">
+              <caption>Wynik</caption>
+              <table class="result-mini-table">
+                <caption>Pojazdy</caption>
+                <tr>
+                <th><span>Nazwa</span></th>
+                <th><span>Zużycie ON</span></th>
+                <th><span>Zużycie PB</span></th>
+                </tr>
+              </table>  
+            </table>
             </div>
         </div>
     </body>
