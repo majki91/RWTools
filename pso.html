@@ -540,18 +540,21 @@
                 const carTab = document.getElementById("carTableBody");
                 const manKmInputValue =
                     document.getElementById("manKmInput").value;
-                
-                res > 0 ? console.log("nie") : console.log("tak");
-                
+
+
                 let res = getOnByKm(manKmInputValue, 38);
-                carTab.innerHTML = "";
+                
+                carTab.innerHTML="";
+                
+                res > 0 ? 
                 carTab.innerHTML += `
                 <tr>
                 <td><span>Man 13.290</span></td>
                 <td><span>${res} l</span></td>
                 <td><span>0</span></td>
                 </tr>
-                `;
+                ` :
+                carTab.innerHTML = "";
             }
         </script>
     </body>
