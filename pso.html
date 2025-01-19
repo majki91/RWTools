@@ -161,6 +161,11 @@
                 margin-left: 9rem;
                 text-align: center;
             }
+            #tripsResultTableBody input {
+              text-align: center;
+              width: 1.5rem;
+            }
+            
 
             @media only screen and (max-width: 560px) {
                 #main-container {
@@ -545,7 +550,7 @@
                     </table>
                 </table>
                 <div class="buttons-box">
-                    <button>Oblicz</button>
+                    <button onclick="showTabs()">Oblicz</button>
                 </div>
             </div>
         </div>
@@ -590,7 +595,7 @@
                 <tr><h3>Wyjazd nr.1</h3></tr>
                 <tr>
                 <td><span>Star</span></td>
-                <td><span>0</span></td>
+                <td><input value=0></input></td>
                 <td><span>0</span></td>
                 <td><button>X</button></td>
                 </tr
