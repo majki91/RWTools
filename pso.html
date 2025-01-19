@@ -98,7 +98,7 @@
                 font-size: 20px;
                 text-align: center;
             }
-            
+
             #resultTable {
                 background-color: white;
                 color: red;
@@ -153,11 +153,13 @@
                 border: 0;
                 padding: 0.8rem 0.5rem;
             }
-            
-            #tripsResultTableBody caption{
-              margin-left: 10rem;
-              text-align:center;
-    
+
+            #tripsResultTableBody h3 {
+                display: block;
+                font-size: 12px;
+                padding: 0;
+                margin-left: 9rem;
+                text-align: center;
             }
 
             @media only screen and (max-width: 560px) {
@@ -475,16 +477,16 @@
             </div>
             <div id="resultBox" class="tables" style="gap: 0">
                 <table id="tripsTable" class="result-mini-table">
-                  <caption>Wyjazdy</caption>
-                  <tr>
-                    <th><span>Nazwa</span></th>
-                    <th><span>Zużycie ON</span></th>
-                    <th><span>Zużycie PB</span></th>
-                    <th><span>Usuń</span></th>
-                  </tr>
-                  <tbody id="tripsResultTableBody">
-                    
-                  </tbody>
+                    <caption>
+                        Wyjazdy
+                    </caption>
+                    <tr>
+                        <th><span>Nazwa</span></th>
+                        <th><span>Zużycie ON</span></th>
+                        <th><span>Zużycie PB</span></th>
+                        <th><span>Usuń</span></th>
+                    </tr>
+                    <tbody id="tripsResultTableBody"></tbody>
                 </table>
                 <table id="resultTable">
                     <caption>
@@ -543,7 +545,7 @@
                     </table>
                 </table>
                 <div class="buttons-box">
-                  <button>Oblicz</button>
+                    <button>Oblicz</button>
                 </div>
             </div>
         </div>
@@ -578,19 +580,28 @@
                 `)
                     : (carTab.innerHTML = "");
             }
-            
-            function showTrips(){
-                const tripsResultTableBody = document.getElementById("tripsResultTableBody");
-                
-                tripsResultTableBody.innerHTML+=`
-                <caption>Wyjazd nr.1</caption>
+
+            function showTrips() {
+                const tripsResultTableBody = document.getElementById(
+                    "tripsResultTableBody"
+                );
+
+                tripsResultTableBody.innerHTML += `
+                <tr><h3>Wyjazd nr.1</h3></tr>
                 <tr>
                 <td><span>Star</span></td>
                 <td><span>0</span></td>
                 <td><span>0</span></td>
                 <td><button>X</button></td>
+                </tr
+                
+                <tr>
+                <td><span>Man</span></td>
+                <td><span>0</span></td>
+                <td><span>0</span></td>
+                <td><button>X</button></td>
                 </tr>
-                `
+                `;
             }
         </script>
     </body>
