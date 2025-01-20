@@ -545,14 +545,14 @@
             </div>
         </div>
         <script>
-            let carTab = [
+            let carArr = [
                 {
                     name: "Man 13.290",
                     onUsage: 38,
                     stopUsage: 0.18,
                     autoPumpUsage: 14,
                     startsUsage: 0.5
-                }
+                },
                 {
                     name: "Star 266",
                     onUsage: 31.3,
@@ -580,19 +580,19 @@
                 let res = getOnByKm(manKmInputValue, 38);
 
                 carTab.innerHTML = "";
+                    console.log(carArr);
 
                 res > 0
                     ? (carTab.innerHTML += `
                 <tr>
-                <td><span>Man 13.290</span></td>
+                <td><span>${carArr[0].name}</span></td>
                 <td><span>${res} l</span></td>
                 <td><span>0</span></td>
                 <td><span>0</span></td>
                 </tr>
                 `)
                     : (carTab.innerHTML = "");
-                    
-                    console.log(carTab);
+
             }
         </script>
     </body>
