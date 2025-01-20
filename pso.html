@@ -162,10 +162,9 @@
                 text-align: center;
             }
             #tripsResultTableBody input {
-              text-align: center;
-              width: 1.5rem;
+                text-align: center;
+                width: 1.5rem;
             }
-            
 
             @media only screen and (max-width: 560px) {
                 #main-container {
@@ -543,17 +542,25 @@
                         </tr>
                     </table>
                 </table>
-                
             </div>
         </div>
         <script>
-            let carTab = [{
-              name: "Man",
-              onUsage:38,
-              stopUsage:0.18,
-              autoPumpUsage:14,
-              startsUsage:0.5
-            }];
+            let carTab = [
+                {
+                    name: "Man 13.290",
+                    onUsage: 38,
+                    stopUsage: 0.18,
+                    autoPumpUsage: 14,
+                    startsUsage: 0.5
+                }
+                {
+                    name: "Star 266",
+                    onUsage: 31.3,
+                    stopUsage: 0.13,
+                    autoPumpUsage: 0,
+                    startsUsage: 0.9
+                }
+            ];
             // podziel tabelke na wyjazdy
             function getOnByKm(kilometers, usageOn) {
                 let km = kilometers;
@@ -584,6 +591,8 @@
                 </tr>
                 `)
                     : (carTab.innerHTML = "");
+                    
+                    console.log(carTab);
             }
         </script>
     </body>
