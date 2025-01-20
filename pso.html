@@ -6,6 +6,9 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>PSO</title>
         <style>
+            html {
+                scroll-behavior: smooth;
+            }
             body {
                 margin: 0;
                 top: 0;
@@ -248,7 +251,7 @@
         </style>
     </head>
     <body>
-        <header>
+        <header id="header">
             <img src="https://i.ibb.co/pZm7h3D/logo.webp" alt="logo" />
         </header>
         <div id="main-container">
@@ -494,8 +497,8 @@
                 </table>
             </div>
             <div class="buttons-box">
-                <button onclick="showTabs()">Oblicz</button>
-                <button>Wyzeruj</button>
+                <a href="#resultTable"><button onclick="showTabs()">Oblicz</button></a>
+                <a href="#header"><button>Wyzeruj</button></a>
             </div>
             <div id="resultBox" class="tables" style="gap: 0">
                 <table id="resultTable">
@@ -524,7 +527,7 @@
                             <td><span>0</span></td>
                         </tr> -->
                     </table>
-                    <table style="display:none" class="result-mini-table">
+                    <table style="display: none" class="result-mini-table">
                         <caption>
                             Pompy
                         </caption>
@@ -631,12 +634,12 @@
                 const manAutoPumpMinutesInputValue = document.getElementById(
                     "manAutoPumpMinutesInput"
                 ).value;
-                
-                const manStartsInputValue = document.getElementById("manStartsInput").value;
-                
+
+                const manStartsInputValue =
+                    document.getElementById("manStartsInput").value;
+
                 let res = 0;
                 carTab.innerHTML = "";
-                
 
                 res = getOnByKm(manKmInputValue, carArr[0].onUsage);
 
@@ -658,13 +661,12 @@
                     minutesToHours(manAutoPumpMinutesInputValue),
                     carArr[0].autoPumpUsage
                 );
-                
-                res+= manStartsInputValue * carArr[0].startsUsage;
+
+                res += manStartsInputValue * carArr[0].startsUsage;
 
                 console.log(res);
 
                 res = res.toFixed(2);
-
 
                 res > 0
                     ? (carTab.innerHTML += `
