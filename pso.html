@@ -509,7 +509,7 @@
                 >
             </div>
             <div id="resultBox" class="tables" style="gap: 0">
-                <table id="resultTable">
+                <table id="resultTable" class="hidden">
                     <caption>
                         Wyniki
                     </caption>
@@ -633,8 +633,7 @@
                 const manAutoPumpMinutesInputValue = document.getElementById(
                     "manAutoPumpMinutesInput"
                 ).value;
-
-                const manStartsInputValue =
+const manStartsInputValue =
                     document.getElementById("manStartsInput").value;
 
                 let res = 0;
@@ -682,12 +681,19 @@
             }
 
             function showTabs() {
+                const resultTable = document.getElementById("resultTable");
                 showCarResult();
+                resultTable.classList.remove("hidden")
             }
 
             function resetInputs() {
+              
                 let inputs = document.getElementsByTagName("input");
-                console.log(inputs[0].value);
+                const resultTable = document.getElementById("resultTable");
+                const carTable = document.getElementById("carTable");
+                
+                resultTable.classList.add("hidden")
+                carTable.classList.add("hidden")
 
                 for (let i = 0; i <= inputs.length; i++) inputs[i].value = "";
             }
