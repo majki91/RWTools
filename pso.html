@@ -477,22 +477,10 @@
                 </table>
             </div>
             <div class="buttons-box">
-                <button onclick="showTrips()">Dodaj wyjazd</button>
+                <button onclick="showTabs()">Oblicz</button>
                 <button>Wyzeruj</button>
             </div>
             <div id="resultBox" class="tables" style="gap: 0">
-                <table id="tripsTable" class="result-mini-table">
-                    <caption>
-                        Wyjazdy
-                    </caption>
-                    <tr>
-                        <th><span>Nazwa</span></th>
-                        <th><span>Zużycie ON</span></th>
-                        <th><span>Zużycie PB</span></th>
-                        <th><span>Usuń</span></th>
-                    </tr>
-                    <tbody id="tripsResultTableBody"></tbody>
-                </table>
                 <table id="resultTable">
                     <caption>
                         Wyniki
@@ -505,6 +493,7 @@
                             <th class="name-th"><span>Nazwa</span></th>
                             <th><span>Zużycie ON</span></th>
                             <th><span>Zużycie PB</span></th>
+                            <th><span>Zużycie OS</span></th>
                         </tr>
                         <tbody id="carTableBody"></tbody>
                         <!-- <tr>
@@ -526,9 +515,11 @@
                             <th class="name-th"><span>Nazwa</span></th>
                             <th><span>Zużycie ON</span></th>
                             <th><span>Zużycie PB</span></th>
+                            <th><span>Zużycie OS</span></th>
                         </tr>
                         <tr>
                             <td><span>Motopompa Tohatsu M-16/8</span></td>
+                            <td><span>0</span></td>
                             <td><span>0</span></td>
                             <td><span>0</span></td>
                         </tr>
@@ -536,9 +527,11 @@
                             <td><span>Motopompa SPEC-POŻ M800</span></td>
                             <td><span>0</span></td>
                             <td><span>0</span></td>
+                            <td><span>0</span></td>
                         </tr>
                         <tr>
                             <td><span>Pompa Szlamowa WT 30X</span></td>
+                            <td><span>0</span></td>
                             <td><span>0</span></td>
                             <td><span>0</span></td>
                         </tr>
@@ -546,15 +539,21 @@
                             <td><span>Pompa Pływająca Niagara 2</span></td>
                             <td><span>0</span></td>
                             <td><span>0</span></td>
+                            <td><span>0</span></td>
                         </tr>
                     </table>
                 </table>
-                <div class="buttons-box">
-                    <button onclick="showTabs()">Oblicz</button>
-                </div>
+                
             </div>
         </div>
         <script>
+            let carTab = [{
+              name: "Man",
+              onUsage:38,
+              stopUsage:0.18,
+              autoPumpUsage:14,
+              startsUsage:0.5
+            }];
             // podziel tabelke na wyjazdy
             function getOnByKm(kilometers, usageOn) {
                 let km = kilometers;
@@ -581,32 +580,10 @@
                 <td><span>Man 13.290</span></td>
                 <td><span>${res} l</span></td>
                 <td><span>0</span></td>
+                <td><span>0</span></td>
                 </tr>
                 `)
                     : (carTab.innerHTML = "");
-            }
-
-            function showTrips() {
-                const tripsResultTableBody = document.getElementById(
-                    "tripsResultTableBody"
-                );
-
-                tripsResultTableBody.innerHTML += `
-                <tr><h3>Wyjazd nr.1</h3></tr>
-                <tr>
-                <td><span>Star</span></td>
-                <td><input value=0></input></td>
-                <td><span>0</span></td>
-                <td><button>X</button></td>
-                </tr
-                
-                <tr>
-                <td><span>Man</span></td>
-                <td><span>0</span></td>
-                <td><span>0</span></td>
-                <td><button>X</button></td>
-                </tr>
-                `;
             }
         </script>
     </body>
