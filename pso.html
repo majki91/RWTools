@@ -168,6 +168,10 @@
                 text-align: center;
                 width: 1.5rem;
             }
+            
+            .hidden{
+              display: none;
+            }
 
             @media only screen and (max-width: 560px) {
                 #main-container {
@@ -497,15 +501,19 @@
                 </table>
             </div>
             <div class="buttons-box">
-                <a href="#resultTable"><button onclick="showTabs()">Oblicz</button></a>
-                <a href="#header"><button>Wyzeruj</button></a>
+                <a href="#resultTable"
+                    ><button onclick="showTabs()">Oblicz</button></a
+                >
+                <a href="#header"
+                    ><button onclick="resetInputs()">Wyzeruj</button></a
+                >
             </div>
             <div id="resultBox" class="tables" style="gap: 0">
                 <table id="resultTable">
                     <caption>
                         Wyniki
                     </caption>
-                    <table id="carTable" class="result-mini-table">
+                    <table id="carTable" class="result-mini-table hidden">
                         <caption>
                             Pojazdy
                         </caption>
@@ -516,16 +524,6 @@
                             <th><span>Zużycie OS</span></th>
                         </tr>
                         <tbody id="carTableBody"></tbody>
-                        <!-- <tr>
-                            <td><span>Star 266</span></td>
-                            <td><span>0</span></td>
-                            <td><span>0</span></td>
-                        </tr>
-                        <tr>
-                            <td><span>Man 13.290</span></td>
-                            <td><span id="manUsageOnSpan">0</span></td>
-                            <td><span>0</span></td>
-                        </tr> -->
                     </table>
                     <table style="display: none" class="result-mini-table">
                         <caption>
@@ -619,7 +617,8 @@
             }
 
             function showCarResult() {
-                const carTab = document.getElementById("carTableBody");
+                const carTable = document.getElementById("carTable");
+                const carTableBody = document.getElementById("carTableBody");
 
                 const manKmInputValue =
                     document.getElementById("manKmInput").value;
@@ -639,7 +638,7 @@
                     document.getElementById("manStartsInput").value;
 
                 let res = 0;
-                carTab.innerHTML = "";
+                carTableBody.innerHTML = "";
 
                 res = getOnByKm(manKmInputValue, carArr[0].onUsage);
 
@@ -668,20 +667,29 @@
 
                 res = res.toFixed(2);
 
-                res > 0
-                    ? (carTab.innerHTML += `
+                if (res > 0) {
+                    carTableBody.innerHTML += `
                             <tr>
                             <td><span>${carArr[0].name}</span></td>
                             <td><span>${res} l</span></td>
                             <td><span>0</span></td>
                             <td><span>0</span></td>
                             </tr>
-                            `)
-                    : (carTab.innerHTML = "");
+                            `;
+                            
+                      carTable.classList.remove("hidden");
+                } else carTableBody.innerHTML = "";
             }
 
             function showTabs() {
                 showCarResult();
+            }
+
+            function resetInputs() {
+                let inputs = document.getElementsByTagName("input");
+                console.log(inputs[0].value);
+
+                for (let i = 0; i <= inputs.length; i++) inputs[i].value = "";
             }
         </script>
     </body>
