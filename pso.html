@@ -296,13 +296,24 @@
                             />
                         </td>
                         <td>
-                            <input class="short-input" type="number" /><span
-                                >:</span
-                            ><input class="short-input" type="number" />
+                            <input
+                                id="manAutoPumpHoursInput"
+                                class="short-input"
+                                type="number"
+                            /><span>:</span
+                            ><input
+                                id="manAutoPumpMinutesInput"
+                                class="short-input"
+                                type="number"
+                            />
                         </td>
 
                         <td>
-                            <input class="norm-input" type="number" />
+                            <input
+                                id="manStartsInput"
+                                class="norm-input"
+                                type="number"
+                            />
                         </td>
                     </tr>
                     <tr>
@@ -596,7 +607,15 @@
                 return minutes;
             }
 
-            function showTabs() {
+            function minutesToHours(minutes) {
+                let min = minutes;
+
+                let hours = minutes / 60;
+
+                return hours;
+            }
+
+            function showCarResult() {
                 const carTab = document.getElementById("carTableBody");
 
                 const manKmInputValue =
@@ -606,27 +625,61 @@
                 const manStopMinutesInputValue = document.getElementById(
                     "manStopMinutesInput"
                 ).value;
+                const manAutoPumpHoursInputValue = document.getElementById(
+                    "manAutoPumpHoursInput"
+                ).value;
+                const manAutoPumpMinutesInputValue = document.getElementById(
+                    "manAutoPumpMinutesInput"
+                ).value;
+                
+                const manStartsInputValue = document.getElementById("manStartsInput").value;
+                
+                let res = 0;
+                carTab.innerHTML = "";
+                
 
-                let res = getOnByKm(manKmInputValue, carArr[0].onUsage);
+                res = getOnByKm(manKmInputValue, carArr[0].onUsage);
+
                 res += getOnByMinutes(
                     hoursToMinutes(manStopHoursInputValue),
                     carArr[0].stopUsage
                 );
-                res += getOnByKm(manStopMinutesInputValue, carArr[0].stopUsage);
+
+                res += getOnByMinutes(
+                    manStopMinutesInputValue,
+                    carArr[0].stopUsage
+                );
+
+                res += getOnByMinutes(
+                    manAutoPumpHoursInputValue,
+                    carArr[0].autoPumpUsage
+                );
+                res += getOnByMinutes(
+                    minutesToHours(manAutoPumpMinutesInputValue),
+                    carArr[0].autoPumpUsage
+                );
+                
+                res+= manStartsInputValue * carArr[0].startsUsage;
+
+                console.log(res);
+
                 res = res.toFixed(2);
 
-                carTab.innerHTML = "";
 
                 res > 0
                     ? (carTab.innerHTML += `
-                <tr>
-                <td><span>${carArr[0].name}</span></td>
-                <td><span>${res} l</span></td>
-                <td><span>0</span></td>
-                <td><span>0</span></td>
-                </tr>
-                `)
+                            <tr>
+                            <td><span>${carArr[0].name}</span></td>
+                            <td><span>${res} l</span></td>
+                            <td><span>0</span></td>
+                            <td><span>0</span></td>
+                            </tr>
+                            `)
                     : (carTab.innerHTML = "");
+            }
+
+            function showTabs() {
+                showCarResult();
             }
         </script>
     </body>
