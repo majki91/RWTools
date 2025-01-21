@@ -377,10 +377,10 @@
                             <span>Motopompa Tohatsu M-16/8</span>
                         </td>
                         <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
+                            <input id="pump1RunHoursInput" class="short-input" /><span>:</span
+                            ><input id="pump1RunMinutesInput" class="short-input" />
                         </td>
-                        <td><input class="norm-input" /></td>
+                        <td><input id="pump1StartsInput" class="norm-input" /></td>
                     </tr>
 
                     <tr>
@@ -388,10 +388,10 @@
                             <span>Motopompa SPEC-POŻ M800</span>
                         </td>
                         <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
+                            <input id="pump2RunHoursInput" class="short-input" /><span>:</span
+                            ><input id="pump2RunMinutesInput" class="short-input" />
                         </td>
-                        <td><input class="norm-input" /></td>
+                        <td><input id="pump2StartsInput" class="norm-input" /></td>
                     </tr>
 
                     <tr>
@@ -399,10 +399,10 @@
                             <span>Pompa Szlamowa WT 30X</span>
                         </td>
                         <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
+                            <input id="pump3RunHoursInput" class="short-input" /><span>:</span
+                            ><input id="pump3RunMinutesInput" class="short-input" />
                         </td>
-                        <td><input class="norm-input" /></td>
+                        <td><input id="pump3StartsInput" class="norm-input" /></td>
                     </tr>
 
                     <tr>
@@ -410,10 +410,10 @@
                             <span>Pompa Pływająca Niagara 2</span>
                         </td>
                         <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
+                            <input id="pump4RunHoursInput" class="short-input" /><span>:</span
+                            ><input id="pump4RunMinutesInput" class="short-input" />
                         </td>
-                        <td><input class="norm-input" /></td>
+                        <td><input id="pump4StartsInput" class="norm-input" /></td>
                     </tr>
                 </table>
 
@@ -739,6 +739,10 @@
 
                     carTable.classList.remove("hidden");
                 } else carTableBody.innerHTML = "";
+            }
+            
+            function showPumpResult(){
+              
             }
 
             function showTabs() {
