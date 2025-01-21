@@ -625,7 +625,7 @@
                     pbUsage1h: 2.9,
                     osUsage1h: 0,
                     startsUsage: 0.0483
-                }
+                },
                 {
                     name: "Niagara 2",
                     pbUsage1h: 1.28,
@@ -650,6 +650,15 @@
                 let result = 0;
 
                 result = min * usage;
+
+                return result;
+            }
+            function getFuelByHours(hour, usage) {
+                let h = hour;
+                let onUsage = usage;
+                let result = 0;
+
+                result = h * usage;
 
                 return result;
             }
@@ -727,7 +736,7 @@
 
                 car1Res += car1StartsInputValue * carArr[0].startsUsage;
 
-                console.log(car1Res);
+                
 
                 car1Res = car1Res.toFixed(2);
 
@@ -759,7 +768,7 @@
 
                 car2Res += car2StartsInputValue * carArr[1].startsUsage;
 
-                console.log(car2Res);
+                
 
                 car2Res = car2Res.toFixed(2);
 
@@ -803,11 +812,11 @@
               let pump4res =0;
 
               pumpTableBody.innerHTML = "";
-              
-              pump1res += getFuelByMinutes(hoursToMinutes(pump1RunHoursInputValue),pumpArr[0].pbUsage1h);
-              
+
+              pump1res += getFuelByHours(pump1RunHoursInputValue,pumpArr[0].pbUsage1h);
+
               console.log(pump1res);
-              
+
             }
 
             function showTabs() {
