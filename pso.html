@@ -736,8 +736,6 @@
 
                 car1Res += car1StartsInputValue * carArr[0].startsUsage;
 
-                
-
                 car1Res = car1Res.toFixed(2);
 
                 if (car1Res > 0) {
@@ -750,8 +748,8 @@
                              </tr>
                              `;
 
-                    carTable.classList.remove("hidden");
                 } else carTableBody.innerHTML = "";
+                    carTable.classList.remove("hidden");
 
                 //car2
                 car2Res = getFuelByKm(car2KmInputValue, carArr[1].onUsage);
@@ -767,8 +765,6 @@
                 );
 
                 car2Res += car2StartsInputValue * carArr[1].startsUsage;
-
-                
 
                 car2Res = car2Res.toFixed(2);
 
@@ -787,36 +783,54 @@
             }
 
             function showPumpResult() {
-              const pumpTable = document.getElementById("pumpTable");
-              const pumpTableBody = document.getElementById("pumpTableBody");
+                const pumpTable = document.getElementById("pumpTable");
+                const pumpTableBody = document.getElementById("pumpTableBody");
 
-              const pump1RunHoursInputValue = document.getElementById("pump1RunHoursInput").value;
-              const pump1RunMinutesInputValue = document.getElementById("pump1RunMinutesInput").value;
-              const pump1StartsInputValue = document.getElementById("pump1StartsInput").value;
+                const pump1RunHoursInputValue =
+                    document.getElementById("pump1RunHoursInput").value;
+                const pump1RunMinutesInputValue = document.getElementById(
+                    "pump1RunMinutesInput"
+                ).value;
+                const pump1StartsInputValue =
+                    document.getElementById("pump1StartsInput").value;
 
-              const pump2RunHoursInputValue = document.getElementById("pump2RunHoursInput").value;
-              const pump2RunMinutesInputValue = document.getElementById("pump2RunMinutesInput").value;
-              const pump2StartsInputValue = document.getElementById("pump2StartsInput").value;
+                const pump2RunHoursInputValue =
+                    document.getElementById("pump2RunHoursInput").value;
+                const pump2RunMinutesInputValue = document.getElementById(
+                    "pump2RunMinutesInput"
+                ).value;
+                const pump2StartsInputValue =
+                    document.getElementById("pump2StartsInput").value;
 
-              const pump3RunHoursInputValue = document.getElementById("pump3RunHoursInput").value;
-              const pump3RunMinutesInputValue = document.getElementById("pump3RunMinutesInput").value;
-              const pump3StartsInputValue = document.getElementById("pump3StartsInput").value;
+                const pump3RunHoursInputValue =
+                    document.getElementById("pump3RunHoursInput").value;
+                const pump3RunMinutesInputValue = document.getElementById(
+                    "pump3RunMinutesInput"
+                ).value;
+                const pump3StartsInputValue =
+                    document.getElementById("pump3StartsInput").value;
 
-              const pump4RunHoursInputValue = document.getElementById("pump4RunHoursInput").value;
-              const pump4RunMinutesInputValue = document.getElementById("pump4RunMinutesInput").value;
-              const pump4StartsInputValue = document.getElementById("pump4StartsInput").value;
+                const pump4RunHoursInputValue =
+                    document.getElementById("pump4RunHoursInput").value;
+                const pump4RunMinutesInputValue = document.getElementById(
+                    "pump4RunMinutesInput"
+                ).value;
+                const pump4StartsInputValue =
+                    document.getElementById("pump4StartsInput").value;
 
-              let pump1res =0;
-              let pump2res =0;
-              let pump3res =0;
-              let pump4res =0;
+                let pump1res = 0;
+                let pump2res = 0;
+                let pump3res = 0;
+                let pump4res = 0;
 
-              pumpTableBody.innerHTML = "";
+                pumpTableBody.innerHTML = "";
 
-              pump1res += getFuelByHours(pump1RunHoursInputValue,pumpArr[0].pbUsage1h);
+                pump1res += getFuelByHours(
+                    pump1RunHoursInputValue,
+                    pumpArr[0].pbUsage1h
+                );
 
-              console.log(pump1res);
-
+                console.log(pump1res);
             }
 
             function showTabs() {
