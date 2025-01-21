@@ -168,9 +168,9 @@
                 text-align: center;
                 width: 1.5rem;
             }
-            
-            .hidden{
-              display: none;
+
+            .hidden {
+                display: none;
             }
 
             @media only screen and (max-width: 560px) {
@@ -325,17 +325,34 @@
                     </tr>
                     <tr>
                         <td><span>Star 266</span></td>
-                        <td><input class="norm-input" /></td>
                         <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
+                            <input
+                                id="car2KmInput"
+                                class="norm-input"
+                                type="number"
+                            />
                         </td>
                         <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
+                            <input
+                                id="car2StopHoursInput"
+                                class="short-input"
+                                type="number"
+                            /><span>:</span
+                            ><input
+                                id="car2StopMinutesInput"
+                                class="short-input"
+                                type="number"
+                            />
+                        </td>
+                        <td>
+                            <input disabled="true" class="short-input" /><span
+                                >:</span
+                            ><input disabled="true" class="short-input" />
                         </td>
 
-                        <td><input class="norm-input" /></td>
+                        <td>
+                            <input id="car2StartsInput" class="norm-input" />
+                        </td>
                     </tr>
                 </table>
 
@@ -633,12 +650,24 @@
                 const car1AutoPumpMinutesInputValue = document.getElementById(
                     "car1AutoPumpMinutesInput"
                 ).value;
-const car1StartsInputValue =
+                const car1StartsInputValue =
                     document.getElementById("car1StartsInput").value;
 
+                const car2KmInputValue =
+                    document.getElementById("car2KmInput").value;
+                const car2StopHoursInputValue =
+                    document.getElementById("car2StopHoursInput").value;
+                const car2StopMinutesInputValue = document.getElementById(
+                    "car2StopMinutesInput"
+                ).value;
+                const car2StartsInputValue =
+                    document.getElementById("car2StartsInput").value;
+
                 let car1Res = 0;
+                let car2Res = 0;
                 carTableBody.innerHTML = "";
 
+                //car1
                 car1Res = getOnByKm(car1KmInputValue, carArr[0].onUsage);
 
                 car1Res += getOnByMinutes(
@@ -675,25 +704,56 @@ const car1StartsInputValue =
                             <td><span>0</span></td>
                             </tr>
                             `;
-                            
-                      carTable.classList.remove("hidden");
+
+                    carTable.classList.remove("hidden");
+                } else carTableBody.innerHTML = "";
+
+                //car2
+                car2Res = getOnByKm(car2KmInputValue, carArr[1].onUsage);
+
+                car2Res += getOnByMinutes(
+                    hoursToMinutes(car2StopHoursInputValue),
+                    carArr[1].stopUsage
+                );
+
+                car2Res += getOnByMinutes(
+                    car2StopMinutesInputValue,
+                    carArr[1].stopUsage
+                );
+
+                car2Res += car2StartsInputValue * carArr[1].startsUsage;
+
+                console.log(car2Res);
+
+                car2Res = car2Res.toFixed(2);
+
+                if (car2Res > 0) {
+                    carTableBody.innerHTML += `
+                            <tr>
+                            <td><span>${carArr[1].name}</span></td>
+                            <td><span>${car2Res} l</span></td>
+                            <td><span>0</span></td>
+                            <td><span>0</span></td>
+                            </tr>
+                            `;
+
+                    carTable.classList.remove("hidden");
                 } else carTableBody.innerHTML = "";
             }
 
             function showTabs() {
                 const resultTable = document.getElementById("resultTable");
                 showCarResult();
-                resultTable.classList.remove("hidden")
+                resultTable.classList.remove("hidden");
             }
 
             function resetInputs() {
-              
                 let inputs = document.getElementsByTagName("input");
                 const resultTable = document.getElementById("resultTable");
                 const carTable = document.getElementById("carTable");
-                
-                resultTable.classList.add("hidden")
-                carTable.classList.add("hidden")
+
+                resultTable.classList.add("hidden");
+                carTable.classList.add("hidden");
 
                 for (let i = 0; i <= inputs.length; i++) inputs[i].value = "";
             }
