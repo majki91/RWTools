@@ -747,9 +747,8 @@
                              <td><span>0</span></td>
                              </tr>
                              `;
-                carTable.classList.remove("hidden");
-                } 
-                
+                    carTable.classList.remove("hidden");
+                }
 
                 //car2
                 car2Res = getFuelByKm(car2KmInputValue, carArr[1].onUsage);
@@ -829,6 +828,18 @@
                     pump1RunHoursInputValue,
                     pumpArr[0].pbUsage1h
                 );
+
+                pump1res += getFuelByMinutes(
+                    minutesToHours(pump1RunMinutesInputValue),
+                    pumpArr[0].pbUsage1h
+                );
+                
+                pump1res += getFuelByMinutes(
+                    minutesToHours(pump1StartsInputValue),
+                    pumpArr[0].pbUsage1h
+                );
+                
+              
 
                 console.log(pump1res);
             }
