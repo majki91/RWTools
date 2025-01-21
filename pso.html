@@ -843,9 +843,9 @@
                     pumpArr[0].pbUsage1h
                 );
                 
-                pump1hourRunTime += pump1RunHoursInputValue;
-                pump1hourRunTime += minutesToHours(pump1RunMinutesInputValue);
-                pump1hourRunTime += minutesToHours(pump1StartsInputValue);
+                pump1hourRunTime += parseFloat(pump1RunHoursInputValue);
+                pump1hourRunTime += parseFloat(minutesToHours(pump1RunMinutesInputValue));
+                pump1hourRunTime += parseFloat(minutesToHours(pump1StartsInputValue));
                 
                 pump1osRes = pump1hourRunTime * pumpArr[0].osUsage1h;
                 
@@ -856,7 +856,7 @@
                 
 console.log("czas:"+pump1hourRunTime);
                 console.log("pb:"+pump1res);
-                console.log("os:"+pump1osRes);
+                console.log("os:"+pump1osRes.toFixed(2));
             }
 
             function showTabs() {
