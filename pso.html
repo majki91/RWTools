@@ -747,9 +747,9 @@
                              <td><span>0</span></td>
                              </tr>
                              `;
-
-                } else carTableBody.innerHTML = "";
-                    carTable.classList.remove("hidden");
+                carTable.classList.remove("hidden");
+                } 
+                
 
                 //car2
                 car2Res = getFuelByKm(car2KmInputValue, carArr[1].onUsage);
@@ -779,7 +779,7 @@
                              `;
 
                     carTable.classList.remove("hidden");
-                } else carTableBody.innerHTML = "";
+                }
             }
 
             function showPumpResult() {
