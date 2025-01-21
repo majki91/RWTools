@@ -285,31 +285,31 @@
                         <td><span>Man 13.290</span></td>
                         <td>
                             <input
-                                id="manKmInput"
+                                id="car1KmInput"
                                 class="norm-input"
                                 type="number"
                             />
                         </td>
                         <td>
                             <input
-                                id="manStopHoursInput"
+                                id="car1StopHoursInput"
                                 class="short-input"
                                 type="number"
                             /><span>:</span
                             ><input
-                                id="manStopMinutesInput"
+                                id="car1StopMinutesInput"
                                 class="short-input"
                                 type="number"
                             />
                         </td>
                         <td>
                             <input
-                                id="manAutoPumpHoursInput"
+                                id="car1AutoPumpHoursInput"
                                 class="short-input"
                                 type="number"
                             /><span>:</span
                             ><input
-                                id="manAutoPumpMinutesInput"
+                                id="car1AutoPumpMinutesInput"
                                 class="short-input"
                                 type="number"
                             />
@@ -317,7 +317,7 @@
 
                         <td>
                             <input
-                                id="manStartsInput"
+                                id="car1StartsInput"
                                 class="norm-input"
                                 type="number"
                             />
@@ -620,57 +620,57 @@
                 const carTable = document.getElementById("carTable");
                 const carTableBody = document.getElementById("carTableBody");
 
-                const manKmInputValue =
-                    document.getElementById("manKmInput").value;
-                const manStopHoursInputValue =
-                    document.getElementById("manStopHoursInput").value;
-                const manStopMinutesInputValue = document.getElementById(
-                    "manStopMinutesInput"
+                const car1KmInputValue =
+                    document.getElementById("car1KmInput").value;
+                const car1StopHoursInputValue =
+                    document.getElementById("car1StopHoursInput").value;
+                const car1StopMinutesInputValue = document.getElementById(
+                    "car1StopMinutesInput"
                 ).value;
-                const manAutoPumpHoursInputValue = document.getElementById(
-                    "manAutoPumpHoursInput"
+                const car1AutoPumpHoursInputValue = document.getElementById(
+                    "car1AutoPumpHoursInput"
                 ).value;
-                const manAutoPumpMinutesInputValue = document.getElementById(
-                    "manAutoPumpMinutesInput"
+                const car1AutoPumpMinutesInputValue = document.getElementById(
+                    "car1AutoPumpMinutesInput"
                 ).value;
-const manStartsInputValue =
-                    document.getElementById("manStartsInput").value;
+const car1StartsInputValue =
+                    document.getElementById("car1StartsInput").value;
 
-                let res = 0;
+                let car1Res = 0;
                 carTableBody.innerHTML = "";
 
-                res = getOnByKm(manKmInputValue, carArr[0].onUsage);
+                car1Res = getOnByKm(car1KmInputValue, carArr[0].onUsage);
 
-                res += getOnByMinutes(
-                    hoursToMinutes(manStopHoursInputValue),
+                car1Res += getOnByMinutes(
+                    hoursToMinutes(car1StopHoursInputValue),
                     carArr[0].stopUsage
                 );
 
-                res += getOnByMinutes(
-                    manStopMinutesInputValue,
+                car1Res += getOnByMinutes(
+                    car1StopMinutesInputValue,
                     carArr[0].stopUsage
                 );
 
-                res += getOnByMinutes(
-                    manAutoPumpHoursInputValue,
+                car1Res += getOnByMinutes(
+                    car1AutoPumpHoursInputValue,
                     carArr[0].autoPumpUsage
                 );
-                res += getOnByMinutes(
-                    minutesToHours(manAutoPumpMinutesInputValue),
+                car1Res += getOnByMinutes(
+                    minutesToHours(car1AutoPumpMinutesInputValue),
                     carArr[0].autoPumpUsage
                 );
 
-                res += manStartsInputValue * carArr[0].startsUsage;
+                car1Res += car1StartsInputValue * carArr[0].startsUsage;
 
-                console.log(res);
+                console.log(car1Res);
 
-                res = res.toFixed(2);
+                car1Res = car1Res.toFixed(2);
 
-                if (res > 0) {
+                if (car1Res > 0) {
                     carTableBody.innerHTML += `
                             <tr>
                             <td><span>${carArr[0].name}</span></td>
-                            <td><span>${res} l</span></td>
+                            <td><span>${car1Res} l</span></td>
                             <td><span>0</span></td>
                             <td><span>0</span></td>
                             </tr>
