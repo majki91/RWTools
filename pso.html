@@ -380,14 +380,16 @@
                             <input
                                 id="pump1RunHoursInput"
                                 class="short-input"
+                                type="number"
                             /><span>:</span
                             ><input
                                 id="pump1RunMinutesInput"
                                 class="short-input"
+                                type="number"
                             />
                         </td>
                         <td>
-                            <input id="pump1StartsInput" class="norm-input" />
+                            <input id="pump1StartsInput" class="norm-input" type="number" />
                         </td>
                     </tr>
 
@@ -818,6 +820,8 @@
                     document.getElementById("pump4StartsInput").value;
 
                 let pump1res = 0;
+                let pump1hourRunTime =0;
+                let pump1osRes = 0;
                 let pump2res = 0;
                 let pump3res = 0;
                 let pump4res = 0;
@@ -833,15 +837,26 @@
                     minutesToHours(pump1RunMinutesInputValue),
                     pumpArr[0].pbUsage1h
                 );
-                
+
                 pump1res += getFuelByMinutes(
                     minutesToHours(pump1StartsInputValue),
                     pumpArr[0].pbUsage1h
                 );
                 
-              
-
-                console.log(pump1res);
+                pump1hourRunTime += pump1RunHoursInputValue;
+                pump1hourRunTime += minutesToHours(pump1RunMinutesInputValue);
+                pump1hourRunTime += minutesToHours(pump1StartsInputValue);
+                
+                pump1osRes = pump1hourRunTime * pumpArr[0].osUsage1h;
+                
+                
+                
+          
+                
+                
+console.log("czas:"+pump1hourRunTime);
+                console.log("pb:"+pump1res);
+                console.log("os:"+pump1osRes);
             }
 
             function showTabs() {
