@@ -1,747 +1,746 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>PSO</title>
-        <style>
-            html {
-                scroll-behavior: smooth;
-            }
-            body {
-                margin: 0;
-                top: 0;
-                padding: 0;
-                background-image: linear-gradient(
-                    to right,
-                    rgb(255, 53, 53),
-                    red,
-                    rgb(255, 53, 53)
-                );
-            }
-            header {
-                top: 0;
-                margin: 0;
-                padding: 1rem;
-                width: 100%;
-                background-color: rgb(255, 0, 0);
-                box-shadow: 1px 2px 2px rgba(255, 255, 255, 0.2);
-            }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>PSO</title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        top: 0;
+        padding: 0;
+        background-image: linear-gradient(
+          to right,
+          rgb(255, 53, 53),
+          red,
+          rgb(255, 53, 53)
+        );
+      }
+      header {
+        top: 0;
+        margin: 0;
+        padding: 1rem;
+        width: 100%;
+        background-color: rgb(255, 0, 0);
+        box-shadow: 1px 2px 2px rgba(255, 255, 255, 0.2);
+      }
 
-            img {
-                display: block;
-                margin: 0.65rem auto;
-                border-radius: 50% 50%;
-                width: 130px;
-                height: 130px;
-            }
+      img {
+        display: block;
+        margin: 0.65rem auto;
+        border-radius: 50% 50%;
+        width: 130px;
+        height: 130px;
+      }
 
-            h1 {
-                text-align: center;
-                font-size: 72px;
-                color: white;
-                margin: 0;
-                padding: 2rem 0;
-                top: 0;
-                margin-left: 12rem;
-                width: 60%;
-            }
-            #main-container {
-                margin-top: 5rem;
-                width: 100%;
-            }
-            .tables {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 5rem 0;
-                justify-content: space-around;
-            }
-            .input-table {
-                color: white;
-                width: 49%;
-                border-spacing: 0px;
-            }
-            span {
-                font-size: 20px;
-            }
+      h1 {
+        text-align: center;
+        font-size: 72px;
+        color: white;
+        margin: 0;
+        padding: 2rem 0;
+        top: 0;
+        margin-left: 12rem;
+        width: 60%;
+      }
+      #main-container {
+        margin-top: 5rem;
+        width: 100%;
+      }
+      .tables {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5rem 0;
+        justify-content: space-around;
+      }
+      .input-table {
+        color: white;
+        width: 49%;
+        border-spacing: 0px;
+      }
+      span {
+        font-size: 20px;
+      }
 
-            .table-title {
-                color: white;
-                font-size: 36px;
-                text-align: center;
-                border: 1px solid white;
-                padding: 3rem 0;
-            }
-            .input-table th {
-                border: 1px solid white;
-                width: 20%;
-            }
-            .input-table th span {
-                font-style: bold;
-            }
-            .input-table td {
-                border: 1px solid white;
-                margin: auto;
-                text-align: center;
-            }
+      .table-title {
+        color: white;
+        font-size: 36px;
+        text-align: center;
+        border: 1px solid white;
+        padding: 3rem 0;
+      }
+      .input-table th {
+        border: 1px solid white;
+        width: 20%;
+      }
+      .input-table th span {
+        font-style: bold;
+      }
+      .input-table td {
+        border: 1px solid white;
+        margin: auto;
+        text-align: center;
+      }
 
-            .input-table td span {
-                margin: 0 0.2rem;
-            }
-            .norm-input {
-                height: 2rem;
-                width: 6rem;
-                font-size: 20px;
-                text-align: center;
-            }
-            .short-input {
-                height: 2rem;
-                width: 3rem;
-                font-size: 20px;
-                text-align: center;
-            }
+      .input-table td span {
+        margin: 0 0.2rem;
+      }
+      .norm-input {
+        height: 2rem;
+        width: 6rem;
+        font-size: 20px;
+        text-align: center;
+      }
+      .short-input {
+        height: 2rem;
+        width: 3rem;
+        font-size: 20px;
+        text-align: center;
+      }
 
-            #resultTable {
-                background-color: white;
-                color: red;
-                gap: 2rem;
-                margin-top: 2rem;
-                width: 95%;
-            }
-            #resultTable caption {
-                padding: 1rem;
-                margin: 0;
-                background-color: white;
-                border-bottom: 1px solid red;
-                font-size: 40px;
-            }
-            .result-mini-table {
-                background-color: white;
-                width: 95%;
-                color: red;
-                border-spacing: 0;
-            }
-            .result-mini-table caption {
-                padding: 1rem 0;
-                margin: 0;
-                background-color: white;
-                color: red;
-                font-size: 30px;
-            }
-            .result-mini-table tr {
-                border: 1px 0px 0 0 solid red;
-                gap: 0;
-            }
-            .result-mini-table th {
-                border: 1px solid red;
-            }
-            .result-mini-table td {
-                text-align: center;
-                border: 1px solid red;
-                background-color: white;
-            }
-            .name-th {
-                width: 60%;
-            }
+      #resultTable {
+        background-color: white;
+        color: red;
+        gap: 2rem;
+        margin-top: 2rem;
+        width: 95%;
+      }
+      #resultTable caption {
+        padding: 1rem;
+        margin: 0;
+        background-color: white;
+        border-bottom: 1px solid red;
+        font-size: 40px;
+      }
+      .result-mini-table {
+        background-color: white;
+        width: 95%;
+        color: red;
+        border-spacing: 0;
+      }
+      .result-mini-table caption {
+        padding: 1rem 0;
+        margin: 0;
+        background-color: white;
+        color: red;
+        font-size: 30px;
+      }
+      .result-mini-table tr {
+        border: 1px 0px 0 0 solid red;
+        gap: 0;
+      }
+      .result-mini-table th {
+        border: 1px solid red;
+      }
+      .result-mini-table td {
+        text-align: center;
+        border: 1px solid red;
+        background-color: white;
+      }
+      .name-th {
+        width: 60%;
+      }
 
-            .buttons-box {
-                display: flex;
-                justify-content: space-around;
-                margin: 2rem 0;
-            }
-            .buttons-box button {
-                background-color: blue;
-                color: white;
-                border: 0;
-                padding: 0.8rem 0.5rem;
-            }
+      .buttons-box {
+        display: flex;
+        justify-content: space-around;
+        margin: 2rem 0;
+      }
+      .buttons-box button {
+        background-color: blue;
+        color: white;
+        border: 0;
+        padding: 0.8rem 0.5rem;
+      }
 
-            #tripsResultTableBody h3 {
-                display: block;
-                font-size: 12px;
-                padding: 0;
-                margin-left: 9rem;
-                text-align: center;
-            }
-            #tripsResultTableBody input {
-                text-align: center;
-                width: 1.5rem;
-            }
+      #tripsResultTableBody h3 {
+        display: block;
+        font-size: 12px;
+        padding: 0;
+        margin-left: 9rem;
+        text-align: center;
+      }
+      #tripsResultTableBody input {
+        text-align: center;
+        width: 1.5rem;
+      }
 
-            .hidden {
-                display: none;
-            }
+      .hidden {
+        display: none;
+      }
 
-            @media only screen and (max-width: 560px) {
-                #main-container {
-                    margin-top: 2rem;
-                }
-                header {
-                    padding: 0.2rem;
-                }
-                img {
-                    width: 60px;
-                    height: 60px;
-                }
-                span {
-                    font-size: 10px;
-                }
-                .tables {
-                    gap: 2rem 0;
-                }
-                .input-table {
-                    width: 95%;
-                    margin: auto;
-                }
-                .table-title {
-                    font-size: 18px;
-                    padding: 1rem 0;
-                }
-                .short-input {
-                    width: 1.2rem;
-                    height: 1rem;
-                    font-size: 10px;
-                }
-                .norm-input {
-                    width: 3rem;
-                    height: 1rem;
-                    font-size: 10px;
-                }
-                .input-table td {
-                    padding: 1rem 0;
-                }
-            }
-            @media only screen and (max-width: 768px) and (min-width: 561px) {
-                span {
-                    font-size: 18px;
-                }
-                .input-table {
-                    width: 90%;
-                }
-                .table-title {
-                    font-size: 30px;
-                    padding: 1rem 0;
-                }
-                .short-input {
-                    width: 2rem;
-                    height: 1.5rem;
-                    font-size: 18px;
-                }
-                .norm-input {
-                    width: 4rem;
-                    height: 1.5rem;
-                    font-size: 18px;
-                }
-            }
-            @media only screen and (max-width: 1024px) and (min-width: 769px) {
-                span {
-                    font-size: 16px;
-                }
-                .input-table {
-                    width: 48%;
-                }
-                .short-input {
-                    width: 2rem;
-                    height: 1.5rem;
-                    font-size: 18px;
-                }
-                .norm-input {
-                    width: 4rem;
-                    height: 1.5rem;
-                    font-size: 18px;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <header id="header">
-            <img src="https://i.ibb.co/pZm7h3D/logo.webp" alt="logo" />
-        </header>
-        <div id="main-container">
-            <div class="tables">
-                <table id="vehicles" class="input-table">
-                    <caption class="table-title">
-                        Pojazdy
-                    </caption>
-                    <tr>
-                        <th>
-                            <span>Nazwa</span>
-                        </th>
-                        <th>
-                            <span>Przejechany dystans [km]</span>
-                        </th>
-                        <th>
-                            <span>Postój<br />[godz] [min]</span>
-                        </th>
-                        <th>
-                            <span>Autopompa<br />[godz][min]</span>
-                        </th>
-                        <th>
-                            <span>Ilość rozruchów</span>
-                        </th>
-                    </tr>
-                    <tr>
-                        <td><span>Man 13.290</span></td>
-                        <td>
-                            <input
-                                id="car1KmInput"
-                                class="norm-input"
-                                type="number"
-                            />
-                        </td>
-                        <td>
-                            <input
-                                id="car1StopHoursInput"
-                                class="short-input"
-                                type="number"
-                            /><span>:</span
-                            ><input
-                                id="car1StopMinutesInput"
-                                class="short-input"
-                                type="number"
-                            />
-                        </td>
-                        <td>
-                            <input
-                                id="car1AutoPumpHoursInput"
-                                class="short-input"
-                                type="number"
-                            /><span>:</span
-                            ><input
-                                id="car1AutoPumpMinutesInput"
-                                class="short-input"
-                                type="number"
-                            />
-                        </td>
+      @media only screen and (max-width: 560px) {
+        #main-container {
+          margin-top: 2rem;
+        }
+        header {
+          padding: 0.2rem;
+        }
+        img {
+          width: 60px;
+          height: 60px;
+        }
+        span {
+          font-size: 10px;
+        }
+        .tables {
+          gap: 2rem 0;
+        }
+        .input-table {
+          width: 95%;
+          margin: auto;
+        }
+        .table-title {
+          font-size: 18px;
+          padding: 1rem 0;
+        }
+        .short-input {
+          width: 1.2rem;
+          height: 1rem;
+          font-size: 10px;
+        }
+        .norm-input {
+          width: 3rem;
+          height: 1rem;
+          font-size: 10px;
+        }
+        .input-table td {
+          padding: 1rem 0;
+        }
+      }
+      @media only screen and (max-width: 768px) and (min-width: 561px) {
+        span {
+          font-size: 18px;
+        }
+        .input-table {
+          width: 90%;
+        }
+        .table-title {
+          font-size: 30px;
+          padding: 1rem 0;
+        }
+        .short-input {
+          width: 2rem;
+          height: 1.5rem;
+          font-size: 18px;
+        }
+        .norm-input {
+          width: 4rem;
+          height: 1.5rem;
+          font-size: 18px;
+        }
+      }
+      @media only screen and (max-width: 1024px) and (min-width: 769px) {
+        span {
+          font-size: 16px;
+        }
+        .input-table {
+          width: 48%;
+        }
+        .short-input {
+          width: 2rem;
+          height: 1.5rem;
+          font-size: 18px;
+        }
+        .norm-input {
+          width: 4rem;
+          height: 1.5rem;
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <img src="https://i.ibb.co/pZm7h3D/logo.webp" alt="logo" />
+    </header>
+    <div id="main-container">
+      <div class="tables">
+        <table id="vehicles" class="input-table">
+          <caption class="table-title">
+            Pojazdy
+          </caption>
+          <tr>
+            <th>
+              <span>Nazwa</span>
+            </th>
+            <th>
+              <span>Przejechany dystans [km]</span>
+            </th>
+            <th>
+              <span>Postój<br />[godz] [min]</span>
+            </th>
+            <th>
+              <span>Autopompa<br />[godz][min]</span>
+            </th>
+            <th>
+              <span>Ilość rozruchów</span>
+            </th>
+          </tr>
+          <tr>
+            <td><span>Man 13.290</span></td>
+            <td>
+              <input id="car1KmInput" class="norm-input" type="number" />
+            </td>
+            <td>
+              <input
+                id="car1StopHoursInput"
+                class="short-input"
+                type="number"
+              /><span>:</span
+              ><input
+                id="car1StopMinutesInput"
+                class="short-input"
+                type="number"
+              />
+            </td>
+            <td>
+              <input
+                id="car1AutoPumpHoursInput"
+                class="short-input"
+                type="number"
+              /><span>:</span
+              ><input
+                id="car1AutoPumpMinutesInput"
+                class="short-input"
+                type="number"
+              />
+            </td>
 
-                        <td>
-                            <input
-                                id="car1StartsInput"
-                                class="norm-input"
-                                type="number"
-                            />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span>Star 266</span></td>
-                        <td>
-                            <input
-                                id="car2KmInput"
-                                class="norm-input"
-                                type="number"
-                            />
-                        </td>
-                        <td>
-                            <input
-                                id="car2StopHoursInput"
-                                class="short-input"
-                                type="number"
-                            /><span>:</span
-                            ><input
-                                id="car2StopMinutesInput"
-                                class="short-input"
-                                type="number"
-                            />
-                        </td>
-                        <td>
-                            <input disabled="true" class="short-input" /><span
-                                >:</span
-                            ><input disabled="true" class="short-input" />
-                        </td>
+            <td>
+              <input id="car1StartsInput" class="norm-input" type="number" />
+            </td>
+          </tr>
+          <tr>
+            <td><span>Star 266</span></td>
+            <td>
+              <input id="car2KmInput" class="norm-input" type="number" />
+            </td>
+            <td>
+              <input
+                id="car2StopHoursInput"
+                class="short-input"
+                type="number"
+              /><span>:</span
+              ><input
+                id="car2StopMinutesInput"
+                class="short-input"
+                type="number"
+              />
+            </td>
+            <td>
+              <input disabled="true" class="short-input" /><span>:</span
+              ><input disabled="true" class="short-input" />
+            </td>
 
-                        <td>
-                            <input id="car2StartsInput" class="norm-input" />
-                        </td>
-                    </tr>
-                </table>
+            <td>
+              <input id="car2StartsInput" class="norm-input" />
+            </td>
+          </tr>
+        </table>
 
-                <table id="pumps" class="input-table">
-                    <caption class="table-title">
-                        Pompy
-                    </caption>
-                    <tr>
-                        <th>
-                            <span>Nazwa</span>
-                        </th>
-                        <th>
-                            <span>Czas pracy [godz] [min]</span>
-                        </th>
-                        <th>
-                            <span>Rozruchy kontrolne [min]</span>
-                        </th>
-                    </tr>
+        <table id="pumps" class="input-table">
+          <caption class="table-title">
+            Pompy
+          </caption>
+          <tr>
+            <th>
+              <span>Nazwa</span>
+            </th>
+            <th>
+              <span>Czas pracy [godz] [min]</span>
+            </th>
+            <th>
+              <span>Rozruchy kontrolne [min]</span>
+            </th>
+          </tr>
 
-                    <tr>
-                        <td>
-                            <span>Motopompa Tohatsu M-16/8</span>
-                        </td>
-                        <td>
-                            <input
-                                id="pump1RunHoursInput"
-                                class="short-input"
-                                type="number"
-                            /><span>:</span
-                            ><input
-                                id="pump1RunMinutesInput"
-                                class="short-input"
-                                type="number"
-                            />
-                        </td>
-                        <td>
-                            <input id="pump1StartsInput" class="norm-input" type="number" />
-                        </td>
-                    </tr>
+          <tr>
+            <td>
+              <span>Motopompa Tohatsu M-16/8</span>
+            </td>
+            <td>
+              <input
+                id="pump1RunHoursInput"
+                class="short-input"
+                type="number"
+              /><span>:</span
+              ><input
+                id="pump1RunMinutesInput"
+                class="short-input"
+                type="number"
+              />
+            </td>
+            <td>
+              <input id="pump1StartsInput" class="norm-input" type="number" />
+            </td>
+          </tr>
 
-                    <tr>
-                        <td>
-                            <span>Motopompa SPEC-POŻ M800</span>
-                        </td>
-                        <td>
-                            <input
-                                id="pump2RunHoursInput"
-                                class="short-input"
-                            /><span>:</span
-                            ><input
-                                id="pump2RunMinutesInput"
-                                class="short-input"
-                            />
-                        </td>
-                        <td>
-                            <input id="pump2StartsInput" class="norm-input" />
-                        </td>
-                    </tr>
+          <tr>
+            <td>
+              <span>Motopompa SPEC-POŻ M800</span>
+            </td>
+            <td>
+              <input id="pump2RunHoursInput" class="short-input" /><span>:</span
+              ><input id="pump2RunMinutesInput" class="short-input" />
+            </td>
+            <td>
+              <input id="pump2StartsInput" class="norm-input" />
+            </td>
+          </tr>
 
-                    <tr>
-                        <td>
-                            <span>Pompa Szlamowa WT 30X</span>
-                        </td>
-                        <td>
-                            <input
-                                id="pump3RunHoursInput"
-                                class="short-input"
-                            /><span>:</span
-                            ><input
-                                id="pump3RunMinutesInput"
-                                class="short-input"
-                            />
-                        </td>
-                        <td>
-                            <input id="pump3StartsInput" class="norm-input" />
-                        </td>
-                    </tr>
+          <tr>
+            <td>
+              <span>Pompa Szlamowa WT 30X</span>
+            </td>
+            <td>
+              <input id="pump3RunHoursInput" class="short-input" /><span>:</span
+              ><input id="pump3RunMinutesInput" class="short-input" />
+            </td>
+            <td>
+              <input id="pump3StartsInput" class="norm-input" />
+            </td>
+          </tr>
 
-                    <tr>
-                        <td>
-                            <span>Pompa Pływająca Niagara 2</span>
-                        </td>
-                        <td>
-                            <input
-                                id="pump4RunHoursInput"
-                                class="short-input"
-                            /><span>:</span
-                            ><input
-                                id="pump4RunMinutesInput"
-                                class="short-input"
-                            />
-                        </td>
-                        <td>
-                            <input id="pump4StartsInput" class="norm-input" />
-                        </td>
-                    </tr>
-                </table>
+          <tr>
+            <td>
+              <span>Pompa Pływająca Niagara 2</span>
+            </td>
+            <td>
+              <input id="pump4RunHoursInput" class="short-input" /><span>:</span
+              ><input id="pump4RunMinutesInput" class="short-input" />
+            </td>
+            <td>
+              <input id="pump4StartsInput" class="norm-input" />
+            </td>
+          </tr>
+        </table>
 
-                <table id="agrVents" class="input-table">
-                    <caption class="table-title">
-                        Agregaty i wentylator
-                    </caption>
-                    <tr>
-                        <th>
-                            <span>Nazwa</span>
-                        </th>
-                        <th>
-                            <span>Czas pracy [godz] [min]</span>
-                        </th>
-                        <th>
-                            <span>Rozruchy kontrolne [min]</span>
-                        </th>
-                    </tr>
+        <table id="agrVents" class="input-table">
+          <caption class="table-title">
+            Agregaty i wentylator
+          </caption>
+          <tr>
+            <th>
+              <span>Nazwa</span>
+            </th>
+            <th>
+              <span>Czas pracy [godz] [min]</span>
+            </th>
+            <th>
+              <span>Rozruchy kontrolne [min]</span>
+            </th>
+          </tr>
 
-                    <tr>
-                        <td>
-                            <span>Agregat Prądotw. ESE 406 HGGT</span>
-                        </td>
-                        <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
-                        </td>
-                        <td><input class="norm-input" /></td>
-                    </tr>
+          <tr>
+            <td>
+              <span>Agregat Prądotw. ESE 406 HGGT</span>
+            </td>
+            <td>
+              <input id="agrVent1RunHoursInput" class="short-input" /><span
+                >:</span
+              ><input id="agrVent1RunMinutesInput" class="short-input" />
+            </td>
+            <td><input id="agrVent1StartsInput" class="norm-input" /></td>
+          </tr>
 
-                    <tr>
-                        <td>
-                            <span>Pompa Hydr Weber V 400 SIMO</span>
-                        </td>
-                        <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
-                        </td>
-                        <td><input class="norm-input" /></td>
-                    </tr>
+          <tr>
+            <td>
+              <span>Pompa Hydr. Weber V 400 SIMO</span>
+            </td>
+            <td>
+              <input id="agrVent2RunHoursInput" class="short-input" /><span
+                >:</span
+              ><input id="agrVent2RunMinutesInput" class="short-input" />
+            </td>
+            <td><input id="agrVent2StartsInput" class="norm-input" /></td>
+          </tr>
 
-                    <tr>
-                        <td>
-                            <span>Wentylator Oddymiający FOGO MW22</span>
-                        </td>
-                        <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
-                        </td>
-                        <td><input class="norm-input" /></td>
-                    </tr>
-                </table>
+          <tr>
+            <td>
+              <span>Wentylator Oddymiający FOGO MW22</span>
+            </td>
+            <td>
+              <input id="agrVent3RunHoursInput" class="short-input" /><span
+                >:</span
+              ><input id="agrVent3RunMinutesInput" class="short-input" />
+            </td>
+            <td><input id="agrVent3StartsInput" class="norm-input" /></td>
+          </tr>
+        </table>
 
-                <table id="saws" class="input-table">
-                    <caption class="table-title">
-                        Pilarki i piły
-                    </caption>
-                    <tr>
-                        <th>
-                            <span>Nazwa</span>
-                        </th>
-                        <th>
-                            <span>Czas pracy [godz] [min]</span>
-                        </th>
-                        <th>
-                            <span>Rozruchy kontrolne [min]</span>
-                        </th>
-                    </tr>
+        <table id="saws" class="input-table">
+          <caption class="table-title">
+            Pilarki i piły
+          </caption>
+          <tr>
+            <th>
+              <span>Nazwa</span>
+            </th>
+            <th>
+              <span>Czas pracy [godz] [min]</span>
+            </th>
+            <th>
+              <span>Rozruchy kontrolne [min]</span>
+            </th>
+          </tr>
 
-                    <tr>
-                        <td>
-                            <span>Pilarka spalinowa STIHL MS360</span>
-                        </td>
-                        <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
-                        </td>
-                        <td><input class="norm-input" /></td>
-                    </tr>
+          <tr>
+            <td>
+              <span>Pilarka spalinowa STIHL MS360</span>
+            </td>
+            <td>
+              <input class="short-input" /><span>:</span
+              ><input class="short-input" />
+            </td>
+            <td><input class="norm-input" /></td>
+          </tr>
 
-                    <tr>
-                        <td>
-                            <span>Pilarka spalinowa STIHL MS341</span>
-                        </td>
-                        <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
-                        </td>
-                        <td><input class="norm-input" /></td>
-                    </tr>
+          <tr>
+            <td>
+              <span>Pilarka spalinowa STIHL MS341</span>
+            </td>
+            <td>
+              <input class="short-input" /><span>:</span
+              ><input class="short-input" />
+            </td>
+            <td><input class="norm-input" /></td>
+          </tr>
 
-                    <tr>
-                        <td>
-                            <span>Piła do stali i betonu PARTNER K650</span>
-                        </td>
-                        <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
-                        </td>
-                        <td><input class="norm-input" /></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="buttons-box">
-                <a href="#resultTable"
-                    ><button onclick="showTabs()">Oblicz</button></a
-                >
-                <a href="#header"
-                    ><button onclick="resetInputs()">Wyzeruj</button></a
-                >
-            </div>
-            <div id="resultBox" class="tables" style="gap: 0">
-                <table id="resultTable" class="hidden">
-                    <caption>
-                        Wyniki
-                    </caption>
-                    <table id="carTable" class="result-mini-table hidden">
-                        <caption>
-                            Pojazdy
-                        </caption>
-                        <tr>
-                            <th class="name-th"><span>Nazwa</span></th>
-                            <th><span>Zużycie ON</span></th>
-                            <th><span>Zużycie PB</span></th>
-                            <th><span>Zużycie OS</span></th>
-                        </tr>
-                        <tbody id="carTableBody"></tbody>
-                    </table>
-                    <table id="pumpTable" class="result-mini-table hidden">
-                        <caption>
-                            Pompy
-                        </caption>
-                        <tr>
-                            <th class="name-th"><span>Nazwa</span></th>
-                            <th><span>Zużycie ON</span></th>
-                            <th><span>Zużycie PB</span></th>
-                            <th><span>Zużycie OS</span></th>
-                        </tr>
-                        <tbody id="pumpTableBody"></tbody>
-                    </table>
-                </table>
-            </div>
-        </div>
-        <script>
-            const carArr = [
-                {
-                    name: "Man 13.290",
-                    onUsage: 38,
-                    stopUsage: 0.18,
-                    autoPumpUsage: 14,
-                    startsUsage: 0.5
-                },
-                {
-                    name: "Star 266",
-                    onUsage: 31.3,
-                    stopUsage: 0.13,
-                    autoPumpUsage: 0,
-                    startsUsage: 0.9
-                }
-            ];
+          <tr>
+            <td>
+              <span>Piła do stali i betonu PARTNER K650</span>
+            </td>
+            <td>
+              <input class="short-input" /><span>:</span
+              ><input class="short-input" />
+            </td>
+            <td><input class="norm-input" /></td>
+          </tr>
+        </table>
+      </div>
+      <div class="buttons-box">
+        <a href="#resultTable"><button onclick="showTabs()">Oblicz</button></a>
+        <a href="#header"><button onclick="resetInputs()">Wyzeruj</button></a>
+      </div>
+      <div id="resultBox" class="tables" style="gap: 0">
+        <table id="resultTable" class="hidden">
+          <caption>
+            Wyniki
+          </caption>
+          <table id="carTable" class="result-mini-table hidden">
+            <caption>
+              Pojazdy
+            </caption>
+            <tr>
+              <th class="name-th"><span>Nazwa</span></th>
+              <th><span>Zużycie ON</span></th>
+              <th><span>Zużycie PB</span></th>
+              <th><span>Zużycie OS</span></th>
+            </tr>
+            <tbody id="carTableBody"></tbody>
+          </table>
+          <table id="pumpTable" class="result-mini-table hidden">
+            <caption>
+              Pompy
+            </caption>
+            <tr>
+              <th class="name-th"><span>Nazwa</span></th>
+              <th><span>Zużycie ON</span></th>
+              <th><span>Zużycie PB</span></th>
+              <th><span>Zużycie OS</span></th>
+            </tr>
+            <tbody id="pumpTableBody"></tbody>
+          </table>
+          <table id="agrVentsTable" class="result-mini-table hidden">
+            <caption>
+              Agregaty i wentylator
+            </caption>
+            <tr>
+              <th class="name-th"><span>Nazwa</span></th>
+              <th><span>Zużycie ON</span></th>
+              <th><span>Zużycie PB</span></th>
+              <th><span>Zużycie OS</span></th>
+            </tr>
+            <tbody id="agrVentsTableBody"></tbody>
+          </table>
+        </table>
+      </div>
+    </div>
+    <script>
+      const carArr = [
+        {
+          name: "Man 13.290",
+          onUsage: 38,
+          stopUsage: 0.18,
+          autoPumpUsage: 14,
+          startsUsage: 0.5,
+        },
+        {
+          name: "Star 266",
+          onUsage: 31.3,
+          stopUsage: 0.13,
+          autoPumpUsage: 0,
+          startsUsage: 0.9,
+        },
+      ];
 
-            const pumpArr = [
-                {
-                    name: "Tohatsu M16/8",
-                    pbUsage1h: 18,
-                    osUsage1h: 0.4,
-                    startsUsage: 0.3
-                },
-                {
-                    name: "SPEC-POŻ M-800",
-                    pbUsage1h: 7.5,
-                    osUsage1h: 0,
-                    startsUsage: 0.125
-                },
-                {
-                    name: "Szlamowa WT30X",
-                    pbUsage1h: 2.9,
-                    osUsage1h: 0,
-                    startsUsage: 0.0483
-                },
-                {
-                    name: "Niagara 2",
-                    pbUsage1h: 1.28,
-                    osUsage1h: 0,
-                    startsUsage: 0.0213
-                }
-            ];
+      const pumpArr = [
+        {
+          name: "Tohatsu M16/8",
+          pbUsage1h: 18,
+          osUsage1h: 0.4,
+          startsUsage: 0.3,
+        },
+        {
+          name: "SPEC-POŻ M-800",
+          pbUsage1h: 7.5,
+          osUsage1h: 0,
+          startsUsage: 0.125,
+        },
+        {
+          name: "Szlamowa WT30X",
+          pbUsage1h: 2.9,
+          osUsage1h: 0,
+          startsUsage: 0.0483,
+        },
+        {
+          name: "Niagara 2",
+          pbUsage1h: 1.28,
+          osUsage1h: 0,
+          startsUsage: 0.0213,
+        },
+      ];
 
-            function getFuelByKm(kilometers, usageOn) {
-                let km = kilometers;
-                let usage = usageOn;
-                let result = 0;
+      const agrVentsArr = [
+        {
+          name: "Agregat Prądotw. ESE 406 HGGT",
+          pbUsage1h: 1.6,
+          osUsage1h: 0,
+          startsUsage: 0.0266,
+        },
+        {
+          name: "Pompa Hydr. Weber V 400 SIMO",
+          pbUsage1h: 1.39,
+          osUsage1h: 0,
+          startsUsage: 0.0231,
+        },
+        {
+          name: "Wentylator Oddymiający FOGO MW22",
+          pbUsage1h: 1.2,
+          osUsage1h: 0,
+          startsUsage: 0.02,
+        },
+      ];
 
-                result = (km * usage) / 100;
+      function getFuelByKm(kilometers, usageOn) {
+        let km = kilometers;
+        let usage = usageOn;
+        let result = 0;
 
-                return result;
-            }
+        result = (km * usage) / 100;
 
-            function getFuelByMinutes(min, usage) {
-                let minutes = min;
-                let onUsage = usage;
-                let result = 0;
+        return result;
+      }
 
-                result = min * usage;
+      function getFuelByMinutes(min, usage) {
+        let minutes = min;
+        let onUsage = usage;
+        let result = 0;
 
-                return result;
-            }
-            function getFuelByHours(hour, usage) {
-                let h = hour;
-                let onUsage = usage;
-                let result = 0;
+        result = min * usage;
 
-                result = h * usage;
+        return result;
+      }
+      function getFuelByHours(hour, usage) {
+        let h = hour;
+        let onUsage = usage;
+        let result = 0;
 
-                return result;
-            }
+        result = h * usage;
 
-            function hoursToMinutes(hour) {
-                let hours = hour;
-                let minutes = hours * 60;
+        return result;
+      }
 
-                return minutes;
-            }
+      function hoursToMinutes(hour) {
+        let hours = hour;
+        let minutes = hours * 60;
 
-            function minutesToHours(minutes) {
-                let min = minutes;
+        return minutes;
+      }
 
-                let hours = minutes / 60;
+      function minutesToHours(minutes) {
+        let min = minutes;
 
-                return hours;
-            }
+        let hours = minutes / 60;
 
-            function showCarResult() {
-                const carTable = document.getElementById("carTable");
-                const carTableBody = document.getElementById("carTableBody");
+        return hours;
+      }
 
-                const car1KmInputValue =
-                    document.getElementById("car1KmInput").value;
-                const car1StopHoursInputValue =
-                    document.getElementById("car1StopHoursInput").value;
-                const car1StopMinutesInputValue = document.getElementById(
-                    "car1StopMinutesInput"
-                ).value;
-                const car1AutoPumpHoursInputValue = document.getElementById(
-                    "car1AutoPumpHoursInput"
-                ).value;
-                const car1AutoPumpMinutesInputValue = document.getElementById(
-                    "car1AutoPumpMinutesInput"
-                ).value;
-                const car1StartsInputValue =
-                    document.getElementById("car1StartsInput").value;
+      function showCarResult() {
+        const carTable = document.getElementById("carTable");
+        const carTableBody = document.getElementById("carTableBody");
 
-                const car2KmInputValue =
-                    document.getElementById("car2KmInput").value;
-                const car2StopHoursInputValue =
-                    document.getElementById("car2StopHoursInput").value;
-                const car2StopMinutesInputValue = document.getElementById(
-                    "car2StopMinutesInput"
-                ).value;
-                const car2StartsInputValue =
-                    document.getElementById("car2StartsInput").value;
+        const car1KmInputValue = document.getElementById("car1KmInput").value;
+        const car1StopHoursInputValue =
+          document.getElementById("car1StopHoursInput").value;
+        const car1StopMinutesInputValue = document.getElementById(
+          "car1StopMinutesInput"
+        ).value;
+        const car1AutoPumpHoursInputValue = document.getElementById(
+          "car1AutoPumpHoursInput"
+        ).value;
+        const car1AutoPumpMinutesInputValue = document.getElementById(
+          "car1AutoPumpMinutesInput"
+        ).value;
+        const car1StartsInputValue =
+          document.getElementById("car1StartsInput").value;
 
-                let car1Res = 0;
-                let car2Res = 0;
-                carTableBody.innerHTML = "";
+        const car2KmInputValue = document.getElementById("car2KmInput").value;
+        const car2StopHoursInputValue =
+          document.getElementById("car2StopHoursInput").value;
+        const car2StopMinutesInputValue = document.getElementById(
+          "car2StopMinutesInput"
+        ).value;
+        const car2StartsInputValue =
+          document.getElementById("car2StartsInput").value;
 
-                //car1
-                car1Res = getFuelByKm(car1KmInputValue, carArr[0].onUsage);
+        let car1Res = 0;
+        let car2Res = 0;
+        carTableBody.innerHTML = "";
 
-                car1Res += getFuelByMinutes(
-                    hoursToMinutes(car1StopHoursInputValue),
-                    carArr[0].stopUsage
-                );
+        //car1
+        car1Res = getFuelByKm(car1KmInputValue, carArr[0].onUsage);
 
-                car1Res += getFuelByMinutes(
-                    car1StopMinutesInputValue,
-                    carArr[0].stopUsage
-                );
+        car1Res += getFuelByMinutes(
+          hoursToMinutes(car1StopHoursInputValue),
+          carArr[0].stopUsage
+        );
 
-                car1Res += getFuelByMinutes(
-                    car1AutoPumpHoursInputValue,
-                    carArr[0].autoPumpUsage
-                );
-                car1Res += getFuelByMinutes(
-                    minutesToHours(car1AutoPumpMinutesInputValue),
-                    carArr[0].autoPumpUsage
-                );
+        car1Res += getFuelByMinutes(
+          car1StopMinutesInputValue,
+          carArr[0].stopUsage
+        );
 
-                car1Res += car1StartsInputValue * carArr[0].startsUsage;
+        car1Res += getFuelByMinutes(
+          car1AutoPumpHoursInputValue,
+          carArr[0].autoPumpUsage
+        );
+        car1Res += getFuelByMinutes(
+          minutesToHours(car1AutoPumpMinutesInputValue),
+          carArr[0].autoPumpUsage
+        );
 
-                car1Res = car1Res.toFixed(2);
+        car1Res += car1StartsInputValue * carArr[0].startsUsage;
 
-                if (car1Res > 0) {
-                    carTableBody.innerHTML += `
+        car1Res = car1Res.toFixed(2);
+
+        if (car1Res > 0) {
+          carTableBody.innerHTML += `
                              <tr>
                              <td><span>${carArr[0].name}</span></td>
                              <td><span>${car1Res} l</span></td>
@@ -749,28 +748,28 @@
                              <td><span>0</span></td>
                              </tr>
                              `;
-                    carTable.classList.remove("hidden");
-                }
+          carTable.classList.remove("hidden");
+        }
 
-                //car2
-                car2Res = getFuelByKm(car2KmInputValue, carArr[1].onUsage);
+        //car2
+        car2Res = getFuelByKm(car2KmInputValue, carArr[1].onUsage);
 
-                car2Res += getFuelByMinutes(
-                    hoursToMinutes(car2StopHoursInputValue),
-                    carArr[1].stopUsage
-                );
+        car2Res += getFuelByMinutes(
+          hoursToMinutes(car2StopHoursInputValue),
+          carArr[1].stopUsage
+        );
 
-                car2Res += getFuelByMinutes(
-                    car2StopMinutesInputValue,
-                    carArr[1].stopUsage
-                );
+        car2Res += getFuelByMinutes(
+          car2StopMinutesInputValue,
+          carArr[1].stopUsage
+        );
 
-                car2Res += car2StartsInputValue * carArr[1].startsUsage;
+        car2Res += car2StartsInputValue * carArr[1].startsUsage;
 
-                car2Res = car2Res.toFixed(2);
+        car2Res = car2Res.toFixed(2);
 
-                if (car2Res > 0) {
-                    carTableBody.innerHTML += `
+        if (car2Res > 0) {
+          carTableBody.innerHTML += `
                              <tr>
                              <td><span>${carArr[1].name}</span></td>
                              <td><span>${car2Res} l</span></td>
@@ -779,103 +778,279 @@
                              </tr>
                              `;
 
-                    carTable.classList.remove("hidden");
-                }
-            }
+          carTable.classList.remove("hidden");
+        }
+      }
 
-            function showPumpResult() {
-                const pumpTable = document.getElementById("pumpTable");
-                const pumpTableBody = document.getElementById("pumpTableBody");
+      function showPumpResult() {
+        const pumpTable = document.getElementById("pumpTable");
+        const pumpTableBody = document.getElementById("pumpTableBody");
 
-                const pump1RunHoursInputValue =
-                    document.getElementById("pump1RunHoursInput").value;
-                const pump1RunMinutesInputValue = document.getElementById(
-                    "pump1RunMinutesInput"
-                ).value;
-                const pump1StartsInputValue =
-                    document.getElementById("pump1StartsInput").value;
+        const pump1RunHoursInputValue =
+          document.getElementById("pump1RunHoursInput").value;
+        const pump1RunMinutesInputValue = document.getElementById(
+          "pump1RunMinutesInput"
+        ).value;
+        const pump1StartsInputValue =
+          document.getElementById("pump1StartsInput").value;
 
-                const pump2RunHoursInputValue =
-                    document.getElementById("pump2RunHoursInput").value;
-                const pump2RunMinutesInputValue = document.getElementById(
-                    "pump2RunMinutesInput"
-                ).value;
-                const pump2StartsInputValue =
-                    document.getElementById("pump2StartsInput").value;
+        const pump2RunHoursInputValue =
+          document.getElementById("pump2RunHoursInput").value;
+        const pump2RunMinutesInputValue = document.getElementById(
+          "pump2RunMinutesInput"
+        ).value;
+        const pump2StartsInputValue =
+          document.getElementById("pump2StartsInput").value;
 
-                const pump3RunHoursInputValue =
-                    document.getElementById("pump3RunHoursInput").value;
-                const pump3RunMinutesInputValue = document.getElementById(
-                    "pump3RunMinutesInput"
-                ).value;
-                const pump3StartsInputValue =
-                    document.getElementById("pump3StartsInput").value;
+        const pump3RunHoursInputValue =
+          document.getElementById("pump3RunHoursInput").value;
+        const pump3RunMinutesInputValue = document.getElementById(
+          "pump3RunMinutesInput"
+        ).value;
+        const pump3StartsInputValue =
+          document.getElementById("pump3StartsInput").value;
 
-                const pump4RunHoursInputValue =
-                    document.getElementById("pump4RunHoursInput").value;
-                const pump4RunMinutesInputValue = document.getElementById(
-                    "pump4RunMinutesInput"
-                ).value;
-                const pump4StartsInputValue =
-                    document.getElementById("pump4StartsInput").value;
+        const pump4RunHoursInputValue =
+          document.getElementById("pump4RunHoursInput").value;
+        const pump4RunMinutesInputValue = document.getElementById(
+          "pump4RunMinutesInput"
+        ).value;
+        const pump4StartsInputValue =
+          document.getElementById("pump4StartsInput").value;
 
-                let pump1res = 0;
-                let pump1hourRunTime =0;
-                let pump1osRes = 0;
-                let pump2res = 0;
-                let pump3res = 0;
-                let pump4res = 0;
+        let pump1result = 0;
+        let pump1hourRunTime = 0;
+        let pump1osResult = 0;
+        let pump2result = 0;
+        let pump3result = 0;
+        let pump4result = 0;
 
-                pumpTableBody.innerHTML = "";
+        pumpTableBody.innerHTML = "";
 
-                pump1res += getFuelByHours(
-                    pump1RunHoursInputValue,
-                    pumpArr[0].pbUsage1h
-                );
+        pump1result += getFuelByHours(
+          pump1RunHoursInputValue,
+          pumpArr[0].pbUsage1h
+        );
 
-                pump1res += getFuelByMinutes(
-                    minutesToHours(pump1RunMinutesInputValue),
-                    pumpArr[0].pbUsage1h
-                );
+        pump1result += getFuelByMinutes(
+          minutesToHours(pump1RunMinutesInputValue),
+          pumpArr[0].pbUsage1h
+        );
 
-                pump1res += getFuelByMinutes(
-                    minutesToHours(pump1StartsInputValue),
-                    pumpArr[0].pbUsage1h
-                );
-                
-                pump1hourRunTime += parseFloat(pump1RunHoursInputValue);
-                pump1hourRunTime += parseFloat(minutesToHours(pump1RunMinutesInputValue));
-                pump1hourRunTime += parseFloat(minutesToHours(pump1StartsInputValue));
-                
-                pump1osRes = pump1hourRunTime * pumpArr[0].osUsage1h;
-                
-                
-                
-          
-                
-                
-console.log("czas:"+pump1hourRunTime);
-                console.log("pb:"+pump1res);
-                console.log("os:"+pump1osRes.toFixed(2));
-            }
+        pump1result += getFuelByMinutes(
+          minutesToHours(pump1StartsInputValue),
+          pumpArr[0].pbUsage1h
+        );
 
-            function showTabs() {
-                const resultTable = document.getElementById("resultTable");
-                showCarResult();
-                showPumpResult();
-                resultTable.classList.remove("hidden");
-            }
+        //pump1hourruntime i pump1osresult jest
+        //stosowane tylko w przypadku zużycia oleju silnikowego !!!!!!!
 
-            function resetInputs() {
-                let inputs = document.getElementsByTagName("input");
-                const resultTable = document.getElementById("resultTable");
-                const carTable = document.getElementById("carTable");
+        pump1hourRunTime += parseFloat(pump1RunHoursInputValue);
+        pump1hourRunTime += parseFloat(
+          minutesToHours(pump1RunMinutesInputValue)
+        );
+        pump1hourRunTime += parseFloat(minutesToHours(pump1StartsInputValue));
 
-                resultTable.classList.add("hidden");
-                carTable.classList.add("hidden");
+        pump1osResult = pump1hourRunTime * pumpArr[0].osUsage1h;
 
-                for (let i = 0; i <= inputs.length; i++) inputs[i].value = "";
-            }
-        </script>
-    </body>
+        pump1osResult = pump1osResult.toFixed(2);
+
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+        pump1result = pump1result.toFixed(2);
+
+        if (pump1result > 0) {
+          pumpTableBody.innerHTML += `
+                             <tr>
+                             <td><span>${pumpArr[0].name}</span></td>
+                             <td><span>0</span></td>
+                             <td><span>${pump1result} l</span></td>
+                             <td><span>${pump1osResult} l</span></td>
+                             </tr>
+                             `;
+          pumpTable.classList.remove("hidden");
+        }
+
+        pump2result += getFuelByHours(
+          pump2RunHoursInputValue,
+          pumpArr[1].pbUsage1h
+        );
+
+        pump2result += getFuelByMinutes(
+          minutesToHours(pump2RunMinutesInputValue),
+          pumpArr[1].pbUsage1h
+        );
+
+        pump2result += getFuelByMinutes(
+          minutesToHours(pump2StartsInputValue),
+          pumpArr[1].pbUsage1h
+        );
+
+        pump2result = pump2result.toFixed(2);
+
+        if (pump2result > 0) {
+          pumpTableBody.innerHTML += `
+                             <tr>
+                             <td><span>${pumpArr[1].name} l</span></td>
+                             <td><span>0</span></td>
+                             <td><span>${pump2result} l</span></td>
+                             <td><span>0</span></td>
+                             </tr>
+                             `;
+          pumpTable.classList.remove("hidden");
+        }
+
+        pump3result += getFuelByHours(
+          pump3RunHoursInputValue,
+          pumpArr[2].pbUsage1h
+        );
+
+        pump3result += getFuelByMinutes(
+          minutesToHours(pump3RunMinutesInputValue),
+          pumpArr[2].pbUsage1h
+        );
+
+        pump3result += getFuelByMinutes(
+          minutesToHours(pump3StartsInputValue),
+          pumpArr[2].pbUsage1h
+        );
+
+        pump3result = pump3result.toFixed(2);
+
+        if (pump3result > 0) {
+          pumpTableBody.innerHTML += `
+                             <tr>
+                             <td><span>${pumpArr[2].name} l</span></td>
+                             <td><span>0</span></td>
+                             <td><span>${pump3result} l</span></td>
+                             <td><span>0</span></td>
+                             </tr>
+                             `;
+          pumpTable.classList.remove("hidden");
+        }
+
+        pump4result += getFuelByHours(
+          pump4RunHoursInputValue,
+          pumpArr[3].pbUsage1h
+        );
+
+        pump4result += getFuelByMinutes(
+          minutesToHours(pump4RunMinutesInputValue),
+          pumpArr[3].pbUsage1h
+        );
+
+        pump4result += getFuelByMinutes(
+          minutesToHours(pump4StartsInputValue),
+          pumpArr[3].pbUsage1h
+        );
+
+        pump4result = pump4result.toFixed(2);
+
+        if (pump4result > 0) {
+          pumpTableBody.innerHTML += `
+                             <tr>
+                             <td><span>${pumpArr[3].name} l</span></td>
+                             <td><span>0</span></td>
+                             <td><span>${pump4result} l</span></td>
+                             <td><span>0</span></td>
+                             </tr>
+                             `;
+          pumpTable.classList.remove("hidden");
+        }
+      }
+
+      function showAgrVentsResult() {
+        const agrVentsTable = document.getElementById("agrVentsTable");
+        const agrVentsTableBody = document.getElementById("agrVentsTableBody");
+
+        const agrVent1RunHoursInputValue = document.getElementById(
+          "agrVent1RunHoursInput"
+        ).value;
+        const agrVent1RunMinutesInputValue = document.getElementById(
+          "agrVent1RunMinutesInput"
+        ).value;
+        const agrVent1StartsInputValue = document.getElementById(
+          "agrVent1StartsInput"
+        ).value;
+
+        const agrVent2RunHoursInputValue = document.getElementById(
+          "agrVent2RunHoursInput"
+        ).value;
+        const agrVent2RunMinutesInputValue = document.getElementById(
+          "agrVent2RunMinutesInput"
+        ).value;
+        const agrVent2StartsInputValue = document.getElementById(
+          "agrVent2StartsInput"
+        ).value;
+
+        const agrVent3RunHoursInputValue = document.getElementById(
+          "agrVent3RunHoursInput"
+        ).value;
+        const agrVent3RunMinutesInputValue = document.getElementById(
+          "agrVent3RunMinutesInput"
+        ).value;
+        const agrVent3StartsInputValue = document.getElementById(
+          "agrVent3StartsInput"
+        ).value;
+
+        let agrVent1Result = 0;
+        let agrVent2Result = 0;
+        let agrVent3Result = 0;
+
+        agrVentsTableBody.innerHTML = "";
+
+        agrVent1Result += getFuelByHours(
+          agrVent1RunHoursInputValue,
+          agrVentsArr[0].pbUsage1h
+        );
+
+        agrVent1Result += getFuelByMinutes(
+          minutesToHours(agrVent1RunMinutesInputValue),
+          agrVentsArr[0].pbUsage1h
+        );
+
+        agrVent1Result += getFuelByMinutes(
+          minutesToHours(agrVent1StartsInputValue),
+          agrVentsArr[0].pbUsage1h
+        );
+
+        agrVent1Result = agrVent1Result.toFixed(2);
+
+        if (agrVent1Result > 0) {
+          agrVentsTableBody.innerHTML += `
+                             <tr>
+                             <td><span>${agrVentsArr[0].name} l</span></td>
+                             <td><span>0</span></td>
+                             <td><span>${agrVent1Result} l</span></td>
+                             <td><span>0</span></td>
+                             </tr>
+                             `;
+          //agrVentsTable.classList.remove("hidden");
+        }
+      }
+
+      function showTabs() {
+        const resultTable = document.getElementById("resultTable");
+        showCarResult();
+        showPumpResult();
+        showAgrVentsResult();
+        resultTable.classList.remove("hidden");
+      }
+
+      function resetInputs() {
+        let inputs = document.getElementsByTagName("input");
+        const resultTable = document.getElementById("resultTable");
+        const carTable = document.getElementById("carTable");
+        const pumpTable = document.getElementById("pumpTable");
+        const agrVentsTable = document.getElementById("agrVentsTable");
+
+        resultTable.classList.add("hidden");
+        carTable.classList.add("hidden");
+        pumpTable.classList.add("hidden");
+        agrVentsTable.classList.add("hidden");
+
+        for (let i = 0; i <= inputs.length; i++) inputs[i].value = "";
+      }
+    </script>
+  </body>
 </html>
