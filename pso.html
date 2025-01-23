@@ -642,174 +642,176 @@
         </div>
         <script>
             const carArr = [
-              {
-                name: "Man 13.290",
-                onUsage: 38,
-                stopUsage: 0.18,
-                autoPumpUsage: 14,
-                startsUsage: 0.5,
-              },
-              {
-                name: "Star 266",
-                onUsage: 31.3,
-                stopUsage: 0.13,
-                autoPumpUsage: 0,
-                startsUsage: 0.9,
-              },
+                {
+                    name: "Man 13.290",
+                    onUsage: 38,
+                    stopUsage: 0.18,
+                    autoPumpUsage: 14,
+                    startsUsage: 0.5
+                },
+                {
+                    name: "Star 266",
+                    onUsage: 31.3,
+                    stopUsage: 0.13,
+                    autoPumpUsage: 0,
+                    startsUsage: 0.9
+                }
             ];
 
             const pumpArr = [
-              {
-                name: "Tohatsu M16/8",
-                pbUsage1h: 18,
-                osUsage1h: 0.4,
-                startsUsage: 0.3,
-              },
-              {
-                name: "SPEC-POŻ M-800",
-                pbUsage1h: 7.5,
-                osUsage1h: 0,
-                startsUsage: 0.125,
-              },
-              {
-                name: "Szlamowa WT30X",
-                pbUsage1h: 2.9,
-                osUsage1h: 0,
-                startsUsage: 0.0483,
-              },
-              {
-                name: "Niagara 2",
-                pbUsage1h: 1.28,
-                osUsage1h: 0,
-                startsUsage: 0.0213,
-              },
+                {
+                    name: "Tohatsu M16/8",
+                    pbUsage1h: 18,
+                    osUsage1h: 0.4,
+                    startsUsage: 0.3
+                },
+                {
+                    name: "SPEC-POŻ M-800",
+                    pbUsage1h: 7.5,
+                    osUsage1h: 0,
+                    startsUsage: 0.125
+                },
+                {
+                    name: "Szlamowa WT30X",
+                    pbUsage1h: 2.9,
+                    osUsage1h: 0,
+                    startsUsage: 0.0483
+                },
+                {
+                    name: "Niagara 2",
+                    pbUsage1h: 1.28,
+                    osUsage1h: 0,
+                    startsUsage: 0.0213
+                }
             ];
 
             const agrVentsArr = [
-              {
-                name: "Agregat Prądotw. ESE 406 HGGT",
-                pbUsage1h: 1.6,
-                osUsage1h: 0,
-                startsUsage: 0.0266,
-              },
-              {
-                name: "Pompa Hydr. Weber V 400 SIMO",
-                pbUsage1h: 1.39,
-                osUsage1h: 0,
-                startsUsage: 0.0231,
-              },
-              {
-                name: "Wentylator Oddymiający FOGO MW22",
-                pbUsage1h: 1.2,
-                osUsage1h: 0,
-                startsUsage: 0.02,
-              },
+                {
+                    name: "Agregat Prądotw. ESE 406 HGGT",
+                    pbUsage1h: 1.6,
+                    osUsage1h: 0,
+                    startsUsage: 0.0266
+                },
+                {
+                    name: "Pompa Hydr. Weber V 400 SIMO",
+                    pbUsage1h: 1.39,
+                    osUsage1h: 0,
+                    startsUsage: 0.0231
+                },
+                {
+                    name: "Wentylator Oddymiający FOGO MW22",
+                    pbUsage1h: 1.2,
+                    osUsage1h: 0,
+                    startsUsage: 0.02
+                }
             ];
 
             function getFuelByKm(kilometers, usageOn) {
-              let km = kilometers;
-              let usage = usageOn;
-              let result = 0;
+                let km = kilometers;
+                let usage = usageOn;
+                let result = 0;
 
-              result = (km * usage) / 100;
+                result = (km * usage) / 100;
 
-              return result;
+                return result;
             }
 
             function getFuelByMinutes(min, usage) {
-              let minutes = min;
-              let onUsage = usage;
-              let result = 0;
+                let minutes = min;
+                let onUsage = usage;
+                let result = 0;
 
-              result = min * usage;
+                result = min * usage;
 
-              return result;
+                return result;
             }
             function getFuelByHours(hour, usage) {
-              let h = hour;
-              let onUsage = usage;
-              let result = 0;
+                let h = hour;
+                let onUsage = usage;
+                let result = 0;
 
-              result = h * usage;
+                result = h * usage;
 
-              return result;
+                return result;
             }
 
             function hoursToMinutes(hour) {
-              let hours = hour;
-              let minutes = hours * 60;
+                let hours = hour;
+                let minutes = hours * 60;
 
-              return minutes;
+                return minutes;
             }
 
             function minutesToHours(minutes) {
-              let min = minutes;
+                let min = minutes;
 
-              let hours = minutes / 60;
+                let hours = min / 60;
 
-              return hours;
+                return hours;
             }
 
             function showCarResult() {
-              const carTable = document.getElementById("carTable");
-              const carTableBody = document.getElementById("carTableBody");
+                const carTable = document.getElementById("carTable");
+                const carTableBody = document.getElementById("carTableBody");
 
-              const car1KmInputValue = document.getElementById("car1KmInput").value;
-              const car1StopHoursInputValue =
-                document.getElementById("car1StopHoursInput").value;
-              const car1StopMinutesInputValue = document.getElementById(
-                "car1StopMinutesInput"
-              ).value;
-              const car1AutoPumpHoursInputValue = document.getElementById(
-                "car1AutoPumpHoursInput"
-              ).value;
-              const car1AutoPumpMinutesInputValue = document.getElementById(
-                "car1AutoPumpMinutesInput"
-              ).value;
-              const car1StartsInputValue =
-                document.getElementById("car1StartsInput").value;
+                const car1KmInputValue =
+                    document.getElementById("car1KmInput").value;
+                const car1StopHoursInputValue =
+                    document.getElementById("car1StopHoursInput").value;
+                const car1StopMinutesInputValue = document.getElementById(
+                    "car1StopMinutesInput"
+                ).value;
+                const car1AutoPumpHoursInputValue = document.getElementById(
+                    "car1AutoPumpHoursInput"
+                ).value;
+                const car1AutoPumpMinutesInputValue = document.getElementById(
+                    "car1AutoPumpMinutesInput"
+                ).value;
+                const car1StartsInputValue =
+                    document.getElementById("car1StartsInput").value;
 
-              const car2KmInputValue = document.getElementById("car2KmInput").value;
-              const car2StopHoursInputValue =
-                document.getElementById("car2StopHoursInput").value;
-              const car2StopMinutesInputValue = document.getElementById(
-                "car2StopMinutesInput"
-              ).value;
-              const car2StartsInputValue =
-                document.getElementById("car2StartsInput").value;
+                const car2KmInputValue =
+                    document.getElementById("car2KmInput").value;
+                const car2StopHoursInputValue =
+                    document.getElementById("car2StopHoursInput").value;
+                const car2StopMinutesInputValue = document.getElementById(
+                    "car2StopMinutesInput"
+                ).value;
+                const car2StartsInputValue =
+                    document.getElementById("car2StartsInput").value;
 
-              let car1Res = 0;
-              let car2Res = 0;
-              carTableBody.innerHTML = "";
+                let car1Res = 0;
+                let car2Res = 0;
+                carTableBody.innerHTML = "";
 
-              //car1
-              car1Res = getFuelByKm(car1KmInputValue, carArr[0].onUsage);
+                //car1
+                car1Res = getFuelByKm(car1KmInputValue, carArr[0].onUsage);
 
-              car1Res += getFuelByMinutes(
-                hoursToMinutes(car1StopHoursInputValue),
-                carArr[0].stopUsage
-              );
+                car1Res += getFuelByMinutes(
+                    hoursToMinutes(car1StopHoursInputValue),
+                    carArr[0].stopUsage
+                );
 
-              car1Res += getFuelByMinutes(
-                car1StopMinutesInputValue,
-                carArr[0].stopUsage
-              );
+                car1Res += getFuelByMinutes(
+                    car1StopMinutesInputValue,
+                    carArr[0].stopUsage
+                );
 
-              car1Res += getFuelByMinutes(
-                car1AutoPumpHoursInputValue,
-                carArr[0].autoPumpUsage
-              );
-              car1Res += getFuelByMinutes(
-                minutesToHours(car1AutoPumpMinutesInputValue),
-                carArr[0].autoPumpUsage
-              );
+                car1Res += getFuelByMinutes(
+                    car1AutoPumpHoursInputValue,
+                    carArr[0].autoPumpUsage
+                );
+                car1Res += getFuelByMinutes(
+                    minutesToHours(car1AutoPumpMinutesInputValue),
+                    carArr[0].autoPumpUsage
+                );
 
-              car1Res += car1StartsInputValue * carArr[0].startsUsage;
+                car1Res += car1StartsInputValue * carArr[0].startsUsage;
 
-              car1Res = car1Res.toFixed(2);
+                car1Res = car1Res.toFixed(2);
 
-              if (car1Res > 0) {
-                carTableBody.innerHTML += `
+                if (car1Res > 0) {
+                    carTableBody.innerHTML += `
                                    <tr>
                                    <td><span>${carArr[0].name}</span></td>
                                    <td><span>${car1Res} l</span></td>
@@ -817,28 +819,28 @@
                                    <td><span>0</span></td>
                                    </tr>
                                    `;
-                carTable.classList.remove("hidden");
-              }
+                    carTable.classList.remove("hidden");
+                }
 
-              //car2
-              car2Res = getFuelByKm(car2KmInputValue, carArr[1].onUsage);
+                //car2
+                car2Res = getFuelByKm(car2KmInputValue, carArr[1].onUsage);
 
-              car2Res += getFuelByMinutes(
-                hoursToMinutes(car2StopHoursInputValue),
-                carArr[1].stopUsage
-              );
+                car2Res += getFuelByMinutes(
+                    hoursToMinutes(car2StopHoursInputValue),
+                    carArr[1].stopUsage
+                );
 
-              car2Res += getFuelByMinutes(
-                car2StopMinutesInputValue,
-                carArr[1].stopUsage
-              );
+                car2Res += getFuelByMinutes(
+                    car2StopMinutesInputValue,
+                    carArr[1].stopUsage
+                );
 
-              car2Res += car2StartsInputValue * carArr[1].startsUsage;
+                car2Res += car2StartsInputValue * carArr[1].startsUsage;
 
-              car2Res = car2Res.toFixed(2);
+                car2Res = car2Res.toFixed(2);
 
-              if (car2Res > 0) {
-                carTableBody.innerHTML += `
+                if (car2Res > 0) {
+                    carTableBody.innerHTML += `
                                    <tr>
                                    <td><span>${carArr[1].name}</span></td>
                                    <td><span>${car2Res} l</span></td>
@@ -847,91 +849,95 @@
                                    </tr>
                                    `;
 
-                carTable.classList.remove("hidden");
-              }
+                    carTable.classList.remove("hidden");
+                }
             }
 
             function showPumpResult() {
-              const pumpTable = document.getElementById("pumpTable");
-              const pumpTableBody = document.getElementById("pumpTableBody");
+                const pumpTable = document.getElementById("pumpTable");
+                const pumpTableBody = document.getElementById("pumpTableBody");
 
-              const pump1RunHoursInputValue =
-                document.getElementById("pump1RunHoursInput").value;
-              const pump1RunMinutesInputValue = document.getElementById(
-                "pump1RunMinutesInput"
-              ).value;
-              const pump1StartsInputValue =
-                document.getElementById("pump1StartsInput").value;
+                const pump1RunHoursInputValue =
+                    document.getElementById("pump1RunHoursInput").value;
+                const pump1RunMinutesInputValue = document.getElementById(
+                    "pump1RunMinutesInput"
+                ).value;
+                const pump1StartsInputValue =
+                    document.getElementById("pump1StartsInput").value;
 
-              const pump2RunHoursInputValue =
-                document.getElementById("pump2RunHoursInput").value;
-              const pump2RunMinutesInputValue = document.getElementById(
-                "pump2RunMinutesInput"
-              ).value;
-              const pump2StartsInputValue =
-                document.getElementById("pump2StartsInput").value;
+                const pump2RunHoursInputValue =
+                    document.getElementById("pump2RunHoursInput").value;
+                const pump2RunMinutesInputValue = document.getElementById(
+                    "pump2RunMinutesInput"
+                ).value;
+                const pump2StartsInputValue =
+                    document.getElementById("pump2StartsInput").value;
 
-              const pump3RunHoursInputValue =
-                document.getElementById("pump3RunHoursInput").value;
-              const pump3RunMinutesInputValue = document.getElementById(
-                "pump3RunMinutesInput"
-              ).value;
-              const pump3StartsInputValue =
-                document.getElementById("pump3StartsInput").value;
+                const pump3RunHoursInputValue =
+                    document.getElementById("pump3RunHoursInput").value;
+                const pump3RunMinutesInputValue = document.getElementById(
+                    "pump3RunMinutesInput"
+                ).value;
+                const pump3StartsInputValue =
+                    document.getElementById("pump3StartsInput").value;
 
-              const pump4RunHoursInputValue =
-                document.getElementById("pump4RunHoursInput").value;
-              const pump4RunMinutesInputValue = document.getElementById(
-                "pump4RunMinutesInput"
-              ).value;
-              const pump4StartsInputValue =
-                document.getElementById("pump4StartsInput").value;
+                const pump4RunHoursInputValue =
+                    document.getElementById("pump4RunHoursInput").value;
+                const pump4RunMinutesInputValue = document.getElementById(
+                    "pump4RunMinutesInput"
+                ).value;
+                const pump4StartsInputValue =
+                    document.getElementById("pump4StartsInput").value;
 
-              let pump1result = 0;
-              let pump1hourRunTime = 0;
-              let pump1osResult = 0;
-              let pump2result = 0;
-              let pump3result = 0;
-              let pump4result = 0;
+                let pump1result = 0;
+                let pump1hourRunTime = 0;
+                let pump1osResult = 0;
+                let pump2result = 0;
+                let pump3result = 0;
+                let pump4result = 0;
 
-              pumpTableBody.innerHTML = "";
+                pumpTableBody.innerHTML = "";
 
-              pump1result += getFuelByHours(
-                pump1RunHoursInputValue,
-                pumpArr[0].pbUsage1h
-              );
+                pump1result += getFuelByHours(
+                    pump1RunHoursInputValue,
+                    pumpArr[0].pbUsage1h
+                );
 
-              pump1result += getFuelByMinutes(
-                minutesToHours(pump1RunMinutesInputValue),
-                pumpArr[0].pbUsage1h
-              );
+                pump1result += getFuelByMinutes(
+                    minutesToHours(pump1RunMinutesInputValue),
+                    pumpArr[0].pbUsage1h
+                );
 
-              pump1result += getFuelByMinutes(
-                minutesToHours(pump1StartsInputValue),
-                pumpArr[0].pbUsage1h
-              );
+                pump1result += getFuelByMinutes(
+                    minutesToHours(pump1StartsInputValue),
+                    pumpArr[0].pbUsage1h
+                );
 
-              //pump1hourruntime i pump1osresult jest
-              //stosowane tylko w przypadku zużycia oleju silnikowego !!!!!!!
+                //pump1hourruntime i pump1osresult jest
+                //stosowane tylko w przypadku zużycia oleju silnikowego !!!!!!!
+                pump1RunHoursInputValue > 0
+                    ? (pump1hourRunTime += parseFloat(pump1RunHoursInputValue))
+                    : "";
+                pump1hourRunTime += parseFloat(
+                    minutesToHours(pump1RunMinutesInputValue)
+                );
 
-              pump1hourRunTime += parseFloat(pump1RunHoursInputValue);
-              pump1hourRunTime += parseFloat(
-                minutesToHours(pump1RunMinutesInputValue)
-              );
-              pump1hourRunTime += parseFloat(minutesToHours(pump1StartsInputValue));
+                pump1hourRunTime += parseFloat(
+                    minutesToHours(pump1StartsInputValue)
+                );
+                
 
-              pump1osResult = pump1hourRunTime * pumpArr[0].osUsage1h;
+                pump1osResult = pump1hourRunTime * pumpArr[0].osUsage1h;
+                
 
-              pump1osResult = pump1osResult.toFixed(2);
+                pump1osResult = pump1osResult.toFixed(2);
 
-              console.log("os:"+pump1osResult);
+                //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-              //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                pump1result = pump1result.toFixed(2);
 
-              pump1result = pump1result.toFixed(2);
-
-              if (pump1result > 0) {
-                pumpTableBody.innerHTML += `
+                if (pump1result > 0) {
+                    pumpTableBody.innerHTML += `
                                    <tr>
                                    <td><span>${pumpArr[0].name}</span></td>
                                    <td><span>0</span></td>
@@ -939,28 +945,28 @@
                                    <td><span>${pump1osResult} l</span></td>
                                    </tr>
                                    `;
-                pumpTable.classList.remove("hidden");
-              }
+                    pumpTable.classList.remove("hidden");
+                }
 
-              pump2result += getFuelByHours(
-                pump2RunHoursInputValue,
-                pumpArr[1].pbUsage1h
-              );
+                pump2result += getFuelByHours(
+                    pump2RunHoursInputValue,
+                    pumpArr[1].pbUsage1h
+                );
 
-              pump2result += getFuelByMinutes(
-                minutesToHours(pump2RunMinutesInputValue),
-                pumpArr[1].pbUsage1h
-              );
+                pump2result += getFuelByMinutes(
+                    minutesToHours(pump2RunMinutesInputValue),
+                    pumpArr[1].pbUsage1h
+                );
 
-              pump2result += getFuelByMinutes(
-                minutesToHours(pump2StartsInputValue),
-                pumpArr[1].pbUsage1h
-              );
+                pump2result += getFuelByMinutes(
+                    minutesToHours(pump2StartsInputValue),
+                    pumpArr[1].pbUsage1h
+                );
 
-              pump2result = pump2result.toFixed(2);
+                pump2result = pump2result.toFixed(2);
 
-              if (pump2result > 0) {
-                pumpTableBody.innerHTML += `
+                if (pump2result > 0) {
+                    pumpTableBody.innerHTML += `
                                    <tr>
                                    <td><span>${pumpArr[1].name} l</span></td>
                                    <td><span>0</span></td>
@@ -968,28 +974,28 @@
                                    <td><span>0</span></td>
                                    </tr>
                                    `;
-                pumpTable.classList.remove("hidden");
-              }
+                    pumpTable.classList.remove("hidden");
+                }
 
-              pump3result += getFuelByHours(
-                pump3RunHoursInputValue,
-                pumpArr[2].pbUsage1h
-              );
+                pump3result += getFuelByHours(
+                    pump3RunHoursInputValue,
+                    pumpArr[2].pbUsage1h
+                );
 
-              pump3result += getFuelByMinutes(
-                minutesToHours(pump3RunMinutesInputValue),
-                pumpArr[2].pbUsage1h
-              );
+                pump3result += getFuelByMinutes(
+                    minutesToHours(pump3RunMinutesInputValue),
+                    pumpArr[2].pbUsage1h
+                );
 
-              pump3result += getFuelByMinutes(
-                minutesToHours(pump3StartsInputValue),
-                pumpArr[2].pbUsage1h
-              );
+                pump3result += getFuelByMinutes(
+                    minutesToHours(pump3StartsInputValue),
+                    pumpArr[2].pbUsage1h
+                );
 
-              pump3result = pump3result.toFixed(2);
+                pump3result = pump3result.toFixed(2);
 
-              if (pump3result > 0) {
-                pumpTableBody.innerHTML += `
+                if (pump3result > 0) {
+                    pumpTableBody.innerHTML += `
                                    <tr>
                                    <td><span>${pumpArr[2].name} l</span></td>
                                    <td><span>0</span></td>
@@ -997,28 +1003,28 @@
                                    <td><span>0</span></td>
                                    </tr>
                                    `;
-                pumpTable.classList.remove("hidden");
-              }
+                    pumpTable.classList.remove("hidden");
+                }
 
-              pump4result += getFuelByHours(
-                pump4RunHoursInputValue,
-                pumpArr[3].pbUsage1h
-              );
+                pump4result += getFuelByHours(
+                    pump4RunHoursInputValue,
+                    pumpArr[3].pbUsage1h
+                );
 
-              pump4result += getFuelByMinutes(
-                minutesToHours(pump4RunMinutesInputValue),
-                pumpArr[3].pbUsage1h
-              );
+                pump4result += getFuelByMinutes(
+                    minutesToHours(pump4RunMinutesInputValue),
+                    pumpArr[3].pbUsage1h
+                );
 
-              pump4result += getFuelByMinutes(
-                minutesToHours(pump4StartsInputValue),
-                pumpArr[3].pbUsage1h
-              );
+                pump4result += getFuelByMinutes(
+                    minutesToHours(pump4StartsInputValue),
+                    pumpArr[3].pbUsage1h
+                );
 
-              pump4result = pump4result.toFixed(2);
+                pump4result = pump4result.toFixed(2);
 
-              if (pump4result > 0) {
-                pumpTableBody.innerHTML += `
+                if (pump4result > 0) {
+                    pumpTableBody.innerHTML += `
                                    <tr>
                                    <td><span>${pumpArr[3].name} l</span></td>
                                    <td><span>0</span></td>
@@ -1026,69 +1032,70 @@
                                    <td><span>0</span></td>
                                    </tr>
                                    `;
-                pumpTable.classList.remove("hidden");
-              }
+                    pumpTable.classList.remove("hidden");
+                }
             }
 
             function showAgrVentsResult() {
-              const agrVentsTable = document.getElementById("agrVentsTable");
-              const agrVentsTableBody = document.getElementById("agrVentsTableBody");
+                const agrVentsTable = document.getElementById("agrVentsTable");
+                const agrVentsTableBody =
+                    document.getElementById("agrVentsTableBody");
 
-              const agrVent1RunHoursInputValue = document.getElementById(
-                "agrVent1RunHoursInput"
-              ).value;
-              const agrVent1RunMinutesInputValue = document.getElementById(
-                "agrVent1RunMinutesInput"
-              ).value;
-              const agrVent1StartsInputValue = document.getElementById(
-                "agrVent1StartsInput"
-              ).value;
+                const agrVent1RunHoursInputValue = document.getElementById(
+                    "agrVent1RunHoursInput"
+                ).value;
+                const agrVent1RunMinutesInputValue = document.getElementById(
+                    "agrVent1RunMinutesInput"
+                ).value;
+                const agrVent1StartsInputValue = document.getElementById(
+                    "agrVent1StartsInput"
+                ).value;
 
-              const agrVent2RunHoursInputValue = document.getElementById(
-                "agrVent2RunHoursInput"
-              ).value;
-              const agrVent2RunMinutesInputValue = document.getElementById(
-                "agrVent2RunMinutesInput"
-              ).value;
-              const agrVent2StartsInputValue = document.getElementById(
-                "agrVent2StartsInput"
-              ).value;
+                const agrVent2RunHoursInputValue = document.getElementById(
+                    "agrVent2RunHoursInput"
+                ).value;
+                const agrVent2RunMinutesInputValue = document.getElementById(
+                    "agrVent2RunMinutesInput"
+                ).value;
+                const agrVent2StartsInputValue = document.getElementById(
+                    "agrVent2StartsInput"
+                ).value;
 
-              const agrVent3RunHoursInputValue = document.getElementById(
-                "agrVent3RunHoursInput"
-              ).value;
-              const agrVent3RunMinutesInputValue = document.getElementById(
-                "agrVent3RunMinutesInput"
-              ).value;
-              const agrVent3StartsInputValue = document.getElementById(
-                "agrVent3StartsInput"
-              ).value;
+                const agrVent3RunHoursInputValue = document.getElementById(
+                    "agrVent3RunHoursInput"
+                ).value;
+                const agrVent3RunMinutesInputValue = document.getElementById(
+                    "agrVent3RunMinutesInput"
+                ).value;
+                const agrVent3StartsInputValue = document.getElementById(
+                    "agrVent3StartsInput"
+                ).value;
 
-              let agrVent1Result = 0;
-              let agrVent2Result = 0;
-              let agrVent3Result = 0;
+                let agrVent1Result = 0;
+                let agrVent2Result = 0;
+                let agrVent3Result = 0;
 
-              agrVentsTableBody.innerHTML = "";
+                agrVentsTableBody.innerHTML = "";
 
-              agrVent1Result += getFuelByHours(
-                agrVent1RunHoursInputValue,
-                agrVentsArr[0].pbUsage1h
-              );
+                agrVent1Result += getFuelByHours(
+                    agrVent1RunHoursInputValue,
+                    agrVentsArr[0].pbUsage1h
+                );
 
-              agrVent1Result += getFuelByMinutes(
-                minutesToHours(agrVent1RunMinutesInputValue),
-                agrVentsArr[0].pbUsage1h
-              );
+                agrVent1Result += getFuelByMinutes(
+                    minutesToHours(agrVent1RunMinutesInputValue),
+                    agrVentsArr[0].pbUsage1h
+                );
 
-              agrVent1Result += getFuelByMinutes(
-                minutesToHours(agrVent1StartsInputValue),
-                agrVentsArr[0].pbUsage1h
-              );
+                agrVent1Result += getFuelByMinutes(
+                    minutesToHours(agrVent1StartsInputValue),
+                    agrVentsArr[0].pbUsage1h
+                );
 
-              agrVent1Result = agrVent1Result.toFixed(2);
+                agrVent1Result = agrVent1Result.toFixed(2);
 
-              if (agrVent1Result > 0) {
-                agrVentsTableBody.innerHTML += `
+                if (agrVent1Result > 0) {
+                    agrVentsTableBody.innerHTML += `
                                    <tr>
                                    <td><span>${agrVentsArr[0].name} l</span></td>
                                    <td><span>0</span></td>
@@ -1096,28 +1103,28 @@
                                    <td><span>0</span></td>
                                    </tr>
                                    `;
-                agrVentsTable.classList.remove("hidden");
-              }
+                    agrVentsTable.classList.remove("hidden");
+                }
 
-              agrVent2Result += getFuelByHours(
-                agrVent2RunHoursInputValue,
-                agrVentsArr[1].pbUsage1h
-              );
+                agrVent2Result += getFuelByHours(
+                    agrVent2RunHoursInputValue,
+                    agrVentsArr[1].pbUsage1h
+                );
 
-              agrVent2Result += getFuelByMinutes(
-                minutesToHours(agrVent2RunMinutesInputValue),
-                agrVentsArr[1].pbUsage1h
-              );
+                agrVent2Result += getFuelByMinutes(
+                    minutesToHours(agrVent2RunMinutesInputValue),
+                    agrVentsArr[1].pbUsage1h
+                );
 
-              agrVent2Result += getFuelByMinutes(
-                minutesToHours(agrVent2StartsInputValue),
-                agrVentsArr[1].pbUsage1h
-              );
+                agrVent2Result += getFuelByMinutes(
+                    minutesToHours(agrVent2StartsInputValue),
+                    agrVentsArr[1].pbUsage1h
+                );
 
-              agrVent2Result = agrVent2Result.toFixed(2);
+                agrVent2Result = agrVent2Result.toFixed(2);
 
-              if (agrVent2Result > 0) {
-                agrVentsTableBody.innerHTML += `
+                if (agrVent2Result > 0) {
+                    agrVentsTableBody.innerHTML += `
                                    <tr>
                                    <td><span>${agrVentsArr[1].name} l</span></td>
                                    <td><span>0</span></td>
@@ -1125,28 +1132,28 @@
                                    <td><span>0</span></td>
                                    </tr>
                                    `;
-                agrVentsTable.classList.remove("hidden");
-              }
+                    agrVentsTable.classList.remove("hidden");
+                }
 
-              agrVent3Result += getFuelByHours(
-                agrVent3RunHoursInputValue,
-                agrVentsArr[2].pbUsage1h
-              );
+                agrVent3Result += getFuelByHours(
+                    agrVent3RunHoursInputValue,
+                    agrVentsArr[2].pbUsage1h
+                );
 
-              agrVent3Result += getFuelByMinutes(
-                minutesToHours(agrVent3RunMinutesInputValue),
-                agrVentsArr[2].pbUsage1h
-              );
+                agrVent3Result += getFuelByMinutes(
+                    minutesToHours(agrVent3RunMinutesInputValue),
+                    agrVentsArr[2].pbUsage1h
+                );
 
-              agrVent3Result += getFuelByMinutes(
-                minutesToHours(agrVent3StartsInputValue),
-                agrVentsArr[2].pbUsage1h
-              );
+                agrVent3Result += getFuelByMinutes(
+                    minutesToHours(agrVent3StartsInputValue),
+                    agrVentsArr[2].pbUsage1h
+                );
 
-              agrVent3Result = agrVent3Result.toFixed(2);
+                agrVent3Result = agrVent3Result.toFixed(2);
 
-              if (agrVent3Result > 0) {
-                agrVentsTableBody.innerHTML += `
+                if (agrVent3Result > 0) {
+                    agrVentsTableBody.innerHTML += `
                                    <tr>
                                    <td><span>${agrVentsArr[2].name} l</span></td>
                                    <td><span>0</span></td>
@@ -1154,31 +1161,31 @@
                                    <td><span>0</span></td>
                                    </tr>
                                    `;
-                agrVentsTable.classList.remove("hidden");
-              }
+                    agrVentsTable.classList.remove("hidden");
+                }
             }
 
             function showTabs() {
-              const resultTable = document.getElementById("resultTable");
-              showCarResult();
-              showPumpResult();
-              showAgrVentsResult();
-              resultTable.classList.remove("hidden");
+                const resultTable = document.getElementById("resultTable");
+                showCarResult();
+                showPumpResult();
+                showAgrVentsResult();
+                resultTable.classList.remove("hidden");
             }
 
             function resetInputs() {
-              let inputs = document.getElementsByTagName("input");
-              const resultTable = document.getElementById("resultTable");
-              const carTable = document.getElementById("carTable");
-              const pumpTable = document.getElementById("pumpTable");
-              const agrVentsTable = document.getElementById("agrVentsTable");
+                let inputs = document.getElementsByTagName("input");
+                const resultTable = document.getElementById("resultTable");
+                const carTable = document.getElementById("carTable");
+                const pumpTable = document.getElementById("pumpTable");
+                const agrVentsTable = document.getElementById("agrVentsTable");
 
-              resultTable.classList.add("hidden");
-              carTable.classList.add("hidden");
-              pumpTable.classList.add("hidden");
-              agrVentsTable.classList.add("hidden");
+                resultTable.classList.add("hidden");
+                carTable.classList.add("hidden");
+                pumpTable.classList.add("hidden");
+                agrVentsTable.classList.add("hidden");
 
-              for (let i = 0; i <= inputs.length; i++) inputs[i].value = "";
+                for (let i = 0; i <= inputs.length; i++) inputs[i].value = "";
             }
         </script>
     </body>
