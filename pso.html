@@ -854,6 +854,8 @@
         pump1osResult = pump1hourRunTime * pumpArr[0].osUsage1h;
 
         pump1osResult = pump1osResult.toFixed(2);
+        
+        console.log("os:"pump1osResult);
 
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -1025,7 +1027,65 @@
                              <td><span>0</span></td>
                              </tr>
                              `;
-          //agrVentsTable.classList.remove("hidden");
+          agrVentsTable.classList.remove("hidden");
+        }
+        
+        agrVent2Result += getFuelByHours(
+          agrVent2RunHoursInputValue,
+          agrVentsArr[1].pbUsage1h
+        );
+
+        agrVent2Result += getFuelByMinutes(
+          minutesToHours(agrVent2RunMinutesInputValue),
+          agrVentsArr[1].pbUsage1h
+        );
+
+        agrVent2Result += getFuelByMinutes(
+          minutesToHours(agrVent2StartsInputValue),
+          agrVentsArr[1].pbUsage1h
+        );
+
+        agrVent2Result = agrVent2Result.toFixed(2);
+
+        if (agrVent2Result > 0) {
+          agrVentsTableBody.innerHTML += `
+                             <tr>
+                             <td><span>${agrVentsArr[1].name} l</span></td>
+                             <td><span>0</span></td>
+                             <td><span>${agrVent2Result} l</span></td>
+                             <td><span>0</span></td>
+                             </tr>
+                             `;
+          agrVentsTable.classList.remove("hidden");
+        }
+        
+        agrVent3Result += getFuelByHours(
+          agrVent3RunHoursInputValue,
+          agrVentsArr[2].pbUsage1h
+        );
+
+        agrVent3Result += getFuelByMinutes(
+          minutesToHours(agrVent3RunMinutesInputValue),
+          agrVentsArr[2].pbUsage1h
+        );
+
+        agrVent3Result += getFuelByMinutes(
+          minutesToHours(agrVent3StartsInputValue),
+          agrVentsArr[2].pbUsage1h
+        );
+
+        agrVent3Result = agrVent3Result.toFixed(2);
+
+        if (agrVent3Result > 0) {
+          agrVentsTableBody.innerHTML += `
+                             <tr>
+                             <td><span>${agrVentsArr[2].name} l</span></td>
+                             <td><span>0</span></td>
+                             <td><span>${agrVent3Result} l</span></td>
+                             <td><span>0</span></td>
+                             </tr>
+                             `;
+          agrVentsTable.classList.remove("hidden");
         }
       }
 
