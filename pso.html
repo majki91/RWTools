@@ -705,7 +705,7 @@
                     ><button onclick="showTabs()">Oblicz</button></a
                 >
                 <a href="#header"
-                    ><button onclick="resetInputs()">Wyzeruj</button></a
+                    ><button onclick="resetInputs()">wyzeruj</button></a
                 >
             </div>
             <div id="resultBox" class="tables" style="gap: 0">
@@ -1728,16 +1728,22 @@
                 sawsTable.classList.add("hidden");
                 allUsageTable.classList.add("hidden");
 
-                for (let i = 0; i <= inputs.length; i++) inputs[i].value = "";
+                for (let i = 0; i <= inputs.length; i++) {
+                    inputs[i].value = "";
+                }
+                
+                console.log(allONusage, allOSusage, allPBusage);
+                
                 allONusage = 0;
                 allPBusage = 0;
                 allOSusage = 0;
-                allCarsONusageResult =0;
-                allPumpsPBusageResult =0;
-                allPumpsOSusageResult =0;
-                allAgrVentsPBusageResult =0;
-                allSawsOSusageResult =0;
-                allSawsPBusageResult =0;
+                allCarsONusageResult = 0;
+                allPumpsPBusageResult = 0;
+                allPumpsOSusageResult = 0;
+                allAgrVentsPBusageResult = 0;
+                allSawsOSusageResult = 0;
+                allSawsPBusageResult = 0;
+
             }
         </script>
     </body>
