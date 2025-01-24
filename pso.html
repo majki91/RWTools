@@ -786,33 +786,32 @@
                     startsUsage: 0.02
                 }
             ];
-            
-            const sawArr =[
-            {
-              name: "Pilarka STIHL MS360",
-              pbUsage1h:1,
-              osUsage1h:0.02,
-              startsUsage:0.0166
-            },
-            {
-              name: "Pilarka STIHL MS341",
-              pbUsage1h:1,
-              osUsage1h:0.02,
-              startsUsage:0.0166
-            },
-            {
-              name: "Pilarka STIHL MS261",
-              pbUsage1h:1,
-              osUsage1h:0.02,
-              startsUsage:0.0166
-            },
-            {
-              name: "PARTNER K650",
-              pbUsage1h:1.2,
-              osUsage1h:0.02,
-              startsUsage:0.02
-            }
-            
+
+            const sawArr = [
+                {
+                    name: "Pilarka STIHL MS360",
+                    pbUsage1h: 1,
+                    osUsage1h: 0.02,
+                    startsUsage: 0.0166
+                },
+                {
+                    name: "Pilarka STIHL MS341",
+                    pbUsage1h: 1,
+                    osUsage1h: 0.02,
+                    startsUsage: 0.0166
+                },
+                {
+                    name: "Pilarka STIHL MS261",
+                    pbUsage1h: 1,
+                    osUsage1h: 0.02,
+                    startsUsage: 0.0166
+                },
+                {
+                    name: "PARTNER K650",
+                    pbUsage1h: 1.2,
+                    osUsage1h: 0.02,
+                    startsUsage: 0.02
+                }
             ];
 
             function getFuelByKm(kilometers, usageOn) {
@@ -1037,7 +1036,7 @@
 
                 pump1osResult = pump1hourRunTime * pumpArr[0].osUsage1h;
 
-                pump1osResult = pump1osResult.toFixed(2);
+                pump1osResult = pump1osResult.toFixed(4);
 
                 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -1271,9 +1270,9 @@
                     agrVentsTable.classList.remove("hidden");
                 }
             }
-            
-            function showSawsResult(){
-              const sawsTable = document.getElementById("sawsTable");
+
+            function showSawsResult() {
+                const sawsTable = document.getElementById("sawsTable");
                 const sawsTableBody = document.getElementById("sawsTableBody");
 
                 const saw1RunHoursInputValue =
@@ -1283,15 +1282,15 @@
                 ).value;
                 const saw1StartsInputValue =
                     document.getElementById("saw1StartsInput").value;
-                    
+
                 const saw2RunHoursInputValue =
                     document.getElementById("saw2RunHoursInput").value;
                 const saw2RunMinutesInputValue = document.getElementById(
                     "saw2RunMinutesInput"
                 ).value;
-                
-                const saw3StartsInputValue =
-                    document.getElementById("saw3StartsInput").value;
+                const saw2StartsInputValue =
+                    document.getElementById("saw2StartsInput").value;
+                    
                 const saw3RunHoursInputValue =
                     document.getElementById("saw3RunHoursInput").value;
                 const saw3RunMinutesInputValue = document.getElementById(
@@ -1299,7 +1298,7 @@
                 ).value;
                 const saw3StartsInputValue =
                     document.getElementById("saw3StartsInput").value;
-                  
+
                 let saw1result = 0;
                 let saw1hourRunTime = 0;
                 let saw1osResult = 0;
@@ -1309,8 +1308,8 @@
                 let saw3result = 0;
                 let saw3hourRunTime = 0;
                 let saw3osResult = 0;
-                
-                sawTableBody.innerHTML = "";
+
+                sawsTableBody.innerHTML = "";
 
                 saw1result += getFuelByHours(
                     saw1RunHoursInputValue,
@@ -1342,24 +1341,125 @@
 
                 saw1osResult = saw1hourRunTime * sawArr[0].osUsage1h;
 
-                saw1osResult = saw1osResult.toFixed(2);
+                saw1osResult = saw1osResult.toFixed(4);
 
                 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
                 saw1result = saw1result.toFixed(2);
 
                 if (saw1result > 0) {
-                    sawTableBody.innerHTML += `
+                    sawsTableBody.innerHTML += `
                                    <tr>
                                    <td><span>${sawArr[0].name}</span></td>
                                    <td><span>0</span></td>
-                                   <td><span>${pump1result} l</span></td>
-                                   <td><span>${pump1osResult} l</span></td>
+                                   <td><span>${saw1result} l</span></td>
+                                   <td><span>${saw1osResult} l</span></td>
                                    </tr>
                                    `;
-                    pumpTable.classList.remove("hidden");
+                    sawsTable.classList.remove("hidden");
                 }
                 
+                saw2result += getFuelByHours(
+                    saw2RunHoursInputValue,
+                    sawArr[1].pbUsage1h
+                );
+
+                saw2result += getFuelByMinutes(
+                    minutesToHours(saw2RunMinutesInputValue),
+                    sawArr[1].pbUsage1h
+                );
+
+                saw2result += getFuelByMinutes(
+                    minutesToHours(saw2StartsInputValue),
+                    sawArr[1].pbUsage1h
+                );
+
+                //pump1hourruntime i pump1osresult jest
+                //stosowane tylko w przypadku zużycia oleju silnikowego !!!!!!!
+                saw2RunHoursInputValue > 0
+                    ? (saw2hourRunTime += parseFloat(saw2RunHoursInputValue))
+                    : "";
+                saw2hourRunTime += parseFloat(
+                    minutesToHours(saw2RunMinutesInputValue)
+                );
+
+                saw2hourRunTime += parseFloat(
+                    minutesToHours(saw2StartsInputValue)
+                );
+
+                saw2osResult = saw2hourRunTime * sawArr[1].osUsage1h;
+
+                saw2osResult = saw2osResult.toFixed(4);
+
+                //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+                saw2result = saw2result.toFixed(2);
+
+                if (saw2result > 0) {
+                    sawsTableBody.innerHTML += `
+                                   <tr>
+                                   <td><span>${sawArr[1].name}</span></td>
+                                   <td><span>0</span></td>
+                                   <td><span>${saw2result} l</span></td>
+                                   <td><span>${saw2osResult} l</span></td>
+                                   </tr>
+                                   `;
+                    sawsTable.classList.remove("hidden");
+                    
+                    
+                    
+                }
+                
+                saw3result += getFuelByHours(
+                    saw3RunHoursInputValue,
+                    sawArr[2].pbUsage1h
+                );
+
+                saw3result += getFuelByMinutes(
+                    minutesToHours(saw3RunMinutesInputValue),
+                    sawArr[2].pbUsage1h
+                );
+
+                saw3result += getFuelByMinutes(
+                    minutesToHours(saw3StartsInputValue),
+                    sawArr[2].pbUsage1h
+                );
+
+                //pump1hourruntime i pump1osresult jest
+                //stosowane tylko w przypadku zużycia oleju silnikowego !!!!!!!
+                saw3RunHoursInputValue > 0
+                    ? (saw3hourRunTime += parseFloat(saw3RunHoursInputValue))
+                    : "";
+                saw3hourRunTime += parseFloat(
+                    minutesToHours(saw3RunMinutesInputValue)
+                );
+
+                saw3hourRunTime += parseFloat(
+                    minutesToHours(saw3StartsInputValue)
+                );
+
+                saw3osResult = saw3hourRunTime * sawArr[2].osUsage1h;
+
+                saw3osResult = saw3osResult.toFixed(4);
+
+                //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+                saw3result = saw3result.toFixed(2);
+
+                if (saw3result > 0) {
+                    sawsTableBody.innerHTML += `
+                                   <tr>
+                                   <td><span>${sawArr[2].name}</span></td>
+                                   <td><span>0</span></td>
+                                   <td><span>${saw3result} l</span></td>
+                                   <td><span>${saw3osResult} l</span></td>
+                                   </tr>
+                                   `;
+                    sawsTable.classList.remove("hidden");
+                    
+                    
+                    
+                }
                 
             }
 
