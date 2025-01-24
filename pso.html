@@ -405,14 +405,16 @@
                             <input
                                 id="pump2RunHoursInput"
                                 class="short-input"
+                                type="number"
                             /><span>:</span
                             ><input
                                 id="pump2RunMinutesInput"
                                 class="short-input"
+                                type="number"
                             />
                         </td>
                         <td>
-                            <input id="pump2StartsInput" class="norm-input" />
+                            <input id="pump2StartsInput" class="norm-input" type="number" />
                         </td>
                     </tr>
 
@@ -424,14 +426,17 @@
                             <input
                                 id="pump3RunHoursInput"
                                 class="short-input"
+                                type="number"
                             /><span>:</span
                             ><input
                                 id="pump3RunMinutesInput"
                                 class="short-input"
+                                type="number"
                             />
                         </td>
                         <td>
-                            <input id="pump3StartsInput" class="norm-input" />
+                            <input id="pump3StartsInput" class="norm-input" type="number" />
+                            
                         </td>
                     </tr>
 
@@ -443,14 +448,16 @@
                             <input
                                 id="pump4RunHoursInput"
                                 class="short-input"
+                                type="number"
                             /><span>:</span
                             ><input
                                 id="pump4RunMinutesInput"
                                 class="short-input"
+                                type="number"
                             />
                         </td>
                         <td>
-                            <input id="pump4StartsInput" class="norm-input" />
+                            <input id="pump4StartsInput" class="norm-input" type="number" />
                         </td>
                     </tr>
                 </table>
@@ -479,16 +486,19 @@
                             <input
                                 id="agrVent1RunHoursInput"
                                 class="short-input"
+                                type="number"
                             /><span>:</span
                             ><input
                                 id="agrVent1RunMinutesInput"
                                 class="short-input"
+                                type="number"
                             />
                         </td>
                         <td>
                             <input
                                 id="agrVent1StartsInput"
                                 class="norm-input"
+                                type="number"
                             />
                         </td>
                     </tr>
@@ -501,16 +511,19 @@
                             <input
                                 id="agrVent2RunHoursInput"
                                 class="short-input"
+                                type="number"
                             /><span>:</span
                             ><input
                                 id="agrVent2RunMinutesInput"
                                 class="short-input"
+                                type="number"
                             />
                         </td>
                         <td>
                             <input
                                 id="agrVent2StartsInput"
                                 class="norm-input"
+                                type="number"
                             />
                         </td>
                     </tr>
@@ -523,16 +536,19 @@
                             <input
                                 id="agrVent3RunHoursInput"
                                 class="short-input"
+                                type="number"
                             /><span>:</span
                             ><input
                                 id="agrVent3RunMinutesInput"
                                 class="short-input"
+                                type="number"
                             />
                         </td>
                         <td>
                             <input
                                 id="agrVent3StartsInput"
                                 class="norm-input"
+                                type="number"
                             />
                         </td>
                     </tr>
@@ -559,10 +575,10 @@
                             <span>Pilarka spalinowa STIHL MS360</span>
                         </td>
                         <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
+                            <input id="saw1RunHoursInput" class="short-input" type="number" /><span>:</span
+                            ><input id="saw1RunMinutesInput" class="short-input" type="number" />
                         </td>
-                        <td><input class="norm-input" /></td>
+                        <td><input id="saw1StartsInput" class="norm-input" type="number" /></td>
                     </tr>
 
                     <tr>
@@ -570,10 +586,10 @@
                             <span>Pilarka spalinowa STIHL MS341</span>
                         </td>
                         <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
+                            <input id="saw2RunHoursInput" class="short-input" type="number" /><span>:</span
+                            ><input id="saw2RunMinutesInput" class="short-input" type="number" />
                         </td>
-                        <td><input class="norm-input" /></td>
+                        <td><input id="saw2StartsInput" class="norm-input" type="number" /></td>
                     </tr>
 
                     <tr>
@@ -581,10 +597,10 @@
                             <span>Piła do stali i betonu PARTNER K650</span>
                         </td>
                         <td>
-                            <input class="short-input" /><span>:</span
-                            ><input class="short-input" />
+                            <input id="saw3RunHoursInput" class="short-input" type="number" /><span>:</span
+                            ><input id="saw3RunMinutesInput" class="short-input" type="number" />
                         </td>
-                        <td><input class="norm-input" /></td>
+                        <td><input id="saw3StartsInput" class="norm-input" type="number"/></td>
                     </tr>
                 </table>
             </div>
@@ -636,6 +652,18 @@
                             <th><span>Zużycie OS</span></th>
                         </tr>
                         <tbody id="agrVentsTableBody"></tbody>
+                    </table>
+                    <table id="sawsTable" class="result-mini-table hidden">
+                        <caption>
+                            Piły i pilarki
+                        </caption>
+                        <tr>
+                            <th class="name-th"><span>Nazwa</span></th>
+                            <th><span>Zużycie ON</span></th>
+                            <th><span>Zużycie PB</span></th>
+                            <th><span>Zużycie OS</span></th>
+                        </tr>
+                        <tbody id="sawsTableBody"></tbody>
                     </table>
                 </table>
             </div>
