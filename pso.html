@@ -1373,9 +1373,22 @@
                 }
 
                 allAgrVentsPBusageResult =
-                    agrVent1Result + agrVent2Result + agrVent3Result;
+                    parseFloat(agrVent1Result) + parseFloat(agrVent2Result) + parseFloat(agrVent3Result);
 
                 allPBusage += allAgrVentsPBusageResult;
+                
+                if (
+                    agrVent1Result > 0 ||
+                    agrVent2Result > 0 ||
+                    agrVent3Result > 0
+                ) {
+                    agrVentsTableBody.innerHTML += `<tr style="color:blue;">
+                                   <td><span>Łącznie</span></td>
+                                   <td><span>0</span></td>
+                                   <td><span>${allPumpsPBusageResult}</span></td>
+                                   <td><span>0</span></td>
+                                   </tr>`;
+                }
             }
 
             function showSawsResult() {
