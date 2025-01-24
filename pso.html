@@ -187,7 +187,7 @@
                 padding: 2rem;
             }
 
-            @media only screen and (max-width: 560px) {
+            @media only screen and (max-width: 580px) {
                 #main-container {
                     margin-top: 2rem;
                 }
@@ -209,22 +209,30 @@
                     margin: auto;
                 }
                 .table-title {
-                    font-size: 18px;
+                    font-size: 22px;
                     padding: 1rem 0;
                 }
                 .short-input {
-                    width: 1.2rem;
+                    width: 1.5rem;
                     height: 1rem;
-                    font-size: 10px;
+                    font-size: 12px;
                 }
                 .norm-input {
                     width: 3rem;
                     height: 1rem;
-                    font-size: 10px;
+                    font-size: 12px;
                 }
                 .input-table td {
                     padding: 1rem 0;
                 }
+                
+                #resultTable caption{
+                  font-size: 24px;
+                }
+                
+                
+                
+          
             }
             @media only screen and (max-width: 800px) and (min-width: 561px) {
                 span {
@@ -253,7 +261,7 @@
                     font-size: 16px;
                 }
                 .input-table {
-                    width: 48%;
+                    width: 90%;
                 }
                 .short-input {
                     width: 2rem;
@@ -706,7 +714,7 @@
             </div>
             <div id="resultBox" class="tables" style="gap: 0">
                 <table id="resultTable" class="hidden">
-                    <caption>
+                    <caption class="">
                         Wyniki
                     </caption>
                     <table id="carTable" class="result-mini-table hidden">
@@ -759,7 +767,7 @@
                     </table>
 
                     <table id="allUsageTable" class="result-mini-table hidden">
-                        <caption style="color: blue;">
+                        <caption style="color: blue">
                             Rezultat ogólny
                         </caption>
                         <tr>
@@ -1685,14 +1693,14 @@
 
                 allUsageTableBody.innerHTML = "";
 
-                if (allONusage > 0 || allPBusage > 0 || allOSusage > 0){
+                if (allONusage > 0 || allPBusage > 0 || allOSusage > 0) {
                     allUsageTableBody.innerHTML += `<tr style="color:blue;">
                                 <td><span>${allONusage}</span></td>
                                    <td><span>${allPBusage}</span></td>
                                    <td><span>${allOSusage}</span></td>
                                    </tr>`;
-                                   
-                                   allUsageTable.classList.remove("hidden");
+
+                    allUsageTable.classList.remove("hidden");
                     resultTable.classList.remove("hidden");
                 }
             }
