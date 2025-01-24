@@ -1302,9 +1302,9 @@
                 if (agrVent1Result > 0) {
                     agrVentsTableBody.innerHTML += `
                                    <tr>
-                                   <td><span>${agrVentsArr[0].name} l</span></td>
+                                   <td><span>${agrVentsArr[0].name}</span></td>
                                    <td><span>0</span></td>
-                                   <td><span>${agrVent1Result} l</span></td>
+                                   <td><span>${agrVent1Result}</span></td>
                                    <td><span>0</span></td>
                                    </tr>
                                    `;
@@ -1332,9 +1332,9 @@
                 if (agrVent2Result > 0) {
                     agrVentsTableBody.innerHTML += `
                                    <tr>
-                                   <td><span>${agrVentsArr[1].name} l</span></td>
+                                   <td><span>${agrVentsArr[1].name}</span></td>
                                    <td><span>0</span></td>
-                                   <td><span>${agrVent2Result} l</span></td>
+                                   <td><span>${agrVent2Result}</span></td>
                                    <td><span>0</span></td>
                                    </tr>
                                    `;
@@ -1362,9 +1362,9 @@
                 if (agrVent3Result > 0) {
                     agrVentsTableBody.innerHTML += `
                                    <tr>
-                                   <td><span>${agrVentsArr[2].name} l</span></td>
+                                   <td><span>${agrVentsArr[2].name}</span></td>
                                    <td><span>0</span></td>
-                                   <td><span>${agrVent3Result} l</span></td>
+                                   <td><span>${agrVent3Result}</span></td>
                                    <td><span>0</span></td>
                                    </tr>
                                    `;
@@ -1373,10 +1373,12 @@
                 }
 
                 allAgrVentsPBusageResult =
-                    parseFloat(agrVent1Result) + parseFloat(agrVent2Result) + parseFloat(agrVent3Result);
+                    parseFloat(agrVent1Result) +
+                    parseFloat(agrVent2Result) +
+                    parseFloat(agrVent3Result);
 
                 allPBusage += allAgrVentsPBusageResult;
-                
+
                 if (
                     agrVent1Result > 0 ||
                     agrVent2Result > 0 ||
@@ -1385,7 +1387,7 @@
                     agrVentsTableBody.innerHTML += `<tr style="color:blue;">
                                    <td><span>Łącznie</span></td>
                                    <td><span>0</span></td>
-                                   <td><span>${allPumpsPBusageResult}</span></td>
+                                   <td><span>${allAgrVentsPBusageResult}</span></td>
                                    <td><span>0</span></td>
                                    </tr>`;
                 }
