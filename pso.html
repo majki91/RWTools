@@ -1283,6 +1283,84 @@
                 ).value;
                 const saw1StartsInputValue =
                     document.getElementById("saw1StartsInput").value;
+                    
+                const saw2RunHoursInputValue =
+                    document.getElementById("saw2RunHoursInput").value;
+                const saw2RunMinutesInputValue = document.getElementById(
+                    "saw2RunMinutesInput"
+                ).value;
+                
+                const saw3StartsInputValue =
+                    document.getElementById("saw3StartsInput").value;
+                const saw3RunHoursInputValue =
+                    document.getElementById("saw3RunHoursInput").value;
+                const saw3RunMinutesInputValue = document.getElementById(
+                    "saw3RunMinutesInput"
+                ).value;
+                const saw3StartsInputValue =
+                    document.getElementById("saw3StartsInput").value;
+                  
+                let saw1result = 0;
+                let saw1hourRunTime = 0;
+                let saw1osResult = 0;
+                let saw2result = 0;
+                let saw2hourRunTime = 0;
+                let saw2osResult = 0;
+                let saw3result = 0;
+                let saw3hourRunTime = 0;
+                let saw3osResult = 0;
+                
+                sawTableBody.innerHTML = "";
+
+                saw1result += getFuelByHours(
+                    saw1RunHoursInputValue,
+                    sawArr[0].pbUsage1h
+                );
+
+                saw1result += getFuelByMinutes(
+                    minutesToHours(saw1RunMinutesInputValue),
+                    sawArr[0].pbUsage1h
+                );
+
+                saw1result += getFuelByMinutes(
+                    minutesToHours(saw1StartsInputValue),
+                    sawArr[0].pbUsage1h
+                );
+
+                //pump1hourruntime i pump1osresult jest
+                //stosowane tylko w przypadku zużycia oleju silnikowego !!!!!!!
+                saw1RunHoursInputValue > 0
+                    ? (saw1hourRunTime += parseFloat(saw1RunHoursInputValue))
+                    : "";
+                saw1hourRunTime += parseFloat(
+                    minutesToHours(saw1RunMinutesInputValue)
+                );
+
+                saw1hourRunTime += parseFloat(
+                    minutesToHours(saw1StartsInputValue)
+                );
+
+                saw1osResult = saw1hourRunTime * sawArr[0].osUsage1h;
+
+                saw1osResult = saw1osResult.toFixed(2);
+
+                //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+                saw1result = saw1result.toFixed(2);
+
+                if (saw1result > 0) {
+                    sawTableBody.innerHTML += `
+                                   <tr>
+                                   <td><span>${sawArr[0].name}</span></td>
+                                   <td><span>0</span></td>
+                                   <td><span>${pump1result} l</span></td>
+                                   <td><span>${pump1osResult} l</span></td>
+                                   </tr>
+                                   `;
+                    pumpTable.classList.remove("hidden");
+                }
+                
+                
             }
 
             function showTabs() {
