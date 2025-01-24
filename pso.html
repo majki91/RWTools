@@ -1728,12 +1728,6 @@
                 sawsTable.classList.add("hidden");
                 allUsageTable.classList.add("hidden");
 
-                for (let i = 0; i <= inputs.length; i++) {
-                    inputs[i].value = "";
-                }
-                
-                console.log(allONusage, allOSusage, allPBusage);
-                
                 allONusage = 0;
                 allPBusage = 0;
                 allOSusage = 0;
@@ -1743,7 +1737,11 @@
                 allAgrVentsPBusageResult = 0;
                 allSawsOSusageResult = 0;
                 allSawsPBusageResult = 0;
-
+                
+                
+                for (let i = 0; i <= inputs.length; i++) {
+                    inputs[i].value = "";
+                }
             }
         </script>
     </body>
