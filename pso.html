@@ -630,10 +630,10 @@
                             />
                         </td>
                     </tr>
-
+                    
                     <tr>
                         <td>
-                            <span>Piła do stali i betonu PARTNER K650</span>
+                            <span>Pilarka spalinowa STIHL MS261</span>
                         </td>
                         <td>
                             <input
@@ -650,6 +650,31 @@
                         <td>
                             <input
                                 id="saw3StartsInput"
+                                class="norm-input"
+                                type="number"
+                            />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <span>Piła do stali i betonu PARTNER K650</span>
+                        </td>
+                        <td>
+                            <input
+                                id="saw4RunHoursInput"
+                                class="short-input"
+                                type="number"
+                            /><span>:</span
+                            ><input
+                                id="saw4RunMinutesInput"
+                                class="short-input"
+                                type="number"
+                            />
+                        </td>
+                        <td>
+                            <input
+                                id="saw4StartsInput"
                                 class="norm-input"
                                 type="number"
                             />
@@ -1290,7 +1315,7 @@
                 ).value;
                 const saw2StartsInputValue =
                     document.getElementById("saw2StartsInput").value;
-                    
+
                 const saw3RunHoursInputValue =
                     document.getElementById("saw3RunHoursInput").value;
                 const saw3RunMinutesInputValue = document.getElementById(
@@ -1298,6 +1323,14 @@
                 ).value;
                 const saw3StartsInputValue =
                     document.getElementById("saw3StartsInput").value;
+                    
+                const saw4RunHoursInputValue =
+                    document.getElementById("saw4RunHoursInput").value;
+                const saw4RunMinutesInputValue = document.getElementById(
+                    "saw4RunMinutesInput"
+                ).value;
+                const saw4StartsInputValue =
+                    document.getElementById("saw4StartsInput").value;
 
                 let saw1result = 0;
                 let saw1hourRunTime = 0;
@@ -1308,6 +1341,9 @@
                 let saw3result = 0;
                 let saw3hourRunTime = 0;
                 let saw3osResult = 0;
+                let saw4result = 0;
+                let saw4hourRunTime = 0;
+                let saw4osResult = 0;
 
                 sawsTableBody.innerHTML = "";
 
@@ -1358,7 +1394,7 @@
                                    `;
                     sawsTable.classList.remove("hidden");
                 }
-                
+
                 saw2result += getFuelByHours(
                     saw2RunHoursInputValue,
                     sawArr[1].pbUsage1h
@@ -1405,11 +1441,8 @@
                                    </tr>
                                    `;
                     sawsTable.classList.remove("hidden");
-                    
-                    
-                    
                 }
-                
+
                 saw3result += getFuelByHours(
                     saw3RunHoursInputValue,
                     sawArr[2].pbUsage1h
@@ -1456,11 +1489,55 @@
                                    </tr>
                                    `;
                     sawsTable.classList.remove("hidden");
-                    
-                    
-                    
                 }
                 
+                saw4result += getFuelByHours(
+                    saw4RunHoursInputValue,
+                    sawArr[3].pbUsage1h
+                );
+
+                saw4result += getFuelByMinutes(
+                    minutesToHours(saw4RunMinutesInputValue),
+                    sawArr[3].pbUsage1h
+                );
+
+                saw4result += getFuelByMinutes(
+                    minutesToHours(saw4StartsInputValue),
+                    sawArr[2].pbUsage1h
+                );
+
+                //pump1hourruntime i pump1osresult jest
+                //stosowane tylko w przypadku zużycia oleju silnikowego !!!!!!!
+                saw4RunHoursInputValue > 0
+                    ? (saw4hourRunTime += parseFloat(saw4RunHoursInputValue))
+                    : "";
+                saw4hourRunTime += parseFloat(
+                    minutesToHours(saw4RunMinutesInputValue)
+                );
+
+                saw4hourRunTime += parseFloat(
+                    minutesToHours(saw4StartsInputValue)
+                );
+
+                saw4osResult = saw4hourRunTime * sawArr[3].osUsage1h;
+
+                saw4osResult = saw4osResult.toFixed(4);
+
+                //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+                saw4result = saw4result.toFixed(2);
+
+                if (saw4result > 0) {
+                    sawsTableBody.innerHTML += `
+                                   <tr>
+                                   <td><span>${sawArr[3].name}</span></td>
+                                   <td><span>0</span></td>
+                                   <td><span>${saw4result} l</span></td>
+                                   <td><span>${saw4osResult} l</span></td>
+                                   </tr>
+                                   `;
+                    sawsTable.classList.remove("hidden");
+                }
             }
 
             function showTabs() {
