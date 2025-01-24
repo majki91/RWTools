@@ -414,7 +414,11 @@
                             />
                         </td>
                         <td>
-                            <input id="pump2StartsInput" class="norm-input" type="number" />
+                            <input
+                                id="pump2StartsInput"
+                                class="norm-input"
+                                type="number"
+                            />
                         </td>
                     </tr>
 
@@ -435,8 +439,11 @@
                             />
                         </td>
                         <td>
-                            <input id="pump3StartsInput" class="norm-input" type="number" />
-                            
+                            <input
+                                id="pump3StartsInput"
+                                class="norm-input"
+                                type="number"
+                            />
                         </td>
                     </tr>
 
@@ -457,7 +464,11 @@
                             />
                         </td>
                         <td>
-                            <input id="pump4StartsInput" class="norm-input" type="number" />
+                            <input
+                                id="pump4StartsInput"
+                                class="norm-input"
+                                type="number"
+                            />
                         </td>
                     </tr>
                 </table>
@@ -575,10 +586,24 @@
                             <span>Pilarka spalinowa STIHL MS360</span>
                         </td>
                         <td>
-                            <input id="saw1RunHoursInput" class="short-input" type="number" /><span>:</span
-                            ><input id="saw1RunMinutesInput" class="short-input" type="number" />
+                            <input
+                                id="saw1RunHoursInput"
+                                class="short-input"
+                                type="number"
+                            /><span>:</span
+                            ><input
+                                id="saw1RunMinutesInput"
+                                class="short-input"
+                                type="number"
+                            />
                         </td>
-                        <td><input id="saw1StartsInput" class="norm-input" type="number" /></td>
+                        <td>
+                            <input
+                                id="saw1StartsInput"
+                                class="norm-input"
+                                type="number"
+                            />
+                        </td>
                     </tr>
 
                     <tr>
@@ -586,10 +611,24 @@
                             <span>Pilarka spalinowa STIHL MS341</span>
                         </td>
                         <td>
-                            <input id="saw2RunHoursInput" class="short-input" type="number" /><span>:</span
-                            ><input id="saw2RunMinutesInput" class="short-input" type="number" />
+                            <input
+                                id="saw2RunHoursInput"
+                                class="short-input"
+                                type="number"
+                            /><span>:</span
+                            ><input
+                                id="saw2RunMinutesInput"
+                                class="short-input"
+                                type="number"
+                            />
                         </td>
-                        <td><input id="saw2StartsInput" class="norm-input" type="number" /></td>
+                        <td>
+                            <input
+                                id="saw2StartsInput"
+                                class="norm-input"
+                                type="number"
+                            />
+                        </td>
                     </tr>
 
                     <tr>
@@ -597,10 +636,24 @@
                             <span>Piła do stali i betonu PARTNER K650</span>
                         </td>
                         <td>
-                            <input id="saw3RunHoursInput" class="short-input" type="number" /><span>:</span
-                            ><input id="saw3RunMinutesInput" class="short-input" type="number" />
+                            <input
+                                id="saw3RunHoursInput"
+                                class="short-input"
+                                type="number"
+                            /><span>:</span
+                            ><input
+                                id="saw3RunMinutesInput"
+                                class="short-input"
+                                type="number"
+                            />
                         </td>
-                        <td><input id="saw3StartsInput" class="norm-input" type="number"/></td>
+                        <td>
+                            <input
+                                id="saw3StartsInput"
+                                class="norm-input"
+                                type="number"
+                            />
+                        </td>
                     </tr>
                 </table>
             </div>
@@ -655,7 +708,7 @@
                     </table>
                     <table id="sawsTable" class="result-mini-table hidden">
                         <caption>
-                            Piły i pilarki
+                            Pilarki i piły
                         </caption>
                         <tr>
                             <th class="name-th"><span>Nazwa</span></th>
@@ -732,6 +785,34 @@
                     osUsage1h: 0,
                     startsUsage: 0.02
                 }
+            ];
+            
+            const sawArr =[
+            {
+              name: "Pilarka STIHL MS360",
+              pbUsage1h:1,
+              osUsage1h:0.02,
+              startsUsage:0.0166
+            },
+            {
+              name: "Pilarka STIHL MS341",
+              pbUsage1h:1,
+              osUsage1h:0.02,
+              startsUsage:0.0166
+            },
+            {
+              name: "Pilarka STIHL MS261",
+              pbUsage1h:1,
+              osUsage1h:0.02,
+              startsUsage:0.0166
+            },
+            {
+              name: "PARTNER K650",
+              pbUsage1h:1.2,
+              osUsage1h:0.02,
+              startsUsage:0.02
+            }
+            
             ];
 
             function getFuelByKm(kilometers, usageOn) {
@@ -955,7 +1036,6 @@
                 );
 
                 pump1osResult = pump1hourRunTime * pumpArr[0].osUsage1h;
-
 
                 pump1osResult = pump1osResult.toFixed(2);
 
@@ -1191,12 +1271,26 @@
                     agrVentsTable.classList.remove("hidden");
                 }
             }
+            
+            function showSawsResult(){
+              const sawsTable = document.getElementById("sawsTable");
+                const sawsTableBody = document.getElementById("sawsTableBody");
+
+                const saw1RunHoursInputValue =
+                    document.getElementById("saw1RunHoursInput").value;
+                const saw1RunMinutesInputValue = document.getElementById(
+                    "saw1RunMinutesInput"
+                ).value;
+                const saw1StartsInputValue =
+                    document.getElementById("saw1StartsInput").value;
+            }
 
             function showTabs() {
                 const resultTable = document.getElementById("resultTable");
                 showCarResult();
                 showPumpResult();
                 showAgrVentsResult();
+                showSawsResult();
                 resultTable.classList.remove("hidden");
             }
 
@@ -1206,11 +1300,13 @@
                 const carTable = document.getElementById("carTable");
                 const pumpTable = document.getElementById("pumpTable");
                 const agrVentsTable = document.getElementById("agrVentsTable");
+                const sawsTable = document.getElementById("sawsTable");
 
                 resultTable.classList.add("hidden");
                 carTable.classList.add("hidden");
                 pumpTable.classList.add("hidden");
                 agrVentsTable.classList.add("hidden");
+                sawsTable.classList.add("hidden");
 
                 for (let i = 0; i <= inputs.length; i++) inputs[i].value = "";
             }
