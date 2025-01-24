@@ -1677,25 +1677,21 @@
                                    </tr>`;
                 }
             }
-            
-            function showAllresult(){
-              const allUsageTable = document.getElementById("allUsageTable");
-              const allUsageTableBody = document.getElementById("allUsageTableBody");
-              
-              allUsageTableBody.innerHTML = "";
-              
-              if (
-                    allONusage > 0 ||
-                    allPBusage > 0 ||
-                    allOSusage > 0
-                )
-              allUsageTableBody.innerHTML += `<tr style="color:blue;">
+
+            function showAllresult() {
+                const allUsageTable = document.getElementById("allUsageTable");
+                const allUsageTableBody =
+                    document.getElementById("allUsageTableBody");
+
+                allUsageTableBody.innerHTML = "";
+
+                if (allONusage > 0 || allPBusage > 0 || allOSusage > 0)
+                    allUsageTableBody.innerHTML += `<tr style="color:blue;">
                                 
                                    <td><span>${allONusage}</span></td>
                                    <td><span>${allPBusage}</span></td>
                                    <td><span>${allOSusage}</span></td>
                                    </tr>`;
-              
             }
 
             function showTabs() {
