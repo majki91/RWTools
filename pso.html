@@ -226,7 +226,7 @@
                     padding: 1rem 0;
                 }
             }
-            @media only screen and (max-width: 768px) and (min-width: 561px) {
+            @media only screen and (max-width: 800px) and (min-width: 561px) {
                 span {
                     font-size: 18px;
                 }
@@ -248,7 +248,7 @@
                     font-size: 18px;
                 }
             }
-            @media only screen and (max-width: 1024px) and (min-width: 769px) {
+            @media only screen and (max-width: 1024px) and (min-width: 801px) {
                 span {
                     font-size: 16px;
                 }
@@ -759,7 +759,7 @@
                     </table>
 
                     <table id="allUsageTable" class="result-mini-table hidden">
-                        <caption>
+                        <caption style="color: blue;">
                             Rezultat ogólny
                         </caption>
                         <tr>
@@ -1685,13 +1685,16 @@
 
                 allUsageTableBody.innerHTML = "";
 
-                if (allONusage > 0 || allPBusage > 0 || allOSusage > 0)
+                if (allONusage > 0 || allPBusage > 0 || allOSusage > 0){
                     allUsageTableBody.innerHTML += `<tr style="color:blue;">
-                                
-                                   <td><span>${allONusage}</span></td>
+                                <td><span>${allONusage}</span></td>
                                    <td><span>${allPBusage}</span></td>
                                    <td><span>${allOSusage}</span></td>
                                    </tr>`;
+                                   
+                                   allUsageTable.classList.remove("hidden");
+                    resultTable.classList.remove("hidden");
+                }
             }
 
             function showTabs() {
