@@ -7,6 +7,8 @@
         <title>PSO</title>
     </head>
     <body>
+        <div id="container"></div>
+
         <script>
             const data = [
                 {
@@ -16,24 +18,30 @@
                     fuelUsagePer100km: 38,
                     fuelUsagePerMin: 0.18,
                     fuelStartsUsagePerMin: 0.5,
-                    osUsage:0,
-                    accessories:[ {
-                        name: "Autopompa",
-                        fuelType: "ON",
-                        usagePerHour: 14
-                    }]
+                    osUsage: 0,
+                    accessories: [
+                        {
+                            name: "Autopompa",
+                            fuelType: "ON",
+                            usagePerHour: 14
+                        }
+                    ]
                 },
                 {
-                type:"pump",
-                name: "Tohatsu M16/8",
-                fuelType: "PB",
-                fuelUsagePer100km:0,
-                fuelUsagePerMin:0.3,
-                fuelStartsUsagePerMin:0.3,
-                osUsage:0.0066,
-                accessories:[]
+                    type: "pump",
+                    name: "Tohatsu M16/8",
+                    fuelType: "PB",
+                    fuelUsagePer100km: 0,
+                    fuelUsagePerMin: 0.3,
+                    fuelStartsUsagePerMin: 0.3,
+                    osUsage: 0.0066,
+                    accessories: []
                 }
             ];
+            
+            function generateForm (){
+              const container = document.getElementById("container");
+            }
             console.log(data);
         </script>
     </body>
