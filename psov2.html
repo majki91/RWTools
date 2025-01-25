@@ -17,12 +17,13 @@
                     fuelUsagePerMin: 0.18,
                     fuelStartsUsagePerMin: 0.5,
                     osUsage:0,
-                    accessories: {
+                    accessories:[ {
                         name: "Autopompa",
                         fuelType: "ON",
                         usagePerHour: 14
-                    }
+                    }]
                 },
+                {
                 type:"pump",
                 name: "Tohatsu M16/8",
                 fuelType: "PB",
@@ -30,8 +31,10 @@
                 fuelUsagePerMin:0.3,
                 fuelStartsUsagePerMin:0.3,
                 osUsage:0.0066,
-                accessories:{}
+                accessories:[]
+                }
             ];
+            console.log(data);
         </script>
     </body>
 </html>
