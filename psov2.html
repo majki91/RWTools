@@ -6,7 +6,20 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>PSO</title>
     </head>
-    <body>
+    <style>
+        #container {
+            display: flex;
+            justify-content: center;
+        }
+        .title-container {
+            border: 1px solid black;
+        }
+
+        h3 {
+            background-color: red;
+        }
+    </style>
+    <body onload="generateForm()">
         <div id="container"></div>
 
         <script>
@@ -38,11 +51,16 @@
                     accessories: []
                 }
             ];
-            
-            function generateForm (){
-              const container = document.getElementById("container");
+
+            function generateForm() {
+                const container = document.getElementById("container");
+                for (let i = 0; i <= data.length; i++) {
+                    container.innerHTML += `<div class="title-container"><h3>${data[i].name}</h3></div>`;
+                }
+
+                let arr = data.filter(val=> val.type.includes("pump"));
+                console.log(arr);
             }
-            console.log(data);
         </script>
     </body>
 </html>
