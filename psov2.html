@@ -7,7 +7,7 @@
         <title>PSO</title>
     </head>
     <style>
-        #container {
+        #select {
             display: flex;
             justify-content: center;
         }
@@ -23,7 +23,7 @@
         <div id="container">
             <select id="list"></select>
         </div>
-        <button onclick="filter()">filter</button>
+
         <script>
             const data = [
                 {
@@ -55,30 +55,25 @@
             ];
 
             function generateForm() {
-                const container = document.getElementById("list");
+                const select = document.getElementById("list");
                 let cars = data.filter(car => car.type === "car");
                 let pumps = data.filter(pump => pump.type === "pump");
-                
-                container.innerHTML = "";
 
-                container.innerHTML += `<optgroup label='auta'>`;
+                console.log(pumps);
+                select.innerHTML = "";
+
+                select.innerHTML += `<optgroup label='auta'>`;
                 for (let i = 0; i <= cars.length; i++) {
-                    container.innerHTML += `
+                    select.innerHTML += `
                     <option>${cars[i].name}</option>`;
                 }
-                container.innerHTML += "</optgroup>";
                 
-                container.innerHTML += `<optgroup label='pompy'>`;
+                select.innerHTML += `</optgroup><optgroup label='pompy'>`;
                 for (let j = 0; j <= pumps.length; j++) {
-                    container.innerHTML += `
+                    select.innerHTML += `
                     <option>${pumps[j].name}</option>`;
                 }
-                container.innerHTML += "</optgroup>";
-            }
-
-            function filter() {
-                let arr = data.filter(types => types.type === "pump");
-                console.log(arr);
+                select.innerHTML += "</optgroup>";
             }
         </script>
     </body>
