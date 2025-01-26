@@ -20,7 +20,9 @@
         }
     </style>
     <body onload="generateForm()">
-        <div id="container"></div>
+        <div id="container">
+            <select id="list"></select>
+        </div>
         <button onclick="filter()">filter</button>
         <script>
             const data = [
@@ -53,16 +55,25 @@
             ];
 
             function generateForm() {
-                const container = document.getElementById("container");
-                container.innerHTML="";
-                container.innerHTML += "<select>";
+                const container = document.getElementById("list");
+                let cars = data.filter(car => car.type === "car");
+                let pumps = data.filter(pump => pump.type === "pump");
                 
-                for (let i = 0; i <= data.length; i++) {
-                    container.innerHTML += `
-                    <option>${data[i].name}</option>`;
-                }
+                container.innerHTML = "";
 
-                container.innerHTML = "<select><option>chuj</option></select>";
+                container.innerHTML += `<optgroup label='auta'>`;
+                for (let i = 0; i <= cars.length; i++) {
+                    container.innerHTML += `
+                    <option>${cars[i].name}</option>`;
+                }
+                container.innerHTML += "</optgroup>";
+                
+                container.innerHTML += `<optgroup label='pompy'>`;
+                for (let j = 0; j <= pumps.length; j++) {
+                    container.innerHTML += `
+                    <option>${pumps[j].name}</option>`;
+                }
+                container.innerHTML += "</optgroup>";
             }
 
             function filter() {
