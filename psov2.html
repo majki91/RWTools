@@ -56,7 +56,7 @@
 
             function generateForm() {
                 const select = document.getElementById("list");
-                var cars = data.filter(car => car.type === "car");
+                var cars = data.filter(car => car.type.includes("car"));
                 let pumps = data.filter(pump => pump.type === "pump");
 
                 console.log(cars);
