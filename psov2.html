@@ -56,9 +56,10 @@
 
             function generateForm() {
                 const select = document.getElementById("list");
-                let cars = data.filter(car => car.type === "car");
+                var cars = data.filter(car => car.type === "car");
                 let pumps = data.filter(pump => pump.type === "pump");
 
+                console.log(cars);
                 console.log(pumps);
 
                 select.innerHTML += `<optgroup label='auta'>`;
@@ -66,7 +67,7 @@
                     select.innerHTML += `
                     <option>${cars[i].name}</option>`;
                 }
-                
+
                 select.innerHTML += `</optgroup><optgroup label='pompy'>`;
                 for (let i = 0; i <= pumps.length; i++) {
                     select.innerHTML += `
