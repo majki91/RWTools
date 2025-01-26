@@ -58,7 +58,8 @@
                     container.innerHTML += `<div class="title-container"><h3>${data[i].name}</h3></div>`;
                 }
 
-                let arr = data.filter(val=> val.type.includes("pump"));
+                let arr = [];
+                arr = data.filter(val=> val.type === "pump");
                 console.log(arr);
             }
         </script>
