@@ -51,20 +51,23 @@
                     accessories: []
                 }
             ];
-            
 
             function generateForm() {
                 const container = document.getElementById("container");
+                container.innerHTML="";
+                container.innerHTML += "<select>";
+                
                 for (let i = 0; i <= data.length; i++) {
-                    container.innerHTML += `<div class="title-container"><h3>${data[i].name}</h3></div>`;
+                    container.innerHTML += `
+                    <option>${data[i].name}</option>`;
                 }
 
-                console.log(arr);
+                container.innerHTML = "<select><option>chuj</option></select>";
             }
-            
-            function filter(){
-               let arr = data.filter(types => types.type === "pump");
-              console.log(arr);
+
+            function filter() {
+                let arr = data.filter(types => types.type === "pump");
+                console.log(arr);
             }
         </script>
     </body>
