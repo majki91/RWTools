@@ -21,7 +21,7 @@
     </style>
     <body onload="generateForm()">
         <div id="container"></div>
-
+        <button onclick="filter()">filter</button>
         <script>
             const data = [
                 {
@@ -51,6 +51,7 @@
                     accessories: []
                 }
             ];
+            
 
             function generateForm() {
                 const container = document.getElementById("container");
@@ -58,9 +59,12 @@
                     container.innerHTML += `<div class="title-container"><h3>${data[i].name}</h3></div>`;
                 }
 
-                let arr = [];
-                arr = data.filter(val=> val.type === "pump");
                 console.log(arr);
+            }
+            
+            function filter(){
+               let arr = data.filter(types => types.type === "pump");
+              console.log(arr);
             }
         </script>
     </body>
