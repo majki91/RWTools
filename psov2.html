@@ -4,6 +4,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+        <script>
+            eruda.init();
+        </script>
         <title>PSO</title>
     </head>
     <style>
@@ -33,7 +37,6 @@
             border: 1px solid black;
         }
         #inputTable th {
-      
             border: 1px solid black;
             width: 3rem;
             text-align: center;
@@ -45,11 +48,10 @@
         .input-span {
             font-size: 12px;
         }
-        .time-span{
-          font-size: 12px;
-          margin-left: 3px;
+        .time-span {
+            font-size: 12px;
+            margin-left: 3px;
         }
-      
     </style>
     <body onload="generateForm()">
         <div id="mainContainer">
@@ -69,11 +71,17 @@
                         <input class="data-input" type="number" />
                     </td>
                     <td>
-                        <input class="short-data-input" type="number" /><span class="time-span">:</span>
+                        <input class="short-data-input" type="number" /><span
+                            class="time-span"
+                            >:</span
+                        >
                         <input class="short-data-input" type="number" />
                     </td>
                     <td>
-                        <input class="short-data-input" type="number" /><span class="time-span">:</span>
+                        <input class="short-data-input" type="number" /><span
+                            class="time-span"
+                            >:</span
+                        >
                         <input class="short-data-input" type="number" />
                     </td>
                     <td>
