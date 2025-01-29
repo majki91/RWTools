@@ -141,13 +141,13 @@
                     .filter(pump => pump.type === "pump")
                     .map(pump => pump.name);
 
-                select.innerHTML += `<optgroup label='auta'>`;
+                select.innerHTML += `<optgroup label='AUTA'>`;
                 for (let i = 0; i < cars.length; i++) {
                     select.innerHTML += `
                     <option>${cars[i]}</option>`;
                 }
 
-                select.innerHTML += `</optgroup><optgroup label='pompy'>`;
+                select.innerHTML += `</optgroup><optgroup label='POMPY'>`;
                 for (let i = 0; i < pumps.length; i++) {
                     select.innerHTML += `
                     <option>${pumps[i]}</option>`;
