@@ -7,41 +7,81 @@
         <title>PSO</title>
     </head>
     <style>
-        .title-container {
-            border: 1px solid black;
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #mainContainer {
+            margin: auto;
         }
 
         .data-input {
-            width: 3rem;
+            width: 2rem;
+            height: 1.05rem;
+            margin: auto;
+        }
+        .short-data-input {
+            width: 0.9rem;
             height: 1.05rem;
         }
-        #list{
-          height: 1.4rem;
+        #list {
+            height: 1.4rem;
         }
+        #inputTable {
+            width: 95%;
+            margin-left: 0.6rem;
+            border: 1px solid black;
+        }
+        #inputTable th {
+      
+            border: 1px solid black;
+            width: 3rem;
+            text-align: center;
+            margin: auto;
+        }
+        #inputTable td {
+            border: 1px solid black;
+        }
+        .input-span {
+            font-size: 12px;
+        }
+        .time-span{
+          font-size: 12px;
+          margin-left: 3px;
+        }
+      
     </style>
     <body onload="generateForm()">
-        <table>
-            <tr>
-                <th>Nazwa</th>
-                <th>param</th>
-                <th>param</th>
-                <th>param</th>
-            </tr>
-            <tr>
-                <td>
-                    <select id="list"></select>
-                </td>
-                <td>
-                    <input class="data-input" type="number" />
-                </td>
-                <td>
-                    <input class="data-input" type="number" />
-                </td>
-                <td>
-                    <input class="data-input" type="number" />
-                </td>
-            </tr>
-        </table>
+        <div id="mainContainer">
+            <table id="inputTable">
+                <tr>
+                    <th><span class="input-span"> Nazwa </span></th>
+                    <th><span class="input-span"> dystans </span></th>
+                    <th><span class="input-span"> praca czas</span></th>
+                    <th><span class="input-span"> akcesoria czas</span></th>
+                    <th><span class="input-span"> rozruchy</span></th>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="list"></select>
+                    </td>
+                    <td>
+                        <input class="data-input" type="number" />
+                    </td>
+                    <td>
+                        <input class="short-data-input" type="number" /><span class="time-span">:</span>
+                        <input class="short-data-input" type="number" />
+                    </td>
+                    <td>
+                        <input class="short-data-input" type="number" /><span class="time-span">:</span>
+                        <input class="short-data-input" type="number" />
+                    </td>
+                    <td>
+                        <input class="data-input" type="number" />
+                    </td>
+                </tr>
+            </table>
+        </div>
 
         <script>
             const data = [
