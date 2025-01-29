@@ -7,22 +7,41 @@
         <title>PSO</title>
     </head>
     <style>
-        #select {
-            display: flex;
-            justify-content: center;
-        }
         .title-container {
             border: 1px solid black;
         }
 
-        h3 {
-            background-color: red;
+        .data-input {
+            width: 3rem;
+            height: 1.05rem;
+        }
+        #list{
+          height: 1.4rem;
         }
     </style>
     <body onload="generateForm()">
-        <div id="container">
-            <select id="list"></select>
-        </div>
+        <table>
+            <tr>
+                <th>Nazwa</th>
+                <th>param</th>
+                <th>param</th>
+                <th>param</th>
+            </tr>
+            <tr>
+                <td>
+                    <select id="list"></select>
+                </td>
+                <td>
+                    <input class="data-input" type="number" />
+                </td>
+                <td>
+                    <input class="data-input" type="number" />
+                </td>
+                <td>
+                    <input class="data-input" type="number" />
+                </td>
+            </tr>
+        </table>
 
         <script>
             const data = [
@@ -56,22 +75,23 @@
 
             function generateForm() {
                 const select = document.getElementById("list");
-                var cars = data.filter(car => car.type.includes("car"));
-                let pumps = data.filter(pump => pump.type === "pump");
-
-                console.log(cars);
-                console.log(pumps);
+                var cars = data
+                    .filter(car => car.type.includes("car"))
+                    .map(car => car.name);
+                let pumps = data
+                    .filter(pump => pump.type === "pump")
+                    .map(pump => pump.name);
 
                 select.innerHTML += `<optgroup label='auta'>`;
-                for (let i = 0; i <= cars.length; i++) {
+                for (let i = 0; i < cars.length; i++) {
                     select.innerHTML += `
-                    <option>${cars[i].name}</option>`;
+                    <option>${cars[i]}</option>`;
                 }
 
                 select.innerHTML += `</optgroup><optgroup label='pompy'>`;
-                for (let i = 0; i <= pumps.length; i++) {
+                for (let i = 0; i < pumps.length; i++) {
                     select.innerHTML += `
-                    <option>${pumps[i].name}</option>`;
+                    <option>${pumps[i]}</option>`;
                 }
                 select.innerHTML += "</optgroup>";
             }
