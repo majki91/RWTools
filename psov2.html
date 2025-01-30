@@ -30,10 +30,11 @@
         }
         #list {
             height: 1.4rem;
+            font-size: 12px;
         }
         #inputTable {
-            width: 95%;
-            margin-left: 0.6rem;
+            width: 100%;
+          
             border: 1px solid black;
         }
         #inputTable th {
@@ -150,12 +151,10 @@
                 let pumps = data
                     .filter(pump => pump.type === "pump")
                     .map(pump => pump.name);
-                    
+
                 let agrVents = data
                     .filter(agr => agr.type === "agrVent")
                     .map(agr => agr.name);
-                    
-                
 
                 select.innerHTML += `<optgroup label='AUTA'>`;
                 for (let i = 0; i < cars.length; i++) {
@@ -170,8 +169,8 @@
                     <option>${pumps[i]}</option>`;
                 }
                 select.innerHTML += "</optgroup>";
-                
-                select.innerHTML += `<optgroup label='AGR. I WENT.'>`;
+
+                select.innerHTML += `<optgroup label='AGREGATY I WENTYLATORY'>`;
                 for (let i = 0; i < agrVents.length; i++) {
                     select.innerHTML += `
                     <option>${agrVents[i]}</option>`;
