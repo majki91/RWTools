@@ -132,6 +132,36 @@
                     accessories: null
                 },
                 {
+                    type: "pump",
+                    name: "SPEC-POŻ M800",
+                    fuelType: "PB",
+                    fuelUsagePer100km: 0,
+                    fuelUsagePerMin: 0.125,
+                    fuelStartsUsagePerMin: 0.125,
+                    osUsage: 0,
+                    accessories: null
+                },
+                {
+                    type: "pump",
+                    name: "Szlamowa WT30X",
+                    fuelType: "PB",
+                    fuelUsagePer100km: 0,
+                    fuelUsagePerMin: 0.0483,
+                    fuelStartsUsagePerMin: 0.0483,
+                    osUsage: 0,
+                    accessories: null
+                },
+                {
+                    type: "pump",
+                    name: "Niagara 2",
+                    fuelType: "PB",
+                    fuelUsagePer100km: 0,
+                    fuelUsagePerMin: 0.0213,
+                    fuelStartsUsagePerMin: 0.0213,
+                    osUsage: 0,
+                    accessories: null
+                },
+                {
                     type: "agrVent",
                     name: "Agr. ESE 406 HGGT",
                     fuelType: "PB",
@@ -139,6 +169,36 @@
                     fuelUsagePerMin: 0.0266,
                     fuelStartsUsagePerMin: 0.0266,
                     osUsage: 0,
+                    accessories: null
+                },
+                {
+                    type: "agrVent",
+                    name: "Weber V 400 SIMO",
+                    fuelType: "PB",
+                    fuelUsagePer100km: 0,
+                    fuelUsagePerMin: 0.0231,
+                    fuelStartsUsagePerMin: 0.0231,
+                    osUsage: 0,
+                    accessories: null
+                },
+                {
+                    type: "agrVent",
+                    name: "Went. FOGO MW22",
+                    fuelType: "PB",
+                    fuelUsagePer100km: 0,
+                    fuelUsagePerMin: 0.02,
+                    fuelStartsUsagePerMin: 0.02,
+                    osUsage: 0,
+                    accessories: null
+                },
+                {
+                    type: "saw",
+                    name: "Pil. STIHL MS360",
+                    fuelType: "PB",
+                    fuelUsagePer100km: 0,
+                    fuelUsagePerMin: 0.0166,
+                    fuelStartsUsagePerMin: 0.0166,
+                    osUsage: 0.0003,
                     accessories: null
                 }
             ];
@@ -155,25 +215,36 @@
                 let agrVents = data
                     .filter(agr => agr.type === "agrVent")
                     .map(agr => agr.name);
+                    
+                let saws = data
+                    .filter(saw => saw.type === "saw")
+                    .map(saw => saw.name);
 
-                select.innerHTML += `<optgroup label='AUTA'>`;
+                select.innerHTML += `<optgroup label='*AUTA*'>`;
                 for (let i = 0; i < cars.length; i++) {
                     select.innerHTML += `
                     <option>${cars[i]}</option>`;
                 }
                 select.innerHTML += "</optgroup>";
 
-                select.innerHTML += `<optgroup label='POMPY'>`;
+                select.innerHTML += `<optgroup label='*POMPY*'>`;
                 for (let i = 0; i < pumps.length; i++) {
                     select.innerHTML += `
                     <option>${pumps[i]}</option>`;
                 }
                 select.innerHTML += "</optgroup>";
 
-                select.innerHTML += `<optgroup label='AGREGATY I WENTYLATORY'>`;
+                select.innerHTML += `<optgroup label='*AGREGATY I WENTYLATORY*'>`;
                 for (let i = 0; i < agrVents.length; i++) {
                     select.innerHTML += `
                     <option>${agrVents[i]}</option>`;
+                }
+                select.innerHTML += "</optgroup>";
+                
+                select.innerHTML += `<optgroup label='*PIŁY*'>`;
+                for (let i = 0; i < saws.length; i++) {
+                    select.innerHTML += `
+                    <option>${saws[i]}</option>`;
                 }
                 select.innerHTML += "</optgroup>";
             }
