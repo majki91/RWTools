@@ -78,7 +78,7 @@
                         <select id="list"></select>
                     </td>
                     <td>
-                        <input class="data-input" type="number" />
+                        <input id="distanceInput" class="data-input" type="number" />
                     </td>
                     <td>
                         <input class="short-data-input" type="number" /><span
@@ -259,6 +259,8 @@
                     accessories: null
                 }
             ];
+            
+            const distanceInputValue = document.getElementById("distanceInput")
 
             function generateForm() {
                 const select = document.getElementById("list");
@@ -305,6 +307,10 @@
                 }
                 select.innerHTML += "</optgroup>";
             }
+            function showCarsResult(){
+              
+            }
+            
         </script>
     </body>
 </html>
