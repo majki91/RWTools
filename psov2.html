@@ -78,24 +78,33 @@
                         <select id="list"></select>
                     </td>
                     <td>
-                        <input id="distanceInput" class="data-input" type="number" />
+                        <input
+                            id="distanceInput"
+                            class="data-input"
+                            type="number"
+                        />
                     </td>
                     <td>
-                        <input class="short-data-input" type="number" /><span
+                        <input
+                            id="workHourInput"
+                            class="short-data-input"
+                            type="number"
+                        /><span class="time-span">:</span>
+                        <input
+                            id="workMinInput"
+                            class="short-data-input"
+                            type="number"
+                        />
+                    </td>
+                    <td>
+                        <input id="accesosoryHourInput" class="short-data-input" type="number" /><span
                             class="time-span"
                             >:</span
                         >
-                        <input class="short-data-input" type="number" />
+                        <input id="accesosoryMinInput" class="short-data-input" type="number" />
                     </td>
                     <td>
-                        <input class="short-data-input" type="number" /><span
-                            class="time-span"
-                            >:</span
-                        >
-                        <input class="short-data-input" type="number" />
-                    </td>
-                    <td>
-                        <input class="data-input" type="number" />
+                        <input id="startsInput" class="data-input" type="number" />
                     </td>
                 </tr>
             </table>
@@ -259,8 +268,22 @@
                     accessories: null
                 }
             ];
-            
-            const distanceInputValue = document.getElementById("distanceInput")
+
+            const distanceInputValue =
+                document.getElementById("distanceInput").value;
+
+            const workHourInputValue =
+                document.getElementById("workHourInput").value;
+            const workMinInputValue =
+                document.getElementById("workMinInput").value;
+
+            const accessoryHourInputValue = document.getElementById(
+                "accesosoryHourInput"
+            ).value;
+            const accessoryMinInputValue =
+                document.getElementById("accesosoryMinInput").value;
+            const startsInputValue =
+                document.getElementById("startsInput").value;
 
             function generateForm() {
                 const select = document.getElementById("list");
@@ -307,10 +330,7 @@
                 }
                 select.innerHTML += "</optgroup>";
             }
-            function showCarsResult(){
-              
-            }
-            
+            function showCarsResult() {}
         </script>
     </body>
 </html>
