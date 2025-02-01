@@ -17,6 +17,8 @@
         }
         #mainContainer {
             margin: auto;
+            display: flex;
+            flex-direction: column;
         }
 
         .data-input {
@@ -34,7 +36,7 @@
         }
         #inputTable {
             width: 100%;
-          
+
             border: 1px solid black;
         }
         #inputTable th {
@@ -52,6 +54,13 @@
         .time-span {
             font-size: 12px;
             margin-left: 3px;
+        }
+        #addButton {
+            width: 3rem;
+            margin: 1rem auto;
+        }
+        #resultTable {
+            border: 1px solid black;
         }
     </style>
     <body onload="generateForm()">
@@ -89,6 +98,24 @@
                         <input class="data-input" type="number" />
                     </td>
                 </tr>
+            </table>
+            <button id="addButton">Dodaj</button>
+            <table id="resultTable">
+                <caption>
+                    Wyniki
+                </caption>
+                <table id="carsTable">
+                    <caption>
+                        Pojazdy
+                    </caption>
+                    <tr>
+                        <th>Nazwa</th>
+                        <th>Zużycie ON</th>
+                        <th>Zużycie PB</th>
+                        <th>Zużycie OS</th>
+                    </tr>
+                    <tbody id="carsTableBody"></tbody>
+                </table>
             </table>
         </div>
 
@@ -230,7 +257,7 @@
                     fuelStartsUsagePerMin: 0.02,
                     osUsage: 0.0003,
                     accessories: null
-                },
+                }
             ];
 
             function generateForm() {
@@ -245,7 +272,7 @@
                 let agrVents = data
                     .filter(agr => agr.type === "agrVent")
                     .map(agr => agr.name);
-                    
+
                 let saws = data
                     .filter(saw => saw.type === "saw")
                     .map(saw => saw.name);
@@ -270,7 +297,7 @@
                     <option>${agrVents[i]}</option>`;
                 }
                 select.innerHTML += "</optgroup>";
-                
+
                 select.innerHTML += `<optgroup label='*PIŁY*'>`;
                 for (let i = 0; i < saws.length; i++) {
                     select.innerHTML += `
