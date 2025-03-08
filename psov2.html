@@ -60,7 +60,23 @@
             margin: 1rem auto;
         }
         #resultTable {
-            border: 1px solid black;
+          
+        }
+        #resultTable caption {
+            font-size: 26px;
+            border-top: 1px solid black;
+            
+            padding: 0.5rem 0;
+            
+        }
+        .dataTables{
+          
+        }
+        .dataTables caption{
+          font-size: 20px;
+          padding: 1rem 0;
+          border-bottom: 1px solid black;
+          border-top: 1px solid black;
         }
     </style>
     <body onload="generateForm()">
@@ -97,14 +113,23 @@
                         />
                     </td>
                     <td>
-                        <input id="accesosoryHourInput" class="short-data-input" type="number" /><span
-                            class="time-span"
-                            >:</span
-                        >
-                        <input id="accesosoryMinInput" class="short-data-input" type="number" />
+                        <input
+                            id="accesosoryHourInput"
+                            class="short-data-input"
+                            type="number"
+                        /><span class="time-span">:</span>
+                        <input
+                            id="accesosoryMinInput"
+                            class="short-data-input"
+                            type="number"
+                        />
                     </td>
                     <td>
-                        <input id="startsInput" class="data-input" type="number" />
+                        <input
+                            id="startsInput"
+                            class="data-input"
+                            type="number"
+                        />
                     </td>
                 </tr>
             </table>
@@ -113,7 +138,7 @@
                 <caption>
                     Wyniki
                 </caption>
-                <table id="carsTable">
+                <table class="dataTables" id="carsTable">
                     <caption>
                         Pojazdy
                     </caption>
@@ -125,6 +150,46 @@
                     </tr>
                     <tbody id="carsTableBody"></tbody>
                 </table>
+                
+                <table class="dataTables" id="pumpsTable">
+                    <caption>
+                        Pompy
+                    </caption>
+                    <tr>
+                        <th>Nazwa</th>
+                        <th>Zużycie ON</th>
+                        <th>Zużycie PB</th>
+                        <th>Zużycie OS</th>
+                    </tr>
+                    <tbody id="pumpsTableBody"></tbody>
+                </table>
+                
+                <table class="dataTables" id="agrVentsTable">
+                    <caption>
+                        Agregaty i wentylatory
+                    </caption>
+                    <tr>
+                        <th>Nazwa</th>
+                        <th>Zużycie ON</th>
+                        <th>Zużycie PB</th>
+                        <th>Zużycie OS</th>
+                    </tr>
+                    <tbody id="agrVentsTableBody"></tbody>
+                </table>
+                
+                <table class="dataTables" id="sawsTable">
+                    <caption>
+                        Piły
+                    </caption>
+                    <tr>
+                        <th>Nazwa</th>
+                        <th>Zużycie ON</th>
+                        <th>Zużycie PB</th>
+                        <th>Zużycie OS</th>
+                    </tr>
+                    <tbody id="sawsTableBody"></tbody>
+                </table>
+                
             </table>
         </div>
 
