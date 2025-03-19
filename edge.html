@@ -661,10 +661,7 @@
     randomNumber = randomNumber.toFixed(0);
     randomNumber = Math.round(randomNumber / 10)*10;
     //console.log("rand:"+randomNumber);
-    console.log("raport funkcji random:","percent100:" + percent100
-      ,"percentDown:" + percentDown
-      ,"percentUp:" + percentUp
-      ,"randomNumber:"+randomNumber);
+    
     
     return randomNumber;
   }
@@ -687,7 +684,7 @@
     
    let resultAmountValue = parseInt(resultAmount,10);
    
-   console.log("raporty:",resultAmountValue);
+   
    
    /*if(min<10)
     clock = hour + ":0" + min;
@@ -734,10 +731,7 @@
       
       malO = createObject(clock,productName,randomWg1,randomWg2,avrW);
       
-      console.log("mal pozycja:"+i,
-      "randomWg1:"+randomWg1,
-      "randomWg2:"+randomWg2,
-      "avrW:"+avrW);
+      
      
      malObjTab.push(malO);
      //averageNumber(mal1ResultTab);
@@ -781,10 +775,7 @@
       
       impO = createObject(clock,productName,randomWg1,randomWg2,avrW);
       
-      console.log("imp pozycja:"+i,
-      "randomWg1:"+randomWg1,
-      "randomWg2:"+randomWg2,
-      "avrW:"+avrW);
+      
      
      impObjTab.push(impO);
      //averageNumber(imp1ResultTab);
@@ -834,10 +825,7 @@
         const searchedEl = btn.closest("tr").childNodes[1].innerText;
         let delEl = malObjTab.map(object => object.hour).indexOf(searchedEl);
         
-        console.log(searchedEl
-        ,delEl,malObjTab);
         
-        console.log("target:",btn.closest("tr"));
         btn.closest("tr").remove();
         malObjTab.splice(delEl,1);
         showTabs();
@@ -853,10 +841,7 @@
         const searchedEl = btn.closest("tr").childNodes[1].innerText;
         let delEl = impObjTab.map(object => object.hour).indexOf(searchedEl);
         
-        console.log(searchedEl
-        ,delEl,impObjTab);
         
-        console.log("target:",btn.closest("tr"));
         btn.closest("tr").remove();
         impObjTab.splice(delEl,1);
         showTabs();
