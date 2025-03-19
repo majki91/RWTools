@@ -702,15 +702,15 @@
      let malTabLength = malObjTab.length-1;
      
      let malFirstHour = malObjTab[malTabLength].hour;
-     console.log("malfh",malFirstHour)
      malFirstHour= parseInt(malFirstHour.slice(0,2),10);
-     console.log("malfh",malFirstHour)
      
      
      
      //ostatnia dodana godzina i minuta
      let malFirstMinutes = malObjTab[malTabLength].hour;
+     console.log("malfm",malFirstMinutes);
      malFirstMinutes = parseInt(malFirstMinutes.slice(3,5));
+     console.log("malfm",malFirstMinutes);
      
       for(let i=0;i<resultAmountValue;i++){
       let randomWg1 = random(averageNumber(mal1ResultTab),percentInput);
