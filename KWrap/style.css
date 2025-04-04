@@ -1,22 +1,32 @@
 body {
-    font-size: 26px;
+    padding: 0;
     margin: 0;
 }
 
 header {
+  top: 0;
     display: flex;
     justify-content: space-between;
     padding: 1rem;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #c3c3c3;
+    position: sticky;
+    background-color: white;
 }
 
 #logo {
-    margin-left: 3rem;
-    padding: 1rem;
+    margin-left: 2rem;
+    
+    
+    height: 60px;
+    width: 200px;
+    padding: 0.5rem;
 }
 
-.menu{
-  margin-right: 15rem;
+.menu {
+  margin-top: 0;
+  padding: 0;
+  margin-right: 10rem;
+  font-size: 24px;
 }
 
 .menu ul {
@@ -29,5 +39,11 @@ header {
 
 .menu li {
     display: block;
-    padding: 1rem 2rem;
+    padding: 1.5rem 2rem;
+    
+}
+.menu i{
+  color: black;
+  margin: 0;
+  padding: 0;
 }
