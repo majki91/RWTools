@@ -1,0 +1,33 @@
+body {
+    font-size: 26px;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid black;
+}
+
+#logo {
+    margin-left: 3rem;
+    padding: 1rem;
+}
+
+.menu{
+  margin-right: 15rem;
+}
+
+.menu ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.menu li {
+    display: block;
+    padding: 1rem 2rem;
+}
