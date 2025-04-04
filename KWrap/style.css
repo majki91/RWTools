@@ -71,10 +71,9 @@ header {
     );
 }
 
-
-#mainContainer{
-  width: 90%;
-  margin-top: 8rem;
-  margin-left: 2rem;
-  text-align: center;
+#mainContainer {
+    width: 90%;
+    margin-top: 8rem;
+    margin-left: 2rem;
+    text-align: center;
 }
