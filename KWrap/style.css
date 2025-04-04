@@ -11,6 +11,7 @@ header {
     border-bottom: 1px solid #c3c3c3;
     position: fixed;
     background-color: white;
+    width: 100%;
 }
 
 #logo {
@@ -24,7 +25,7 @@ header {
 .menu {
     margin-top: 0;
     padding: 0;
-    margin-right: 10rem;
+    margin-right: 20rem;
     font-size: 24px;
 }
 
@@ -40,23 +41,40 @@ header {
     display: block;
     padding: 1.5rem 2rem;
 }
-.menu i {
-    color: black;
-    margin: 0;
-    padding: 0;
-}
 
 #sideSocials {
-    margin: 0;
-    padding: 0;
+    margin-top: 10rem;
     right: 0;
-    position: sticky;
-    text-align: right;
-    border: 1px solid black;
+    padding: 0;
+    position: fixed;
+    font-size: 30px;
 }
 #sideSocials ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
     overflow: hidden;
+}
+
+.social-style {
+    padding: 0.5rem;
+}
+
+.fill-gradient-instagram {
+    background: radial-gradient(
+        circle at 30% 107%,
+        #fdf497 0%,
+        #fdf497 5%,
+        #fd5949 45%,
+        #d6249f 60%,
+        #285aeb 90%
+    );
+}
+
+
+#mainContainer{
+  width: 90%;
+  margin-top: 8rem;
+  margin-left: 2rem;
+  text-align: center;
 }
