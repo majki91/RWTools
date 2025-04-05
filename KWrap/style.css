@@ -73,6 +73,16 @@ header {
     transition: 0.1s;
 }
 
+.social-whatsapp {
+    background-color: #25d366;
+    color: white;
+    padding: 0.5rem;
+    padding-right: 3rem;
+}
+.social-whatsapp:hover {
+    transform: translate(-20%, 0);
+    transition: 0.1s;
+}
 .social-instagram {
     background: radial-gradient(
         circle at 30% 107%,
@@ -138,7 +148,7 @@ h1 {
     padding: 0;
 }
 
-#services{
-  background-color: #181818;
-  color:white;
+#services {
+    background-color: #181818;
+    color: white;
 }
