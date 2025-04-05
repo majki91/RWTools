@@ -1,7 +1,7 @@
 body {
     padding: 0;
     margin: 0;
-    font-family:'Poppins', 'Sans-Serif' ;
+    font-family: "Poppins", "Sans-Serif";
 }
 
 header {
@@ -57,11 +57,13 @@ header {
     overflow: hidden;
 }
 
-.social-style {
+.social-facebook {
     padding: 0.5rem;
+    background-color: #3b5998;
+    color: white;
 }
 
-.fill-gradient-instagram {
+.social-instagram {
     background: radial-gradient(
         circle at 30% 107%,
         #fdf497 0%,
@@ -70,7 +72,13 @@ header {
         #d6249f 60%,
         #285aeb 90%
     );
+    padding: 0.5rem;
 }
+
+.social-icons-style {
+  padding-right: 3rem;
+}
+
 
 #mainContainer {
     width: 90%;
