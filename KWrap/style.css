@@ -45,11 +45,11 @@ header {
 
 #sideSocials {
     margin-top: 10rem;
+    margin-right: -2.5rem;
     right: 0;
     position: fixed;
     font-size: 30px;
     list-style-type: none;
-    
 }
 
 .social-facebook {
@@ -57,16 +57,19 @@ header {
     padding-right: 3rem;
     background-color: #3b5998;
     color: white;
-    
 }
 .social-facebook:hover {
-    transform: translate(-50%,0);
-    transition: 0.1s ;
+    transform: translate(-20%, 0);
+    transition: 0.1s;
 }
 
-.social-tiktok{
+.social-tiktok {
     padding: 0.5rem;
     padding-right: 3rem;
+}
+.social-tiktok:hover {
+    transform: translate(-20%, 0);
+    transition: 0.1s;
 }
 
 .social-instagram {
@@ -79,10 +82,12 @@ header {
         #285aeb 90%
     );
     padding: 0.5rem;
+    padding-right: 3rem;
 }
 
-.social-icons-style {
-    padding-right: 0.5rem;
+.social-instagram:hover {
+    transform: translate(-20%, 0);
+    transition: 0.1s;
 }
 
 #mainContainer {
