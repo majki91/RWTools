@@ -6,6 +6,7 @@ body {
 
 header {
     top: 0;
+    display: block;
     display: flex;
     justify-content: space-between;
     padding: 1rem;
@@ -19,9 +20,9 @@ header {
 #logo {
     margin: auto;
     margin-left: 2rem;
-
     width: 150px;
 }
+
 
 .menu {
     margin-top: 0;
@@ -102,9 +103,8 @@ header {
 }
 
 #mainContainer {
-    width: 95%;
+    width: 100%;
     margin-top: 4.5rem;
-    margin-left: 2rem;
     text-align: center;
 }
 
@@ -129,7 +129,7 @@ h1 {
 #about ul {
     text-align: center;
     padding: 0;
-    width: 90%;
+    width: 100%;
     margin: auto;
 }
 #about ul li {
@@ -151,4 +151,21 @@ h1 {
 #services {
     background-color: #181818;
     color: white;
+}
+
+@media only screen and (max-width: 450px) {
+    #logo {
+        margin: auto;
+        margin-left: 1rem;
+        width: 100px;
+    }
+    
+    .menu{
+      display: none;
+    }
+
+    #about ul li {
+      font-size: 16px;
+      width: 20rem;
+    }
 }
