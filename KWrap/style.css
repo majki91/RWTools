@@ -23,7 +23,6 @@ header {
     width: 150px;
 }
 
-
 .menu {
     margin-top: 0;
     padding: 0;
@@ -159,13 +158,13 @@ h1 {
         margin-left: 1rem;
         width: 100px;
     }
-    
-    .menu{
-      display: none;
+
+    .menu {
+        display: none;
     }
 
     #about ul li {
-      font-size: 16px;
-      width: 20rem;
+        font-size: 16px;
+        width: 20rem;
     }
 }
