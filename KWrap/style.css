@@ -18,25 +18,45 @@ body {
     font-size: 24px;
 }
 
-.menu ul {
+.navbar {
     display: flex;
+    
     justify-content: flex-end;
     align-items: center;
     list-style-type: none;
     margin: 0;
+    margin-right: 3rem;
     padding: 0;
-    overflow: hidden;
 }
 
-.menu li {
-    padding: 0.7rem 2rem;
+.navbar li {
+    padding: 0.4rem 2rem;
     margin: 0;
 }
 
+.sidebar {
+    display: none;
+    right: 0;
+    position: fixed;
+    background-color: white;
+    list-style-type: none;
+    flex-direction: column;
+    margin: auto;
+    z-index: 999;
+    padding: 1rem;
+    border: 1px solid black;
+}
+
+.sidebar li {
+    padding: 1rem 2rem;
+}
+
 #logo {
-  margin:auto;
+    margin: auto;
+    margin-left: 3rem;
     width: 150px;
-    height: 40px;
+    height: 35px;
+    padding: 1rem 0;
 }
 
 #sideSocials {
@@ -147,7 +167,7 @@ h1 {
     color: white;
 }
 
-@media only screen and (max-width: 700px) {
+/* @media only screen and (max-width: 700px) {
     #logo {
         margin: auto;
         width: 100px;
@@ -165,4 +185,4 @@ h1 {
     #about ul li {
         font-size: 16px;
     }
-}
+} */
