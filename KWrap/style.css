@@ -20,7 +20,7 @@ body {
 
 .navbar {
     display: flex;
-    
+
     justify-content: flex-end;
     align-items: center;
     list-style-type: none;
@@ -30,12 +30,12 @@ body {
 }
 
 .navbar li {
-    padding: 0.4rem 2rem;
+    padding: 0.4rem 1rem;
     margin: 0;
 }
 
 .sidebar {
-    display: none;
+    display: flex;
     right: 0;
     position: fixed;
     background-color: white;
@@ -47,8 +47,16 @@ body {
     border: 1px solid black;
 }
 
+.sidebar li:first-child{
+  padding: 0;
+  margin: 0;
+}
 .sidebar li {
-    padding: 1rem 2rem;
+    padding: 1rem 5rem;
+}
+
+.side-menu {
+    display: none;
 }
 
 #logo {
@@ -167,22 +175,25 @@ h1 {
     color: white;
 }
 
-/* @media only screen and (max-width: 700px) {
+@media only screen and (max-width: 768px) {
     #logo {
         margin: auto;
         width: 100px;
+        height: 25px;
     }
 
-    .menu {
-        right: 0;
-        width: 30%;
+    .navbar {
+        display: none;
     }
-    .menu ul {
-        flex-direction: column;
+
+    .side-menu {
+        display: block;
         margin: auto;
+        padding: 0.5rem 1rem;
+        border: 1px solid black;
     }
 
     #about ul li {
         font-size: 16px;
     }
-} */
+}
