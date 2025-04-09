@@ -2,6 +2,7 @@ body {
     padding: 0;
     margin: 0;
     font-family: "Poppins", "Sans-Serif";
+    width: 100%;
 }
 
 .menu {
@@ -47,12 +48,13 @@ body {
     border: 1px solid black;
 }
 
-.sidebar li:first-child{
-  padding: 0;
-  margin: 0;
+.sidebar li:first-child {
+    padding: 0;
+    margin: 0;
 }
 .sidebar li {
-    padding: 1rem 5rem;
+    padding: 1rem 2.5rem;
+    font-size: 16px;
 }
 
 .side-menu {
@@ -125,7 +127,7 @@ body {
 }
 
 #mainContainer {
-    width: 100%;
+  width: 100%;
     margin-top: 4.5rem;
     text-align: center;
 }
