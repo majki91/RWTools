@@ -45,7 +45,7 @@ body {
     z-index: 999;
     padding: 1rem;
     border: 1px solid #c3c3c3;
-    transition: 1.5s;
+    transition: all ease-in-out 1.5s;
 }
 
 .sidebar li:first-child {
@@ -55,7 +55,6 @@ body {
 .sidebar li {
     padding: 1rem 2.5rem;
     font-size: 16px;
-    transition: all 1.5s;
 }
 
 #logo {
@@ -181,7 +180,6 @@ h1 {
 
 .hidden {
     margin-right: -15rem;
-    transition: 0.5s ease;
 }
 
 @media only screen and (max-width: 768px) {
@@ -199,7 +197,6 @@ h1 {
     }
 
     .side-menu {
-        display: block;
         margin: auto;
         padding: 0.5rem 1rem;
     }
