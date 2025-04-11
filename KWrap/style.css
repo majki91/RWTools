@@ -56,8 +56,7 @@ body {
 }
 
 #logo {
-    margin-left: 0;
-    width: 150px;
+    margin: 0;
     height: 35px;
     padding: 1rem 0;
 }
@@ -177,11 +176,12 @@ h1 {
 
 .hidden {
     margin-right: -15rem;
+    
 }
 
-.drop-down{
-  margin-right: -5rem;
-  transition: 0.5s;
+.drop-down {
+    margin-right: 5rem;
+    transition: all ease-in-out 0.5s;
 }
 
 @media only screen and (max-width: 768px) {
@@ -189,7 +189,7 @@ h1 {
         width: 100%;
     }
     #logo {
-        margin: auto;
+    #logo {
         width: 100px;
         height: 25px;
     }
