@@ -27,7 +27,9 @@
                 <li>Kontakt</li>
             </ul>
             <ul id="sideMenu" class="sidebar hidden">
-                <li id="sideMenuButtonX" onclick="hideSideMenu()"><i class="fa solid fa-x"></i></li>
+                <li id="sideMenuButtonX" onclick="hideSideMenu()">
+                    <i class="fa solid fa-x"></i>
+                </li>
                 <li>O mnie</li>
                 <li>Usługi</li>
                 <li>Realizacje</li>
@@ -112,12 +114,11 @@
 
         function showSideMenu() {
             sideMenu.classList.remove("hidden");
-            sideMenuButton.classList.add("drop-down")
+            //sideMenuButton.classList.add("drop-down");
         }
         function hideSideMenu() {
             sideMenu.classList.add("hidden");
-            sideMenuButton.classList.remove("drop-down")
+            //sideMenuButton.classList.remove("drop-down");
         }
-        
     </script>
 </html>
