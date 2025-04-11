@@ -26,14 +26,16 @@
                 <li>Realizacje</li>
                 <li>Kontakt</li>
             </ul>
-            <ul class="sidebar">
-                <li><i class="fa solid fa-x"></i></li>
+            <ul id="sideMenu" class="sidebar hidden">
+                <li id="sideMenuButtonX" onclick="hideSideMenu()"><i class="fa solid fa-x"></i></li>
                 <li>O mnie</li>
                 <li>Usługi</li>
                 <li>Realizacje</li>
                 <li>Kontakt</li>
             </ul>
-            <div class="side-menu"><i class="fa solid fa-bars"></i></div>
+            <div id="sideMenuButton" class="side-menu" onclick="showSideMenu()">
+                <i class="fa solid fa-bars"></i>
+            </div>
         </nav>
 
         <ul id="sideSocials">
@@ -103,4 +105,17 @@
             </section>
         </main>
     </body>
+    <script>
+        const sideMenuButton = document.getElementById("sideMenuButton");
+        const sideMenuButtonX = document.getElementById("sideMenuButtonX");
+        const sideMenu = document.getElementById("sideMenu");
+
+        function showSideMenu() {
+            sideMenu.classList.remove("hidden");
+        }
+        function hideSideMenu() {
+            sideMenu.classList.add("hidden");
+        }
+        
+    </script>
 </html>
