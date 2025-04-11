@@ -36,7 +36,6 @@ body {
 }
 
 .sidebar {
-    display: none;
     right: 0;
     position: fixed;
     background-color: white;
@@ -59,6 +58,7 @@ body {
 
 .side-menu {
     display: none;
+    transition: 0.5s;
 }
 
 #logo {
@@ -165,7 +165,7 @@ h1 {
     padding: auto;
     font-size: 22px;
     border: 1px solid black;
-    width: 40rem;
+    width: 37rem;
 }
 #about ul li span {
     margin: auto;
@@ -180,6 +180,10 @@ h1 {
 #services {
     background-color: #181818;
     color: white;
+}
+
+.hidden {
+    display: none;
 }
 
 @media only screen and (max-width: 768px) {
