@@ -42,11 +42,10 @@ body {
     list-style-type: none;
     flex-direction: column;
     margin: auto;
-    margin-right: -6rem ;
     z-index: 999;
     padding: 1rem;
     border: 1px solid #c3c3c3;
-    transition: 0.5s;
+    transition: 1.5s;
 }
 
 .sidebar li:first-child {
@@ -56,6 +55,7 @@ body {
 .sidebar li {
     padding: 1rem 2.5rem;
     font-size: 16px;
+    transition: 1.5s;
 }
 
 
@@ -121,7 +121,7 @@ body {
 
 .social-instagram:hover {
     transform: translate(20%, 0);
-    transition: 0.1s;
+    transition: 0.1s ease;
 }
 
 #mainContainer {
@@ -181,7 +181,8 @@ h1 {
 }
 
 .hidden {
-    display: none;
+    margin-right: -15rem;
+    transition: 0.5s ease;
 }
 
 @media only screen and (max-width: 768px) {
