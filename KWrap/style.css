@@ -42,9 +42,11 @@ body {
     list-style-type: none;
     flex-direction: column;
     margin: auto;
+    margin-right: -6rem ;
     z-index: 999;
     padding: 1rem;
-    border: 1px solid black;
+    border: 1px solid #c3c3c3;
+    transition: 0.5s;
 }
 
 .sidebar li:first-child {
@@ -56,10 +58,6 @@ body {
     font-size: 16px;
 }
 
-.side-menu {
-    display: none;
-    transition: 0.5s;
-}
 
 #logo {
     margin: auto;
