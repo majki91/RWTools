@@ -42,7 +42,7 @@ body {
     flex-direction: column;
     padding: 1rem;
     border: 1px solid #c3c3c3;
-    margin-top: 0;
+    margin-top: 3.6rem;
     transition: all ease-in-out 0.5s;
 }
 
