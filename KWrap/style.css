@@ -52,9 +52,9 @@ body {
     font-size: 16px;
 }
 
- #sideMenuButton{
-      display: none;
-    }
+#sideMenuButton {
+    display: none;
+}
 
 #logo {
     margin: 0;
@@ -194,6 +194,10 @@ h1 {
     #logo {
         width: 100px;
         height: 25px;
+    }
+    
+ #sideMenuButton{
+      display: block;
     }
 
     .navbar {
