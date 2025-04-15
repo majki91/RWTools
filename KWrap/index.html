@@ -34,11 +34,10 @@
             </ul>
             <div
                 id="sideMenuButton"
-                class="side-menu none"
+                class="side-menu"
                 onclick="showHideSideMenu()"
             >
                 <i id="menuIcon1" class="fa solid fa-bars"></i>
-                <!--<i id="menuIcon2" class="fa solid fa-x none"></i> -->
             </div>
         </nav>
 
@@ -116,8 +115,8 @@
 
         function showHideSideMenu() {
             sideMenu.classList.toggle("hidden");
-            menuIcon1.classList.replace("fa-bars", "fa-x");
-            //menuIcon2.classList.toggle("none");
+            menuIcon1.classList.add("none");
+            console.log(menuIcon1.classList);
         }
     </script>
 </html>
