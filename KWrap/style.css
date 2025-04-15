@@ -195,9 +195,9 @@ h1 {
         width: 100px;
         height: 25px;
     }
-    
- #sideMenuButton{
-      display: block;
+
+    #sideMenuButton {
+        display: block;
     }
 
     .navbar {
@@ -205,6 +205,7 @@ h1 {
     }
 
     .side-menu {
+      border: 1px solid black;
         margin-top: 0.2rem;
         padding: 0.5rem 1rem;
     }
