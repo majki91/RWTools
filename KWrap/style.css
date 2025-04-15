@@ -42,14 +42,11 @@ body {
     flex-direction: column;
     padding: 1rem;
     border: 1px solid #c3c3c3;
+    border-top: 0;
     margin-top: 3.6rem;
     transition: all ease-in-out 0.5s;
 }
 
-.sidebar li:first-child {
-    padding: 0;
-    margin: 0;
-}
 .sidebar li {
     padding: 1rem 2.5rem;
     font-size: 16px;
@@ -176,7 +173,9 @@ h1 {
 
 .hidden {
     margin-right: -15rem;
-    
+}
+.none {
+    display: none;
 }
 
 .drop-down {
