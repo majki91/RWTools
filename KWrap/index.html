@@ -27,16 +27,18 @@
                 <li>Kontakt</li>
             </ul>
             <ul id="sideMenu" class="sidebar hidden">
-                <li id="sideMenuButtonX" onclick="hideSideMenu()">
-                    <i class="fa solid fa-x"></i>
-                </li>
                 <li>O mnie</li>
                 <li>Usługi</li>
                 <li>Realizacje</li>
                 <li>Kontakt</li>
             </ul>
-            <div id="sideMenuButton" class="side-menu" onclick="showSideMenu()">
-                <i class="fa solid fa-bars"></i>
+            <div
+                id="sideMenuButton"
+                class="side-menu"
+                onclick="showHideSideMenu()"
+            >
+                <i id="menuIcon1" class="fa solid fa-bars"></i>
+<!--                 <i id="menuIcon2" class="fa solid fa-x none"></i> -->
             </div>
         </nav>
 
@@ -108,17 +110,14 @@
         </main>
     </body>
     <script>
-        const sideMenuButton = document.getElementById("sideMenuButton");
-        const sideMenuButtonX = document.getElementById("sideMenuButtonX");
+        const menuIcon1 = document.getElementById("menuIcon1");
+        const menuIcon2 = document.getElementById("menuIcon2");
         const sideMenu = document.getElementById("sideMenu");
 
-        function showSideMenu() {
-            sideMenu.classList.remove("hidden");
-            //sideMenuButton.classList.add("drop-down");
-        }
-        function hideSideMenu() {
-            sideMenu.classList.add("hidden");
-            //sideMenuButton.classList.remove("drop-down");
+        function showHideSideMenu() {
+            sideMenu.classList.toggle("hidden");
+            menuIcon1.classList.add("none");
+            //menuIcon2.classList.toggle("none");
         }
     </script>
 </html>
