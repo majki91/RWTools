@@ -200,12 +200,15 @@ h1 {
         display: block;
     }
 
+    .none {
+        display: none;
+    }
     .navbar {
         display: none;
     }
 
     .side-menu {
-      border: 1px solid black;
+        border: 1px solid black;
         margin-top: 0.2rem;
         padding: 0.5rem 1rem;
     }
