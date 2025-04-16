@@ -159,9 +159,10 @@ h1 {
     padding-top: 0.7rem;
     font-size: 22px;
     width: 37rem;
+    display: flex;
+    align-items: center;
 }
 #about ul li span {
-    margin-bottom: 0.5rem;
     display: inline-block;
 }
 .about-icon {
@@ -176,6 +177,28 @@ h1 {
 #services {
     background-color: #181818;
     color: white;
+}
+
+#services ul {
+    text-align: center;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 5px;
+}
+#services ul li {
+    list-style-type: none;
+    text-align: left;
+    margin: 0.5rem auto auto auto;
+    padding-top: 0.7rem;
+    font-size: 22px;
+    width: 37rem;
+    display: flex;
+    align-items: center;
+}
+#services ul li span {
+    display: inline-block;
 }
 
 .hidden {
@@ -222,6 +245,10 @@ h1 {
     }
 
     #about ul li {
+        font-size: 17px;
+        width: 22rem;
+    }
+    #services ul li {
         font-size: 17px;
         width: 22rem;
     }
