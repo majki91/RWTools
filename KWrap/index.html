@@ -37,7 +37,12 @@
                 class="side-menu"
                 onclick="showHideSideMenu()"
             >
-                <i id="menuIcon1" class="fa solid fa-bars"></i>
+                <div id="menuIcon1" class="">
+                    <i class="fa solid fa-bars"></i>
+                </div>
+                <div id="menuIcon2" class="none">
+                    <i class="fa solid fa-x"></i>
+                </div>
             </div>
         </nav>
 
@@ -110,9 +115,17 @@
     </body>
     <script>
         const sideMenu = document.getElementById("sideMenu");
+        const menuIcon1 = document.getElementById("menuIcon1");
 
         function showHideSideMenu() {
             sideMenu.classList.toggle("hidden");
+            if (sideMenu.classList.contains("hidden") === false) {
+                menuIcon2.classList.remove("none");
+                menuIcon1.classList.add("none");
+            } else {
+                menuIcon1.classList.remove("none");
+                menuIcon2.classList.add("none");
+            }
         }
     </script>
 </html>
