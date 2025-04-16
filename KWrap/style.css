@@ -142,6 +142,7 @@ h1 {
 }
 #about p {
     margin-bottom: 5rem;
+    margin: 0 2rem;
 }
 
 #about ul {
@@ -196,6 +197,12 @@ h1 {
     width: 37rem;
     display: flex;
     align-items: center;
+}
+
+#services ul li img {
+    display: inline-block;
+    width: 2.5rem;
+    margin: 0 1rem;
 }
 #services ul li span {
     display: inline-block;
