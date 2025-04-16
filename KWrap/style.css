@@ -156,7 +156,7 @@ h1 {
     list-style-type: none;
     text-align: left;
     margin: 0.5rem auto auto auto;
-    padding: auto;
+    padding-top: 0.7rem;
     font-size: 22px;
     border: 1px solid black;
     width: 37rem;
