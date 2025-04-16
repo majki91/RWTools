@@ -138,7 +138,7 @@ h1 {
     margin: 0;
 }
 #about h3 {
-    margin:2rem 0;
+    margin: 2rem 0;
 }
 #about p {
     margin-bottom: 5rem;
@@ -206,6 +206,14 @@ h1 {
 }
 #services ul li span {
     display: inline-block;
+}
+
+#realizations {
+    background-color: #f7f7f7;
+}
+#realizations button {
+    background-color: #181818;
+    color: #f7f7f7;
 }
 
 .hidden {
