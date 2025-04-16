@@ -10,7 +10,7 @@ body {
     padding: 1rem;
     border-bottom: 1px solid #c3c3c3;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     position: fixed;
     background-color: white;
     width: 100%;
@@ -48,8 +48,8 @@ body {
 }
 
 .sidebar li {
-    padding: 1rem 2.5rem;
-    font-size: 16px;
+    padding: 1rem 3.5rem;
+    font-size: 20px;
 }
 
 #sideMenuButton {
@@ -58,6 +58,7 @@ body {
 
 #logo {
     margin: 0;
+    margin-left: 2rem;
     height: 35px;
     padding: 1rem 0;
 }
@@ -176,7 +177,7 @@ h1 {
 }
 
 .hidden {
-    margin-right: -15rem;
+    margin-right: -20rem;
 }
 .none {
     display: none;
@@ -198,6 +199,7 @@ h1 {
 
     #sideMenuButton {
         display: block;
+        margin-right: 1rem;
     }
 
     .none {
@@ -208,9 +210,13 @@ h1 {
     }
 
     .side-menu {
-        border: 1px solid black;
         margin-top: 0.2rem;
         padding: 0.5rem 1rem;
+    }
+
+    #menuIcon1,
+    #menuIcon2 {
+        width: 1.2rem;
     }
 
     #about ul li {
