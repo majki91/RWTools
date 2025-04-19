@@ -212,14 +212,14 @@ h1 {
     background-color: #f7f7f7;
 }
 #realizations button {
-  margin-top: 1rem;
+    margin-top: 1rem;
     background-color: #181818;
     color: #f7f7f7;
     border: 2px solid black;
 }
 
-.swiper{
-  z-index: 0;
+.swiper {
+    z-index: 0;
 }
 .swiper-slide {
     background-color: gray;
