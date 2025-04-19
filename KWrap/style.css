@@ -70,6 +70,7 @@ body {
     position: fixed;
     font-size: 30px;
     list-style-type: none;
+    z-index: 2;
 }
 
 .social-facebook {
@@ -177,7 +178,6 @@ h1 {
 #services {
     background-color: #181818;
     color: white;
-    z-index: 999;
 }
 
 #services ul {
