@@ -16,6 +16,12 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         ></script>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+        />
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     </head>
     <body>
         <nav class="menu">
@@ -138,10 +144,19 @@
                 </ul>
             </section>
             <section id="realizations">
-              <h1>Realizacje</h1>
-              <p>Moje realizacje</p>
-              <button>Zobacz więcej</button>
-              
+                <h1>Realizacje</h1>
+
+                <div class="swiper">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide">Slide 1</div>
+                        <div class="swiper-slide">Slide 2</div>
+                        <div class="swiper-slide">Slide 3</div>
+                    </div>
+                </div>
+
+                <button>Zobacz więcej</button>
             </section>
             <section>
                 <footer>
@@ -174,5 +189,12 @@
                 menuIcon2.classList.add("none");
             }
         }
+
+        const swiper = new Swiper(".swiper", {
+            // Optional parameters
+            direction: "horizontal",
+            loop: true,
+            slidesPerView: 1
+        });
     </script>
 </html>
