@@ -211,18 +211,14 @@ h1 {
     background-color: #f7f7f7;
 }
 #realizations button {
+  margin-top: 1rem;
     background-color: #181818;
     color: #f7f7f7;
     border: 2px solid black;
 }
 
-.swiper {
-  width: 90%;
-  height: 300px;
-}
-
-.swiper-slide{
-  border: 1px solid black;
+.swiper-slide {
+    background-color: gray;
 }
 
 .hidden {
@@ -287,5 +283,8 @@ h1 {
     #services ul li {
         font-size: 17px;
         width: 22rem;
+    }
+    .swiper {
+        height: 300px;
     }
 }
