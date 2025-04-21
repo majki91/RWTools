@@ -33,10 +33,16 @@
                 <li>Kontakt</li>
             </ul>
             <ul id="sideMenu" class="sidebar hidden">
-                <li>O mnie</li>
-                <li>Usługi</li>
-                <li>Realizacje</li>
-                <li>Kontakt</li>
+                <li><a href="#about"> O mnie </a></li>
+                <li>
+                    <a href="#services"> Usługi </a>
+                </li>
+                <li>
+                    <a href="#realizations"> Realizacje </a>
+                </li>
+                <li>
+                    <a href="#contact"> Kontakt </a>
+                </li>
             </ul>
             <div
                 id="sideMenuButton"
@@ -171,15 +177,18 @@
                                 alt=""
                             />
                         </div>
-                        <div class="swiper-pagination"></div>
                     </div>
+                    <div class="swiper-pagination"></div>
                 </div>
 
                 <button>Zobacz więcej</button>
             </section>
+            <section id="contact">
+                <h1>Kontakt</h1>
+            </section>
             <section>
                 <footer>
-                    <a
+                    <!--  <a
                         href="https://www.flaticon.com/free-icons/headlight-restoration"
                         title="headlight-restoration icons"
                         >Headlight-restoration icons created by HAJICON -
@@ -190,7 +199,7 @@
                         title="body repair icons"
                         >Body repair icons created by Freepik - Flaticon</a
                     >
-                </footer>
+                --></footer>
             </section>
         </main>
     </body>
@@ -211,6 +220,7 @@
 
         const swiper = new Swiper(".swiper", {
             // Optional parameters
+
             direction: "horizontal",
             loop: true,
             centeredSlides: true,
@@ -218,7 +228,10 @@
             autoplay: {
                 delay: 2000
             },
-            spaceBetween: 10
+            spaceBetween: 10,
+            pagination: {
+                el: ".swiper-pagination"
+            }
         });
     </script>
 </html>
