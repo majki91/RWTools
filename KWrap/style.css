@@ -137,6 +137,7 @@ section {
 h1 {
     font-size: 36px;
     margin: 0;
+    margin-bottom: 1rem;
 }
 #about h3 {
     margin: 2rem 0;
@@ -208,8 +209,8 @@ h1 {
     display: inline-block;
 }
 
-#realizations {
-    background-color: #f7f7f7;
+.realizations-swiper-img {
+    object-fit: cover;
 }
 #realizations button {
     margin-top: 1rem;
