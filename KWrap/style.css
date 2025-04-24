@@ -239,10 +239,9 @@ h1 {
 }
 
 .swiper {
-    z-index: 0;
+    z-index: -1 !important;
 }
 .swiper-slide {
-    z-index: 0;
 }
 .swiper .swiper-pagination-bullet {
     background-color: white;
@@ -254,6 +253,22 @@ h1 {
     scroll-margin-top: 3.8rem;
     background-color: #181818;
     color: white;
+}
+
+#contact ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: space-evenly;
+    list-style-type: none;
+    text-align: center;
+}
+#contact li {
+    border: 1px solid white;
+}
+
+#contact span {
+    display: block;
 }
 
 .hidden {
