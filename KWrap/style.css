@@ -260,11 +260,13 @@ h1 {
     margin: 0;
     padding: 0;
     justify-content: space-evenly;
+    column-gap: 2rem;
     list-style-type: none;
+    flex-wrap: wrap;
     text-align: center;
 }
 #contact li {
-    border: 1px solid white;
+    
 }
 
 #contact span {
