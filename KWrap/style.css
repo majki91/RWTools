@@ -148,7 +148,7 @@ section {
 h1 {
     font-size: 36px;
     margin: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 #about h3 {
     margin: 2rem 0;
@@ -262,6 +262,7 @@ h1 {
     width: 90%;
     justify-content: space-evenly;
     column-gap: 1rem;
+    row-gap: 2rem;
     list-style-type: none;
     flex-wrap: wrap;
     text-align: center;
@@ -346,6 +347,6 @@ h1 {
         width: 22rem;
     }
     .swiper-slide {
-        max-height:; 200px;
+        max-height: 400px;
     }
 }
