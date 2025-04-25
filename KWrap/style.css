@@ -294,11 +294,21 @@ h1 {
     margin: 0;
     padding: 0;
     text-align: center;
+    justify-content: center;
 }
 #footer a,
 span {
     display: block;
-    margin: auto;
+}
+
+#footer span {
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+#footer a {
+    font-size: 8px;
+    text-decoration: none;
+    color: black;
 }
 
 .hidden {
