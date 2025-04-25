@@ -229,17 +229,19 @@ h1 {
     height: auto;
     max-height: 800px;
     object-fit: cover;
-    z-index: 0;
 }
 #realizations button {
     margin-top: 1rem;
     background-color: #181818;
     color: #f7f7f7;
     border: 2px solid black;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .swiper {
     z-index: -1 !important;
+    height: auto;
 }
 .swiper-slide {
 }
@@ -270,14 +272,13 @@ h1 {
 #contact li {
     width: 10rem;
     margin-bottom: 1.5rem;
-    border: 1px solid white;
 }
 
 #contact span {
     display: block;
 }
-#contact i {
-    margin-right: 1rem !important;
+.contact-icon {
+    margin-right: 0.2rem !important;
 }
 
 .contact-title-span {
@@ -349,7 +350,7 @@ h1 {
         font-size: 17px;
         width: 22rem;
     }
-    .swiper-slide {
+    .swiper {
         max-height: 400px;
     }
 }
