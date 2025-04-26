@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>KWrap</title>
+        <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Poppins"
+            rel="stylesheet"
+        />
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
+            integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+        />
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    </head>
+    <body>
+        <nav class="menu">
+            <img id="logo" src="logo1.jpg" alt="" />
+            <ul class="navbar">
+                <li><a href="#about"> O mnie </a></li>
+                <li>
+                    <a href="#services"> Usługi </a>
+                </li>
+                <li>
+                    <a href="#realizations"> Realizacje </a>
+                </li>
+                <li>
+                    <a href="#contact"> Kontakt </a>
+                </li>
+            </ul>
+            <ul id="sideMenu" class="sidebar hidden">
+                <li><a href="#about"> O mnie </a></li>
+                <li>
+                    <a href="#services"> Usługi </a>
+                </li>
+                <li>
+                    <a href="#realizations"> Realizacje </a>
+                </li>
+                <li>
+                    <a href="#contact"> Kontakt </a>
+                </li>
+            </ul>
+            <div
+                id="sideMenuButton"
+                class="side-menu"
+                onclick="showHideSideMenu()"
+            >
+                <div id="menuIcon1" class="">
+                    <i class="fa solid fa-bars"></i>
+                </div>
+                <div id="menuIcon2" class="none">
+                    <i class="fa solid fa-x"></i>
+                </div>
+            </div>
+        </nav>
+
+        <ul id="sideSocials">
+            <li>
+                <i class="fa-brands fa-facebook-square social-facebook"></i>
+            </li>
+            <li>
+                <i
+                    style="color: white"
+                    class="fa-brands fa-instagram social-instagram"
+                ></i>
+            </li>
+            <li>
+                <i
+                    style="color: white; background-color: black"
+                    class="fa-brands fa-tiktok social-tiktok"
+                ></i>
+            </li>
+            <li>
+                <i class="fa-brands fa-whatsapp social-whatsapp"></i>
+            </li>
+        </ul>
+
+        <main id="mainContainer">
+            <section id="realizationAll">
+                <h1>Realizacje</h1>
+
+            </section>
+
+            <section id="footer">
+                <footer>
+                    <span>KWrap 2025</span>
+                    <a
+                        href="https://www.flaticon.com/authors/hajicon"
+                        title="icons Hajicon"
+                        >icons created by HAJICON - Flaticon</a
+                    >
+                    <a
+                        href="https://www.flaticon.com/authors/freepik"
+                        title="freepik icons"
+                        >icons created by Freepik - Flaticon</a
+                    >
+                </footer>
+            </section>
+        </main>
+    </body>
+    <script>
+        const sideMenu = document.getElementById("sideMenu");
+        const mainContainer = document.getElementById("mainContainer");
+        const menuIcon1 = document.getElementById("menuIcon1");
+
+        function showHideSideMenu() {
+            sideMenu.classList.toggle("hidden");
+            if (sideMenu.classList.contains("hidden") === false) {
+                menuIcon2.classList.remove("none");
+                menuIcon1.classList.add("none");
+                mainContainer.classList.add("blur");
+            } else {
+                menuIcon1.classList.remove("none");
+                menuIcon2.classList.add("none");
+                mainContainer.classList.remove("blur");
+            }
+        }
+
+        mainContainer.addEventListener("click", () => {
+            menuIcon1.classList.remove("none");
+            menuIcon2.classList.add("none");
+            mainContainer.classList.remove("blur");
+            sideMenu.classList.add("hidden");
+        });
+
+        sideMenu.addEventListener("click", () => {
+            menuIcon1.classList.remove("none");
+            menuIcon2.classList.add("none");
+            mainContainer.classList.remove("blur");
+            sideMenu.classList.add("hidden");
+        });
+        const swiper = new Swiper(".swiper", {
+            // Optional parameters
+
+            direction: "horizontal",
+            loop: true,
+            centeredSlides: true,
+            slidesPerView: 1,
+            autoplay: {
+                delay: 2000
+            },
+            spaceBetween: 10,
+            pagination: {
+                el: ".swiper-pagination"
+            }
+        });
+    </script>
+</html>
