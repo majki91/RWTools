@@ -329,7 +329,7 @@ span {
 }
 
 .blur {
-    filter: blur(1px);
+    filter: blur(2px);
 }
 
 @media only screen and (max-width: 768px) {
