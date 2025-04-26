@@ -245,7 +245,7 @@ h1 {
 }
 
 .swiper {
-    z-index: -1 !important;
+    z-index: 0 !important;
     height: auto;
 }
 .swiper-slide {
