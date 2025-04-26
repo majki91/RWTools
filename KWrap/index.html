@@ -269,7 +269,14 @@
             menuIcon1.classList.remove("none");
             menuIcon2.classList.add("none");
             mainContainer.classList.remove("blur");
-            sideMenu.classList.add("hidden")
+            sideMenu.classList.add("hidden");
+        });
+
+        sideMenu.addEventListener("click", () => {
+            menuIcon1.classList.remove("none");
+            menuIcon2.classList.add("none");
+            mainContainer.classList.remove("blur");
+            sideMenu.classList.add("hidden");
         });
         const swiper = new Swiper(".swiper", {
             // Optional parameters
