@@ -37,7 +37,6 @@
                 <li>
                     <a href="#contact"> Kontakt </a>
                 </li>
-                
             </ul>
             <ul id="sideMenu" class="sidebar hidden">
                 <li><a href="#about"> O mnie </a></li>
@@ -250,6 +249,7 @@
     </body>
     <script>
         const sideMenu = document.getElementById("sideMenu");
+        const mainContainer = document.getElementById("mainContainer");
         const menuIcon1 = document.getElementById("menuIcon1");
 
         function showHideSideMenu() {
@@ -257,12 +257,20 @@
             if (sideMenu.classList.contains("hidden") === false) {
                 menuIcon2.classList.remove("none");
                 menuIcon1.classList.add("none");
+                mainContainer.classList.add("blur");
             } else {
                 menuIcon1.classList.remove("none");
                 menuIcon2.classList.add("none");
+                mainContainer.classList.remove("blur");
             }
         }
 
+        mainContainer.addEventListener("click", () => {
+            menuIcon1.classList.remove("none");
+            menuIcon2.classList.add("none");
+            mainContainer.classList.remove("blur");
+            sideMenu.classList.add("hidden")
+        });
         const swiper = new Swiper(".swiper", {
             // Optional parameters
 
