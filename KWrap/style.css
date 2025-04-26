@@ -244,6 +244,10 @@ h1 {
     font-size: 16px;
     font-weight: bold;
 }
+#realizations button a {
+    text-decoration: none;
+    color: #f7f7f7;
+}
 
 .swiper {
     z-index: 0 !important;
