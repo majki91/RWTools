@@ -320,6 +320,36 @@ span {
     color: black;
 }
 
+#realizationsAll h1 {
+    margin-top: 4rem;
+}
+
+#PPF {
+    background-color: #f7f7f7;
+}
+
+#wrap {
+    background-color: #181818;
+    color: white;
+}
+
+#windows {
+    background-color: #f7f7f7;
+}
+
+#headlights {
+    background-color: #181818;
+    color: white;
+}
+#polishing {
+    background-color: #f7f7f7;
+}
+
+#PDR {
+    background-color: #181818;
+    color: white;
+}
+
 .hidden {
     margin-right: -20rem;
 }
