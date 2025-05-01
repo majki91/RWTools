@@ -86,40 +86,10 @@
         </ul>
 
         <main id="mainContainer">
-            <section id="realizationAll">
+            <div id="realizationAll">
                 <h1>Realizacje</h1>
                 <section id="PPF">
                     <h3>Zabezpieczenia PPF</h3>
-                    <div class="ppf-swiper">
-                        <!-- Additional required wrapper -->
-                        <div class="swiper-wrapper">
-                            <!-- Slides -->
-                            <div class="swiper-slide">
-                                <img
-                                    class="realizations-swiper-img"
-                                    src="Photos/real1.jpg"
-                                    alt=""
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realizations-swiper-img"
-                                    src="Photos/real2.jpg"
-                                    alt=""
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realizations-swiper-img"
-                                    src="Photos/real3.jpg"
-                                    alt=""
-                                />
-                            </div>
-                        </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                    </div>
-                    
                 </section>
                 <section id="wrap">
                     <h3>Zmiana koloru</h3>
@@ -136,7 +106,7 @@
                 <section id="PDR">
                     <h3>Wyciąganie wgnieceń PDR</h3>
                 </section>
-            </section>
+            </div>
 
             <section id="footer">
                 <footer>
@@ -186,18 +156,20 @@
             mainContainer.classList.remove("blur");
             sideMenu.classList.add("hidden");
         });
-        const ppfSwiper = new Swiper(".ppf-swiper", {
+        /* const swiper = new Swiper(".swiper", {
             // Optional parameters
 
             direction: "horizontal",
             loop: true,
             centeredSlides: true,
             slidesPerView: 1,
+            autoplay: {
+                delay: 2000
+            },
             spaceBetween: 10,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev"
+            pagination: {
+                el: ".swiper-pagination"
             }
-        });
+        });*/
     </script>
 </html>
