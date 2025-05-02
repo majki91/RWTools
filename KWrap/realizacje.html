@@ -95,7 +95,7 @@
                             --swiper-navigation-color: #fff;
                             --swiper-pagination-color: #fff;
                         "
-                        class="swiper mySwiper2"
+                        class="swiper swiperGallery1"
                     >
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
@@ -111,7 +111,7 @@
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
                     </div>
-                    <div thumbsSlider="" class="swiper mySwiper">
+                    <div thumbsSlider="" class="swiper swiperThumb1">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <img src="Photos/real1.jpg" />
@@ -127,6 +127,40 @@
                 </section>
                 <section id="wrap">
                     <h3>Zmiana koloru</h3>
+                    <div
+                        style="
+                            --swiper-navigation-color: #fff;
+                            --swiper-pagination-color: #fff;
+                        "
+                        class="swiper swiperGallery2"
+                    >
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="Photos/real1.jpg" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="Photos/real2.jpg" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="Photos/real3.jpg" />
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div thumbsSlider="" class="swiper swiperThumb2">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="Photos/real1.jpg" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="Photos/real2.jpg" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="Photos/real3.jpg" />
+                            </div>
+                        </div>
+                    </div>
                 </section>
                 <section id="windows">
                     <h3>Przyciemnianie szyb</h3>
@@ -191,13 +225,13 @@
             sideMenu.classList.add("hidden");
         });
 
-        var swiper = new Swiper(".mySwiper", {
+        var swiper = new Swiper(".swiperThumb1", {
             spaceBetween: 10,
             slidesPerView: 4,
             freeMode: true,
             watchSlidesProgress: true
         });
-        var swiper2 = new Swiper(".mySwiper2", {
+        var swiper2 = new Swiper(".swiperGallery1", {
             spaceBetween: 10,
             navigation: {
                 nextEl: ".swiper-button-next",
@@ -205,6 +239,22 @@
             },
             thumbs: {
                 swiper: swiper
+            }
+        });
+        var swiper3 = new Swiper(".swiperThumb2", {
+            spaceBetween: 10,
+            slidesPerView: 4,
+            freeMode: true,
+            watchSlidesProgress: true
+        });
+        var swiper4 = new Swiper(".swiperGallery2", {
+            spaceBetween: 10,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            },
+            thumbs: {
+                swiper: swiper3
             }
         });
     </script>
