@@ -9,6 +9,11 @@ body {
     width: 100%;
 }
 
+iframe{
+  width: 350px;
+  height: 300px;
+}
+
 .menu {
     top: 0;
     padding: 1rem;
