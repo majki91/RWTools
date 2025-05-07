@@ -235,11 +235,9 @@ h1 {
     scroll-margin-top: 3.8rem;
     background-color: #f7f7f7;
 }
-/* .realizations-swiper-img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-} */
+.realizations-swiper-img {
+    height: 800px !important;
+}
 #realizations button {
     margin-top: 1rem;
     background-color: #181818;
@@ -366,11 +364,11 @@ span {
 }
 
 @media only screen and (max-width: 768px) {
-    iframe{
-      width: 80%;
-      height: 400px;
+    iframe {
+        width: 80%;
+        height: 400px;
     }
-    
+
     #mainContainer {
         width: 100%;
     }
