@@ -424,6 +424,10 @@ span {
     #contact li {
         width: 16rem;
     }
+
+    .realizations-swiper-img {
+        height: 500px !important;
+    }
 }
 
 .swiper {
