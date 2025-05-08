@@ -238,6 +238,10 @@ h1 {
 .realizations-swiper-img {
     height: 800px !important;
 }
+
+.realization-gallery-img {
+    height: 1000px !important;
+}
 #realizations button {
     margin-top: 1rem;
     background-color: #181818;
@@ -427,6 +431,10 @@ span {
 
     .realizations-swiper-img {
         height: 500px !important;
+    }
+    .realization-gallery-img {
+        width: 100% !important;
+        height: 600px !important;
     }
 }
 
