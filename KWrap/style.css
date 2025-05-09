@@ -242,7 +242,11 @@ h1 {
 }
 
 .realization-gallery-img {
-    height: 1000px !important;
+    max-height: 800px !important;
+    max-width: 1200px !important;
+    margin: auto;
+}
+.realization-gallery-img-thumb {
 }
 #realizations button {
     margin-top: 1rem;
@@ -369,6 +373,70 @@ span {
     filter: blur(2px);
 }
 
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.swiper {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.swiper-slide {
+    background-size: cover;
+    background-position: center;
+}
+
+.swiperGallery1,
+.swiperGallery2 {
+    height: 80%;
+    width: 100%;
+}
+
+.swiperThumb1,
+.swiperThumb2 {
+    height: 20% !important;
+    box-sizing: border-box;
+    padding: 10px 0;
+    margin-top: 0.5rem;
+}
+
+.swiperThumb1 .swiper-slide,
+.swiperThumb2 .swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 0.4;
+}
+
+.swiperThumb1 .swiper-slide-thumb-active,
+.swiperThumb2 .swiper-slide-thumb-active {
+    opacity: 1;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 @media only screen and (max-width: 768px) {
     iframe {
         width: 80%;
@@ -441,68 +509,4 @@ span {
     }
     .realization-gallery-img-thumb {
     }
-}
-
-.swiper {
-    width: 100%;
-    height: 100%;
-}
-
-.swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.swiper {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.swiper-slide {
-    background-size: cover;
-    background-position: center;
-}
-
-.swiperGallery1,
-.swiperGallery2 {
-    height: 80%;
-    width: 100%;
-}
-
-.swiperThumb1,
-.swiperThumb2 {
-    height: 20%;
-    box-sizing: border-box;
-    padding: 10px 0;
-    margin-top: 0.5rem;
-}
-
-.swiperThumb1 .swiper-slide,
-.swiperThumb2 .swiper-slide {
-    width: 25%;
-    height: 100%;
-    opacity: 0.4;
-}
-
-.swiperThumb1 .swiper-slide-thumb-active,
-.swiperThumb2 .swiper-slide-thumb-active {
-    opacity: 1;
-}
-
-.swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
