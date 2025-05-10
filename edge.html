@@ -291,7 +291,7 @@
       <span id="clockSpan">:</span>
       <input id="minInput" class="hrInputs"  type="number" placeholder="min">
       </div>
-      <button id="refreshHour" class="buttons icon-button" onclick="showTabs()"><i class="fa fa-refresh fa-spin"></i></i></button>
+      <button id="refreshHour" class="buttons icon-button" onclick="showTabs()"><i class="fa fa-refresh fa-spin"></i></button>
       <button class="buttons icon-button" id="summaryButton"
       onclick="create()"><i class="fa-solid fa-plus"></i></button>
       <button id="raportButton" onclick="generateRaport()" disabled="true"
@@ -367,6 +367,7 @@
       <tbody id="tbody2"></tbody>
     </table>
  </div>
+ </body>
 <script>
 
   let malObjTab = [];
@@ -733,7 +734,7 @@
       malO = createObject(clock,productName,randomWg1,randomWg2,avrW);
       
       
-     
+     console.log("clock:"+clock);
      malObjTab.push(malO);
      //averageNumber(mal1ResultTab);
      //random(averageNumber(mal1ResultTab),percentInput);
@@ -1281,5 +1282,4 @@ function createObject(hour,product,weight1,weight2,averageWeight){
 }
 
 </script>
-</body>
 </html>
