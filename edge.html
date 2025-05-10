@@ -701,17 +701,19 @@
      let malTabLength = malObjTab.length-1;
      
      let malFirstHour = malObjTab[malTabLength].hour;
+     console.log("before hr:"+malFirstHour);
      malFirstHour= parseInt(malFirstHour.slice(0,2),10);
+     console.log("after hr:"+malFirstHour);
      
      
      
      //ostatnia dodana godzina i minuta
      let malFirstMinutes = malObjTab[malTabLength].hour;
      
-     console.log("before:"+malFirstMinutes);
      
-     malFirstMinutes = parseInt(malFirstMinutes.slice(2,5),10);
-     console.log("after:"+malFirstMinutes);
+     
+     malFirstMinutes = parseInt(malFirstMinutes.slice(3,5),10);
+
      
      
       for(let i=0;i<resultAmountValue;i++){
