@@ -367,6 +367,7 @@
       <tbody id="tbody2"></tbody>
     </table>
  </div>
+ </div>
  </body>
 <script>
 
@@ -707,8 +708,10 @@
      //ostatnia dodana godzina i minuta
      let malFirstMinutes = malObjTab[malTabLength].hour;
      
+     console.log("before:"+malFirstMinutes);
      
-     malFirstMinutes = parseInt(malFirstMinutes.slice(2,5));
+     malFirstMinutes = parseInt(malFirstMinutes.slice(2,5),10);
+     console.log("after:"+malFirstMinutes);
      
      
       for(let i=0;i<resultAmountValue;i++){
@@ -734,7 +737,7 @@
       malO = createObject(clock,productName,randomWg1,randomWg2,avrW);
       
       
-     console.log("clock:"+clock);
+     
      malObjTab.push(malO);
      //averageNumber(mal1ResultTab);
      //random(averageNumber(mal1ResultTab),percentInput);
