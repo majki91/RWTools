@@ -424,7 +424,7 @@ span {
 
 .swiperThumb1 .swiper-slide,
 .swiperThumb2 .swiper-slide {
-    width: 25%;
+    width: 20%;
     height: 100%;
     opacity: 0.4;
 }
@@ -511,6 +511,8 @@ span {
         height: 500px !important;
         object-fit: cover;
     }
-    .realization-gallery-img-thumb {
+    .swiperThumb1 .swiper-slide,
+    .swiperThumb2 .swiper-slide {
+        height: 130px !important;
     }
 }
