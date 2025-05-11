@@ -409,13 +409,21 @@ span {
 }
 
 .swiperGallery1,
-.swiperGallery2 {
+.swiperGallery2,
+.swiperGallery3,
+.swiperGallery4,
+.swiperGallery5,
+.swiperGallery6 {
     height: 80%;
     width: 100%;
 }
 
 .swiperThumb1,
-.swiperThumb2 {
+.swiperThumb2,
+.swiperThumb3,
+.swiperThumb4,
+.swiperThumb5,
+.swiperThumb6 {
     height: 250px !important;
     box-sizing: border-box;
     padding: 10px 0;
@@ -423,14 +431,22 @@ span {
 }
 
 .swiperThumb1 .swiper-slide,
-.swiperThumb2 .swiper-slide {
+.swiperThumb2 .swiper-slide,
+.swiperThumb3 .swiper-slide,
+.swiperThumb4 .swiper-slide,
+.swiperThumb5 .swiper-slide,
+.swiperThumb6 .swiper-slide {
     width: 20%;
     height: 100%;
     opacity: 0.4;
 }
 
 .swiperThumb1 .swiper-slide-thumb-active,
-.swiperThumb2 .swiper-slide-thumb-active {
+.swiperThumb2 .swiper-slide-thumb-active,
+.swiperThumb3 .swiper-slide-thumb-active,
+.swiperThumb4 .swiper-slide-thumb-active,
+.swiperThumb5 .swiper-slide-thumb-active,
+.swiperThumb6 .swiper-slide-thumb-active {
     opacity: 1;
 }
 
@@ -512,7 +528,11 @@ span {
         object-fit: cover;
     }
     .swiperThumb1 .swiper-slide,
-    .swiperThumb2 .swiper-slide {
+    .swiperThumb2 .swiper-slide,
+    .swiperThumb3 .swiper-slide,
+    .swiperThumb4 .swiper-slide,
+    .swiperThumb5 .swiper-slide,
+    .swiperThumb6 .swiper-slide {
         height: 130px !important;
     }
 }
