@@ -424,7 +424,7 @@ span {
 .swiperThumb4,
 .swiperThumb5,
 .swiperThumb6 {
-    height: 250px !important;
+    /* height: 250px !important; */
     box-sizing: border-box;
     padding: 10px 0;
     margin-top: 0.5rem;
