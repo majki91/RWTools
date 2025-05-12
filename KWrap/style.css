@@ -567,6 +567,9 @@ h1 {
         height: 500px !important;
         object-fit: cover;
     }
+    .realization-gallery-img-thumb {
+    height: auto !important;
+}
     .swiperThumb1 .swiper-slide,
     .swiperThumb2 .swiper-slide,
     .swiperThumb3 .swiper-slide,
