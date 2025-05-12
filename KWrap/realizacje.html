@@ -1,569 +1,513 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pl">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>KWrap</title>
-        <link rel="stylesheet" href="style.css" type="text/css" media="all" />
-        <link
-            href="https://fonts.googleapis.com/css?family=Poppins"
-            rel="stylesheet"
-        />
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
-            integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        ></script>
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-        />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>KWrap</title>
+    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
+      integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
 
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    </head>
-    <body>
-        <nav class="menu">
-            <img id="logo" src="logo1.jpg" alt="" />
-            <ul class="navbar">
-                <li><a href="index.html#about"> O mnie </a></li>
-                <li>
-                    <a href="index.html#services"> Usługi </a>
-                </li>
-                <li>
-                    <a href="index.html#realizations"> Realizacje </a>
-                </li>
-                <li>
-                    <a href="index.html#contact"> Kontakt </a>
-                </li>
-            </ul>
-            <ul id="sideMenu" class="sidebar hidden">
-                <li><a href="index.html#about"> O mnie </a></li>
-                <li>
-                    <a href="index.html#services"> Usługi </a>
-                </li>
-                <li>
-                    <a href="index.html#realizations"> Realizacje </a>
-                </li>
-                <li>
-                    <a href="index.html#contact"> Kontakt </a>
-                </li>
-            </ul>
-            <div
-                id="sideMenuButton"
-                class="side-menu"
-                onclick="showHideSideMenu()"
-            >
-                <div id="menuIcon1" class="">
-                    <i class="fa solid fa-bars"></i>
-                </div>
-                <div id="menuIcon2" class="none">
-                    <i class="fa solid fa-x"></i>
-                </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </head>
+  <body>
+    <nav class="menu">
+      <img id="logo" src="logo1.jpg" alt="" />
+      <ul class="navbar">
+        <li><a class="hover-underline" href="index.html#about"> O mnie </a></li>
+        <li>
+          <a class="hover-underline" href="index.html#services"> Usługi </a>
+        </li>
+        <li>
+          <a class="hover-underline" href="index.html#realizations">
+            Realizacje
+          </a>
+        </li>
+        <li>
+          <a class="hover-underline" href="index.html#contact"> Kontakt </a>
+        </li>
+      </ul>
+      <ul id="sideMenu" class="sidebar hidden">
+        <li><a href="index.html#about"> O mnie </a></li>
+        <li>
+          <a href="index.html#services"> Usługi </a>
+        </li>
+        <li>
+          <a href="index.html#realizations"> Realizacje </a>
+        </li>
+        <li>
+          <a href="index.html#contact"> Kontakt </a>
+        </li>
+      </ul>
+      <div id="sideMenuButton" class="side-menu" onclick="showHideSideMenu()">
+        <div id="menuIcon1" class="">
+          <i class="fa solid fa-bars"></i>
+        </div>
+        <div id="menuIcon2" class="none">
+          <i class="fa solid fa-x"></i>
+        </div>
+      </div>
+    </nav>
+
+    <ul id="sideSocials">
+      <li>
+        <i class="fa-brands fa-facebook-square social-facebook"></i>
+      </li>
+      <li>
+        <i
+          style="color: white"
+          class="fa-brands fa-instagram social-instagram"
+        ></i>
+      </li>
+      <li>
+        <i
+          style="color: white; background-color: black"
+          class="fa-brands fa-tiktok social-tiktok"
+        ></i>
+      </li>
+      <li>
+        <i class="fa-brands fa-whatsapp social-whatsapp"></i>
+      </li>
+    </ul>
+
+    <main id="mainContainer">
+      <section id="realizationAll">
+        <h1>Realizacje</h1>
+        <section id="PPF">
+          <h3>Zabezpieczenia PPF</h3>
+          <div
+            style="
+              --swiper-navigation-color: #fff;
+              --swiper-pagination-color: #fff;
+            "
+            class="swiper swiperGallery1"
+          >
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img class="realization-gallery-img" src="Photos/real1.jpg" />
+              </div>
+              <div class="swiper-slide">
+                <img class="realization-gallery-img" src="Photos/real2.jpg" />
+              </div>
+              <div class="swiper-slide">
+                <img class="realization-gallery-img" src="Photos/real3.jpg" />
+              </div>
             </div>
-        </nav>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+          <div thumbsSlider="" class="swiper swiperThumb1">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img
+                  class="realization-gallery-img-thumb"
+                  src="Photos/real1.jpg"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  class="realization-gallery-img-thumb"
+                  src="Photos/real2.jpg"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  class="realization-gallery-img-thumb"
+                  src="Photos/real3.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="wrap">
+          <h3>Zmiana koloru</h3>
+          <div
+            style="
+              --swiper-navigation-color: #fff;
+              --swiper-pagination-color: #fff;
+            "
+            class="swiper swiperGallery2"
+          >
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img class="realization-gallery-img" src="Photos/real1.jpg" />
+              </div>
+              <div class="swiper-slide">
+                <img class="realization-gallery-img" src="Photos/real2.jpg" />
+              </div>
+              <div class="swiper-slide">
+                <img class="realization-gallery-img" src="Photos/real3.jpg" />
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+          <div thumbsSlider="" class="swiper swiperThumb2">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img
+                  class="realization-gallery-img-thumb"
+                  src="Photos/real1.jpg"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  class="realization-gallery-img-thumb"
+                  src="Photos/real2.jpg"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  class="realization-gallery-img-thumb"
+                  src="Photos/real3.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="windows">
+          <h3>Przyciemnianie szyb</h3>
+          <div
+            style="
+              --swiper-navigation-color: #fff;
+              --swiper-pagination-color: #fff;
+            "
+            class="swiper swiperGallery3"
+          >
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img class="realization-gallery-img" src="Photos/real1.jpg" />
+              </div>
+              <div class="swiper-slide">
+                <img class="realization-gallery-img" src="Photos/real2.jpg" />
+              </div>
+              <div class="swiper-slide">
+                <img class="realization-gallery-img" src="Photos/real3.jpg" />
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+          <div thumbsSlider="" class="swiper swiperThumb3">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img
+                  class="realization-gallery-img-thumb"
+                  src="Photos/real1.jpg"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  class="realization-gallery-img-thumb"
+                  src="Photos/real2.jpg"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  class="realization-gallery-img-thumb"
+                  src="Photos/real3.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="headlights">
+          <h3>Renowacja reflektorów</h3>
+          <div
+            style="
+              --swiper-navigation-color: #fff;
+              --swiper-pagination-color: #fff;
+            "
+            class="swiper swiperGallery4"
+          >
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img class="realization-gallery-img" src="Photos/real1.jpg" />
+              </div>
+              <div class="swiper-slide">
+                <img class="realization-gallery-img" src="Photos/real2.jpg" />
+              </div>
+              <div class="swiper-slide">
+                <img class="realization-gallery-img" src="Photos/real3.jpg" />
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+          <div thumbsSlider="" class="swiper swiperThumb4">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img
+                  class="realization-gallery-img-thumb"
+                  src="Photos/real1.jpg"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  class="realization-gallery-img-thumb"
+                  src="Photos/real2.jpg"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  class="realization-gallery-img-thumb"
+                  src="Photos/real3.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="polishing">
+          <h3>Korekta lakieru</h3>
+          <div
+            style="
+              --swiper-navigation-color: #fff;
+              --swiper-pagination-color: #fff;
+            "
+            class="swiper swiperGallery5"
+          >
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img class="realization-gallery-img" src="Photos/real1.jpg" />
+              </div>
+              <div class="swiper-slide">
+                <img class="realization-gallery-img" src="Photos/real2.jpg" />
+              </div>
+              <div class="swiper-slide">
+                <img class="realization-gallery-img" src="Photos/real3.jpg" />
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+          <div thumbsSlider="" class="swiper swiperThumb5">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img
+                  class="realization-gallery-img-thumb"
+                  src="Photos/real1.jpg"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  class="realization-gallery-img-thumb"
+                  src="Photos/real2.jpg"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  class="realization-gallery-img-thumb"
+                  src="Photos/real3.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="PDR">
+          <h3>Wyciąganie wgnieceń PDR</h3>
+          <div
+            style="
+              --swiper-navigation-color: #fff;
+              --swiper-pagination-color: #fff;
+            "
+            class="swiper swiperGallery6"
+          >
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img class="realization-gallery-img" src="Photos/real1.jpg" />
+              </div>
+              <div class="swiper-slide">
+                <img class="realization-gallery-img" src="Photos/real2.jpg" />
+              </div>
+              <div class="swiper-slide">
+                <img class="realization-gallery-img" src="Photos/real3.jpg" />
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+          <div thumbsSlider="" class="swiper swiperThumb6">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img
+                  class="realization-gallery-img-thumb"
+                  src="Photos/real1.jpg"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  class="realization-gallery-img-thumb"
+                  src="Photos/real2.jpg"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  class="realization-gallery-img-thumb"
+                  src="Photos/real3.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
 
-        <ul id="sideSocials">
-            <li>
-                <i class="fa-brands fa-facebook-square social-facebook"></i>
-            </li>
-            <li>
-                <i
-                    style="color: white"
-                    class="fa-brands fa-instagram social-instagram"
-                ></i>
-            </li>
-            <li>
-                <i
-                    style="color: white; background-color: black"
-                    class="fa-brands fa-tiktok social-tiktok"
-                ></i>
-            </li>
-            <li>
-                <i class="fa-brands fa-whatsapp social-whatsapp"></i>
-            </li>
-        </ul>
+      <section id="footer">
+        <footer>
+          <span>KWrap 2025</span>
+          <a
+            href="https://www.flaticon.com/authors/hajicon"
+            title="icons Hajicon"
+            >icons created by HAJICON - Flaticon</a
+          >
+          <a
+            href="https://www.flaticon.com/authors/freepik"
+            title="freepik icons"
+            >icons created by Freepik - Flaticon</a
+          >
+        </footer>
+      </section>
+    </main>
+  </body>
+  <script>
+    const sideMenu = document.getElementById("sideMenu");
+    const mainContainer = document.getElementById("mainContainer");
+    const menuIcon1 = document.getElementById("menuIcon1");
 
-        <main id="mainContainer">
-            <section id="realizationAll">
-                <h1>Realizacje</h1>
-                <section id="PPF">
-                    <h3>Zabezpieczenia PPF</h3>
-                    <div
-                        style="
-                            --swiper-navigation-color: #fff;
-                            --swiper-pagination-color: #fff;
-                        "
-                        class="swiper swiperGallery1"
-                    >
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img"
-                                    src="Photos/real1.jpg"
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img"
-                                    src="Photos/real2.jpg"
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img"
-                                    src="Photos/real3.jpg"
-                                />
-                            </div>
-                        </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                    </div>
-                    <div thumbsSlider="" class="swiper swiperThumb1">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img-thumb"
-                                    src="Photos/real1.jpg"
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img-thumb"
-                                    src="Photos/real2.jpg"
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img-thumb"
-                                    src="Photos/real3.jpg"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section id="wrap">
-                    <h3>Zmiana koloru</h3>
-                    <div
-                        style="
-                            --swiper-navigation-color: #fff;
-                            --swiper-pagination-color: #fff;
-                        "
-                        class="swiper swiperGallery2"
-                    >
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img"
-                                    src="Photos/real1.jpg"
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img"
-                                    src="Photos/real2.jpg"
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img"
-                                    src="Photos/real3.jpg"
-                                />
-                            </div>
-                        </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                    </div>
-                    <div thumbsSlider="" class="swiper swiperThumb2">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img-thumb"
-                                    src="Photos/real1.jpg"
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img-thumb"
-                                    src="Photos/real2.jpg"
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img-thumb"
-                                    src="Photos/real3.jpg"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section id="windows">
-                    <h3>Przyciemnianie szyb</h3>
-                    <div
-                        style="
-                            --swiper-navigation-color: #fff;
-                            --swiper-pagination-color: #fff;
-                        "
-                        class="swiper swiperGallery3"
-                    >
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img"
-                                    src="Photos/real1.jpg"
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img"
-                                    src="Photos/real2.jpg"
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img"
-                                    src="Photos/real3.jpg"
-                                />
-                            </div>
-                        </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                    </div>
-                    <div thumbsSlider="" class="swiper swiperThumb3">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img-thumb"
-                                    src="Photos/real1.jpg"
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img-thumb"
-                                    src="Photos/real2.jpg"
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img-thumb"
-                                    src="Photos/real3.jpg"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section id="headlights">
-                    <h3>Renowacja reflektorów</h3>
-                    <div
-                        style="
-                            --swiper-navigation-color: #fff;
-                            --swiper-pagination-color: #fff;
-                        "
-                        class="swiper swiperGallery4"
-                    >
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img"
-                                    src="Photos/real1.jpg"
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img"
-                                    src="Photos/real2.jpg"
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img"
-                                    src="Photos/real3.jpg"
-                                />
-                            </div>
-                        </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                    </div>
-                    <div thumbsSlider="" class="swiper swiperThumb4">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img-thumb"
-                                    src="Photos/real1.jpg"
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img-thumb"
-                                    src="Photos/real2.jpg"
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img-thumb"
-                                    src="Photos/real3.jpg"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section id="polishing">
-                    <h3>Korekta lakieru</h3>
-                    <div
-                        style="
-                            --swiper-navigation-color: #fff;
-                            --swiper-pagination-color: #fff;
-                        "
-                        class="swiper swiperGallery5"
-                    >
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img"
-                                    src="Photos/real1.jpg"
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img"
-                                    src="Photos/real2.jpg"
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img"
-                                    src="Photos/real3.jpg"
-                                />
-                            </div>
-                        </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                    </div>
-                    <div thumbsSlider="" class="swiper swiperThumb5">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img-thumb"
-                                    src="Photos/real1.jpg"
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img-thumb"
-                                    src="Photos/real2.jpg"
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img-thumb"
-                                    src="Photos/real3.jpg"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section id="PDR">
-                    <h3>Wyciąganie wgnieceń PDR</h3>
-                    <div
-                        style="
-                            --swiper-navigation-color: #fff;
-                            --swiper-pagination-color: #fff;
-                        "
-                        class="swiper swiperGallery6"
-                    >
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img"
-                                    src="Photos/real1.jpg"
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img"
-                                    src="Photos/real2.jpg"
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img"
-                                    src="Photos/real3.jpg"
-                                />
-                            </div>
-                        </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                    </div>
-                    <div thumbsSlider="" class="swiper swiperThumb6">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img-thumb"
-                                    src="Photos/real1.jpg"
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img-thumb"
-                                    src="Photos/real2.jpg"
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    class="realization-gallery-img-thumb"
-                                    src="Photos/real3.jpg"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </section>
+    function showHideSideMenu() {
+      sideMenu.classList.toggle("hidden");
+      if (sideMenu.classList.contains("hidden") === false) {
+        menuIcon2.classList.remove("none");
+        menuIcon1.classList.add("none");
+        mainContainer.classList.add("blur");
+      } else {
+        menuIcon1.classList.remove("none");
+        menuIcon2.classList.add("none");
+        mainContainer.classList.remove("blur");
+      }
+    }
 
-            <section id="footer">
-                <footer>
-                    <span>KWrap 2025</span>
-                    <a
-                        href="https://www.flaticon.com/authors/hajicon"
-                        title="icons Hajicon"
-                        >icons created by HAJICON - Flaticon</a
-                    >
-                    <a
-                        href="https://www.flaticon.com/authors/freepik"
-                        title="freepik icons"
-                        >icons created by Freepik - Flaticon</a
-                    >
-                </footer>
-            </section>
-        </main>
-    </body>
-    <script>
-        const sideMenu = document.getElementById("sideMenu");
-        const mainContainer = document.getElementById("mainContainer");
-        const menuIcon1 = document.getElementById("menuIcon1");
+    mainContainer.addEventListener("click", () => {
+      menuIcon1.classList.remove("none");
+      menuIcon2.classList.add("none");
+      mainContainer.classList.remove("blur");
+      sideMenu.classList.add("hidden");
+    });
 
-        function showHideSideMenu() {
-            sideMenu.classList.toggle("hidden");
-            if (sideMenu.classList.contains("hidden") === false) {
-                menuIcon2.classList.remove("none");
-                menuIcon1.classList.add("none");
-                mainContainer.classList.add("blur");
-            } else {
-                menuIcon1.classList.remove("none");
-                menuIcon2.classList.add("none");
-                mainContainer.classList.remove("blur");
-            }
-        }
+    sideMenu.addEventListener("click", () => {
+      menuIcon1.classList.remove("none");
+      menuIcon2.classList.add("none");
+      mainContainer.classList.remove("blur");
+      sideMenu.classList.add("hidden");
+    });
 
-        mainContainer.addEventListener("click", () => {
-            menuIcon1.classList.remove("none");
-            menuIcon2.classList.add("none");
-            mainContainer.classList.remove("blur");
-            sideMenu.classList.add("hidden");
-        });
-
-        sideMenu.addEventListener("click", () => {
-            menuIcon1.classList.remove("none");
-            menuIcon2.classList.add("none");
-            mainContainer.classList.remove("blur");
-            sideMenu.classList.add("hidden");
-        });
-
-        var swiper = new Swiper(".swiperThumb1", {
-            spaceBetween: 0,
-            slidesPerView: 4,
-            freeMode: true,
-            watchSlidesProgress: true
-        });
-        var swiper2 = new Swiper(".swiperGallery1", {
-            spaceBetween: 0,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev"
-            },
-            thumbs: {
-                swiper: swiper
-            }
-        });
-        var swiper3 = new Swiper(".swiperThumb2", {
-            spaceBetween: 0,
-            slidesPerView: 4,
-            freeMode: true,
-            watchSlidesProgress: true
-        });
-        var swiper4 = new Swiper(".swiperGallery2", {
-            spaceBetween: 0,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev"
-            },
-            thumbs: {
-                swiper: swiper3
-            }
-        });
-        var swiper5 = new Swiper(".swiperThumb3", {
-            spaceBetween: 0,
-            slidesPerView: 4,
-            freeMode: true,
-            watchSlidesProgress: true
-        });
-        var swiper6 = new Swiper(".swiperGallery3", {
-            spaceBetween: 0,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev"
-            },
-            thumbs: {
-                swiper: swiper5
-            }
-        });
-        var swiper7 = new Swiper(".swiperThumb4", {
-            spaceBetween: 0,
-            slidesPerView: 4,
-            freeMode: true,
-            watchSlidesProgress: true
-        });
-        var swiper8 = new Swiper(".swiperGallery4", {
-            spaceBetween: 0,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev"
-            },
-            thumbs: {
-                swiper: swiper7
-            }
-        });
-        var swiper9 = new Swiper(".swiperThumb5", {
-            spaceBetween: 0,
-            slidesPerView: 4,
-            freeMode: true,
-            watchSlidesProgress: true
-        });
-        var swiper10 = new Swiper(".swiperGallery5", {
-            spaceBetween: 0,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev"
-            },
-            thumbs: {
-                swiper: swiper9
-            }
-        });
-        var swiper11 = new Swiper(".swiperThumb6", {
-            spaceBetween: 0,
-            slidesPerView: 4,
-            freeMode: true,
-            watchSlidesProgress: true
-        });
-        var swiper12 = new Swiper(".swiperGallery6", {
-            spaceBetween: 0,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev"
-            },
-            thumbs: {
-                swiper: swiper11
-            }
-        });
-    </script>
+    var swiper = new Swiper(".swiperThumb1", {
+      spaceBetween: 0,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesProgress: true,
+    });
+    var swiper2 = new Swiper(".swiperGallery1", {
+      spaceBetween: 0,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      thumbs: {
+        swiper: swiper,
+      },
+    });
+    var swiper3 = new Swiper(".swiperThumb2", {
+      spaceBetween: 0,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesProgress: true,
+    });
+    var swiper4 = new Swiper(".swiperGallery2", {
+      spaceBetween: 0,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      thumbs: {
+        swiper: swiper3,
+      },
+    });
+    var swiper5 = new Swiper(".swiperThumb3", {
+      spaceBetween: 0,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesProgress: true,
+    });
+    var swiper6 = new Swiper(".swiperGallery3", {
+      spaceBetween: 0,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      thumbs: {
+        swiper: swiper5,
+      },
+    });
+    var swiper7 = new Swiper(".swiperThumb4", {
+      spaceBetween: 0,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesProgress: true,
+    });
+    var swiper8 = new Swiper(".swiperGallery4", {
+      spaceBetween: 0,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      thumbs: {
+        swiper: swiper7,
+      },
+    });
+    var swiper9 = new Swiper(".swiperThumb5", {
+      spaceBetween: 0,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesProgress: true,
+    });
+    var swiper10 = new Swiper(".swiperGallery5", {
+      spaceBetween: 0,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      thumbs: {
+        swiper: swiper9,
+      },
+    });
+    var swiper11 = new Swiper(".swiperThumb6", {
+      spaceBetween: 0,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesProgress: true,
+    });
+    var swiper12 = new Swiper(".swiperGallery6", {
+      spaceBetween: 0,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      thumbs: {
+        swiper: swiper11,
+      },
+    });
+  </script>
 </html>
