@@ -48,38 +48,6 @@ iframe {
     color: black;
 }
 
-.hover-underline {
-  color: #ffffff;
-  position: relative;
-  display: inline-block;
-}
-
-.hover-underline::after,
-.hover-underline::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(to right,#181818, #c3c3c3);
-  bottom: -1px;
-  left: 0;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s ease-out;
-}
-
-/*.hover-underline::before {
-  top: -5px;
-  transform-origin: left;
-}*/
-
-.hover-underline:hover::after,
-.hover-underline:hover::before {
-  transform: scaleX(1);
-}
-
-
-
 .sidebar {
     right: 0;
     position: fixed;
@@ -132,7 +100,7 @@ iframe {
 }
 .social-facebook:hover {
     transform: translate(20%, 0);
-    transition: 0.2s;
+    transition: 0.1s;
 }
 
 .social-tiktok {
@@ -141,7 +109,7 @@ iframe {
 }
 .social-tiktok:hover {
     transform: translate(20%, 0);
-    transition: 0.2s;
+    transition: 0.1s;
 }
 
 .social-whatsapp {
@@ -152,7 +120,7 @@ iframe {
 }
 .social-whatsapp:hover {
     transform: translate(20%, 0);
-    transition: 0.2s;
+    transition: 0.1s;
 }
 .social-instagram {
     background: radial-gradient(
@@ -169,7 +137,7 @@ iframe {
 
 .social-instagram:hover {
     transform: translate(20%, 0);
-    transition: 0.2s ease;
+    transition: 0.1s ease;
 }
 
 #mainContainer {
@@ -181,7 +149,6 @@ iframe {
 
 section {
     padding: 2rem 0;
-    font-size: 20px;
 }
 
 #about {
@@ -189,13 +156,12 @@ section {
     scroll-margin-top: 3.8rem;
 }
 h1 {
-    font-size: 42px;
+    font-size: 36px;
     margin: 0;
     margin-bottom: 2rem;
 }
 #about h3 {
     margin: 2rem 0;
-    font-size: 26px;
 }
 #about p {
     margin-bottom: 5rem;
@@ -285,7 +251,6 @@ h1 {
     margin: auto;
 }
 .realization-gallery-img-thumb {
-    height: 300px !important;
 }
 #realizations button {
     margin-top: 1rem;
@@ -330,7 +295,7 @@ h1 {
     text-align: center;
 }
 #contact li {
-    width: 11rem;
+    width: 10rem;
     margin-bottom: 1.5rem;
 }
 
@@ -355,24 +320,19 @@ h1 {
     text-align: center;
     justify-content: center;
 }
-#footer a {
+#footer a,
+span {
     display: block;
-    font-size: 8px;
-    text-decoration: none;
-    color: black;
 }
 
 #footer span {
     margin: 1rem 0;
     font-weight: bold;
-    font-size: 26px;
 }
-
-.copyright{
-    display: inline;
-    font-size: 12px !important;
-    position: absolute;
-    line-height: 0px;
+#footer a {
+    font-size: 8px;
+    text-decoration: none;
+    color: black;
 }
 
 #PPF {
@@ -448,6 +408,13 @@ h1 {
     background-position: center;
 }
 
+.swiper-button-prev {
+    color: black !important;
+}
+.swiper-button-next {
+    color: black !important;
+}
+
 .swiperGallery1,
 .swiperGallery2,
 .swiperGallery3,
@@ -467,7 +434,7 @@ h1 {
     /* height: 250px !important; */
     box-sizing: border-box;
     padding: 10px 0;
-    margin-top: 1.7rem;
+    margin-top: 0.5rem;
 }
 
 .swiperThumb1 .swiper-slide,
@@ -567,9 +534,6 @@ h1 {
         height: 500px !important;
         object-fit: cover;
     }
-    .realization-gallery-img-thumb {
-    height: auto !important;
-}
     .swiperThumb1 .swiper-slide,
     .swiperThumb2 .swiper-slide,
     .swiperThumb3 .swiper-slide,
@@ -577,5 +541,11 @@ h1 {
     .swiperThumb5 .swiper-slide,
     .swiperThumb6 .swiper-slide {
         height: 130px !important;
+    }
+    .swiper-button-next {
+        color: white !important;
+    }
+    .swiper-button-prev {
+        color: white !important;
     }
 }
