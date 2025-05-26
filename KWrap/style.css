@@ -340,6 +340,10 @@ span {
     color: black;
 }
 
+.copyright {
+    display: inline !important;
+}
+
 #PPF {
     background-color: #f7f7f7;
 }
