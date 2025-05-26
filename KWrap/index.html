@@ -1,303 +1,312 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>KWrap</title>
-    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Poppins"
-      rel="stylesheet"
-    />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
-      integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>KWrap</title>
+        <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Poppins"
+            rel="stylesheet"
+        />
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
+            integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+        />
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  </head>
-  <body>
-    <nav class="menu">
-      <!--<a href="#" class="hover-underline"
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    </head>
+    <body>
+        <nav class="menu">
+            <!--<a href="#" class="hover-underline"
         ></a>-->
-      <img id="logo" src="logo1.jpg" alt="" />
-      <ul class="navbar">
-        <li><a class="hover-underline" href="#about"> O mnie </a></li>
-        <li>
-          <a class="hover-underline" href="#services"> Usługi </a>
-        </li>
-        <li>
-          <a class="hover-underline" href="#realizations"> Realizacje </a>
-        </li>
-        <li>
-          <a class="hover-underline" href="#contact"> Kontakt </a>
-        </li>
-      </ul>
-      <ul id="sideMenu" class="sidebar hidden">
-        <li><a href="#about"> O mnie </a></li>
-        <li>
-          <a href="#services"> Usługi </a>
-        </li>
-        <li>
-          <a href="#realizations"> Realizacje </a>
-        </li>
-        <li>
-          <a href="#contact"> Kontakt </a>
-        </li>
-      </ul>
-      <div id="sideMenuButton" class="side-menu" onclick="showHideSideMenu()">
-        <div id="menuIcon1" class="">
-          <i class="fa solid fa-bars"></i>
-        </div>
-        <div id="menuIcon2" class="none">
-          <i class="fa solid fa-x"></i>
-        </div>
-      </div>
-    </nav>
-
-    <ul id="sideSocials">
-      <li>
-        <i class="fa-brands fa-facebook-square social-facebook"></i>
-      </li>
-      <li>
-        <i
-          style="color: white"
-          class="fa-brands fa-instagram social-instagram"
-        ></i>
-      </li>
-      <li>
-        <i
-          style="color: white; background-color: black"
-          class="fa-brands fa-tiktok social-tiktok"
-        ></i>
-      </li>
-      <li>
-        <i class="fa-brands fa-whatsapp social-whatsapp"></i>
-      </li>
-    </ul>
-
-    <main id="mainContainer">
-      <section id="about">
-        <h1>O mnie</h1>
-        <p>
-          Firma KWrap specjalizuje się w zabezpieczeniu lakieru oraz zmianie
-          koloru w pojazdach oraz ich poszczególnych elementach takich jak
-          lusterka, szyby czy reflektory. KWrap zajmuje się również zleceniami
-          nietypowymi.Zabezpieczam również łodzie, kaski motocyklowe a nawet
-          telefony czy okna w budynkach. Dodatkową usługą wykonywaną przez firmę
-          KWrap jest wyciąganie wgnieceń bez konieczności lakierowania.
-        </p>
-        <h3>Dlaczego warto wybrać firmę KWrap?</h3>
-        <ul>
-          <li>
-            <i class="fa fa-history about-icon"></i>
-            <span> Wieloletnie doświadczenie </span>
-          </li>
-          <li>
-            <i class="fa fa-award about-icon"></i>
-            <span> Potwierdzone kwalifikacje </span>
-          </li>
-          <li>
-            <i class="fa fa-handshake about-icon"></i>
-            <span> Profesjonalne doradztwo </span>
-          </li>
-          <li>
-            <i class="fa fa-magnifying-glass about-icon"></i>
-            <span> Dbałość o szczegóły </span>
-          </li>
-          <li>
-            <i class="fa fa-star about-icon"></i>
-            <span> Najwyższej klasy materiały </span>
-          </li>
-          <li>
-            <i class="fa fa-screwdriver-wrench about-icon"></i>
-            <span> Wiele usług w jednym miejscu </span>
-          </li>
-        </ul>
-      </section>
-      <section id="services">
-        <h1>Usługi</h1>
-        <p>KWrap oferuję usługi takie jak</p>
-        <ul>
-          <li>
-            <img src="tinting.png" />
-            <span> Przyciemnianie szyb </span>
-          </li>
-          <li>
-            <img src="headlight-restoration.png" />
-            <span> Polerowanie reflektorów </span>
-          </li>
-          <li>
-            <img src="paint.png" />
-            <span> Zmiana kolorów pojazdów </span>
-          </li>
-          <li>
-            <img src="Ppf.png" />
-            <span> Zabezpieczenia PPF w pojazdach </span>
-          </li>
-          <li>
-            <img src="detailing.png" />
-            <span>Drobne korekty lakieru</span>
-          </li>
-          <li>
-            <img src="body-repair.png" />
-            <span>Wyciąganie wgnieceń PDR</span>
-          </li>
-        </ul>
-      </section>
-      <section id="realizations">
-        <h1>Realizacje</h1>
-
-        <div class="swiper">
-          <!-- Additional required wrapper -->
-          <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div class="swiper-slide">
-              <img
-                class="realizations-swiper-img"
-                src="Photos/real1.jpg"
-                alt=""
-              />
-            </div>
-            <div class="swiper-slide">
-              <img
-                class="realizations-swiper-img"
-                src="Photos/real2.jpg"
-                alt=""
-              />
-            </div>
-            <div class="swiper-slide">
-              <img
-                class="realizations-swiper-img"
-                src="Photos/real3.jpg"
-                alt=""
-              />
-            </div>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-        <button><a href="realizacje.html"> Zobacz więcej </a></button>
-      </section>
-      <section id="contact">
-        <h1>Kontakt</h1>
-        <ul>
-          <li>
-            <span class="contact-title-span">
-              <i class="fa-solid fa-circle-user contact-icon"></i>Social
-              media</span
+            <img id="logo" src="logo1.jpg" alt="" />
+            <ul class="navbar">
+                <li><a class="hover-underline" href="#about"> O mnie </a></li>
+                <li>
+                    <a class="hover-underline" href="#services"> Usługi </a>
+                </li>
+                <li>
+                    <a class="hover-underline" href="#realizations">
+                        Realizacje
+                    </a>
+                </li>
+                <li>
+                    <a class="hover-underline" href="#contact"> Kontakt </a>
+                </li>
+            </ul>
+            <ul id="sideMenu" class="sidebar hidden">
+                <li><a href="#about"> O mnie </a></li>
+                <li>
+                    <a href="#services"> Usługi </a>
+                </li>
+                <li>
+                    <a href="#realizations"> Realizacje </a>
+                </li>
+                <li>
+                    <a href="#contact"> Kontakt </a>
+                </li>
+            </ul>
+            <div
+                id="sideMenuButton"
+                class="side-menu"
+                onclick="showHideSideMenu()"
             >
-            <span>
-              <i class="fa-brands fa-facebook-square"></i>
-              <i class="fa-brands fa-instagram"></i>
-              <i class="fa-brands fa-tiktok"></i>
-            </span>
-          </li>
-          <li>
-            <span class="contact-title-span">
-              <i class="fa-solid fa-phone contact-icon"></i>Telefon</span
-            >
-            <i class="fa-brands fa-whatsapp"></i>
-            <span style="display: inline">609373986</span>
-          </li>
-          <li>
-            <span class="contact-title-span">
-              <i class="fa-solid fa-map contact-icon"></i>
-              Adres</span
-            >
-            <span>Żwirki i Wigury 2A</span>
-            <span> 66-100 Sulechów </span>
-          </li>
-          <li>
-            <span class="contact-title-span">
-              <i class="fa-solid fa-envelope contact-icon"></i>
-              Mail
-            </span>
-            <span>krystian@kwrap.pl</span>
-          </li>
+                <div id="menuIcon1" class="">
+                    <i class="fa solid fa-bars"></i>
+                </div>
+                <div id="menuIcon2" class="none">
+                    <i class="fa solid fa-x"></i>
+                </div>
+            </div>
+        </nav>
+
+        <ul id="sideSocials">
+            <li>
+                <i class="fa-brands fa-facebook-square social-facebook"></i>
+            </li>
+            <li>
+                <i
+                    style="color: white"
+                    class="fa-brands fa-instagram social-instagram"
+                ></i>
+            </li>
+            <li>
+                <i
+                    style="color: white; background-color: black"
+                    class="fa-brands fa-tiktok social-tiktok"
+                ></i>
+            </li>
+            <li>
+                <i class="fa-brands fa-whatsapp social-whatsapp"></i>
+            </li>
         </ul>
-        <h3>Jak dojadę?</h3>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2451.127606579757!2d15.617848176483554!3d52.0956091675637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47066fd9e0a9dc8b%3A0xba7edc93356e9769!2sKwrap%20Oklejanie%20Pojazd%C3%B3w%20Krystian%20G%C3%B3rny!5e0!3m2!1spl!2spl!4v1746372812207!5m2!1spl!2spl"
-          style="border: 0"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </section>
-      <section id="footer">
-        <footer>
-          <span>KWrap 2025</span><span class="copyright"> &copy;</span>
-          <span style="display: block; font-size: 12px"
-            >All Rights Reserved</span
-          >
 
-          <a
-            href="https://www.flaticon.com/authors/hajicon"
-            title="icons Hajicon"
-            >icons created by HAJICON - Flaticon</a
-          >
-          <a
-            href="https://www.flaticon.com/authors/freepik"
-            title="freepik icons"
-            >icons created by Freepik - Flaticon</a
-          >
-        </footer>
-      </section>
-    </main>
-  </body>
-  <script>
-    const sideMenu = document.getElementById("sideMenu");
-    const mainContainer = document.getElementById("mainContainer");
-    const menuIcon1 = document.getElementById("menuIcon1");
+        <main id="mainContainer">
+            <section id="about">
+                <h1>O mnie</h1>
+                <p>
+                    Firma KWrap specjalizuje się w zabezpieczeniu lakieru oraz
+                    zmianie koloru w pojazdach oraz ich poszczególnych
+                    elementach takich jak lusterka, szyby czy reflektory. KWrap
+                    zajmuje się również zleceniami nietypowymi.Zabezpieczam
+                    również łodzie, kaski motocyklowe a nawet telefony czy okna
+                    w budynkach. Dodatkową usługą wykonywaną przez firmę KWrap
+                    jest wyciąganie wgnieceń bez konieczności lakierowania.
+                </p>
+                <h3>Dlaczego warto wybrać firmę KWrap?</h3>
+                <ul>
+                    <li>
+                        <i class="fa fa-history about-icon"></i>
+                        <span> Wieloletnie doświadczenie </span>
+                    </li>
+                    <li>
+                        <i class="fa fa-award about-icon"></i>
+                        <span> Potwierdzone kwalifikacje </span>
+                    </li>
+                    <li>
+                        <i class="fa fa-handshake about-icon"></i>
+                        <span> Profesjonalne doradztwo </span>
+                    </li>
+                    <li>
+                        <i class="fa fa-magnifying-glass about-icon"></i>
+                        <span> Dbałość o szczegóły </span>
+                    </li>
+                    <li>
+                        <i class="fa fa-star about-icon"></i>
+                        <span> Najwyższej klasy materiały </span>
+                    </li>
+                    <li>
+                        <i class="fa fa-screwdriver-wrench about-icon"></i>
+                        <span> Wiele usług w jednym miejscu </span>
+                    </li>
+                </ul>
+            </section>
+            <section id="services">
+                <h1>Usługi</h1>
+                <p>KWrap oferuję usługi takie jak</p>
+                <ul>
+                    <li>
+                        <img src="tinting.png" />
+                        <span> Przyciemnianie szyb </span>
+                    </li>
+                    <li>
+                        <img src="headlight-restoration.png" />
+                        <span> Polerowanie reflektorów </span>
+                    </li>
+                    <li>
+                        <img src="paint.png" />
+                        <span> Zmiana kolorów pojazdów </span>
+                    </li>
+                    <li>
+                        <img src="Ppf.png" />
+                        <span> Zabezpieczenia PPF w pojazdach </span>
+                    </li>
+                    <li>
+                        <img src="detailing.png" />
+                        <span>Drobne korekty lakieru</span>
+                    </li>
+                    <li>
+                        <img src="body-repair.png" />
+                        <span>Wyciąganie wgnieceń PDR</span>
+                    </li>
+                </ul>
+            </section>
+            <section id="realizations">
+                <h1>Realizacje</h1>
 
-    function showHideSideMenu() {
-      sideMenu.classList.toggle("hidden");
-      if (sideMenu.classList.contains("hidden") === false) {
-        menuIcon2.classList.remove("none");
-        menuIcon1.classList.add("none");
-        mainContainer.classList.add("blur");
-      } else {
-        menuIcon1.classList.remove("none");
-        menuIcon2.classList.add("none");
-        mainContainer.classList.remove("blur");
-      }
-    }
+                <div class="swiper">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                            <img
+                                class="realizations-swiper-img"
+                                src="Photos/real1.jpg"
+                                alt=""
+                            />
+                        </div>
+                        <div class="swiper-slide">
+                            <img
+                                class="realizations-swiper-img"
+                                src="Photos/real2.jpg"
+                                alt=""
+                            />
+                        </div>
+                        <div class="swiper-slide">
+                            <img
+                                class="realizations-swiper-img"
+                                src="Photos/real3.jpg"
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
 
-    mainContainer.addEventListener("click", () => {
-      menuIcon1.classList.remove("none");
-      menuIcon2.classList.add("none");
-      mainContainer.classList.remove("blur");
-      sideMenu.classList.add("hidden");
-    });
+                <button><a href="realizacje.html"> Zobacz więcej </a></button>
+            </section>
+            <section id="contact">
+                <h1>Kontakt</h1>
+                <ul>
+                    <li>
+                        <span class="contact-title-span">
+                            <i class="fa-solid fa-circle-user contact-icon"></i
+                            >Social media</span
+                        >
+                        <span>
+                            <i class="fa-brands fa-facebook-square"></i>
+                            <i class="fa-brands fa-instagram"></i>
+                            <i class="fa-brands fa-tiktok"></i>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="contact-title-span">
+                            <i class="fa-solid fa-phone contact-icon"></i
+                            >Telefon</span
+                        >
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span style="display: inline">609373986</span>
+                    </li>
+                    <li>
+                        <span class="contact-title-span">
+                            <i class="fa-solid fa-map contact-icon"></i>
+                            Adres</span
+                        >
+                        <span>Żwirki i Wigury 2A</span>
+                        <span> 66-100 Sulechów </span>
+                    </li>
+                    <li>
+                        <span class="contact-title-span">
+                            <i class="fa-solid fa-envelope contact-icon"></i>
+                            Mail
+                        </span>
+                        <span>krystian@kwrap.pl</span>
+                    </li>
+                </ul>
+                <h3>Jak dojadę?</h3>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2451.127606579757!2d15.617848176483554!3d52.0956091675637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47066fd9e0a9dc8b%3A0xba7edc93356e9769!2sKwrap%20Oklejanie%20Pojazd%C3%B3w%20Krystian%20G%C3%B3rny!5e0!3m2!1spl!2spl!4v1746372812207!5m2!1spl!2spl"
+                    style="border: 0"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+            </section>
+            <section id="footer">
+                <footer>
+                    <span>KWrap 2025 &copy;</span>
+                    <span style="display: block; font-size: 12px"
+                        >All Rights Reserved</span
+                    >
 
-    sideMenu.addEventListener("click", () => {
-      menuIcon1.classList.remove("none");
-      menuIcon2.classList.add("none");
-      mainContainer.classList.remove("blur");
-      sideMenu.classList.add("hidden");
-    });
-    const swiper = new Swiper(".swiper", {
-      // Optional parameters
+                    <a
+                        href="https://www.flaticon.com/authors/hajicon"
+                        title="icons Hajicon"
+                        >icons created by HAJICON - Flaticon</a
+                    >
+                    <a
+                        href="https://www.flaticon.com/authors/freepik"
+                        title="freepik icons"
+                        style="margin-bottom: 1rem"
+                        >icons created by Freepik - Flaticon</a
+                    >
+                </footer>
+            </section>
+        </main>
+    </body>
+    <script>
+        const sideMenu = document.getElementById("sideMenu");
+        const mainContainer = document.getElementById("mainContainer");
+        const menuIcon1 = document.getElementById("menuIcon1");
 
-      direction: "horizontal",
-      loop: true,
-      centeredSlides: false,
-      slidesPerView: 1,
-      autoplay: {
-        delay: 2000,
-      },
-      spaceBetween: 0,
-      pagination: {
-        el: ".swiper-pagination",
-      },
-    });
-  </script>
+        function showHideSideMenu() {
+            sideMenu.classList.toggle("hidden");
+            if (sideMenu.classList.contains("hidden") === false) {
+                menuIcon2.classList.remove("none");
+                menuIcon1.classList.add("none");
+                mainContainer.classList.add("blur");
+            } else {
+                menuIcon1.classList.remove("none");
+                menuIcon2.classList.add("none");
+                mainContainer.classList.remove("blur");
+            }
+        }
+
+        mainContainer.addEventListener("click", () => {
+            menuIcon1.classList.remove("none");
+            menuIcon2.classList.add("none");
+            mainContainer.classList.remove("blur");
+            sideMenu.classList.add("hidden");
+        });
+
+        sideMenu.addEventListener("click", () => {
+            menuIcon1.classList.remove("none");
+            menuIcon2.classList.add("none");
+            mainContainer.classList.remove("blur");
+            sideMenu.classList.add("hidden");
+        });
+        const swiper = new Swiper(".swiper", {
+            // Optional parameters
+
+            direction: "horizontal",
+            loop: true,
+            centeredSlides: false,
+            slidesPerView: 1,
+            autoplay: {
+                delay: 2000
+            },
+            spaceBetween: 0,
+            pagination: {
+                el: ".swiper-pagination"
+            }
+        });
+    </script>
 </html>
