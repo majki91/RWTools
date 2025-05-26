@@ -245,6 +245,11 @@ h1 {
     margin: auto;
 }
 
+.realization-gallery {
+    max-height: 800px !important;
+    max-width: 1200px !important;
+    margin: auto;
+} /* klasa ustawiajaca wymiar galerii */
 .realization-gallery-img {
     max-height: 800px !important;
     max-width: 1200px !important;
@@ -408,13 +413,6 @@ span {
     background-position: center;
 }
 
-.swiper-button-prev {
-    color: black !important;
-}
-.swiper-button-next {
-    color: black !important;
-}
-
 .swiperGallery1,
 .swiperGallery2,
 .swiperGallery3,
@@ -541,11 +539,5 @@ span {
     .swiperThumb5 .swiper-slide,
     .swiperThumb6 .swiper-slide {
         height: 130px !important;
-    }
-    .swiper-button-next {
-        color: white !important;
-    }
-    .swiper-button-prev {
-        color: white !important;
     }
 }
