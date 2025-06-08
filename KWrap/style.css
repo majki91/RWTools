@@ -17,7 +17,7 @@ iframe {
 .menu {
     top: 0;
     padding: 1rem;
-    border-bottom: 1px solid #c3c3c3;
+    /* border-bottom: 1px solid #c3c3c3; */
     display: flex;
     justify-content: space-between;
     position: fixed;
