@@ -263,12 +263,12 @@ h1 {
 }
 
 #realizations button {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     padding: 1rem;
     background-color: #181818;
     color: #f7f7f7;
     border: 2px solid black;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: bold;
 }
 #realizations button a {
