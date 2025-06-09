@@ -23,7 +23,7 @@ body {
 .logo {
     display: block;
     background: red;
-    margin: auto 4rem;
+    margin: auto 3rem;
 }
 
 .navbar {
