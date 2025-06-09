@@ -237,8 +237,8 @@ h1 {
     display: inline-block;
 }
 
-#realizationAll{
-    background-color:#f7f7f7 ;
+#realizationAll {
+    background-color: #f7f7f7;
 }
 
 #realizations {
@@ -264,10 +264,11 @@ h1 {
 
 #realizations button {
     margin-top: 1rem;
+    padding: 1rem;
     background-color: #181818;
     color: #f7f7f7;
     border: 2px solid black;
-    font-size: 36px;
+    font-size: 30px;
     font-weight: bold;
 }
 #realizations button a {
