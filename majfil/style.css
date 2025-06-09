@@ -22,7 +22,8 @@ body {
 
 .logo {
     display: block;
-    margin-left: 1rem;
+    background: red;
+    margin:0 0 0 1rem;
 }
 
 .navbar {
