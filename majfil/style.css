@@ -16,6 +16,7 @@ body {
     display: flex;
     justify-content: space-between;
     position: fixed;
+    border-bottom: 1px solid black;
 }
 
 .navbar li {
