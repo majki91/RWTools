@@ -46,12 +46,16 @@ body {
     color: black;
 }
 
-.sidebar{
-  
+.sidebar {
+  display: none;
 }
 
 @media only screen and (max-width: 768px) {
     .navbar {
         display: none;
+    }
+    
+    .sidebar{
+      display: inline;
     }
 }
