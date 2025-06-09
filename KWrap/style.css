@@ -321,6 +321,14 @@ h1 {
     font-weight: bold;
 }
 
+.contact-social-icons{
+  font-size: 28px;
+}
+.contact-social-icons i{
+  margin-right:1rem;
+}
+
+
 #footer {
     background-color: #f7f7f7;
     display: flex;
@@ -536,7 +544,7 @@ span {
 
     #realizations button {
         font-size: 18px;
-        padding:0.5rem;
+        padding: 0.5rem;
     }
 
     .realizations-swiper-img {
