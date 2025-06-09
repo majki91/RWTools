@@ -44,3 +44,13 @@ body {
     text-decoration: none;
     color: black;
 }
+
+
+
+@media only screen and (max-width: 768px) {
+  .navbar{
+    display: none;
+  }
+  
+  
+}
