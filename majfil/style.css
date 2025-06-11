@@ -8,10 +8,12 @@ body {
     margin: 0;
     /* font-family: "Poppins", "Sans-Serif"; */
     width: 100%;
+    z-index: -1;
 }
 
-.hero-img{
-  background-image: url("photos/hero.jpg");
+.hero-img {
+    background-image: url("photos/hero.jpg");
+    z-index: 0;
 }
 
 .menu {
@@ -62,8 +64,8 @@ body {
     .sidebar {
         display: inline;
     }
-    
-    .sidebar-button{
-      margin-right: 2rem;
+
+    .sidebar-button {
+        margin-right: 2rem;
     }
 }
