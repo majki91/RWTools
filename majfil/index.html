@@ -14,7 +14,7 @@
         ></script>
     </head>
     <body>
-        <div class="hero-img"></div>
+        <div id="hero" class="hero-img"></div>
         <nav id="menu" class="menu">
             <span class="logo">Logo</span>
             <ul class="navbar">
@@ -250,11 +250,12 @@
         };
 
         const navbar = document.getElementById("menu");
+        const hero = document.getElementById("hero");
 
         function scrollFunction() {
             if (
-                document.body.scrollTop > 180 ||
-                document.documentElement.scrollTop > 180
+                document.body.scrollTop > hero.height ||
+                document.documentElement.scrollTop > hero.height
             ) {
                 navbar.style.backgroundColor = "black";
             } else {
