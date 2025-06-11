@@ -333,8 +333,7 @@ h1 {
     display: flex;
     flex-direction: row;
     margin: 0;
-    padding-top: 0 !important;
-    padding-bottom: 2rem !important;
+    padding:0;
     text-align: center;
     justify-content: center;
     box-shadow: 0 0 5px 0px rgba(195, 195, 195, 1);
