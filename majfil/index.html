@@ -254,12 +254,19 @@
         function scrollFunction() {
             if (
                 document.body.scrollTop > 80 ||
-                document.documentElement.scrollTop > 80
+                document.documentElement.scrollTop > 80 
             ) {
                 navbar.style.backgroundColor = "black";
             } else {
                 navbar.style.backgroundColor = "rgba(0,0,0,0.0);";
             }
+            
+            if (
+                document.body.scroll < 80 ||
+                document.documentElement.scrollTop < 80 
+            )
+            navbar.style.backgroundColor = "rgba(0,0,0,0.0);";
+            
         }
     </script>
 </html>
