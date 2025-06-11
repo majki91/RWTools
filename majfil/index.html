@@ -15,7 +15,7 @@
     </head>
     <body>
         <div class="hero-img"></div>
-        <nav class="menu">
+        <nav id="menu" class="menu">
             <span class="logo">Logo</span>
             <ul class="navbar">
                 <li><a href="#">Menu1</a></li>
@@ -249,7 +249,7 @@
             scrollFunction();
         };
 
-        const navbar = document.getElementsByClassName("menu");
+        const navbar = document.getElementById("menu");
 
         function scrollFunction() {
             if (
