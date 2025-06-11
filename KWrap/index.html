@@ -333,7 +333,7 @@
                 position: "bottomLeft"
             },
             cookieTypes: [
-                {
+                /*{
                     id: "necessary",
                     name: "Necessary",
                     description:
@@ -344,7 +344,7 @@
                             "Add logic for the required Necessary here"
                         );
                     }
-                },
+                },*/
                 {
                     id: "analytics",
                     name: "Analytical",
@@ -370,7 +370,7 @@
                     name: "Advertising",
                     description:
                         "<p>These cookies provide extra features and personalization to improve your experience. They may be set by us or by partners whose services we use.</p>",
-                        defaultValue: true,
+                    defaultValue: true,
                     onAccept: function () {
                         gtag("consent", "update", {
                             ad_storage: "granted",
