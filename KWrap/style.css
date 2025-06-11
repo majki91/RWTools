@@ -239,6 +239,7 @@ h1 {
 
 #realizationAll {
     background-color: #f7f7f7;
+    padding-bottom: 0 !important;
 }
 
 #realizations {
@@ -333,7 +334,7 @@ h1 {
     display: flex;
     flex-direction: row;
     margin: 0;
-    padding:0;
+    padding: 0;
     text-align: center;
     justify-content: center;
     box-shadow: 0 0 5px 0px rgba(195, 195, 195, 1);
