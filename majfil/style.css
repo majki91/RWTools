@@ -13,6 +13,9 @@ body {
 
 .hero-img {
     background-image: url("galaxyblack.jpg");
+    background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
     z-index: 0;
 }
 
@@ -25,7 +28,6 @@ body {
     justify-content: space-between;
     position: fixed;
     border-bottom: 1px solid black;
-    
 }
 
 .logo {
