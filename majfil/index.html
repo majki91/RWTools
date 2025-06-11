@@ -254,8 +254,8 @@
 
         function scrollFunction() {
             if (
-                document.body.scrollTop > hero.offsetHeight ||
-                document.documentElement.scrollTop > hero.offsetHeight
+                document.body.scrollTop > hero.offsetHeight-menu.offsetHeight ||
+                document.documentElement.scrollTop > hero.offsetHeight-menu.offsetHeight
             ) {
                 navbar.style.backgroundColor = "black";
             } else {
