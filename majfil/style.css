@@ -30,7 +30,7 @@ body {
     justify-content: space-between;
     position: fixed;
     border-bottom: 1px solid black;
-    color:white;
+    color: white;
 }
 
 .logo {
@@ -40,6 +40,7 @@ body {
 }
 
 .navbar {
+    color: white;
     display: flex;
     justify-content: flex-end;
     align-items: center;
