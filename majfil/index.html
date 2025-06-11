@@ -248,8 +248,8 @@
         window.onscroll = function () {
             scrollFunction();
         };
-        
-        const navbar = document.getElementsByClassName("navbar");
+
+        const navbar = document.getElementsByClassName("menu");
 
         function scrollFunction() {
             if (
@@ -257,10 +257,8 @@
                 document.documentElement.scrollTop > 80
             ) {
                 navbar.style.color = "black";
-                
             } else {
                 navbar.style.color = "rgba(0,0,0,0.0);";
-                
             }
         }
     </script>
