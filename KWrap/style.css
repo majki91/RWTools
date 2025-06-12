@@ -149,14 +149,12 @@ iframe {
     transition: all ease-in-out 0.5s;
 }
 
-#loadingGif{
-  position: absolute;
-  display: flex;
-  align-items: center;
-  
-  
-  width: 400px;
-  height: 400px;
+#loadingGif {
+    position: absolute;
+    margin: auto;
+
+    width: 400px;
+    height: 400px;
 }
 
 section {
