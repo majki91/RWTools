@@ -184,7 +184,10 @@
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
                     </div>
-                    <div thumbsSlider="" class="swiper swiperThumb2 realization-gallery">
+                    <div
+                        thumbsSlider=""
+                        class="swiper swiperThumb2 realization-gallery"
+                    >
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <img
@@ -239,7 +242,10 @@
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
                     </div>
-                    <div thumbsSlider="" class="swiper swiperThumb3 realization-gallery">
+                    <div
+                        thumbsSlider=""
+                        class="swiper swiperThumb3 realization-gallery"
+                    >
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <img
@@ -294,7 +300,10 @@
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
                     </div>
-                    <div thumbsSlider="" class="swiper swiperThumb4 realization-gallery">
+                    <div
+                        thumbsSlider=""
+                        class="swiper swiperThumb4 realization-gallery"
+                    >
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <img
@@ -349,7 +358,10 @@
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
                     </div>
-                    <div thumbsSlider="" class="swiper swiperThumb5 realization-gallery">
+                    <div
+                        thumbsSlider=""
+                        class="swiper swiperThumb5 realization-gallery"
+                    >
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <img
@@ -404,7 +416,10 @@
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
                     </div>
-                    <div thumbsSlider="" class="swiper swiperThumb6 realization-gallery">
+                    <div
+                        thumbsSlider=""
+                        class="swiper swiperThumb6 realization-gallery"
+                    >
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <img
@@ -445,144 +460,144 @@
                 </footer>
             </section>
         </main>
-    <script>
-        const sideMenu = document.getElementById("sideMenu");
-        const mainContainer = document.getElementById("mainContainer");
-        const menuIcon1 = document.getElementById("menuIcon1");
+        <script>
+            const sideMenu = document.getElementById("sideMenu");
+            const mainContainer = document.getElementById("mainContainer");
+            const menuIcon1 = document.getElementById("menuIcon1");
 
-        function showHideSideMenu() {
-            sideMenu.classList.toggle("hidden");
-            if (sideMenu.classList.contains("hidden") === false) {
-                menuIcon2.classList.remove("none");
-                menuIcon1.classList.add("none");
-                mainContainer.classList.add("blur");
-            } else {
+            function showHideSideMenu() {
+                sideMenu.classList.toggle("hidden");
+                if (sideMenu.classList.contains("hidden") === false) {
+                    menuIcon2.classList.remove("none");
+                    menuIcon1.classList.add("none");
+                    mainContainer.classList.add("blur");
+                } else {
+                    menuIcon1.classList.remove("none");
+                    menuIcon2.classList.add("none");
+                    mainContainer.classList.remove("blur");
+                }
+            }
+
+            mainContainer.addEventListener("click", () => {
                 menuIcon1.classList.remove("none");
                 menuIcon2.classList.add("none");
                 mainContainer.classList.remove("blur");
-            }
-        }
+                sideMenu.classList.add("hidden");
+            });
 
-        mainContainer.addEventListener("click", () => {
-            menuIcon1.classList.remove("none");
-            menuIcon2.classList.add("none");
-            mainContainer.classList.remove("blur");
-            sideMenu.classList.add("hidden");
-        });
+            sideMenu.addEventListener("click", () => {
+                menuIcon1.classList.remove("none");
+                menuIcon2.classList.add("none");
+                mainContainer.classList.remove("blur");
+                sideMenu.classList.add("hidden");
+            });
 
-        sideMenu.addEventListener("click", () => {
-            menuIcon1.classList.remove("none");
-            menuIcon2.classList.add("none");
-            mainContainer.classList.remove("blur");
-            sideMenu.classList.add("hidden");
-        });
+            var swiper = new Swiper(".swiperThumb1", {
+                spaceBetween: 0,
+                slidesPerView: 4,
+                freeMode: true,
+                watchSlidesProgress: true
+            });
+            var swiper2 = new Swiper(".swiperGallery1", {
+                spaceBetween: 0,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                },
+                thumbs: {
+                    swiper: swiper
+                }
+            });
+            var swiper3 = new Swiper(".swiperThumb2", {
+                spaceBetween: 0,
+                slidesPerView: 4,
+                freeMode: true,
+                watchSlidesProgress: true
+            });
+            var swiper4 = new Swiper(".swiperGallery2", {
+                spaceBetween: 0,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                },
+                thumbs: {
+                    swiper: swiper3
+                }
+            });
+            var swiper5 = new Swiper(".swiperThumb3", {
+                spaceBetween: 0,
+                slidesPerView: 4,
+                freeMode: true,
+                watchSlidesProgress: true
+            });
+            var swiper6 = new Swiper(".swiperGallery3", {
+                spaceBetween: 0,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                },
+                thumbs: {
+                    swiper: swiper5
+                }
+            });
+            var swiper7 = new Swiper(".swiperThumb4", {
+                spaceBetween: 0,
+                slidesPerView: 4,
+                freeMode: true,
+                watchSlidesProgress: true
+            });
+            var swiper8 = new Swiper(".swiperGallery4", {
+                spaceBetween: 0,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                },
+                thumbs: {
+                    swiper: swiper7
+                }
+            });
+            var swiper9 = new Swiper(".swiperThumb5", {
+                spaceBetween: 0,
+                slidesPerView: 4,
+                freeMode: true,
+                watchSlidesProgress: true
+            });
+            var swiper10 = new Swiper(".swiperGallery5", {
+                spaceBetween: 0,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                },
+                thumbs: {
+                    swiper: swiper9
+                }
+            });
+            var swiper11 = new Swiper(".swiperThumb6", {
+                spaceBetween: 0,
+                slidesPerView: 4,
+                freeMode: true,
+                watchSlidesProgress: true
+            });
+            var swiper12 = new Swiper(".swiperGallery6", {
+                spaceBetween: 0,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                },
+                thumbs: {
+                    swiper: swiper11
+                }
+            });
 
-        var swiper = new Swiper(".swiperThumb1", {
-            spaceBetween: 0,
-            slidesPerView: 4,
-            freeMode: true,
-            watchSlidesProgress: true
-        });
-        var swiper2 = new Swiper(".swiperGallery1", {
-            spaceBetween: 0,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev"
-            },
-            thumbs: {
-                swiper: swiper
-            }
-        });
-        var swiper3 = new Swiper(".swiperThumb2", {
-            spaceBetween: 0,
-            slidesPerView: 4,
-            freeMode: true,
-            watchSlidesProgress: true
-        });
-        var swiper4 = new Swiper(".swiperGallery2", {
-            spaceBetween: 0,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev"
-            },
-            thumbs: {
-                swiper: swiper3
-            }
-        });
-        var swiper5 = new Swiper(".swiperThumb3", {
-            spaceBetween: 0,
-            slidesPerView: 4,
-            freeMode: true,
-            watchSlidesProgress: true
-        });
-        var swiper6 = new Swiper(".swiperGallery3", {
-            spaceBetween: 0,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev"
-            },
-            thumbs: {
-                swiper: swiper5
-            }
-        });
-        var swiper7 = new Swiper(".swiperThumb4", {
-            spaceBetween: 0,
-            slidesPerView: 4,
-            freeMode: true,
-            watchSlidesProgress: true
-        });
-        var swiper8 = new Swiper(".swiperGallery4", {
-            spaceBetween: 0,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev"
-            },
-            thumbs: {
-                swiper: swiper7
-            }
-        });
-        var swiper9 = new Swiper(".swiperThumb5", {
-            spaceBetween: 0,
-            slidesPerView: 4,
-            freeMode: true,
-            watchSlidesProgress: true
-        });
-        var swiper10 = new Swiper(".swiperGallery5", {
-            spaceBetween: 0,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev"
-            },
-            thumbs: {
-                swiper: swiper9
-            }
-        });
-        var swiper11 = new Swiper(".swiperThumb6", {
-            spaceBetween: 0,
-            slidesPerView: 4,
-            freeMode: true,
-            watchSlidesProgress: true
-        });
-        var swiper12 = new Swiper(".swiperGallery6", {
-            spaceBetween: 0,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev"
-            },
-            thumbs: {
-                swiper: swiper11
-            }
-        });
-        
-        silktideCookieBannerManager.updateCookieBannerConfig({
-            background: {
-                showBackground: true
-            },
-            cookieIcon: {
-                position: "bottomLeft"
-            },
-            cookieTypes: [
-                /*{
+            silktideCookieBannerManager.updateCookieBannerConfig({
+                background: {
+                    showBackground: true
+                },
+                cookieIcon: {
+                    position: "bottomLeft"
+                },
+                cookieTypes: [
+                    /*{
                     id: "necessary",
                     name: "Necessary",
                     description:
@@ -594,13 +609,13 @@
                         );
                     }
                 },*/
-                {
-                    id: "analytics",
-                    name: "Analityczne",
-                    description:
-                        "<p>Te pliki cookie pomagają nam ulepszać witrynę, śledząc, które strony są najpopularniejsze i w jaki sposób użytkownicy poruszają się po witrynie.</p>",
-                    defaultValue: true,
-                    /*
+                    {
+                        id: "analytics",
+                        name: "Analityczne",
+                        description:
+                            "<p>Te pliki cookie pomagają nam ulepszać witrynę, śledząc, które strony są najpopularniejsze i w jaki sposób użytkownicy poruszają się po witrynie.</p>",
+                        defaultValue: true
+                        /*
                     onAccept: function () {
                         gtag("consent", "update", {
                             analytics_storage: "granted"
@@ -616,14 +631,14 @@
                         });
                     }
                         */
-                },
-                {
-                    id: "advertising",
-                    name: "Reklamowe",
-                    description:
-                        "<p>Te pliki cookie zapewniają dodatkowe funkcje i personalizację, aby poprawić Twoje doświadczenia. Mogą być ustawione przez nas lub przez partnerów, z których usług korzystamy.</p>",
-                    defaultValue: true,
-                    /*
+                    },
+                    {
+                        id: "advertising",
+                        name: "Reklamowe",
+                        description:
+                            "<p>Te pliki cookie zapewniają dodatkowe funkcje i personalizację, aby poprawić Twoje doświadczenia. Mogą być ustawione przez nas lub przez partnerów, z których usług korzystamy.</p>",
+                        defaultValue: true
+                        /*
                     onAccept: function () {
                         gtag("consent", "update", {
                             ad_storage: "granted",
@@ -642,31 +657,30 @@
                         });
                     }
                     */
+                    }
+                ],
+                text: {
+                    banner: {
+                        description:
+                            '<p>Na naszej stronie internetowej używamy plików cookie, aby zwiększyć wygodę korzystania z niej, dostarczać spersonalizowane treści i analizować ruch na naszej stronie. <a href="https://your-website.com/cookie-policy" target="_blank">Polityka prywatności.</a></p>',
+                        acceptAllButtonText: "Zaakceptuj wszystkie",
+                        acceptAllButtonAccessibleLabel:
+                            "Zaakceptuj wszystkie cookies",
+                        rejectNonEssentialButtonText: "Odrzuć niewymagane",
+                        rejectNonEssentialButtonAccessibleLabel:
+                            "Odrzuć niewymagane cookies",
+                        preferencesButtonText: "Preferencje",
+                        preferencesButtonAccessibleLabel: "Przełącz preferencje"
+                    },
+                    preferences: {
+                        title: "Dostosuj swoje preferencje dotyczące plików cookie",
+                        description:
+                            "<p>Szanujemy Twoje prawo do prywatności. Możesz wybrać opcję odrzucenia niektórych typów plików cookie. Twoje preferencje dotyczące plików cookie będą miały zastosowanie w całej naszej witrynie.</p>",
+                        creditLinkText: "Get this banner for free",
+                        creditLinkAccessibleLabel: "Get this banner for free"
+                    }
                 }
-            ],
-            text: {
-                banner: {
-                    description:
-                        '<p>Na naszej stronie internetowej używamy plików cookie, aby zwiększyć wygodę korzystania z niej, dostarczać spersonalizowane treści i analizować ruch na naszej stronie. <a href="https://your-website.com/cookie-policy" target="_blank">Polityka prywatności.</a></p>',
-                    acceptAllButtonText: "Zaakceptuj wszystkie",
-                    acceptAllButtonAccessibleLabel:
-                        "Zaakceptuj wszystkie cookies",
-                    rejectNonEssentialButtonText: "Odrzuć niewymagane",
-                    rejectNonEssentialButtonAccessibleLabel:
-                        "Odrzuć niewymagane cookies",
-                    preferencesButtonText: "Preferencje",
-                    preferencesButtonAccessibleLabel: "Przełącz preferencje"
-                },
-                preferences: {
-                    title: "Dostosuj swoje preferencje dotyczące plików cookie",
-                    description:
-                        "<p>Szanujemy Twoje prawo do prywatności. Możesz wybrać opcję odrzucenia niektórych typów plików cookie. Twoje preferencje dotyczące plików cookie będą miały zastosowanie w całej naszej witrynie.</p>",
-                    creditLinkText: "Get this banner for free",
-                    creditLinkAccessibleLabel: "Get this banner for free"
-                }
-            }
-        });
-        
-    </script>
+            });
+        </script>
     </body>
 </html>
