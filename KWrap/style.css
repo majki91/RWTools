@@ -151,8 +151,10 @@ iframe {
 
 #loadingGif{
   position: absolute;
-  width: 800px;
-  height: 600px;
+  display: flex;
+  align-content: center;
+  width: 400px;
+  height: 400px;
 }
 
 section {
