@@ -255,9 +255,10 @@ h1 {
     background-color: #f7f7f7;
 }
 .realizations-swiper-img {
-    max-height: 1200px !important;
-    max-width: 800px !important;
+    max-height: 700px !important;
+    max-width: 1200px !important;
     margin: auto;
+    object-fit: none;
 }
 
 .realization-gallery {
