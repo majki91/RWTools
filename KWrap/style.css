@@ -80,8 +80,8 @@ iframe {
 #logo {
     margin: 0;
     margin-left: 2rem;
-    height: 35px;
-    padding: 1rem 0;
+    /* height: 35px; */
+    /* padding: 1rem 0; */
 }
 
 #sideSocials {
