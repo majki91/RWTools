@@ -255,8 +255,8 @@ h1 {
     background-color: #f7f7f7;
 }
 .realizations-swiper-img {
-    max-height: 800px !important;
-    max-width: 1200px !important;
+    max-height: 1200px !important;
+    max-width: 800px !important;
     margin: auto;
 }
 
@@ -558,7 +558,6 @@ span {
 
     .realizations-swiper-img {
         height: 500px !important;
-        object-fit: cover !important;
     }
     .realization-gallery-img {
         width: 100% !important;
