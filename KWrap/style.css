@@ -255,20 +255,19 @@ h1 {
     background-color: #f7f7f7;
 }
 .realizations-swiper-img {
-    max-height: 700px !important;
-    max-width: 1200px !important;
+    max-height: 600px !important;
+    max-width: 1000px !important;
     margin: auto;
-    object-fit: none;
 }
 
 .realization-gallery {
-    max-height: 800px !important;
-    max-width: 1200px !important;
+    max-height: 600px !important;
+    max-width: 1000px !important;
     margin: auto;
 } /* klasa ustawiajaca wymiar galerii */
 .realization-gallery-img {
-    max-height: 800px !important;
-    max-width: 1200px !important;
+    max-height: 600px !important;
+    max-width: 1000px !important;
     margin: auto;
 }
 
@@ -469,8 +468,8 @@ span {
 .swiperThumb4 .swiper-slide,
 .swiperThumb5 .swiper-slide,
 .swiperThumb6 .swiper-slide {
-    width: 20%;
-    height: 100%;
+    width: 10%;
+    height: 20%;
     opacity: 0.4;
 }
 
@@ -487,7 +486,7 @@ span {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    /* object-fit: cover; */
 }
 
 @media only screen and (max-width: 768px) {
