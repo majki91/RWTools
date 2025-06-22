@@ -272,7 +272,7 @@ h1 {
 }
 .realization-gallery-img-thumb {
     max-width: 100px;
-    max-height: 200px;
+    max-height: 100px;
 }
 
 #realizations button {
@@ -472,8 +472,8 @@ span {
 .swiperThumb4 .swiper-slide,
 .swiperThumb5 .swiper-slide,
 .swiperThumb6 .swiper-slide {
-    width: 10%;
-    height: 20%;
+    width: 100px !important;
+    height: 100px !important;
     opacity: 0.4;
 }
 
@@ -574,6 +574,6 @@ span {
     .swiperThumb4 .swiper-slide,
     .swiperThumb5 .swiper-slide,
     .swiperThumb6 .swiper-slide {
-        height: 130px !important;
+        height: 100px !important;
     }
 }
