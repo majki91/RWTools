@@ -191,7 +191,7 @@
                         <div class="swiper-slide">
                             <img
                                 class="realizations-swiper-img"
-                                src="Photos/real3.jpg"
+                                src="Photos/IMG_0372.jpg"
                                 alt=""
                             />
                         </div>
@@ -278,62 +278,62 @@
                 </footer>
             </section>
         </main>
-    <script>
-        const sideMenu = document.getElementById("sideMenu");
-        const mainContainer = document.getElementById("mainContainer");
-        const menuIcon1 = document.getElementById("menuIcon1");
+        <script>
+            const sideMenu = document.getElementById("sideMenu");
+            const mainContainer = document.getElementById("mainContainer");
+            const menuIcon1 = document.getElementById("menuIcon1");
 
-        function showHideSideMenu() {
-            sideMenu.classList.toggle("hidden");
-            if (sideMenu.classList.contains("hidden") === false) {
-                menuIcon2.classList.remove("none");
-                menuIcon1.classList.add("none");
-                mainContainer.classList.add("blur");
-            } else {
+            function showHideSideMenu() {
+                sideMenu.classList.toggle("hidden");
+                if (sideMenu.classList.contains("hidden") === false) {
+                    menuIcon2.classList.remove("none");
+                    menuIcon1.classList.add("none");
+                    mainContainer.classList.add("blur");
+                } else {
+                    menuIcon1.classList.remove("none");
+                    menuIcon2.classList.add("none");
+                    mainContainer.classList.remove("blur");
+                }
+            }
+
+            mainContainer.addEventListener("click", () => {
                 menuIcon1.classList.remove("none");
                 menuIcon2.classList.add("none");
                 mainContainer.classList.remove("blur");
-            }
-        }
+                sideMenu.classList.add("hidden");
+            });
 
-        mainContainer.addEventListener("click", () => {
-            menuIcon1.classList.remove("none");
-            menuIcon2.classList.add("none");
-            mainContainer.classList.remove("blur");
-            sideMenu.classList.add("hidden");
-        });
+            sideMenu.addEventListener("click", () => {
+                menuIcon1.classList.remove("none");
+                menuIcon2.classList.add("none");
+                mainContainer.classList.remove("blur");
+                sideMenu.classList.add("hidden");
+            });
+            const swiper = new Swiper(".swiper", {
+                // Optional parameters
 
-        sideMenu.addEventListener("click", () => {
-            menuIcon1.classList.remove("none");
-            menuIcon2.classList.add("none");
-            mainContainer.classList.remove("blur");
-            sideMenu.classList.add("hidden");
-        });
-        const swiper = new Swiper(".swiper", {
-            // Optional parameters
+                direction: "horizontal",
+                loop: true,
+                centeredSlides: false,
+                slidesPerView: 1,
+                autoplay: {
+                    delay: 2000
+                },
+                spaceBetween: 0,
+                pagination: {
+                    el: ".swiper-pagination"
+                }
+            });
 
-            direction: "horizontal",
-            loop: true,
-            centeredSlides: false,
-            slidesPerView: 1,
-            autoplay: {
-                delay: 2000
-            },
-            spaceBetween: 0,
-            pagination: {
-                el: ".swiper-pagination"
-            }
-        });
-
-        silktideCookieBannerManager.updateCookieBannerConfig({
-            background: {
-                showBackground: true
-            },
-            cookieIcon: {
-                position: "bottomLeft"
-            },
-            cookieTypes: [
-                /*{
+            silktideCookieBannerManager.updateCookieBannerConfig({
+                background: {
+                    showBackground: true
+                },
+                cookieIcon: {
+                    position: "bottomLeft"
+                },
+                cookieTypes: [
+                    /*{
                     id: "necessary",
                     name: "Necessary",
                     description:
@@ -345,13 +345,13 @@
                         );
                     }
                 },*/
-                {
-                    id: "analytics",
-                    name: "Analityczne",
-                    description:
-                        "<p>Te pliki cookie pomagają nam ulepszać witrynę, śledząc, które strony są najpopularniejsze i w jaki sposób użytkownicy poruszają się po witrynie.</p>",
-                    defaultValue: true
-                    /*
+                    {
+                        id: "analytics",
+                        name: "Analityczne",
+                        description:
+                            "<p>Te pliki cookie pomagają nam ulepszać witrynę, śledząc, które strony są najpopularniejsze i w jaki sposób użytkownicy poruszają się po witrynie.</p>",
+                        defaultValue: true
+                        /*
                     onAccept: function () {
                         gtag("consent", "update", {
                             analytics_storage: "granted"
@@ -366,14 +366,14 @@
                         });
                     }
                     */
-                },
-                {
-                    id: "advertising",
-                    name: "Reklamowe",
-                    description:
-                        "<p>Te pliki cookie zapewniają dodatkowe funkcje i personalizację, aby poprawić Twoje doświadczenia. Mogą być ustawione przez nas lub przez partnerów, z których usług korzystamy.</p>",
-                    defaultValue: false
-                    /*
+                    },
+                    {
+                        id: "advertising",
+                        name: "Reklamowe",
+                        description:
+                            "<p>Te pliki cookie zapewniają dodatkowe funkcje i personalizację, aby poprawić Twoje doświadczenia. Mogą być ustawione przez nas lub przez partnerów, z których usług korzystamy.</p>",
+                        defaultValue: false
+                        /*
                     onAccept: function () {
                         gtag("consent", "update", {
                             ad_storage: "granted",
@@ -392,30 +392,30 @@
                         });
                     }
                     */
+                    }
+                ],
+                text: {
+                    banner: {
+                        description:
+                            '<p>Na naszej stronie internetowej używamy plików cookie, aby zwiększyć wygodę korzystania z niej, dostarczać spersonalizowane treści i analizować ruch na naszej stronie. <a href="https://your-website.com/cookie-policy" target="_blank">Polityka prywatności.</a></p>',
+                        acceptAllButtonText: "Zaakceptuj wszystkie",
+                        acceptAllButtonAccessibleLabel:
+                            "Zaakceptuj wszystkie cookies",
+                        rejectNonEssentialButtonText: "Odrzuć niewymagane",
+                        rejectNonEssentialButtonAccessibleLabel:
+                            "Odrzuć niewymagane cookies",
+                        preferencesButtonText: "Preferencje",
+                        preferencesButtonAccessibleLabel: "Przełącz preferencje"
+                    },
+                    preferences: {
+                        title: "Dostosuj swoje preferencje dotyczące plików cookie",
+                        description:
+                            "<p>Szanujemy Twoje prawo do prywatności. Możesz wybrać opcję odrzucenia niektórych typów plików cookie. Twoje preferencje dotyczące plików cookie będą miały zastosowanie w całej naszej witrynie.</p>",
+                        creditLinkText: "Get this banner for free",
+                        creditLinkAccessibleLabel: "Get this banner for free"
+                    }
                 }
-            ],
-            text: {
-                banner: {
-                    description:
-                        '<p>Na naszej stronie internetowej używamy plików cookie, aby zwiększyć wygodę korzystania z niej, dostarczać spersonalizowane treści i analizować ruch na naszej stronie. <a href="https://your-website.com/cookie-policy" target="_blank">Polityka prywatności.</a></p>',
-                    acceptAllButtonText: "Zaakceptuj wszystkie",
-                    acceptAllButtonAccessibleLabel:
-                        "Zaakceptuj wszystkie cookies",
-                    rejectNonEssentialButtonText: "Odrzuć niewymagane",
-                    rejectNonEssentialButtonAccessibleLabel:
-                        "Odrzuć niewymagane cookies",
-                    preferencesButtonText: "Preferencje",
-                    preferencesButtonAccessibleLabel: "Przełącz preferencje"
-                },
-                preferences: {
-                    title: "Dostosuj swoje preferencje dotyczące plików cookie",
-                    description:
-                        "<p>Szanujemy Twoje prawo do prywatności. Możesz wybrać opcję odrzucenia niektórych typów plików cookie. Twoje preferencje dotyczące plików cookie będą miały zastosowanie w całej naszej witrynie.</p>",
-                    creditLinkText: "Get this banner for free",
-                    creditLinkAccessibleLabel: "Get this banner for free"
-                }
-            }
-        });
-    </script>
+            });
+        </script>
     </body>
 </html>
