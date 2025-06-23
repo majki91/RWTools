@@ -95,6 +95,37 @@
             <section id="realizationAll">
                 <h1>Realizacje</h1>
                 <section id="PPF">
+                    <div
+                        style="
+                            --swiper-navigation-color: #fff;
+                            --swiper-pagination-color: #fff;
+                        "
+                        class="swiper swiperGallery7"
+                    >
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img
+                                    class="realization-gallery-img"
+                                    src="Photos/IMG_0436.jpg"
+                                />
+                            </div>
+                            <div class="swiper-slide">
+                                <img
+                                    class="realization-gallery-img"
+                                    src="Photos/IMG_0372.jpg"
+                                />
+                            </div>
+                            <div class="swiper-slide">
+                                <img
+                                    class="realization-gallery-img"
+                                    src="Photos/IMG_0436B.jpg"
+                                />
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
                     <h3>Zabezpieczenia PPF</h3>
                     <div
                         style="
@@ -588,17 +619,17 @@
                     swiper: swiper11
                 }
             });
-            
-            var swiper13 = new Swiper(".mySwiper", {
-      pagination: {
-        el: ".swiper-pagination",
-        type: "fraction",
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
+
+            var swiper13 = new Swiper(".swiperGallery7", {
+                pagination: {
+                    el: ".swiper-pagination",
+                    type: "fraction"
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                }
+            });
 
             silktideCookieBannerManager.updateCookieBannerConfig({
                 background: {
