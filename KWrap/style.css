@@ -486,13 +486,6 @@ span {
     opacity: 1;
 }
 
-.swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    /* object-fit: cover; */
-}
-
 @media only screen and (max-width: 768px) {
     iframe {
         width: 80%;
