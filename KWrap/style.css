@@ -261,13 +261,13 @@ h1 {
 }
 
 .realization-gallery {
-    max-height: 600px !important;
-    max-width: 1000px !important;
+    max-height: 700px !important;
+    max-width: 1100px !important;
     margin: auto;
 } /* klasa ustawiajaca wymiar galerii */
 .realization-gallery-img {
-    max-height: 600px !important;
-    max-width: 1000px !important;
+    max-height: 700px !important;
+    max-width: 1100px !important;
     margin: auto;
 }
 .realization-gallery-img-thumb {
