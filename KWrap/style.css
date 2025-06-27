@@ -1,3 +1,12 @@
+:root{
+    --laptop-width: 1100px;
+    --laptop-height: 600px;
+    --4k-width: 1600px;
+    --4k-height: 800px;
+
+}
+
+
 html {
     scroll-behavior: smooth;
 }
@@ -81,8 +90,8 @@ iframe {
 #logo {
     margin: 0;
     margin-left: 2rem;
-    height: 30px;
-    padding: 1rem 0;
+    height: 45px;
+    padding: 0.5rem 0;
 }
 
 #sideSocials {
@@ -164,7 +173,7 @@ section {
 
 #about {
     background-color: #f7f7f7;
-    scroll-margin-top: 3.8rem;
+    scroll-margin-top: 5rem;
 }
 h1 {
     font-size: 36px;
@@ -256,19 +265,19 @@ h1 {
     background-color: #f7f7f7;
 }
 .realizations-swiper-img {
-    max-height: 600px !important;
-    max-width: 1000px !important;
+    max-height: var(--laptop-height) !important;
+    max-width: var(--laptop-width) !important;
     margin: auto;
 }
 
 .realization-gallery {
-    max-height: 700px !important;
-    max-width: 1100px !important;
+    max-height: var(--laptop-height) !important;
+    max-width: var(--laptop-width) !important;
     margin: auto;
 } /* klasa ustawiajaca wymiar galerii */
 .realization-gallery-img {
-    max-height: 700px !important;
-    max-width: 1100px !important;
+    max-height: var(--laptop-height) !important;
+    max-width: var(--laptop-width) !important;
     margin: auto;
 }
 .realization-gallery-img-thumb {
@@ -464,7 +473,7 @@ span {
     /* height: 250px !important; */
     box-sizing: border-box;
     padding: 10px 0;
-    margin-top: 0.5rem;
+    margin-top: 0.1rem;
 }
 
 .swiperThumb1 .swiper-slide,
@@ -473,8 +482,8 @@ span {
 .swiperThumb4 .swiper-slide,
 .swiperThumb5 .swiper-slide,
 .swiperThumb6 .swiper-slide {
-    width: 100px !important;
-    height: 100px !important;
+    width: 80px !important;
+    height: 80px !important;
     opacity: 0.4;
 }
 
@@ -497,8 +506,9 @@ span {
         width: 100%;
     }
     #logo {
-        width: 100px;
-        height: 25px;
+        height: 35px;
+        padding: 0.2rem 0;
+        margin: auto 1.5rem;
     }
 
     #sideMenuButton {
@@ -571,3 +581,40 @@ span {
         height: 100px !important;
     }
 }
+
+@media screen and (min-width: 2500px) {
+
+#logo{
+    height: 80px;
+    padding: 0.6rem 0;
+}
+
+#mainContainer {
+    margin-top: 5rem;
+}
+    
+
+
+.realizations-swiper-img {
+    max-height: var(--4k-height) !important;
+    max-width: var(--4k-width) !important;
+    margin: auto;
+}
+
+.realization-gallery {
+    max-height: var(--4k-height) !important;
+    max-width: var(--4k-width) !important;
+    margin: auto;
+} /* klasa ustawiajaca wymiar galerii */
+.realization-gallery-img {
+    max-height: var(--4k-height) !important;
+    max-width: var(--4k-width) !important;
+    margin: auto;
+}
+.realization-gallery-img-thumb {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+    }
+

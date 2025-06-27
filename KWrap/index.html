@@ -1,340 +1,326 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pl">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>KWrap</title>
-        <link rel="stylesheet" href="style.css" type="text/css" media="all" />
-        <link
-            href="https://fonts.googleapis.com/css?family=Poppins"
-            rel="stylesheet"
-        />
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
-            integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        ></script>
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-        />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>KWrap</title>
+    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
+      integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
 
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-        <link
-            rel="stylesheet"
-            id="silktide-consent-manager-css"
-            href="silktide-consent-manager.css"
-        />
-        <script src="silktide-consent-manager.js"></script>
-    </head>
-    <body>
-        <nav class="menu">
-            <!--<a href="#" class="hover-underline"
+    <link
+      rel="stylesheet"
+      id="silktide-consent-manager-css"
+      href="silktide-consent-manager.css"
+    />
+    <script src="silktide-consent-manager.js"></script>
+  </head>
+  <body>
+    <nav class="menu">
+      <!--<a href="#" class="hover-underline"
         ></a>-->
-            <img id="logo" src="logo1.jpg" alt="" />
-            <ul class="navbar">
-                <li><a class="hover-underline" href="#about"> O mnie </a></li>
-                <li>
-                    <a class="hover-underline" href="#services"> Usługi </a>
-                </li>
-                <li>
-                    <a class="hover-underline" href="#realizations">
-                        Realizacje
-                    </a>
-                </li>
-                <li>
-                    <a class="hover-underline" href="#contact"> Kontakt </a>
-                </li>
-            </ul>
-            <ul id="sideMenu" class="sidebar hidden">
-                <li><a href="#about"> O mnie </a></li>
-                <li>
-                    <a href="#services"> Usługi </a>
-                </li>
-                <li>
-                    <a href="#realizations"> Realizacje </a>
-                </li>
-                <li>
-                    <a href="#contact"> Kontakt </a>
-                </li>
-            </ul>
-            <div
-                id="sideMenuButton"
-                class="side-menu"
-                onclick="showHideSideMenu()"
-            >
-                <div id="menuIcon1" class="">
-                    <i class="fa solid fa-bars"></i>
-                </div>
-                <div id="menuIcon2" class="none">
-                    <i class="fa solid fa-x"></i>
-                </div>
-            </div>
-        </nav>
+      <img id="logo" src="logo100.jpg" alt="" />
+      <ul class="navbar">
+        <li><a class="hover-underline" href="#about"> O mnie </a></li>
+        <li>
+          <a class="hover-underline" href="#services"> Usługi </a>
+        </li>
+        <li>
+          <a class="hover-underline" href="realizacje.html"> Realizacje </a>
+        </li>
+        <li>
+          <a class="hover-underline" href="#contact"> Kontakt </a>
+        </li>
+      </ul>
+      <ul id="sideMenu" class="sidebar hidden">
+        <li><a href="#about"> O mnie </a></li>
+        <li>
+          <a href="#services"> Usługi </a>
+        </li>
+        <li>
+          <a href="realizacje.html"> Realizacje </a>
+        </li>
+        <li>
+          <a href="#contact"> Kontakt </a>
+        </li>
+      </ul>
+      <div id="sideMenuButton" class="side-menu" onclick="showHideSideMenu()">
+        <div id="menuIcon1" class="">
+          <i class="fa solid fa-bars"></i>
+        </div>
+        <div id="menuIcon2" class="none">
+          <i class="fa solid fa-x"></i>
+        </div>
+      </div>
+    </nav>
 
-        <ul id="sideSocials">
-            <li>
-                <i class="fa-brands fa-facebook-square social-facebook"></i>
-            </li>
-            <li>
-                <i
-                    style="color: white"
-                    class="fa-brands fa-instagram social-instagram"
-                ></i>
-            </li>
-            <li>
-                <i
-                    style="color: white; background-color: black"
-                    class="fa-brands fa-tiktok social-tiktok"
-                ></i>
-            </li>
-            <li>
-                <i class="fa-brands fa-whatsapp social-whatsapp"></i>
-            </li>
+    <ul id="sideSocials">
+      <li>
+        <i class="fa-brands fa-facebook-square social-facebook"></i>
+      </li>
+      <li>
+        <i
+          style="color: white"
+          class="fa-brands fa-instagram social-instagram"
+        ></i>
+      </li>
+      <li>
+        <i
+          style="color: white; background-color: black"
+          class="fa-brands fa-tiktok social-tiktok"
+        ></i>
+      </li>
+      <li>
+        <i class="fa-brands fa-whatsapp social-whatsapp"></i>
+      </li>
+    </ul>
+
+    <main id="mainContainer">
+      <img id="loadingGif" src="Photos/animation.gif" alt="" />
+      <section id="about">
+        <h1>O mnie</h1>
+        <p>
+          Firma KWrap specjalizuje się w zabezpieczeniu lakieru oraz zmianie
+          koloru w pojazdach oraz ich poszczególnych elementach takich jak
+          lusterka, szyby czy reflektory. KWrap zajmuje się również zleceniami
+          nietypowymi.Zabezpieczam również łodzie, kaski motocyklowe a nawet
+          telefony czy okna w budynkach. Dodatkową usługą wykonywaną przez firmę
+          KWrap jest wyciąganie wgnieceń bez konieczności lakierowania.
+        </p>
+        <h3>Dlaczego warto wybrać firmę KWrap?</h3>
+        <ul>
+          <li>
+            <i class="fa fa-history about-icon"></i>
+            <span> Wieloletnie doświadczenie </span>
+          </li>
+          <li>
+            <i class="fa fa-award about-icon"></i>
+            <span> Potwierdzone kwalifikacje </span>
+          </li>
+          <li>
+            <i class="fa fa-handshake about-icon"></i>
+            <span> Profesjonalne doradztwo </span>
+          </li>
+          <li>
+            <i class="fa fa-magnifying-glass about-icon"></i>
+            <span> Dbałość o szczegóły </span>
+          </li>
+          <li>
+            <i class="fa fa-star about-icon"></i>
+            <span> Najwyższej klasy materiały </span>
+          </li>
+          <li>
+            <i class="fa fa-screwdriver-wrench about-icon"></i>
+            <span> Wiele usług w jednym miejscu </span>
+          </li>
         </ul>
+      </section>
+      <section id="services">
+        <h1>Usługi</h1>
+        <p>KWrap oferuję usługi takie jak</p>
+        <ul>
+          <li>
+            <img src="Icons/tinting.png" />
+            <span> Przyciemnianie szyb </span>
+          </li>
+          <li>
+            <img src="Icons/headlight-restoration80.png" />
+            <span> Polerowanie reflektorów </span>
+          </li>
+          <li>
+            <img src="Icons/paint80.png" />
+            <span> Zmiana kolorów pojazdów </span>
+          </li>
+          <li>
+            <img src="Icons/ppf80.png" />
+            <span> Zabezpieczenia PPF w pojazdach </span>
+          </li>
+          <li>
+            <img src="Icons/detailing80.png" />
+            <span>Drobne korekty lakieru</span>
+          </li>
+          <li>
+            <img src="Icons/body-repair80.png" />
+            <span>Wyciąganie wgnieceń PDR</span>
+          </li>
+        </ul>
+      </section>
+      <section id="realizations">
+        <h1>Realizacje</h1>
 
-        <main id="mainContainer">
-            <img id="loadingGif" src="Photos/animation.gif" alt="" />
-            <section id="about">
-                <h1>O mnie</h1>
-                <p>
-                    Firma KWrap specjalizuje się w zabezpieczeniu lakieru oraz
-                    zmianie koloru w pojazdach oraz ich poszczególnych
-                    elementach takich jak lusterka, szyby czy reflektory. KWrap
-                    zajmuje się również zleceniami nietypowymi.Zabezpieczam
-                    również łodzie, kaski motocyklowe a nawet telefony czy okna
-                    w budynkach. Dodatkową usługą wykonywaną przez firmę KWrap
-                    jest wyciąganie wgnieceń bez konieczności lakierowania.
-                </p>
-                <h3>Dlaczego warto wybrać firmę KWrap?</h3>
-                <ul>
-                    <li>
-                        <i class="fa fa-history about-icon"></i>
-                        <span> Wieloletnie doświadczenie </span>
-                    </li>
-                    <li>
-                        <i class="fa fa-award about-icon"></i>
-                        <span> Potwierdzone kwalifikacje </span>
-                    </li>
-                    <li>
-                        <i class="fa fa-handshake about-icon"></i>
-                        <span> Profesjonalne doradztwo </span>
-                    </li>
-                    <li>
-                        <i class="fa fa-magnifying-glass about-icon"></i>
-                        <span> Dbałość o szczegóły </span>
-                    </li>
-                    <li>
-                        <i class="fa fa-star about-icon"></i>
-                        <span> Najwyższej klasy materiały </span>
-                    </li>
-                    <li>
-                        <i class="fa fa-screwdriver-wrench about-icon"></i>
-                        <span> Wiele usług w jednym miejscu </span>
-                    </li>
-                </ul>
-            </section>
-            <section id="services">
-                <h1>Usługi</h1>
-                <p>KWrap oferuję usługi takie jak</p>
-                <ul>
-                    <li>
-                        <img src="tinting.png" />
-                        <span> Przyciemnianie szyb </span>
-                    </li>
-                    <li>
-                        <img src="headlight-restoration.png" />
-                        <span> Polerowanie reflektorów </span>
-                    </li>
-                    <li>
-                        <img src="paint.png" />
-                        <span> Zmiana kolorów pojazdów </span>
-                    </li>
-                    <li>
-                        <img src="Ppf.png" />
-                        <span> Zabezpieczenia PPF w pojazdach </span>
-                    </li>
-                    <li>
-                        <img src="detailing.png" />
-                        <span>Drobne korekty lakieru</span>
-                    </li>
-                    <li>
-                        <img src="body-repair.png" />
-                        <span>Wyciąganie wgnieceń PDR</span>
-                    </li>
-                </ul>
-            </section>
-            <section id="realizations">
-                <h1>Realizacje</h1>
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <img
+                class="realizations-swiper-img"
+                src="Photos/real1.jpg"
+                alt=""
+              />
+            </div>
 
-                <div class="swiper">
-                    <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper">
-                        <!-- Slides -->
-                        <div class="swiper-slide">
-                            <img
-                                class="realizations-swiper-img"
-                                src="Photos/real1.jpg"
-                                alt=""
-                            />
-                        </div>
+            <div class="swiper-slide">
+              <img
+                class="realizations-swiper-img"
+                src="Photos/IMG_0436.jpg"
+                alt=""
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                class="realizations-swiper-img"
+                src="Photos/IMG_0372.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
 
-                        <div class="swiper-slide">
-                            <img
-                                class="realizations-swiper-img"
-                                src="Photos/IMG_0436.jpg"
-                                alt=""
-                            />
-                        </div>
-                        <div class="swiper-slide">
-                            <img
-                                class="realizations-swiper-img"
-                                src="Photos/IMG_0372.jpg"
-                                alt=""
-                            />
-                        </div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
+        <button><a href="realizacje.html"> Więcej realizacji </a></button>
+      </section>
+      <section id="contact">
+        <h1>Kontakt</h1>
+        <ul>
+          <li>
+            <span class="contact-title-span">
+              <i class="fa-solid fa-circle-user contact-icon"></i>Social
+              media</span
+            >
+            <span class="contact-social-icons">
+              <i
+                style="margin-right: 1rem"
+                class="fa-brands fa-facebook-square"
+              ></i>
+              <i style="margin-right: 1rem" class="fa-brands fa-instagram"></i>
+              <i class="fa-brands fa-tiktok"></i>
+            </span>
+          </li>
+          <li>
+            <span class="contact-title-span">
+              <i class="fa-solid fa-phone contact-icon"></i>Telefon</span
+            >
+            <i style="margin-right: 0.5rem" class="fa-brands fa-whatsapp"></i>
+            <span style="display: inline">609373986</span>
+          </li>
+          <li>
+            <span class="contact-title-span">
+              <i class="fa-solid fa-map contact-icon"></i>
+              Adres</span
+            >
+            <span>Żwirki i Wigury 2A</span>
+            <span> 66-100 Sulechów </span>
+          </li>
+          <li>
+            <span class="contact-title-span">
+              <i class="fa-solid fa-envelope contact-icon"></i>
+              Mail
+            </span>
+            <span>krystian@kwrap.pl</span>
+          </li>
+        </ul>
+        <h3>Jak dojadę?</h3>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2451.127606579757!2d15.617848176483554!3d52.0956091675637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47066fd9e0a9dc8b%3A0xba7edc93356e9769!2sKwrap%20Oklejanie%20Pojazd%C3%B3w%20Krystian%20G%C3%B3rny!5e0!3m2!1spl!2spl!4v1746372812207!5m2!1spl!2spl"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </section>
+      <section id="footer">
+        <footer>
+          <span>KWrap 2025 &copy;</span>
+          <span style="display: block; font-size: 12px"
+            >All Rights Reserved</span
+          >
 
-                <button><a href="realizacje.html"> Zobacz więcej </a></button>
-            </section>
-            <section id="contact">
-                <h1>Kontakt</h1>
-                <ul>
-                    <li>
-                        <span class="contact-title-span">
-                            <i class="fa-solid fa-circle-user contact-icon"></i
-                            >Social media</span
-                        >
-                        <span class="contact-social-icons">
-                            <i
-                                style="margin-right: 1rem"
-                                class="fa-brands fa-facebook-square"
-                            ></i>
-                            <i
-                                style="margin-right: 1rem"
-                                class="fa-brands fa-instagram"
-                            ></i>
-                            <i class="fa-brands fa-tiktok"></i>
-                        </span>
-                    </li>
-                    <li>
-                        <span class="contact-title-span">
-                            <i class="fa-solid fa-phone contact-icon"></i
-                            >Telefon</span
-                        >
-                        <i
-                            style="margin-right: 0.5rem"
-                            class="fa-brands fa-whatsapp"
-                        ></i>
-                        <span style="display: inline">609373986</span>
-                    </li>
-                    <li>
-                        <span class="contact-title-span">
-                            <i class="fa-solid fa-map contact-icon"></i>
-                            Adres</span
-                        >
-                        <span>Żwirki i Wigury 2A</span>
-                        <span> 66-100 Sulechów </span>
-                    </li>
-                    <li>
-                        <span class="contact-title-span">
-                            <i class="fa-solid fa-envelope contact-icon"></i>
-                            Mail
-                        </span>
-                        <span>krystian@kwrap.pl</span>
-                    </li>
-                </ul>
-                <h3>Jak dojadę?</h3>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2451.127606579757!2d15.617848176483554!3d52.0956091675637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47066fd9e0a9dc8b%3A0xba7edc93356e9769!2sKwrap%20Oklejanie%20Pojazd%C3%B3w%20Krystian%20G%C3%B3rny!5e0!3m2!1spl!2spl!4v1746372812207!5m2!1spl!2spl"
-                    style="border: 0"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                ></iframe>
-            </section>
-            <section id="footer">
-                <footer>
-                    <span>KWrap 2025 &copy;</span>
-                    <span style="display: block; font-size: 12px"
-                        >All Rights Reserved</span
-                    >
+          <a
+            href="https://www.flaticon.com/authors/hajicon"
+            title="icons Hajicon"
+            >icons created by HAJICON - Flaticon</a
+          >
+          <a
+            href="https://www.flaticon.com/authors/freepik"
+            title="freepik icons"
+            style="margin-bottom: 1rem"
+            >icons created by Freepik - Flaticon</a
+          >
+        </footer>
+      </section>
+    </main>
+    <script>
+      const sideMenu = document.getElementById("sideMenu");
+      const mainContainer = document.getElementById("mainContainer");
+      const menuIcon1 = document.getElementById("menuIcon1");
 
-                    <a
-                        href="https://www.flaticon.com/authors/hajicon"
-                        title="icons Hajicon"
-                        >icons created by HAJICON - Flaticon</a
-                    >
-                    <a
-                        href="https://www.flaticon.com/authors/freepik"
-                        title="freepik icons"
-                        style="margin-bottom: 1rem"
-                        >icons created by Freepik - Flaticon</a
-                    >
-                </footer>
-            </section>
-        </main>
-        <script>
-            const sideMenu = document.getElementById("sideMenu");
-            const mainContainer = document.getElementById("mainContainer");
-            const menuIcon1 = document.getElementById("menuIcon1");
+      function showHideSideMenu() {
+        sideMenu.classList.toggle("hidden");
+        if (sideMenu.classList.contains("hidden") === false) {
+          menuIcon2.classList.remove("none");
+          menuIcon1.classList.add("none");
+          mainContainer.classList.add("blur");
+        } else {
+          menuIcon1.classList.remove("none");
+          menuIcon2.classList.add("none");
+          mainContainer.classList.remove("blur");
+        }
+      }
 
-            function showHideSideMenu() {
-                sideMenu.classList.toggle("hidden");
-                if (sideMenu.classList.contains("hidden") === false) {
-                    menuIcon2.classList.remove("none");
-                    menuIcon1.classList.add("none");
-                    mainContainer.classList.add("blur");
-                } else {
-                    menuIcon1.classList.remove("none");
-                    menuIcon2.classList.add("none");
-                    mainContainer.classList.remove("blur");
-                }
-            }
+      mainContainer.addEventListener("click", () => {
+        menuIcon1.classList.remove("none");
+        menuIcon2.classList.add("none");
+        mainContainer.classList.remove("blur");
+        sideMenu.classList.add("hidden");
+      });
 
-            mainContainer.addEventListener("click", () => {
-                menuIcon1.classList.remove("none");
-                menuIcon2.classList.add("none");
-                mainContainer.classList.remove("blur");
-                sideMenu.classList.add("hidden");
-            });
+      sideMenu.addEventListener("click", () => {
+        menuIcon1.classList.remove("none");
+        menuIcon2.classList.add("none");
+        mainContainer.classList.remove("blur");
+        sideMenu.classList.add("hidden");
+      });
+      const swiper = new Swiper(".swiper", {
+        // Optional parameters
 
-            sideMenu.addEventListener("click", () => {
-                menuIcon1.classList.remove("none");
-                menuIcon2.classList.add("none");
-                mainContainer.classList.remove("blur");
-                sideMenu.classList.add("hidden");
-            });
-            const swiper = new Swiper(".swiper", {
-                // Optional parameters
+        direction: "horizontal",
+        loop: true,
+        centeredSlides: false,
+        slidesPerView: 1,
+        autoplay: {
+          delay: 2000,
+        },
+        spaceBetween: 0,
+        pagination: {
+          el: ".swiper-pagination",
+        },
+      });
 
-                direction: "horizontal",
-                loop: true,
-                centeredSlides: false,
-                slidesPerView: 1,
-                autoplay: {
-                    delay: 2000
-                },
-                spaceBetween: 0,
-                pagination: {
-                    el: ".swiper-pagination"
-                }
-            });
-
-            silktideCookieBannerManager.updateCookieBannerConfig({
-                background: {
-                    showBackground: true
-                },
-                cookieIcon: {
-                    position: "bottomLeft"
-                },
-                cookieTypes: [
-                    /*{
+      silktideCookieBannerManager.updateCookieBannerConfig({
+        background: {
+          showBackground: true,
+        },
+        cookieIcon: {
+          position: "bottomLeft",
+        },
+        cookieTypes: [
+          /*{
                     id: "necessary",
                     name: "Necessary",
                     description:
@@ -346,13 +332,13 @@
                         );
                     }
                 },*/
-                    {
-                        id: "analytics",
-                        name: "Analityczne",
-                        description:
-                            "<p>Te pliki cookie pomagają nam ulepszać witrynę, śledząc, które strony są najpopularniejsze i w jaki sposób użytkownicy poruszają się po witrynie.</p>",
-                        defaultValue: true
-                        /*
+          {
+            id: "analytics",
+            name: "Analityczne",
+            description:
+              "<p>Te pliki cookie pomagają nam ulepszać witrynę, śledząc, które strony są najpopularniejsze i w jaki sposób użytkownicy poruszają się po witrynie.</p>",
+            defaultValue: true,
+            /*
                     onAccept: function () {
                         gtag("consent", "update", {
                             analytics_storage: "granted"
@@ -367,14 +353,14 @@
                         });
                     }
                     */
-                    },
-                    {
-                        id: "advertising",
-                        name: "Reklamowe",
-                        description:
-                            "<p>Te pliki cookie zapewniają dodatkowe funkcje i personalizację, aby poprawić Twoje doświadczenia. Mogą być ustawione przez nas lub przez partnerów, z których usług korzystamy.</p>",
-                        defaultValue: false
-                        /*
+          },
+          {
+            id: "advertising",
+            name: "Reklamowe",
+            description:
+              "<p>Te pliki cookie zapewniają dodatkowe funkcje i personalizację, aby poprawić Twoje doświadczenia. Mogą być ustawione przez nas lub przez partnerów, z których usług korzystamy.</p>",
+            defaultValue: false,
+            /*
                     onAccept: function () {
                         gtag("consent", "update", {
                             ad_storage: "granted",
@@ -393,30 +379,29 @@
                         });
                     }
                     */
-                    }
-                ],
-                text: {
-                    banner: {
-                        description:
-                            '<p>Na naszej stronie internetowej używamy plików cookie, aby zwiększyć wygodę korzystania z niej, dostarczać spersonalizowane treści i analizować ruch na naszej stronie. <a href="https://your-website.com/cookie-policy" target="_blank">Polityka prywatności.</a></p>',
-                        acceptAllButtonText: "Zaakceptuj wszystkie",
-                        acceptAllButtonAccessibleLabel:
-                            "Zaakceptuj wszystkie cookies",
-                        rejectNonEssentialButtonText: "Odrzuć niewymagane",
-                        rejectNonEssentialButtonAccessibleLabel:
-                            "Odrzuć niewymagane cookies",
-                        preferencesButtonText: "Preferencje",
-                        preferencesButtonAccessibleLabel: "Przełącz preferencje"
-                    },
-                    preferences: {
-                        title: "Dostosuj swoje preferencje dotyczące plików cookie",
-                        description:
-                            "<p>Szanujemy Twoje prawo do prywatności. Możesz wybrać opcję odrzucenia niektórych typów plików cookie. Twoje preferencje dotyczące plików cookie będą miały zastosowanie w całej naszej witrynie.</p>",
-                        creditLinkText: "Get this banner for free",
-                        creditLinkAccessibleLabel: "Get this banner for free"
-                    }
-                }
-            });
-        </script>
-    </body>
+          },
+        ],
+        text: {
+          banner: {
+            description:
+              '<p>Na naszej stronie internetowej używamy plików cookie, aby zwiększyć wygodę korzystania z niej, dostarczać spersonalizowane treści i analizować ruch na naszej stronie. <a href="https://your-website.com/cookie-policy" target="_blank">Polityka prywatności.</a></p>',
+            acceptAllButtonText: "Zaakceptuj wszystkie",
+            acceptAllButtonAccessibleLabel: "Zaakceptuj wszystkie cookies",
+            rejectNonEssentialButtonText: "Odrzuć niewymagane",
+            rejectNonEssentialButtonAccessibleLabel:
+              "Odrzuć niewymagane cookies",
+            preferencesButtonText: "Preferencje",
+            preferencesButtonAccessibleLabel: "Przełącz preferencje",
+          },
+          preferences: {
+            title: "Dostosuj swoje preferencje dotyczące plików cookie",
+            description:
+              "<p>Szanujemy Twoje prawo do prywatności. Możesz wybrać opcję odrzucenia niektórych typów plików cookie. Twoje preferencje dotyczące plików cookie będą miały zastosowanie w całej naszej witrynie.</p>",
+            creditLinkText: "Get this banner for free",
+            creditLinkAccessibleLabel: "Get this banner for free",
+          },
+        },
+      });
+    </script>
+  </body>
 </html>
