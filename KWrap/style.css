@@ -422,7 +422,8 @@ span {
 }
 
 .swiper {
-    width: 100%;
+    /* width: 100%; */
+    width: auto;
     height: 100%;
 }
 
@@ -437,12 +438,14 @@ span {
 
 .swiper-slide img {
     display: block;
-    width: 100%;
+    /* width: 100%; */
+    width: auto;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 .swiper {
-    width: 100%;
+    /* width: 100%; */
+    width: auto;
     margin-left: auto;
     margin-right: auto;
 }
@@ -459,7 +462,8 @@ span {
 .swiperGallery5,
 .swiperGallery6 {
     height: 80%;
-    width: 100%;
+    /* width: 100%; */
+    width: auto;
 }
 
 .swiperThumb1,
@@ -563,7 +567,7 @@ span {
     }
 
     .realizations-swiper-img {
-        height: 500px !important;
+        height: auto !important;
     }
     .realization-gallery-img {
         width: 100% !important;
