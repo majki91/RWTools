@@ -428,7 +428,7 @@ span {
 
 .swiper {
     /* width: 100%; */
-    /* width: auto; */
+    width: auto;
     margin-left: auto;
     margin-right: auto;
     z-index: 0 !important;
@@ -447,8 +447,8 @@ span {
 .swiperGallery6 {
     /* height: 80%;
     width: 100%; */
-    /* width: auto;
-    height: auto; */
+    width: auto;
+    height: auto;
 }
 
 .swiperThumb1,
@@ -469,8 +469,8 @@ span {
 .swiperThumb4 .swiper-slide,
 .swiperThumb5 .swiper-slide,
 .swiperThumb6 .swiper-slide {
-    /* width: auto !important;
-    height: auto !important; */
+    width: auto !important;
+    height: auto !important;
     opacity: 0.4;
 }
 
