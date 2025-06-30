@@ -556,7 +556,7 @@ span {
     }
     .realization-gallery-img {
         width: 100% !important;
-        height: 500px !important;
+        height: auto !important;
         object-fit: contain;
     }
     .swiperThumb1 .swiper-slide,
