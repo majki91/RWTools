@@ -279,8 +279,8 @@ h1 {
     margin: auto;
 }
 .realization-gallery-img-thumb {
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 80px;
+    max-height: 80px;
 }
 
 #realizations button {
@@ -295,10 +295,6 @@ h1 {
 #realizations button a {
     text-decoration: none;
     color: #f7f7f7;
-}
-
-.swiper {
-    z-index: 0 !important;
 }
 
 .swiper .swiper-pagination-bullet {
@@ -421,39 +417,27 @@ span {
     filter: blur(2px);
 }
 
-.swiper {
-    /* width: 100%; */
-    width: auto;
-    height: 100%;
-}
-
-.swiper-slide {
+/* .swiper-slide {
     text-align: center;
     font-size: 18px;
     background: #f7f7f7;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
-.swiper-slide img {
-    display: block;
-    /* width: 100%; */
-    width: auto;
-    height: 100%;
-    object-fit: contain;
-}
 .swiper {
     /* width: 100%; */
     width: auto;
     margin-left: auto;
     margin-right: auto;
+    z-index: 0 !important;
 }
 
-.swiper-slide {
+/* .swiper-slide {
     background-size: cover;
     background-position: center;
-}
+} */
 
 .swiperGallery1,
 .swiperGallery2,
@@ -461,9 +445,10 @@ span {
 .swiperGallery4,
 .swiperGallery5,
 .swiperGallery6 {
-    height: 80%;
-    /* width: 100%; */
+    /* height: 80%;
+    width: 100%; */
     width: auto;
+    height: auto;
 }
 
 .swiperThumb1,
@@ -484,8 +469,8 @@ span {
 .swiperThumb4 .swiper-slide,
 .swiperThumb5 .swiper-slide,
 .swiperThumb6 .swiper-slide {
-    width: 80px !important;
-    height: 80px !important;
+    width: auto !important;
+    height: auto !important;
     opacity: 0.4;
 }
 
@@ -572,7 +557,7 @@ span {
     .realization-gallery-img {
         width: 100% !important;
         height: 500px !important;
-        object-fit: cover;
+        /* object-fit: contain; */
     }
     .swiperThumb1 .swiper-slide,
     .swiperThumb2 .swiper-slide,
@@ -580,7 +565,8 @@ span {
     .swiperThumb4 .swiper-slide,
     .swiperThumb5 .swiper-slide,
     .swiperThumb6 .swiper-slide {
-        height: 100px !important;
+        height: 80px !important;
+        weight: 80px !important;
     }
 }
 
