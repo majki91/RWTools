@@ -557,7 +557,7 @@ span {
     .realization-gallery-img {
         width: 100% !important;
         height: auto !important;
-        object-fit: contain;
+        object-fit: contain !important;
     }
     .swiperThumb1 .swiper-slide,
     .swiperThumb2 .swiper-slide,
