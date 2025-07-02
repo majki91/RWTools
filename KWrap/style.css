@@ -1,5 +1,5 @@
 :root {
-    --laptop-width: 1100px;
+    --laptop-width: auto;
     --laptop-height: 600px;
     --4k-width: 1600px;
     --4k-height: 800px;
