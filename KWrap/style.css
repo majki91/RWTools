@@ -600,7 +600,7 @@ span {
     .swiperThumb5 .swiper-slide,
     .swiperThumb6 .swiper-slide {
         height: 80px !important;
-        weight: 80px !important;
+        width: 80px !important;
     }
 }
 
