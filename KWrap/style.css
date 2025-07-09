@@ -25,8 +25,8 @@ body {
 }
 
 #preloader img {
-    width: 500px;
-    height: 500px;
+    width: 380px;
+    height: 380px;
     object-fit: cover;
     margin: auto;
 }
