@@ -850,6 +850,7 @@
    //console.log(removeB);
    let akzoBuf=0;
    let rlxBuf = 0;
+   let tknBuf = 0;
    let sevenThreeBuf =0;
    let magellanBuf = 0;
    let gevecoatBuf = 0;
@@ -871,6 +872,9 @@
    
    for (let i=0;i<rlxData.length;i++){
      rlxBuf += parseInt(rlxData[i],10);
+   }
+   for (let i=0;i<tknData.length;i++){
+     tknBuf += parseInt(tknData[i],10);
    }
    for (let i=0;i<sevenThreeData.length;i++){
      sevenThreeBuf += parseInt(sevenThreeData[i],10);
@@ -896,6 +900,8 @@
    akzoResult.innerText = akzoBuf + " kg";
    rlxLabel.innerText = "rlx";
    rlxResult.innerText = rlxBuf + " kg";
+   tknLabel.innerText = "teknos";
+   tknResult.innerText = tknBuf + " kg";
    sevenThreeLabel.innerText = "7307";
    sevenThreeResult.innerText = sevenThreeBuf + " kg";
    magellanLabel.innerText = "magellan";
@@ -931,6 +937,8 @@
    akzoResult.innerText ="";
    rlxLabel.innerText ="";
    rlxResult.innerText ="";
+   tknLabel.innerText ="";
+   tknResult.innerText ="";
    sevenThreeLabel.innerText = "";
    sevenThreeResult.innerText = "";
    magellanLabel.innerText ="";
@@ -945,6 +953,7 @@
    data.length =0;
    akzoData.length =0;
    rlxData.length =0;
+   tknData.length =0;
    sevenThreeData.length =0;
    magellanData.length =0;
    gevecoatData.length =0;
