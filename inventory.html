@@ -188,6 +188,7 @@
   </select>
   <select id="select1">
    <option value="rlx">rlx</option>
+   <option value="teknos">teknos</option>
    <option value="akzo">akzo</option>
    <option value="7307">7307</option>
    <option value="magellan">magellan</option>
@@ -265,6 +266,7 @@
     <div id="smrConFirstHalf">
       <p id="akzoLabel"></p>
       <p id="rlxLabel"></p>
+      <p id="tknLabel"></p>
       <p id="sevenThreeLabel"></p>
       <p id="magellanLabel"></p>
       <p id="gevecoatLabel"></p>
@@ -272,6 +274,7 @@
     <div id="smrConSecondHalf">
       <p id="akzoResult"></p>
       <p id="rlxResult"></p>
+      <p id="tknResult"></p>
       <p id="sevenThreeResult"></p>
       <p id="magellanResult"></p>
       <p id="gevecoatResult"></p>
@@ -293,12 +296,14 @@
  const data = [];
  const akzoData = [];
  const rlxData = [];
+ const tknData = [];
  const sevenThreeData =[];
  const magellanData = [];
  const gevecoatData =[];
  
  const akzoConverter = 1.5;
  const rlxConverter = 1.75;
+ const tknConverter = 1.75;
  const sevenThreeConverter = 1.68;
  const magellanConverter = 1.05;
  const gevecoatConverter = 1.5;
@@ -438,6 +443,23 @@
           rlxData.push(parseInt(amountInput,10));
       }
       
+      if (select1.value === "teknos")
+      {
+        if (select2.value === "l")
+        {
+          tknData.push(lToKg(amountInput,tknConverter));
+          data.push(objects(select1.value, amountInput, select2.value));
+        }
+        
+        if(select2.value === "cm"){
+          console.log(amountInput);
+          tknData.push(lToKg(cmToL(parseInt(amountInput,10)),tknConverter))
+          data.push(objects(select1.value, amountInput, select2.value));
+        }
+        if(select2.value === "kg")
+          tknData.push(parseInt(amountInput,10));
+      }
+      
       if (select1.value === "7307")
       {
         if (select2.value === "l")
@@ -559,6 +581,57 @@
        
        if (index > -1) {
          rlxData.splice(index, 1);
+       }
+      }
+   }
+   
+   if(p.includes("teknos")){
+     p=p.replace("teknos","");
+     console.log(p);
+   
+     if(p.includes("cm")){
+       p = p.replace("cm","");
+       //przeksztalcania stringa w liczbę
+       amount = parseInt(p,10);
+       console.log(amount);
+       //konwertowanie do odpowiedniej wartości
+       amount = lToKg(cmToL(amount),tknConverter);
+       //wyszukiwanie pozycji w tablicy 
+       const index = tknData.indexOf(amount);
+       console.log(amount,index);
+       //usuwanie elementu w tablicy jeżeli został znaleziony
+       if (index > -1) {
+         tknData.splice(index, 1);
+       }
+     }
+       
+       if(p.includes("l")){
+       p = p.replace("l","");
+   
+       amount = parseInt(p,10);
+       console.log(amount);
+      
+       amount = lToKg(amount,tknConverter);
+       
+       const index = tknData.indexOf(amount);
+       console.log(amount,index);
+       
+       if (index > -1) {
+         tknData.splice(index, 1);
+       }
+      }
+      
+      if(p.includes("kg")){
+       p = p.replace("kg","");
+   
+       amount = parseInt(p,10);
+       console.log(amount);
+       
+       const index = tknData.indexOf(amount);
+       console.log(amount,index);
+       
+       if (index > -1) {
+         tknData.splice(index, 1);
        }
       }
    }
