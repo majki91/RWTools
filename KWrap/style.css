@@ -17,16 +17,18 @@ body {
 }
 
 #preloader {
-    background-image: url("Photos/animation.gif");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-color: white;
     position: absolute;
     z-index: 3;
-    width: 300px;
+}
+
+#preloader img{
+  width: 300px;
     height: 300px;
-    margin-left: auto;
+    margin:auto;
 }
 
 iframe {
