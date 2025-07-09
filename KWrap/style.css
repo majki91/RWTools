@@ -1,8 +1,8 @@
 :root {
     --laptop-width: auto;
-    --laptop-height: 600px;
-    --4k-width: 1600px;
-    --4k-height: 800px;
+    --laptop-height: 700px;
+    --4k-width: 2000px;
+    --4k-height: 1000px;
 }
 
 html {
@@ -481,7 +481,12 @@ span {
 .swiperGallery6 {
     /* height: 80%;
     width: 100%; */
-    width: auto;
+    width: 70%;
+    height: auto;
+}
+
+.swiperGallery7 {
+    width: 70%;
     height: auto;
 }
 
