@@ -29,7 +29,8 @@ body {
     width: 380px;
     height: 380px;
     object-fit: cover;
-    margin: 5rem auto;
+    margin-top: 5rem;
+    margin-left: 2rem;
 }
 
 iframe {
