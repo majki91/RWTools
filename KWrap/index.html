@@ -421,11 +421,13 @@
                     }
                 }
             });
-
-            window.addEventListener("load", () => {
-                const loader = document.getElementById("preloader");
-                loader.classList.add("preloader-hidden");
-            });
+            setTimeout(
+                window.addEventListener("load", () => {
+                    const loader = document.getElementById("preloader");
+                    loader.classList.add("preloader-hidden");
+                }),
+                10000
+            );
 
             loader.addEventListener("transitionend", () => {
                 document.body.removeChild("loader");
