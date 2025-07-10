@@ -422,15 +422,17 @@
                 }
             });
 
-                window.addEventListener("load",setTimeout(() => {
+            window.addEventListener(
+                "load",
+                setTimeout(() => {
                     const loader = document.getElementById("preloader");
                     loader.classList.add("preloader-hidden");
-                }),10000);
-
-
+                }),
+                1000
+            );
 
             //loader.addEventListener("transitionend", () => {
-                //document.body.removeChild("loader");
+            //document.body.removeChild("loader");
             //});
         </script>
     </body>
