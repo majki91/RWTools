@@ -422,13 +422,14 @@
                 }
             });
             const loader = document.getElementById("preloader");
-           window.onload = ()=>{ setTimeout(()=>{loader.classList.add("preloader-hidden")},10000)
-             
-           }
-               // window.addEventListener("load", () => {
-                    //loader.classList.add("preloader-hidden");
-                //})
-                
+            window.onload = () => {
+                setTimeout(() => {
+                    loader.classList.add("preloader-hidden");
+                }, 5000);
+            };
+            // window.addEventListener("load", () => {
+            //loader.classList.add("preloader-hidden");
+            //})
 
             //loader.addEventListener("transitionend", () => {
             //document.body.removeChild("loader");
