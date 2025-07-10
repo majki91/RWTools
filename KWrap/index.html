@@ -421,10 +421,8 @@
                     }
                 }
             });
-
-            window.addEventListener(
-                "load",
-                setTimeout(() => {
+            setTimeout(
+                window.addEventListener("load", () => {
                     const loader = document.getElementById("preloader");
                     loader.classList.add("preloader-hidden");
                 }),
@@ -433,7 +431,7 @@
 
             //loader.addEventListener("transitionend", () => {
             //document.body.removeChild("loader");
-            //});
+            // });
         </script>
     </body>
 </html>
