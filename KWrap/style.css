@@ -607,6 +607,17 @@ span {
         height: 80px !important;
         width: 80px !important;
     }
+    .swiperGallery1,
+.swiperGallery2,
+.swiperGallery3,
+.swiperGallery4,
+.swiperGallery5,
+.swiperGallery6 {
+    /* height: 80%;
+    width: 100%; */
+    width: 100%;
+    height: auto;
+}
 }
 
 @media screen and (min-width: 2500px) {
