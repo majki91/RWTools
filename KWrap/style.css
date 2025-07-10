@@ -16,20 +16,14 @@ body {
     width: 100%;
 }
 
-/* @keyframes example {
+@keyframes example {
     100% {
-        opacity: 0;
-        visibility: hidden;
-    }
-    90% {
         opacity: 1;
     }
-
-    100% {
-        opacity: 0;
-        display: none;
+    0% {
+        opacity: 1;
     }
-} */
+}
 
 #preloader {
     background-color: white;
@@ -38,9 +32,8 @@ body {
     height: 150%;
     z-index: 3;
     top: 0;
-    /* animation-name: example;
-    animation-iteration-count: 1;
-    animation-duration: 6s; */
+    animation-name: example;
+    animation-duration: 3s;
 }
 
 #preloader img {
