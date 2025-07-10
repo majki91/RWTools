@@ -421,17 +421,17 @@
                     }
                 }
             });
-            setTimeout(
-                window.addEventListener("load", () => {
-                    const loader = document.getElementById("preloader");
-                    loader.classList.add("preloader-hidden");
-                }),
-                10000
-            );
 
-            loader.addEventListener("transitionend", () => {
-                document.body.removeChild("loader");
-            });
+                window.addEventListener("load",setTimeout(() => {
+                    const loader = document.getElementById("preloader");
+                    loader.classList.add("preloader-hidden"),10000);
+                });
+
+
+
+            //loader.addEventListener("transitionend", () => {
+                //document.body.removeChild("loader");
+            //});
         </script>
     </body>
 </html>
