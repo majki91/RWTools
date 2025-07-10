@@ -17,8 +17,9 @@ body {
 }
 
 @keyframes example {
-    0% {
-        opacity: 1;
+    100% {
+        opacity: 0;
+        visibility: hidden;
     }
     90% {
         opacity: 1;
@@ -613,15 +614,15 @@ span {
     .swiperGallery4,
     .swiperGallery5,
     .swiperGallery6 {
-    /* height: 80%;
+        /* height: 80%;
     width: 100%; */
-    width: 100%;
-    height: auto;
-}
-.swiperGallery7 {
-    width: 70%;
-    height: auto;
-}
+        width: 100%;
+        height: auto;
+    }
+    .swiperGallery7 {
+        width: 100%;
+        height: auto;
+    }
 }
 
 @media screen and (min-width: 2500px) {
