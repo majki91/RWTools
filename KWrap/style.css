@@ -16,11 +16,11 @@ body {
     width: 100%;
 }
 
-@keyframes example {
-    100% {
-        opacity: 1;
-    }
+@keyframes hidingAnim {
     0% {
+        opacity: 0;
+    }
+    100% {
         opacity: 1;
     }
 }
@@ -49,6 +49,9 @@ body {
     width: 380px;
     height: 380px;
     object-fit: cover;
+}
+#preloader p {
+    animation: hidingAnim 1s;
 }
 
 .preloader-hidden {
