@@ -16,7 +16,7 @@ body {
     width: 100%;
 }
 
-@keyframes hidingAnim {
+@keyframes hiding {
     0% {
         opacity: 0;
     }
@@ -51,7 +51,7 @@ body {
     object-fit: cover;
 }
 .preloader-container p {
-    animation: hidingAnim 2s;
+    animation: hiding 2s;
 }
 
 .preloader-hidden {
