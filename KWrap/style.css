@@ -461,6 +461,7 @@ span {
 .swiper {
     /* width: 100%; */
     width: auto;
+    max-height:800px ;
     margin-left: auto;
     margin-right: auto;
     z-index: 0 !important;
