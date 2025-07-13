@@ -52,8 +52,8 @@ body {
 }
 .preloader-container p {
     opacity: 1;
-    animation: hiding 1s;
-    animation-iteration-count: infinite ;
+    animation: hiding 1.5s;
+    animation-iteration-count: infinite;
 }
 
 .preloader-hidden {
