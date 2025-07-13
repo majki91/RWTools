@@ -51,6 +51,7 @@ body {
     object-fit: cover;
 }
 .preloader-container p {
+    opacity: 1;
     animation: hiding 2s;
 }
 
