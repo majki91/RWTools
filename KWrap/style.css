@@ -26,6 +26,9 @@ body {
 }
 
 #preloader {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
     background-color: white;
     position: absolute;
     width: 100%;
@@ -39,7 +42,6 @@ body {
     height: 380px;
     object-fit: cover;
     margin-top: 9rem;
-    margin-left: 0.7rem;
 }
 
 .preloader-hidden {
@@ -590,7 +592,7 @@ span {
     }
 
     .swiper {
-      width: auto;
+        width: auto;
         max-height: 800px;
     }
     .realizations-swiper-img {
