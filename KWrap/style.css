@@ -461,7 +461,7 @@ span {
 .swiper {
     /* width: 100%; */
     width: auto;
-    max-height:680px ;
+    max-height: 680px;
     margin-left: auto;
     margin-right: auto;
     z-index: 0 !important;
@@ -589,6 +589,9 @@ span {
         padding: 0.5rem;
     }
 
+.swiper{
+  max-height: 800px;
+}
     .realizations-swiper-img {
         height: auto !important;
     }
