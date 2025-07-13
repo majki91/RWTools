@@ -52,7 +52,7 @@ body {
 }
 .preloader-container p {
     opacity: 1;
-    animation: hiding 2s;
+    animation: hiding 1s;
     animation-iteration-count: infinite ;
 }
 
