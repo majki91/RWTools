@@ -50,7 +50,7 @@ body {
     height: 380px;
     object-fit: cover;
 }
-#preloader p {
+.preloader-container p {
     animation: hidingAnim 1s;
 }
 
