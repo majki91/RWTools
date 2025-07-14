@@ -436,7 +436,7 @@
                     cookie += "; max-age=" + hoursToLive * 60 * 60;
 
                     document.cookie = cookie;
-                    //console.log("hours to live: " + hoursToLive);
+                    console.log("hours to live: " + hoursToLive);
                 }
             }
 
@@ -466,16 +466,14 @@
 
                 console.log("after get:" + first);
 
-                if ((first === true)) {
+                if (first === true) {
                     alert("Welcome again");
-                  
                 }
-                if((first === null)) {
+                if (first === null) {
                     alert("Welcome new user");
                     setCookie("visited", true, 1);
                 }
             }
-
 
             function isCookie() {}
 
