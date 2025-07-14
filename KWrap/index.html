@@ -471,6 +471,9 @@
                     setCookie("firstVisit", true, 1);
                 }
             }
+            function resetCookie(){
+              setCookie("firstVisit", "", 0);
+            }
 
             checkCookie();
             console.log(document.cookie);
