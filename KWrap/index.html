@@ -464,22 +464,18 @@
                 // Get cookie using our custom function
                 let first = getCookie("visit");
 
-                if (first) return true;
-                if(!first) return false;
+                if ((first = true)) {
+                    alert("Welcome again");
+                    console.log(first);
+                } else {
+                    setCookie("visited", true, 1);
+                }
             }
             function resetCookie() {
                 setCookie("visited", "", 0);
             }
 
-            //checkCookie();
-
-            if (checkCookie()) {
-                alert("Welcome again");
-                console.log(first);
-            }
-            if (!checkCookie()) {
-                setCookie("visited", true, 1);
-            }
+            checkCookie();
             console.log(document.cookie);
             const loader = document.getElementById("preloader");
             window.onload = () => {
