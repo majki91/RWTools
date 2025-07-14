@@ -462,19 +462,20 @@
 
             function checkCookie() {
                 // Get cookie using our custom function
-                let first = getCookie("firstVisit");
+                let first = getCookie("visited");
 
                 if ((first = true)) {
                     alert("Welcome again");
                     console.log(first);
                 } else {
-                    setCookie("firstVisit", true, 1);
+                    setCookie("visited", true, 1);
                 }
             }
-            function resetCookie(){
-              setCookie("firstVisit", "", 0);
+            function resetCookie() {
+                setCookie("visited", "false", 0);
             }
 
+resetCookie();
             checkCookie();
             console.log(document.cookie);
             const loader = document.getElementById("preloader");
