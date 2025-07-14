@@ -466,7 +466,7 @@
 
                 console.log("after get:" + first);
 
-                if (first != true) {
+                if (first != null) {
                     alert("Welcome again");
                     console.log("after if true:" + first);
                 }
@@ -476,8 +476,6 @@
                     console.log("after if null:" + first);
                 }
             }
-
-        
 
             function resetCookie() {
                 setCookie("visited", "", 0);
