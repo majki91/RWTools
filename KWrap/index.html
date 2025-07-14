@@ -342,17 +342,17 @@
                 },
                 cookieTypes: [
                     {
-                    id: "necessary",
-                    name: "Necessary",
-                    description:
-                        "<p>These cookies are necessary for the website to function properly and cannot be switched off. They help with things like logging in and setting your privacy preferences.</p>",
-                    required: false,
-                    onAccept: function () {
-                        console.log(
-                            "Add logic for the required Necessary here"
-                        );
-                    }
-                },
+                        id: "necessary",
+                        name: "Niezbędne",
+                        description:
+                            "<p>Te pliki cookie są niezbędne do prawidłowego funkcjonowania witryny i nie można ich wyłączyć. Pomagają one między innymi w logowaniu i ustawianiu preferencji prywatności.</p>",
+                        required: true,
+                        onAccept: function () {
+                            console.log(
+                                "Add logic for the required Necessary here"
+                            );
+                        }
+                    },
                     {
                         id: "analytics",
                         name: "Analityczne",
@@ -374,7 +374,7 @@
                         });
                     }
                     */
-                    },
+                    }
                     /*{
                         id: "advertising",
                         name: "Reklamowe",
