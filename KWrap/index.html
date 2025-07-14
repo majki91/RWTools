@@ -433,10 +433,10 @@
                 if (typeof daysToLive === "number") {
                     /* Sets the max-age attribute so that the cookie expires
             after the specified number of days */
-                    cookie += "; max-age=" + hoursToLive  * 60 * 60;
+                    cookie += "; max-age=" + hoursToLive * 60 * 60;
 
                     document.cookie = cookie;
-                    console.log("hours to live: "+hoursToLive);
+                    //console.log("hours to live: " + hoursToLive);
                 }
             }
 
@@ -466,6 +466,7 @@
 
                 if ((first = true)) {
                     alert("Welcome again");
+                    console.log(first);
                 } else {
                     setCookie("firstVisit", true, 1);
                 }
