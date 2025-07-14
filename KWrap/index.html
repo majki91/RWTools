@@ -463,10 +463,10 @@
             function checkCookie() {
                 // Get cookie using our custom function
                 let first = getCookie("visited");
-                
-                console.log("after get:"+first);
 
-                if ((first = true)) {
+                console.log("after get:" + first);
+
+                if ((first === true)) {
                     alert("Welcome again");
                 } else {
                     alert("Welcome new user");
