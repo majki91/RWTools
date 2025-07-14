@@ -426,16 +426,17 @@
                 }
             });
 
-            function setCookie(name, value, daysToLive) {
+            function setCookie(name, value, hoursToLive) {
                 // Encode value in order to escape semicolons, commas, and whitespace
                 let cookie = name + "=" + encodeURIComponent(value);
 
                 if (typeof daysToLive === "number") {
                     /* Sets the max-age attribute so that the cookie expires
             after the specified number of days */
-                    cookie += "; max-age=" + daysToLive * 24 * 60 * 60;
+                    cookie += "; max-age=" + hoursToLive  * 60 * 60;
 
                     document.cookie = cookie;
+                    console.log("hours to live: "+hoursToLive);
                 }
             }
 
