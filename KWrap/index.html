@@ -462,7 +462,7 @@
 
             function checkCookie() {
                 // Get cookie using our custom function
-                let first = getCookie("visit");
+                let first = getCookie("visited");
 
                 if ((first = true)) {
                     alert("Welcome again");
@@ -471,6 +471,11 @@
                     setCookie("visited", true, 1);
                 }
             }
+            
+            function isCookie(){
+              getCookie
+            }
+            
             function resetCookie() {
                 setCookie("visited", "", 0);
             }
