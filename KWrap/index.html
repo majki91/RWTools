@@ -430,7 +430,7 @@
                 // Encode value in order to escape semicolons, commas, and whitespace
                 let cookie = name + "=" + encodeURIComponent(value);
 
-                if (typeof daysToLive === "number") {
+                if (typeof hoursToLive === "number") {
                     /* Sets the max-age attribute so that the cookie expires
             after the specified number of days */
                     cookie += "; max-age=" + hoursToLive * 60 * 60;
