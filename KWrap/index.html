@@ -425,19 +425,15 @@
                     }
                 }
             });
+
+
             const loader = document.getElementById("preloader");
             window.onload = () => {
                 setTimeout(() => {
                     loader.classList.add("preloader-hidden");
                 }, 2500);
             };
-            // window.addEventListener("load", () => {
-            //loader.classList.add("preloader-hidden");
-            //})
 
-            //loader.addEventListener("transitionend", () => {
-            //document.body.removeChild("loader");
-            // });
         </script>
     </body>
 </html>
