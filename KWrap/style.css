@@ -605,11 +605,12 @@ span {
 
     .swiper {
         width: auto;
-        max-height: 700px;
+        max-height: 650px;
     }
     .realizations-swiper-img {
+        max-height: 650px;
         height: auto !important;
-        object-fit: cover !important;
+        object-fit: contain !important; 
     }
     .realization-gallery-img {
         width: 100% !important;
