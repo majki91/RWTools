@@ -486,7 +486,7 @@ span {
     background-position: center;
 } */
 
-.swiperGallery1,
+.swipeGallery1,
 .swiperGallery2,
 .swiperGallery3,
 .swiperGallery4,
@@ -609,6 +609,7 @@ span {
     }
     .realizations-swiper-img {
         height: auto !important;
+        object-fit: cover;
     }
     .realization-gallery-img {
         width: 100% !important;
