@@ -474,7 +474,8 @@ span {
 } */
 
 .swiper {
-    width: 100%;
+    /* width: 100%; */
+    width: auto;
     max-height: 680px;
     margin-left: auto;
     margin-right: auto;
@@ -610,7 +611,7 @@ span {
     .realizations-swiper-img {
         max-height: 650px;
         height: auto !important;
-        object-fit: contain !important;
+        object-fit: cover !important;
     }
     .realization-gallery-img {
         width: 100% !important;
