@@ -309,8 +309,8 @@ h1 {
     background-color: #f7f7f7;
 }
 .realizations-swiper-img {
-    max-height: var(--laptop-height) !important;
-    max-width: var(--laptop-width) !important;
+    max-height: var(--laptop-height) ;
+    max-width: var(--laptop-width);
     margin: auto;
 }
 
@@ -610,7 +610,7 @@ span {
     .realizations-swiper-img {
         max-height: 650px;
         height: auto !important;
-        object-fit: contain !important; 
+        object-fit: contain !important;
     }
     .realization-gallery-img {
         width: 100% !important;
