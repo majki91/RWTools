@@ -609,6 +609,7 @@ span {
         max-height: 650px;
     }
     .realizations-swiper-img {
+      width: 100%;
         max-height: 650px;
         height: auto !important;
         object-fit: cover !important;
