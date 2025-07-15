@@ -609,7 +609,7 @@ span {
     }
     .realizations-swiper-img {
         height: auto !important;
-        object-fit: contain !important;
+        object-fit: cover !important;
     }
     .realization-gallery-img {
         width: 100% !important;
