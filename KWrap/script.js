@@ -126,8 +126,8 @@ silktideCookieBannerManager.updateCookieBannerConfig({
         preferences: {
             title: "Dostosuj swoje preferencje dotyczące plików cookie",
             description:
-                '<p>Szanujemy Twoje prawo do prywatności. Możesz wybrać opcję odrzucenia niektórych typów plików cookie. Twoje preferencje dotyczące plików cookie będą miały zastosowanie w całej naszej witrynie. Szczegóły w Polityce prywatności. <a href="polityka-prywatnosci.html" target="_blank">Polityka prywatności.</a></p>'
-                
+                '<p>Szanujemy Twoje prawo do prywatności. Możesz wybrać opcję odrzucenia niektórych typów plików cookie. Twoje preferencje dotyczące plików cookie będą miały zastosowanie w całej naszej witrynie. Szczegóły w Polityce prywatności. <a href="polityka-prywatnosci.html" target="_blank">Polityka prywatności.</a></p>',
+        
             creditLinkText: "Get this banner for free",
             creditLinkAccessibleLabel: "Get this banner for free"
         }
