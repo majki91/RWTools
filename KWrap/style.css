@@ -423,6 +423,7 @@ span {
 #policy {
     scroll-margin-top: 5rem;
     width: 88%;
+    margin: auto;
 }
 
 #policy h1 {
