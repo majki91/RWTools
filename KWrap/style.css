@@ -421,8 +421,11 @@ span {
 }
 
 #policy {
-    margin: 1rem;
     scroll-margin-top: 5rem;
+}
+
+#policy h1 {
+    margin: 0.5rem;
 }
 
 #policy h3 {
