@@ -424,6 +424,7 @@ span {
     scroll-margin-top: 5rem;
     width: 85%;
     margin: auto;
+    text-align: justify;
 }
 
 #policy h1 {
@@ -619,6 +620,11 @@ span {
     #realizations button {
         font-size: 18px;
         padding: 0.5rem;
+    }
+    
+    #policy {
+      width: 80%;
+      margin: auto;
     }
 
     .swiper {
