@@ -423,11 +423,12 @@ span {
 #policy {
     background-color: #181818;
     scroll-margin-top: 5rem;
+    color:white;
 }
 
-#policy h3{
-  font-size: 16px;
-  font-weight: bold;
+#policy h3 {
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .copyright {
