@@ -28,7 +28,7 @@ sideMenu.addEventListener("click", () => {
     mainContainer.classList.remove("blur");
     sideMenu.classList.add("hidden");
 });
-const swiper = new Swiper(".swiper", {
+const swiper = new Swiper(".mainSwiper", {
     // Optional parameters
 
     direction: "horizontal",
@@ -43,6 +43,89 @@ const swiper = new Swiper(".swiper", {
         el: ".swiper-pagination"
     }
 });
+
+ var swiper2 = new Swiper(".swiperGallery1", {
+                spaceBetween: 0,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                },
+                scrollbar: {
+                    el: ".swiper-scrollbar",
+                    hide: false
+                }
+            });
+
+ var swiper4 = new Swiper(".swiperGallery2", {
+                spaceBetween: 0,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                },
+                scrollbar: {
+                    el: ".swiper-scrollbar",
+                    hide: false
+                }
+            });
+
+ var swiper6 = new Swiper(".swiperGallery3", {
+                spaceBetween: 0,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                },
+                scrollbar: {
+                    el: ".swiper-scrollbar",
+                    hide: false
+                }
+            });
+
+            var swiper8 = new Swiper(".swiperGallery4", {
+                spaceBetween: 0,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                },
+                scrollbar: {
+                    el: ".swiper-scrollbar",
+                    hide: false
+                }
+            });
+
+            var swiper10 = new Swiper(".swiperGallery5", {
+                spaceBetween: 0,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                },
+                scrollbar: {
+                    el: ".swiper-scrollbar",
+                    hide: false
+                }
+            });
+
+            var swiper12 = new Swiper(".swiperGallery6", {
+                spaceBetween: 0,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                },
+                scrollbar: {
+                    el: ".swiper-scrollbar",
+                    hide: false
+                }
+            });
+
+            var swiper13 = new Swiper(".swiperGallery7", {
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                },
+                scrollbar: {
+                    el: ".swiper-scrollbar",
+                    hide: true
+                }
+            });
 
 silktideCookieBannerManager.updateCookieBannerConfig({
     background: {

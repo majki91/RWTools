@@ -1,6 +1,6 @@
 :root {
     --laptop-width: auto;
-    --laptop-height: 680px;
+    --laptop-height: 600px;
     --4k-width: 2000px;
     --4k-height: 1000px;
 }
@@ -305,6 +305,10 @@ h1 {
     padding-bottom: 0 !important;
 }
 
+#realizationAll h3 {
+    font-size: 26px;
+}
+
 #realizations {
     scroll-margin-top: 3.8rem;
     background-color: #f7f7f7;
@@ -508,7 +512,7 @@ span {
     background-position: center;
 } */
 
-.swipeGallery1,
+.swiperGallery1,
 .swiperGallery2,
 .swiperGallery3,
 .swiperGallery4,
@@ -556,6 +560,12 @@ span {
 .swiperThumb6 .swiper-slide-thumb-active {
     opacity: 1;
 }
+
+.swiper-scrollbar.swiper-scrollbar-horizontal {
+    bottom: var(--swiper-scrollbar-bottom, 0px) !important  ;
+}
+
+/*ustawienie wysokosci scrolbara*/
 
 @media only screen and (max-width: 768px) {
     iframe {

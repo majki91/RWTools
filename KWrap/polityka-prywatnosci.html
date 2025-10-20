@@ -1,209 +1,197 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pl">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>KWrap</title>
-        <link rel="stylesheet" href="style.css" type="text/css" media="all" />
-        <link
-            href="https://fonts.googleapis.com/css?family=Poppins"
-            rel="stylesheet"
-        />
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
-            integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        ></script>
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-        />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>KWrap</title>
+    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
+      integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
 
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-        <link
-            rel="stylesheet"
-            id="silktide-consent-manager-css"
-            href="silktide-consent-manager.css"
-        />
-        <script src="silktide-consent-manager.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.5/js.cookie.min.js"></script>
-    </head>
-    <body>
-        <div style="display: none" id="preloader">
-            <div class="preloader-container">
-                <img src="photos/animation.gif" alt="" />
-                <p>Loading...</p>
-            </div>
-        </div>
-        <nav class="menu">
-            <!--<a href="#" class="hover-underline"
+    <link
+      rel="stylesheet"
+      id="silktide-consent-manager-css"
+      href="silktide-consent-manager.css"
+    />
+    <script src="silktide-consent-manager.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.5/js.cookie.min.js"></script>
+  </head>
+  <body>
+    <div style="display: none" id="preloader">
+      <div class="preloader-container">
+        <img src="photos/animation.gif" alt="" />
+        <p>Loading...</p>
+      </div>
+    </div>
+    <nav class="menu">
+      <!--<a href="#" class="hover-underline"
         ></a>-->
-            <img id="logo" src="logo100.jpg" alt="" />
-            <ul class="navbar">
-                <li><a class="hover-underline" href="#about"> O mnie </a></li>
-                <li>
-                    <a class="hover-underline" href="#services"> Usługi </a>
-                </li>
-                <li>
-                    <a class="hover-underline" href="realizacje.html">
-                        Realizacje
-                    </a>
-                </li>
-                <li>
-                    <a class="hover-underline" href="#contact"> Kontakt </a>
-                </li>
-            </ul>
-            <ul id="sideMenu" class="sidebar hidden">
-                <li><a href="#about"> O mnie </a></li>
-                <li>
-                    <a href="#services"> Usługi </a>
-                </li>
-                <li>
-                    <a href="realizacje.html"> Realizacje </a>
-                </li>
-                <li>
-                    <a href="#contact"> Kontakt </a>
-                </li>
-            </ul>
-            <div
-                id="sideMenuButton"
-                class="side-menu"
-                onclick="showHideSideMenu()"
-            >
-                <div id="menuIcon1" class="">
-                    <i class="fa solid fa-bars"></i>
-                </div>
-                <div id="menuIcon2" class="none">
-                    <i class="fa solid fa-x"></i>
-                </div>
-            </div>
-        </nav>
+      <img id="logo" src="logo100.jpg" alt="" />
+      <ul class="navbar">
+        <li><a class="hover-underline" href="index.html#about"> O mnie </a></li>
+        <li>
+          <a class="hover-underline" href="index.html#services"> Usługi </a>
+        </li>
+        <li>
+          <a class="hover-underline" href="realizacje.html"> Realizacje </a>
+        </li>
+        <li>
+          <a class="hover-underline" href="index.html#contact"> Kontakt </a>
+        </li>
+      </ul>
+      <ul id="sideMenu" class="sidebar hidden">
+        <li><a href="index.html#about"> O mnie </a></li>
+        <li>
+          <a href="index.html#services"> Usługi </a>
+        </li>
+        <li>
+          <a href="realizacje.html"> Realizacje </a>
+        </li>
+        <li>
+          <a href="index.html#contact"> Kontakt </a>
+        </li>
+      </ul>
+      <div id="sideMenuButton" class="side-menu" onclick="showHideSideMenu()">
+        <div id="menuIcon1" class="">
+          <i class="fa solid fa-bars"></i>
+        </div>
+        <div id="menuIcon2" class="none">
+          <i class="fa solid fa-x"></i>
+        </div>
+      </div>
+    </nav>
 
-        <ul id="sideSocials">
-            <a href="https://www.facebook.com/share/1BAukkz78j/">
-                <li>
-                    <i class="fa-brands fa-facebook-square social-facebook"></i>
-                </li>
-            </a>
-            <a
-                href="https://www.instagram.com/kwrap_oklejanie_pojazdow?igsh=MXBmcnJuMzE4NHNtMg=="
-            >
-                <li>
-                    <i
-                        style="color: white"
-                        class="fa-brands fa-instagram social-instagram"
-                    ></i>
-                </li>
-            </a>
-            <a
-                href="https://www.tiktok.com/@kwrap_oklejanie_pojazdow?_t=ZN-90eata68z38&_r=1"
-                ><li>
-                    <i
-                        style="color: white; background-color: black"
-                        class="fa-brands fa-tiktok social-tiktok"
-                    ></i>
-                </li>
-            </a>
-            <a href="https://wa.me/+48609373986"
-                ><li>
-                    <i class="fa-brands fa-whatsapp social-whatsapp"></i></li
-            ></a>
-        </ul>
-        <main id="mainContainer">
-            <section id="policy">
-                <h1>Polityka prywatności i plików cookies</h1>
-                <h3>1. Informacje ogólne</h3>
-                Niniejsza polityka prywatności określa zasady przetwarzania
-                danych osobowych oraz wykorzystywania plików cookies w ramach
-                strony internetowej [tu wstaw nazwę swojej strony lub domenę].
-                Administratorem danych osobowych jest KWrap, adres e-mail: krystian@kwrap.pl. Strona
-                działa zgodnie z obowiązującymi przepisami prawa, w tym z
-                Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z
-                dnia 27 kwietnia 2016 r. (RODO).
-                <h3>2. Zakres i cel przetwarzania danych</h3>
-                Strona nie zbiera danych osobowych w sposób bezpośredni (np.
-                poprzez formularze). Wykorzystywane są jedynie pliki cookies w
-                celu: zapewnienia prawidłowego działania strony i elementów
-                graficznych (np. wyświetlania animacji tylko raz na godzinę),
-                analizowania ruchu na stronie i ulepszania jej działania (po
-                wdrożeniu narzędzi analitycznych). Dane zbierane w ramach
-                narzędzi analitycznych (np. Google Analytics) są przetwarzane w
-                sposób zanonimizowany — nie umożliwiają identyfikacji
-                konkretnych osób.
-                <h3>3. Pliki cookies (ciasteczka)</h3>
-                Cookies to niewielkie pliki tekstowe, zapisywane w urządzeniu
-                końcowym użytkownika podczas korzystania ze strony. Strona
-                korzysta z dwóch rodzajów plików cookies: Cookies tymczasowe —
-                służą do zapamiętania, że użytkownik obejrzał animację.
-                Ciasteczko wygasa automatycznie po 1 godzinie i nie pozwala na
-                identyfikację użytkownika. Cookies analityczne — po wdrożeniu
-                narzędzi analitycznych (np. Google Analytics), w celu zbierania
-                anonimowych informacji statystycznych o sposobie korzystania ze
-                strony. Pliki cookies nie służą do identyfikacji użytkowników,
-                nie zawierają danych osobowych i nie zmieniają ustawień
-                urządzenia.
-                <h3>4. Podstawa prawna przetwarzania</h3>
-                Podstawą przetwarzania danych w postaci plików cookies jest:
-                uzasadniony interes administratora (art. 6 ust. 1 lit. f RODO) –
-                zapewnienie prawidłowego działania strony i animacji, zgoda
-                użytkownika (art. 6 ust. 1 lit. a RODO) – w przypadku
-                uruchomienia narzędzi analitycznych.
-                <h3>5. Zarządzanie plikami cookies</h3>
-                Użytkownik może w dowolnym momencie usunąć lub zablokować
-                cookies poprzez zmianę ustawień swojej przeglądarki
-                internetowej. Wyłączenie cookies może wpłynąć na niektóre
-                funkcje strony, ale nie powinno uniemożliwić jej przeglądania.
-                Więcej informacji o zarządzaniu cookies znajdziesz w
-                dokumentacji przeglądarki: Chrome:
-                https://support.google.com/chrome/answer/95647 Firefox:
-                https://support.mozilla.org/pl/kb/ciasteczka Safari:
-                https://support.apple.com/pl-pl/guide/safari/sfri11471/mac
-                <h3>6. Prawa użytkownika</h3>
+    <ul id="sideSocials">
+      <a href="https://www.facebook.com/share/1BAukkz78j/">
+        <li>
+          <i class="fa-brands fa-facebook-square social-facebook"></i>
+        </li>
+      </a>
+      <a
+        href="https://www.instagram.com/kwrap_oklejanie_pojazdow?igsh=MXBmcnJuMzE4NHNtMg=="
+      >
+        <li>
+          <i
+            style="color: white"
+            class="fa-brands fa-instagram social-instagram"
+          ></i>
+        </li>
+      </a>
+      <a
+        href="https://www.tiktok.com/@kwrap_oklejanie_pojazdow?_t=ZN-90eata68z38&_r=1"
+        ><li>
+          <i
+            style="color: white; background-color: black"
+            class="fa-brands fa-tiktok social-tiktok"
+          ></i>
+        </li>
+      </a>
+      <a href="https://wa.me/+48609373986"
+        ><li>
+          <i class="fa-brands fa-whatsapp social-whatsapp"></i></li
+      ></a>
+    </ul>
+    <main id="mainContainer">
+      <section id="policy">
+        <h1>Polityka prywatności i plików cookies</h1>
+        <h3>1. Informacje ogólne</h3>
+        Niniejsza polityka prywatności określa zasady przetwarzania danych
+        osobowych oraz wykorzystywania plików cookies w ramach strony
+        internetowej [tu wstaw nazwę swojej strony lub domenę]. Administratorem
+        danych osobowych jest KWrap, adres e-mail: krystian@kwrap.pl. Strona
+        działa zgodnie z obowiązującymi przepisami prawa, w tym z
+        Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27
+        kwietnia 2016 r. (RODO).
+        <h3>2. Zakres i cel przetwarzania danych</h3>
+        Strona nie zbiera danych osobowych w sposób bezpośredni (np. poprzez
+        formularze). Wykorzystywane są jedynie pliki cookies w celu: zapewnienia
+        prawidłowego działania strony i elementów graficznych (np. wyświetlania
+        animacji tylko raz na godzinę), analizowania ruchu na stronie i
+        ulepszania jej działania (po wdrożeniu narzędzi analitycznych). Dane
+        zbierane w ramach narzędzi analitycznych (np. Google Analytics) są
+        przetwarzane w sposób zanonimizowany — nie umożliwiają identyfikacji
+        konkretnych osób.
+        <h3>3. Pliki cookies (ciasteczka)</h3>
+        Cookies to niewielkie pliki tekstowe, zapisywane w urządzeniu końcowym
+        użytkownika podczas korzystania ze strony. Strona korzysta z dwóch
+        rodzajów plików cookies: Cookies tymczasowe — służą do zapamiętania, że
+        użytkownik obejrzał animację. Ciasteczko wygasa automatycznie po 1
+        godzinie i nie pozwala na identyfikację użytkownika. Cookies analityczne
+        — po wdrożeniu narzędzi analitycznych (np. Google Analytics), w celu
+        zbierania anonimowych informacji statystycznych o sposobie korzystania
+        ze strony. Pliki cookies nie służą do identyfikacji użytkowników, nie
+        zawierają danych osobowych i nie zmieniają ustawień urządzenia.
+        <h3>4. Podstawa prawna przetwarzania</h3>
+        Podstawą przetwarzania danych w postaci plików cookies jest: uzasadniony
+        interes administratora (art. 6 ust. 1 lit. f RODO) – zapewnienie
+        prawidłowego działania strony i animacji, zgoda użytkownika (art. 6 ust.
+        1 lit. a RODO) – w przypadku uruchomienia narzędzi analitycznych.
+        <h3>5. Zarządzanie plikami cookies</h3>
+        Użytkownik może w dowolnym momencie usunąć lub zablokować cookies
+        poprzez zmianę ustawień swojej przeglądarki internetowej. Wyłączenie
+        cookies może wpłynąć na niektóre funkcje strony, ale nie powinno
+        uniemożliwić jej przeglądania. Więcej informacji o zarządzaniu cookies
+        znajdziesz w dokumentacji przeglądarki: Chrome:
+        https://support.google.com/chrome/answer/95647 Firefox:
+        https://support.mozilla.org/pl/kb/ciasteczka Safari:
+        https://support.apple.com/pl-pl/guide/safari/sfri11471/mac
+        <h3>6. Prawa użytkownika</h3>
 
-                Zgodnie z RODO użytkownik ma prawo do: dostępu do swoich danych,
-                żądania ich sprostowania lub usunięcia, ograniczenia
-                przetwarzania, wniesienia sprzeciwu wobec przetwarzania,
-                złożenia skargi do Prezesa Urzędu Ochrony Danych Osobowych
-                (UODO), jeśli uzna, że przetwarzanie narusza przepisy. Ponieważ
-                strona nie przetwarza danych osobowych w sposób bezpośredni,
-                większość tych praw ma zastosowanie jedynie w kontekście danych
-                gromadzonych przez narzędzia analityczne.
+        Zgodnie z RODO użytkownik ma prawo do: dostępu do swoich danych, żądania
+        ich sprostowania lub usunięcia, ograniczenia przetwarzania, wniesienia
+        sprzeciwu wobec przetwarzania, złożenia skargi do Prezesa Urzędu Ochrony
+        Danych Osobowych (UODO), jeśli uzna, że przetwarzanie narusza przepisy.
+        Ponieważ strona nie przetwarza danych osobowych w sposób bezpośredni,
+        większość tych praw ma zastosowanie jedynie w kontekście danych
+        gromadzonych przez narzędzia analityczne.
 
-                <h3>7. Udostępnianie danych podmiotom trzecim</h3>
-                W przypadku uruchomienia narzędzi analitycznych dane mogą być
-                przekazywane zaufanym podmiotom zewnętrznym (np. Google LLC) w
-                zakresie niezbędnym do świadczenia usług analitycznych. Dane te
-                są przetwarzane zgodnie z polityką prywatności tych dostawców i
-                nie umożliwiają identyfikacji użytkownika.
-                <h3>8. Zmiany w polityce prywatności</h3>
-                Administrator zastrzega sobie prawo do wprowadzania zmian w
-                niniejszej polityce prywatności w dowolnym czasie, np. w
-                przypadku rozwoju strony lub zmiany przepisów prawa. 
-            </section>
-            <section id="footer">
-                <footer>
-                    <span>KWrap 2025 &copy;</span>
-                    <span style="display: block; font-size: 12px"
-                        >All Rights Reserved</span
-                    >
+        <h3>7. Udostępnianie danych podmiotom trzecim</h3>
+        W przypadku uruchomienia narzędzi analitycznych dane mogą być
+        przekazywane zaufanym podmiotom zewnętrznym (np. Google LLC) w zakresie
+        niezbędnym do świadczenia usług analitycznych. Dane te są przetwarzane
+        zgodnie z polityką prywatności tych dostawców i nie umożliwiają
+        identyfikacji użytkownika.
+        <h3>8. Zmiany w polityce prywatności</h3>
+        Administrator zastrzega sobie prawo do wprowadzania zmian w niniejszej
+        polityce prywatności w dowolnym czasie, np. w przypadku rozwoju strony
+        lub zmiany przepisów prawa.
+      </section>
+      <section id="footer">
+        <footer>
+          <span>KWrap 2025 &copy;</span>
+          <span style="display: block; font-size: 12px"
+            >All Rights Reserved</span
+          >
 
-                    <a
-                        href="https://www.flaticon.com/authors/hajicon"
-                        title="icons Hajicon"
-                        >icons created by HAJICON - Flaticon</a
-                    >
-                    <a
-                        href="https://www.flaticon.com/authors/freepik"
-                        title="freepik icons"
-                        style="margin-bottom: 1rem"
-                        >icons created by Freepik - Flaticon</a
-                    >
-                </footer>
-            </section>
-        </main>
-        <script src="script.js"></script>
-    </body>
+          <a
+            href="https://www.flaticon.com/authors/hajicon"
+            title="icons Hajicon"
+            >icons created by HAJICON - Flaticon</a
+          >
+          <a
+            href="https://www.flaticon.com/authors/freepik"
+            title="freepik icons"
+            style="margin-bottom: 1rem"
+            >icons created by Freepik - Flaticon</a
+          >
+        </footer>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
 </html>
