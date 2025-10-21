@@ -84,6 +84,12 @@ iframe {
     box-shadow: 0 0 5px 0px rgba(195, 195, 195, 1);
 }
 
+.menu a
+{
+    margin:0;
+    padding: 0;
+}
+
 .navbar {
     display: flex;
     justify-content: flex-end;
@@ -464,13 +470,18 @@ span {
     background-color: #181818;
     color: white;
 }
-#polishing {
+#indStyl {
     background-color: #f7f7f7;
 }
 
 #PDR {
     background-color: #181818;
     color: white;
+}
+
+#dechrom {
+    background-color: #f7f7f7;
+    
 }
 
 .hidden {
@@ -517,17 +528,14 @@ span {
 .swiperGallery3,
 .swiperGallery4,
 .swiperGallery5,
-.swiperGallery6 {
+.swiperGallery6,
+.swiperGallery7 {
     /* height: 80%;
     width: 100%; */
     width: 70%;
     height: auto;
 }
 
-.swiperGallery7 {
-    width: 70%;
-    height: auto;
-}
 
 .swiperThumb1,
 .swiperThumb2,
@@ -669,13 +677,10 @@ span {
     .swiperGallery3,
     .swiperGallery4,
     .swiperGallery5,
-    .swiperGallery6 {
+    .swiperGallery6,
+    .swiperGallery7 {
         /* height: 80%;
     width: 100%; */
-        width: 100%;
-        height: auto;
-    }
-    .swiperGallery7 {
         width: 100%;
         height: auto;
     }

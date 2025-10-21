@@ -197,7 +197,7 @@ silktideCookieBannerManager.updateCookieBannerConfig({
     text: {
         banner: {
             description:
-                '<p>Na naszej stronie internetowej używamy plików cookie w celu poprawnego działania animacji (1 godzina ważności ciasteczka) oraz do analizy ruchu. Korzystając ze strony, wyrażasz zgodę na użycie cookies. Szczegóły w Polityce prywatności. <a href="polityka-prywatnosci.html" target="_blank">Polityka prywatności.</a></p>',
+                '<p>Na naszej stronie internetowej używamy plików cookie w celu poprawnego działania animacji (1 godzina ważności ciasteczka) oraz do analizy ruchu. Korzystając ze strony, wyrażasz zgodę na użycie cookies. <a href="polityka-prywatnosci.html" target="_blank">Polityka prywatności.</a></p>',
             acceptAllButtonText: "Zaakceptuj wszystkie",
             acceptAllButtonAccessibleLabel: "Zaakceptuj wszystkie cookies",
             rejectNonEssentialButtonText: "Odrzuć niewymagane",
@@ -209,7 +209,7 @@ silktideCookieBannerManager.updateCookieBannerConfig({
         preferences: {
             title: "Dostosuj swoje preferencje dotyczące plików cookie",
             description:
-                '<p>Szanujemy Twoje prawo do prywatności. Możesz wybrać opcję odrzucenia niektórych typów plików cookie. Twoje preferencje dotyczące plików cookie będą miały zastosowanie w całej naszej witrynie. Szczegóły w Polityce prywatności. <a href="polityka-prywatnosci.html" target="_blank">Polityka prywatności.</a></p>',
+                '<p>Szanujemy Twoje prawo do prywatności. Możesz wybrać opcję odrzucenia niektórych typów plików cookie. Twoje preferencje dotyczące plików cookie będą miały zastosowanie w całej naszej witrynie. <a href="polityka-prywatnosci.html" target="_blank">Polityka prywatności.</a></p>',
         
             creditLinkText: "Get this banner for free",
             creditLinkAccessibleLabel: "Get this banner for free"
