@@ -340,7 +340,7 @@ h1 {
     max-height: 80px;
 }
 
-#realizations button {
+.realizations-button {
     margin-top: 1.8rem;
     padding: 1.5rem;
     background-color: #181818;
@@ -350,8 +350,9 @@ h1 {
     font-weight: bold;
     border-radius: 0.1rem;
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.743);
+    cursor: pointer;
 }
-#realizations button a {
+.realizations-button a {
     text-decoration: none;
     color: #f7f7f7;
 }
@@ -388,6 +389,7 @@ h1 {
 #contact span {
     display: block;
 }
+
 .contact-icon {
     margin-right: 0.2rem !important;
 }
@@ -402,6 +404,11 @@ h1 {
 }
 .contact-social-icons i {
     margin-right: 1rem;
+}
+
+.contact-social-icons a{
+    color: white;
+    text-decoration: none;
 }
 
 #footer {
@@ -575,6 +582,43 @@ span {
 
 /*ustawienie wysokosci scrolbara*/
 
+.hover-underline {
+  color: #ffffff;
+  position: relative;
+  display: inline-block;
+}
+
+.hover-underline::after,
+.hover-underline::before {
+  content: '';
+  position: absolute;
+  width: 98%;
+  height: 2px;
+  background: linear-gradient(to right, #f7f7f7, #181818);
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease-out;
+}
+
+
+.hover-underline:hover::after,
+.hover-underline:hover::before {
+  transform: scaleX(1);
+}
+
+
+/*@media only screen and (max-width: 1024px) {
+
+#contact li {
+    width: 26rem;
+}
+}*/
+
+
+
+
 @media only screen and (max-width: 768px) {
     iframe {
         width: 80%;
@@ -638,7 +682,7 @@ span {
         width: 16rem;
     }
 
-    #realizations button {
+    .realizations-button {
         font-size: 18px;
         padding: 0.5rem;
     }
