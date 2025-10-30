@@ -272,7 +272,7 @@ function resetCookie() {
     setCookie("visited", "", 0);
 }
 
-//checkCookie();
+checkCookie();
 
 const loader = document.getElementById("preloader");
 window.onload = () => {
