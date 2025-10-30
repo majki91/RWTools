@@ -44,88 +44,88 @@ const swiper = new Swiper(".mainSwiper", {
     }
 });
 
- var swiper2 = new Swiper(".swiperGallery1", {
-                spaceBetween: 0,
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev"
-                },
-                scrollbar: {
-                    el: ".swiper-scrollbar",
-                    hide: false
-                }
-            });
+var swiper2 = new Swiper(".swiperGallery1", {
+    spaceBetween: 0,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+    },
+    scrollbar: {
+        el: ".swiper-scrollbar",
+        hide: false
+    }
+});
 
- var swiper4 = new Swiper(".swiperGallery2", {
-                spaceBetween: 0,
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev"
-                },
-                scrollbar: {
-                    el: ".swiper-scrollbar",
-                    hide: false
-                }
-            });
+var swiper4 = new Swiper(".swiperGallery2", {
+    spaceBetween: 0,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+    },
+    scrollbar: {
+        el: ".swiper-scrollbar",
+        hide: false
+    }
+});
 
- var swiper6 = new Swiper(".swiperGallery3", {
-                spaceBetween: 0,
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev"
-                },
-                scrollbar: {
-                    el: ".swiper-scrollbar",
-                    hide: false
-                }
-            });
+var swiper6 = new Swiper(".swiperGallery3", {
+    spaceBetween: 0,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+    },
+    scrollbar: {
+        el: ".swiper-scrollbar",
+        hide: false
+    }
+});
 
-            var swiper8 = new Swiper(".swiperGallery4", {
-                spaceBetween: 0,
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev"
-                },
-                scrollbar: {
-                    el: ".swiper-scrollbar",
-                    hide: false
-                }
-            });
+var swiper8 = new Swiper(".swiperGallery4", {
+    spaceBetween: 0,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+    },
+    scrollbar: {
+        el: ".swiper-scrollbar",
+        hide: false
+    }
+});
 
-            var swiper10 = new Swiper(".swiperGallery5", {
-                spaceBetween: 0,
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev"
-                },
-                scrollbar: {
-                    el: ".swiper-scrollbar",
-                    hide: false
-                }
-            });
+var swiper10 = new Swiper(".swiperGallery5", {
+    spaceBetween: 0,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+    },
+    scrollbar: {
+        el: ".swiper-scrollbar",
+        hide: false
+    }
+});
 
-            var swiper12 = new Swiper(".swiperGallery6", {
-                spaceBetween: 0,
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev"
-                },
-                scrollbar: {
-                    el: ".swiper-scrollbar",
-                    hide: false
-                }
-            });
+var swiper12 = new Swiper(".swiperGallery6", {
+    spaceBetween: 0,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+    },
+    scrollbar: {
+        el: ".swiper-scrollbar",
+        hide: false
+    }
+});
 
-            var swiper13 = new Swiper(".swiperGallery7", {
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev"
-                },
-                scrollbar: {
-                    el: ".swiper-scrollbar",
-                    hide: true
-                }
-            });
+var swiper13 = new Swiper(".swiperGallery7", {
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+    },
+    scrollbar: {
+        el: ".swiper-scrollbar",
+        hide: true
+    }
+});
 
 silktideCookieBannerManager.updateCookieBannerConfig({
     background: {
@@ -210,7 +210,7 @@ silktideCookieBannerManager.updateCookieBannerConfig({
             title: "Dostosuj swoje preferencje dotyczące plików cookie",
             description:
                 '<p>Szanujemy Twoje prawo do prywatności. Możesz wybrać opcję odrzucenia niektórych typów plików cookie. Twoje preferencje dotyczące plików cookie będą miały zastosowanie w całej naszej witrynie. <a href="polityka-prywatnosci.html" target="_blank">Polityka prywatności.</a></p>',
-        
+
             creditLinkText: "Get this banner for free",
             creditLinkAccessibleLabel: "Get this banner for free"
         }
@@ -272,7 +272,7 @@ function resetCookie() {
     setCookie("visited", "", 0);
 }
 
-checkCookie();
+//checkCookie();
 
 const loader = document.getElementById("preloader");
 window.onload = () => {
