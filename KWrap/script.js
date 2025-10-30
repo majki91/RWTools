@@ -254,10 +254,12 @@ function getCookie(name) {
 function checkCookie() {
     // Get cookie using our custom function
     let first = getCookie("visited");
+    const loader = document.getElementById("preloader");
 
     console.log("after get:" + first);
 
     if (first != null) {
+        loader.style.display = "none";
         alert("Welcome again");
         console.log("after if true:" + first);
     }
@@ -272,7 +274,7 @@ function resetCookie() {
     setCookie("visited", "", 0);
 }
 
-//checkCookie();
+checkCookie();
 
 const loader = document.getElementById("preloader");
 window.onload = () => {
