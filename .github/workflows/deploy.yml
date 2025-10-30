@@ -1,0 +1,23 @@
+name: Deploy to SEOhost
+
+on:
+  push:
+    branches:
+      - main   # lub inna gałąź, z której publikujesz
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Upload via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./               # katalog źródłowy (np. ./dist/ jeśli budujesz)
+          server-dir: /domains/oklejaniepojazdow.eu/public_html/
