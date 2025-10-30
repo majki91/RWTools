@@ -260,11 +260,11 @@ function checkCookie() {
 
     if (first != null) {
         loader.style.display = "none";
-        alert("Welcome again");
+        console.log("Welcome again");
         console.log("after if true:" + first);
     }
     if (first === null) {
-        alert("Welcome new user");
+        console.log("Welcome new user");
         setCookie("visited", true, 1);
         console.log("after if null:" + first);
     }
