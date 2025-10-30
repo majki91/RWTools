@@ -20,5 +20,5 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./KWrap/                  
-          server-dir: /domains/oklejaniepojazdow.pl/public_html/test/ 
+          local-dir: .RWTools/KWrap/                  
+          server-dir: /domains/oklejaniepojazdow.eu/public_html/test/ 
