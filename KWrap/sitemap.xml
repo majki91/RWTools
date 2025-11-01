@@ -3,16 +3,16 @@
   <!-- Strona główna -->
   <url>
     <loc>https://oklejaniepojazdow.eu/</loc>
-    <lastmod>2025-10-29</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Podstrona: Realizacje -->
   <url>
     <loc>https://oklejaniepojazdow.eu/realizacje.html</loc>
-    <lastmod>2025-10-29</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
