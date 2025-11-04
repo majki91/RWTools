@@ -150,6 +150,7 @@ silktideCookieBannerManager.updateCookieBannerConfig({
             name: "Analityczne",
             description:
                 "<p>Te pliki cookie pomagają nam ulepszać witrynę, śledząc, które strony są najpopularniejsze i w jaki sposób użytkownicy poruszają się po witrynie.</p>",
+            required:true,
             defaultValue: true
             /*
                         onAccept: function () {

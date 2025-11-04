@@ -1,102 +1,130 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Error 404</title>
-    <link rel="icon" type="image/x-icon" href="icons/favicon.ico" />
-    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Error 404</title>
+        <link rel="icon" type="image/x-icon" href="icons/favicon.ico" />
+        <link rel="stylesheet" href="style.css" type="text/css" media="all" />
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Poppins"
-      rel="stylesheet"
-    />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
-      integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-  </head>
-  <body>
-    <nav class="menu">
-      <!--<a href="#" class="hover-underline"
+        <link
+            href="https://fonts.googleapis.com/css?family=Poppins"
+            rel="stylesheet"
+        />
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
+            integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-NQQ5Q4TDHT"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-NQQ5Q4TDHT");
+        </script>
+    </head>
+    <body>
+        <nav class="menu">
+            <!--<a href="#" class="hover-underline"
         ></a>-->
-      <img id="logo" src="logo100.jpg" alt="" />
-      <ul class="navbar">
-        <li><a class="hover-underline" href="index.html#about"> O mnie </a></li>
-        <li>
-          <a class="hover-underline" href="index.html#services"> Usługi </a>
-        </li>
-        <li>
-          <a class="hover-underline" href="realizacje.html"> Realizacje </a>
-        </li>
-        <li>
-          <a class="hover-underline" href="index.html#contact"> Kontakt </a>
-        </li>
-      </ul>
-      <ul id="sideMenu" class="sidebar hidden">
-        <li><a href="index.html#about"> O mnie </a></li>
-        <li>
-          <a href="index.html#services"> Usługi </a>
-        </li>
-        <li>
-          <a href="realizacje.html"> Realizacje </a>
-        </li>
-        <li>
-          <a href="index.html#contact"> Kontakt </a>
-        </li>
-      </ul>
-      <div id="sideMenuButton" class="side-menu" onclick="showHideSideMenu()">
-        <div id="menuIcon1" class="">
-          <i class="fa solid fa-bars"></i>
-        </div>
-        <div id="menuIcon2" class="none">
-          <i class="fa solid fa-x"></i>
-        </div>
-      </div>
-    </nav>
+            <img id="logo" src="logo100.jpg" alt="" />
+            <ul class="navbar">
+                <li>
+                    <a class="hover-underline" href="index.html#about">
+                        Oferta
+                    </a>
+                </li>
+                <li>
+                    <a class="hover-underline" href="index.html#services">
+                        Usługi
+                    </a>
+                </li>
+                <li>
+                    <a class="hover-underline" href="realizacje.html">
+                        Realizacje
+                    </a>
+                </li>
+                <li>
+                    <a class="hover-underline" href="index.html#contact">
+                        Kontakt
+                    </a>
+                </li>
+            </ul>
+            <ul id="sideMenu" class="sidebar hidden">
+                <li><a href="index.html#about"> Oferta </a></li>
+                <li>
+                    <a href="index.html#services"> Usługi </a>
+                </li>
+                <li>
+                    <a href="realizacje.html"> Realizacje </a>
+                </li>
+                <li>
+                    <a href="index.html#contact"> Kontakt </a>
+                </li>
+            </ul>
+            <div
+                id="sideMenuButton"
+                class="side-menu"
+                onclick="showHideSideMenu()"
+            >
+                <div id="menuIcon1" class="">
+                    <i class="fa solid fa-bars"></i>
+                </div>
+                <div id="menuIcon2" class="none">
+                    <i class="fa solid fa-x"></i>
+                </div>
+            </div>
+        </nav>
 
-    <ul id="sideSocials">
-      <a href="https://www.facebook.com/share/1BAukkz78j/">
-        <li>
-          <i class="fa-brands fa-facebook-square social-facebook"></i>
-        </li>
-      </a>
-      <a
-        href="https://www.instagram.com/kwrap_oklejanie_pojazdow?igsh=MXBmcnJuMzE4NHNtMg=="
-      >
-        <li>
-          <i
-            style="color: white"
-            class="fa-brands fa-instagram social-instagram"
-          ></i>
-        </li>
-      </a>
-      <a
-        href="https://www.tiktok.com/@kwrap_oklejanie_pojazdow?_t=ZN-90eata68z38&_r=1"
-        ><li>
-          <i
-            style="color: white; background-color: black"
-            class="fa-brands fa-tiktok social-tiktok"
-          ></i>
-        </li>
-      </a>
-      <a href="https://wa.me/+48609373986"
-        ><li>
-          <i class="fa-brands fa-whatsapp social-whatsapp"></i></li
-      ></a>
-    </ul>
-    <main id="mainContainer">
-      <section id="about" style="background-color: white">
-        <h1 style="margin-top: 3rem">Ups... Błąd 404</h1>
-        <h3>Podana strona nie istnieje</h3>
-        <h3>Wróć na stronę główną</h3>
-        <button class="realizations-button">
-          <a href="index.html">Powrót do strony głównej</a>
-        </button>
-      </section>
-    </main>
-    <script src="script.js"></script>
-  </body>
+        <ul id="sideSocials">
+            <a href="https://www.facebook.com/share/1BAukkz78j/">
+                <li>
+                    <i class="fa-brands fa-facebook-square social-facebook"></i>
+                </li>
+            </a>
+            <a
+                href="https://www.instagram.com/kwrap_oklejanie_pojazdow?igsh=MXBmcnJuMzE4NHNtMg=="
+            >
+                <li>
+                    <i
+                        style="color: white"
+                        class="fa-brands fa-instagram social-instagram"
+                    ></i>
+                </li>
+            </a>
+            <a
+                href="https://www.tiktok.com/@kwrap_oklejanie_pojazdow?_t=ZN-90eata68z38&_r=1"
+                ><li>
+                    <i
+                        style="color: white; background-color: black"
+                        class="fa-brands fa-tiktok social-tiktok"
+                    ></i>
+                </li>
+            </a>
+            <a href="https://wa.me/+48609373986"
+                ><li>
+                    <i class="fa-brands fa-whatsapp social-whatsapp"></i></li
+            ></a>
+        </ul>
+        <main id="mainContainer">
+            <section id="about" style="background-color: white">
+                <h1 style="margin-top: 3rem">Ups... Błąd 404</h1>
+                <h3>Podana strona nie istnieje</h3>
+                <h3>Wróć na stronę główną</h3>
+                <button class="realizations-button">
+                    <a href="index.html">Powrót do strony głównej</a>
+                </button>
+            </section>
+        </main>
+        <script src="script.js"></script>
+    </body>
 </html>
