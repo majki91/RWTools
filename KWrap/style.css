@@ -235,9 +235,10 @@ h2 {
     margin: 0;
     margin-bottom: 2rem;
 }
-h3,h4{
-    margin: 1rem 2.7rem;
-  }
+h3,
+h4 {
+    margin: 2rem 2.7rem;
+}
 #about h3 {
     margin: 2rem 0;
 }
@@ -620,8 +621,6 @@ span {
 }*/
 
 @media only screen and (max-width: 768px) {
-  
-  
     iframe {
         width: 80%;
         height: 400px;
