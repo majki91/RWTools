@@ -667,6 +667,7 @@ span {
 
     #about p {
         margin: 0 2.3rem;
+        text-align: justify;
     }
 
     #about ul li {
