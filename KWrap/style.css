@@ -84,9 +84,8 @@ iframe {
     box-shadow: 0 0 5px 0px rgba(195, 195, 195, 1);
 }
 
-.menu a
-{
-    margin:0;
+.menu a {
+    margin: 0;
     padding: 0;
 }
 
@@ -406,7 +405,7 @@ h1 {
     margin-right: 1rem;
 }
 
-.contact-social-icons a{
+.contact-social-icons a {
     color: white;
     text-decoration: none;
 }
@@ -488,7 +487,6 @@ span {
 
 #dechrom {
     background-color: #f7f7f7;
-    
 }
 
 .hidden {
@@ -543,7 +541,6 @@ span {
     height: auto;
 }
 
-
 .swiperThumb1,
 .swiperThumb2,
 .swiperThumb3,
@@ -583,31 +580,29 @@ span {
 /*ustawienie wysokosci scrolbara*/
 
 .hover-underline {
-  color: #ffffff;
-  position: relative;
-  display: inline-block;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
 }
 
 .hover-underline::after,
 .hover-underline::before {
-  content: '';
-  position: absolute;
-  width: 98%;
-  height: 2px;
-  background: linear-gradient(to right, #f7f7f7, #181818);
-  bottom: -5px;
-  left: 0;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s ease-out;
+    content: "";
+    position: absolute;
+    width: 98%;
+    height: 2px;
+    background: linear-gradient(to right, #f7f7f7, #181818);
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease-out;
 }
-
 
 .hover-underline:hover::after,
 .hover-underline:hover::before {
-  transform: scaleX(1);
+    transform: scaleX(1);
 }
-
 
 /*@media only screen and (max-width: 1024px) {
 
@@ -615,9 +610,6 @@ span {
     width: 26rem;
 }
 }*/
-
-
-
 
 @media only screen and (max-width: 768px) {
     iframe {
@@ -666,7 +658,7 @@ span {
     }
 
     #about p {
-        margin: 0 2.3rem;
+        margin: 1rem 2.3rem;
         text-align: justify;
     }
 
