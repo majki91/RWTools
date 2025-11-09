@@ -240,6 +240,7 @@ h3 {
 }
 h4 {
     margin: 2rem 1.8rem;
+    text-align: justify;
 }
 #about h3 {
     margin: 2rem 0;
