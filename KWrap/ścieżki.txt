@@ -1,9 +1,9 @@
-mz-etz-zmiana-koloru-bak-kwrap-sulechow  
-mz-etz-zmiana-koloru-bak-ujecie2-kwrap-sulechow  
-mz-etz-zmieniony-kolor-kwrap-sulechow  
-mz-etz-zmieniony-kolor-ujecie2-kwrap-sulechow  
-mazda-6-zmiana-koloru-maska-bialy-kwrap-sulechow  
-vw-transporter-zmiana-koloru-bialy-zielony-kwrap-sulechow  
+.mz-etz-zmiana-koloru-bak-kwrap-sulechow  
+.mz-etz-zmiana-koloru-bak-ujecie2-kwrap-sulechow  
+.mz-etz-zmieniony-kolor-kwrap-sulechow  
+.mz-etz-zmieniony-kolor-ujecie2-kwrap-sulechow  
+.mazda-6-zmiana-koloru-maska-bialy-kwrap-sulechow  
+.vw-transporter-zmiana-koloru-bialy-zielony-kwrap-sulechow  
 lodz-aplikacja-folii-zmiana-koloru-luski-rybie-kwrap-sulechow  
 lodz-folia-zmiana-koloru-luski-rybie-ujecie2-kwrap-sulechow  
 lusterko-folia-carbon-aplikacja-kwrap-sulechow  
