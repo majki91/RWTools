@@ -331,6 +331,9 @@ h4 {
     scroll-margin-top: 3.8rem;
     background-color: #f7f7f7;
 }
+#realizations h4{
+  text-align: center;
+}
 .realizations-swiper-img {
     max-height: var(--laptop-height);
     max-width: var(--laptop-width);
