@@ -438,6 +438,11 @@ h4 {
 #faq{
   background-color: #f7f7f7;
 }
+
+#faq li{
+  margin: 0;
+}
+
 #footer {
     background-color: #f7f7f7;
     display: flex;
