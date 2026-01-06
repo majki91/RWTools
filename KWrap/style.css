@@ -331,8 +331,8 @@ h4 {
     scroll-margin-top: 3.8rem;
     background-color: #f7f7f7;
 }
-#realizations h4{
-  text-align: center;
+#realizations h4 {
+    text-align: center;
 }
 .realizations-swiper-img {
     max-height: var(--laptop-height);
@@ -435,7 +435,9 @@ h4 {
     color: white;
     text-decoration: none;
 }
-
+#faq{
+  background-color: #f7f7f7;
+}
 #footer {
     background-color: #f7f7f7;
     display: flex;
