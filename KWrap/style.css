@@ -435,12 +435,15 @@ h4 {
     color: white;
     text-decoration: none;
 }
-#faq{
-  background-color: #f7f7f7;
+#faq {
+    background-color: #f7f7f7;
 }
 
-#faq li{
-  margin: 0;
+#faq li {
+    margin: 0;
+}
+#faq p {
+    margin: 5rem 0;
 }
 
 #footer {
