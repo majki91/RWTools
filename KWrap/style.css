@@ -227,7 +227,7 @@ section {
     scroll-margin-top: 5rem;
 }
 h1 {
-    font-size: clamp(20px, 2vw, 80px);
+    font-size: clamp(20px, 50vw, 80px);
     margin: 0rem 2rem;
     margin-bottom: 2rem;
 }
