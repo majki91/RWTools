@@ -655,7 +655,8 @@ span {
     }
 
     .section-container {
-        margin: 2rem 1rem 1rem 1rem;
+        width: 100%;
+        margin-left: 2rem;
         border: 1px solid black;
     }
 
