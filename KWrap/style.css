@@ -232,7 +232,7 @@ h1 {
     margin-bottom: 2rem;
 }
 h2 {
-    font-size: 30px;
+    font-size: clamp(10px,5vw,36px);
     margin: 0;
     margin-bottom: 2rem;
 }
