@@ -220,7 +220,7 @@ iframe {
 }
 
 section {
-    padding: 2rem 3rem;
+    padding: 3rem;
 }
 
 #about {
@@ -655,7 +655,6 @@ span {
     }
 
     .section-container {
-        
         border: 1px solid black;
     }
 
