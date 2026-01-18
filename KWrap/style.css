@@ -653,6 +653,10 @@ span {
         width: 80%;
         height: 400px;
     }
+    
+    section{
+      margin: 2rem 1rem;
+    }
 
     #mainContainer {
         width: 100%;
