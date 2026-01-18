@@ -228,11 +228,11 @@ section {
     scroll-margin-top: 5rem;
 }
 h1 {
-    font-size: clamp(12px, 10vw, 80px);
+    font-size: clamp(12px, 8vw, 80px);
     margin-bottom: 2rem;
 }
 h2 {
-    font-size: clamp(10px, 5vw, 36px);
+    font-size: clamp(10px, 6vw, 36px);
     margin: 0;
     margin-bottom: 2rem;
 }
