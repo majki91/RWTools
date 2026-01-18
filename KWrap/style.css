@@ -248,6 +248,7 @@ h4 {
 }
 #about p {
     margin-bottom: 5rem;
+    /* width: 80%; */
     margin: auto;
 }
 
