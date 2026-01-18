@@ -653,8 +653,8 @@ span {
         width: 80%;
         height: 400px;
     }
-    
-    section{
+
+    .section-container{
       margin: 2rem 1rem;
     }
 
