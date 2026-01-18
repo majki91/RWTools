@@ -244,7 +244,7 @@ h4 {
     text-align: justify;
 }
 p {
-    font-size: clamp(1rem, 2vw, 5rem);
+    font-size: clamp(1rem, 5vw, 3rem);
 }
 #about h3 {
     margin: 2rem 0;
