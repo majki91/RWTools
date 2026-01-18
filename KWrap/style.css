@@ -654,8 +654,8 @@ span {
         height: 400px;
     }
 
-    .section-container{
-      margin: 2rem 1rem;
+    .section-container {
+        margin: 2rem 1rem;
     }
 
     #mainContainer {
@@ -699,7 +699,7 @@ span {
     }
 
     #about p {
-        margin: 1rem 2.8rem;
+        
         text-align: justify;
     }
 
