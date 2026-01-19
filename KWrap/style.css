@@ -269,7 +269,7 @@ p {
     flex-wrap: wrap;
     column-gap: 5px;
     margin: auto;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
 }
 #about ul li {
     list-style-type: none;
