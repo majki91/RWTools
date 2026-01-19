@@ -247,7 +247,7 @@ p {
     font-size: clamp(10px, 4vw, 28px);
 }
 .section-container {
-    margin: 0 1rem 0 2.8rem;
+    margin: 0 3rem 0 3rem;
 }
 
 #about h3 {
