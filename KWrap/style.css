@@ -283,6 +283,7 @@ p {
 }
 #about ul li span {
     display: inline-block;
+    border: 1px solid black;
 }
 .about-icon {
     display: inline-block;
