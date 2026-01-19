@@ -279,6 +279,7 @@ p {
     width: 27rem;
     display: flex;
     align-items: center;
+    border: 1px solid black;
 }
 #about ul li span {
     display: inline-block;
