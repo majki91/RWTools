@@ -280,11 +280,11 @@ p {
     height: 5rem;
     display: flex;
     align-items: center;
-    border: 1px solid black;
+    
 }
 #about ul li span {
     display: inline-block;
-    border: 1px solid black;
+    
 }
 .about-icon {
     display: inline-block;
@@ -293,7 +293,7 @@ p {
     height: 1.9rem;
     margin: 0 1rem;
     padding: 0;
-    border: 1px solid black;
+    
 }
 
 #services {
