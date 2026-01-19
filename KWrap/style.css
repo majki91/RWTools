@@ -238,6 +238,7 @@ h2 {
 }
 h3 {
     margin: 2rem 2.5rem;
+    font-size: clamp(10px, 4vw, 36px);
 }
 h4 {
     margin: 2rem 2.5rem;
