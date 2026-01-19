@@ -277,6 +277,7 @@ p {
     padding-top: 0.7rem;
     font-size: clamp(8px, 3vw, 28px);
     width: 27rem;
+    height: 15rem;
     display: flex;
     align-items: center;
     border: 1px solid black;
