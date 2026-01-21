@@ -468,6 +468,7 @@ p {
     text-align: center;
     justify-content: center;
     box-shadow: 0 0 5px 0px rgba(195, 195, 195, 1);
+    font-size: clamp(10px, 2vw, 26px);
 }
 #footer a,
 span {
