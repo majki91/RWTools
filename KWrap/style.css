@@ -409,10 +409,12 @@ p {
 #contact li {
     width: 10rem;
     margin-bottom: 1.5rem;
+    font-size: (10px,2vw,26px);
 }
 
 #contact span {
     display: block;
+    
 }
 
 #contact h3 {
