@@ -407,7 +407,7 @@ p {
     text-align: center;
 }
 #contact li {
-    width: 10rem;
+    width: 2vw;
     margin-bottom: 1.5rem;
     font-size: clamp(10px, 2vw, 26px);
 }
