@@ -480,7 +480,7 @@ span {
     font-weight: bold;
 }
 #footer a {
-    font-size: 8px;
+    font-size: clamp(10px, 1vw, 26px);
     text-decoration: none;
     color: black;
 }
