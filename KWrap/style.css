@@ -454,8 +454,9 @@ p {
     margin: 0;
 }
 #faq p {
-    margin: 5rem 5rem;
+    margin: 5rem 0rem;
     font-size: clamp(1rem, 2vw, 5rem);
+    font-style: justify;
 }
 
 #footer {
