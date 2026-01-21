@@ -456,7 +456,7 @@ p {
 #faq p {
     margin: 5rem 0rem;
     font-size: clamp(1rem, 2vw, 5rem);
-    font-style: justify;
+    text-align: justify;
 }
 
 #footer {
