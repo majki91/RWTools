@@ -142,7 +142,8 @@ iframe {
 #logo {
     margin: 0;
     margin-left: 2rem;
-    height: 45px;
+    /* height: 45px; */
+    height: 1vw;
     padding: 0.5rem 0;
 }
 
