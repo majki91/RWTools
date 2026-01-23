@@ -757,21 +757,20 @@
             console.log("clicked");
         }
         //koniec
-        const resultAmountCheck = document.getElementById("resultAmount").value;
-        let resultAmountCheckValue = parseInt(resultAmountCheck, 10);
-
         function showSettings() {
+            const resultAmount = document.getElementById("resultAmount").value;
+            let resultAmountValue = parseInt(resultAmount, 10);
             const settingsWindow = document.getElementById("settingsWindow");
             settingsWindow.classList.add("open");
 
-            if (resultAmountCheckValue > 7) usable = true;
-            console.log("resultAmountValue:" + resultAmountCheckValue);
+            if (resultAmountValue > 7) usable = true;
+            console.log("resultAmountValue:" + resultAmountValue);
         }
         function closeSettings() {
             const settingsWindow = document.getElementById("settingsWindow");
 
             settingsWindow.classList.remove("open");
-            console.log("resultAmountValue:" + resultAmountCheckValue);
+            console.log("resultAmountValue:" + resultAmountValue);
             console.log("usable:" + usable);
         }
 
@@ -804,7 +803,9 @@
 
             return randomNumber;
         }
+const resultAmount = document.getElementById("resultAmount").value;
 
+            let resultAmountValue = parseInt(resultAmount, 10);
         function generateRaport() {
             let date = new Date();
             let hour = date.getHours();
@@ -824,9 +825,7 @@
             const thinSelection =
                 document.getElementById("thinSelection").value;
 
-            const resultAmount = document.getElementById("resultAmount").value;
-
-            let resultAmountValue = parseInt(resultAmount, 10);
+            
 
             /*if(min<10)
          clock = hour + ":0" + min;
