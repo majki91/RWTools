@@ -1,812 +1,951 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script
-  src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
-  integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow=="
-  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <title>Edge v2</title>
-<style>
-   #inputSection{
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 1rem 0;
-      margin: auto;
-      position: fixed;
-      background: white;
-      border-bottom: 1px black solid;
-    } 
-    #menu{
-      display:flex;
-      justify-content: space-evenly;
-    }
-    #menu a{
-      width: 45%;
-      text-align: center;
-      border: 2px solid black ;
-      text-decoration: none;
-      padding:5px 0;
-      color: black;
-    }
-    #inputFirstRow{
-      display: flex;
-      justify-content: space-evenly;
-      gap: 2px;
-    }
-    #inputSecondRow{
-      display: flex;
-      justify-content: space-evenly;
-      gap: 2px;
-      margin-bottom: -12px;
-    }
-    #inputSecondRow span{
-      font-size: 11px;
-    }
-    #inputThirdRow{
-      display: flex;
-      justify-content: space-evenly;
-      gap: 2px;
-    }
-    #inputThirdRow input{
-      width: 3rem;
-      text-align: center;
-    }
-    #inputFourthRow{
-      display: flex;
-      justify-content: space-evenly;
-      gap: 4px;
-      margin-top: -12px;
-    }
-    #inputFourthRow span{
-      font-size: 11px;
-      width: 3rem;
-      text-align: center;
-    }
-    #inputFifthRow{
-      display: flex;
-      justify-content: space-evenly;
-      gap: 2px;
-    }
-    #inputFifthRow input{
-      width: 1.8rem;
-      height: 1.65rem;
-      text-align: center;
-    }
-    .buttons{
-      background: white;
-      height: 2rem;
-    }
-    #mainContainer{
-      margin-top: 220px;
-    }
-    .tabButtons{
-      display: flex;
-      justify-content: space-between;
-    }
-    .tabButtons button{
-      width: 50%;
-      height: 2rem;
-      background: white;
-    }
-    .bActive{
-      color: white;
-      background-color: green !important;
-    }
-    .tabTitle{
-      margin: 0;
-      text-align: center;
-      border-left: 1px solid;
-      border-right: 1px solid;
-      border-top: 1px solid;
-      padding: 1rem 0;
-    }
-    
-    #malTable,#impTable{
-      width: 100%;
-      border-collapse: collapse;
-    }
-    
-    #malTable thead tr{
-      text-align: center;
-      margin: auto;
-      background: lightgrey;
-    }
-    #impTable thead tr{
-      text-align: center;
-      margin: auto;
-      background: lightgrey;
-    }
-    
-    #malTable th{
-      border: 1px solid black;
-    }
-    #impTable th{
-      border: 1px solid black;
-    }
-    #tbody1 td{
-      text-align: center;
-      border: 1px solid black;
-    }
-    #tbody2 td{
-      text-align: center;
-      border: 1px solid black;
-    }
-    .deleteBtn{
-      padding:5px 8px;
-      border: none;
-      background: red;
-      font-weight: 1000;
-    }
-    .icon-button{
-      width: 3rem;
-    }
-    #settingsWindow{
-      border: 2px solid black;
-      text-align:center;
-      position: fixed;
-      top:0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      margin: auto;
-      width:300px;
-      height: 250px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background:lightgrey;
-      opacity: 0;
-      z-index: -2;
-      transition: all 0.3s ease-in-out;
-    }
-    #settingsWindow.open{
-      opacity: 1;
-      z-index: 999;
-    }
-    #settingsBox{
-    }
-    #settingsFirstRow{
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      margin: auto 20px;
-    }
-    #settingsFirstRow input{
-      width: 30px;
-      height: 20px;
-      margin: auto 15px;
-    }
-    
-    #settingsFirstRow select {
-      width: 38px;
-      height: 28px;
-      margin: auto 15px;
-    }
-    
-    
-    #settingsSecondRow{
-      margin: 20px 0;
-    }
-    
-</style>
-</head>
-<body onload="reloadClock()">
-<div id="inputSection">
-    <div id="menu">
-       <a href="https://majki91.github.io/RWTools/edge.html">Krawędzie</a>
-       <a href="https://majki91.github.io/RWTools/inventory.html">Inwentura</a>
-    </div>
-    <div id="inputFirstRow">
-     <select id="productSelection" class="inputSelect">
-        <option value="Artic">Artic</option>
-        <option value="Pacific">Pacific</option>
-        <option value="PagOris">Pag. Oris</option>
-        <option value="Tropic">Tropic</option>
-        <option value="Ekla">Ekla</option>
-        <option value="Krios">Krios</option>
-        <option value="Alaska">Alaska</option>
-        <option value="Blanka">Blanka</option>
-        <option value="Medicare">Medicare</option>
-        <option value="Koral">Koral</option>
-        <option value="Sonar">Sonar</option>
-     </select>
-     <select class="inputSelect" id="edgeSelection" onchange="setThinByEdge()">
-        <option value="A">A</option>
-        <option value="E15S6">E15S6</option>
-        <option value="E24S6">E24S6</option>
-        <option value="E15S8">E15S8</option>
-        <option value="E24S8">E24S8</option>
-        <option value="X">X</option>
-      </select>
-      
-      <select id="dim1Selection" class="inputSelect" onchange="setSecDim()">
-        <option value="600">600</option>
-        <option value="610">610</option>
-        <option value="625">625</option>
-        <option value="675">675</option>
-        <option value="1200">1200</option>
-        <option value="1220">1220</option>
-        <option value="1250">1250</option>
-        <option value="1350">1350</option>
-      </select>
-      
-      <select id="dim2Selection" class="inputSelect">
-        <option value="600">600</option>
-        <option value="610">610</option>
-        <option value="625">625</option>
-        <option value="675">675</option>
-      </select>
-      
-      <select id="thinSelection" class="inputSelect">
-        <option value="12">12</option>
-        <option value="13">13</option>
-        <option value="15">15</option>
-        <option value="16">16</option>
-        <option value="20">20</option>
-        <option value="22">22</option>
-        <option value="25">25</option>
-        <option value="30">30</option>
-        <option value="35">35</option>
-        <option value="40">40</option>
-        <option value="50">50</option>
-      </select>
-    </div>
-    
-    <div id="inputSecondRow">
-      <span class="inputLabels" id="imp1Label">imp waga 1</span>
-      <span class="inputLabels" id="imp2Label">imp waga 2</span>
-      <span class="inputLabels" id="mal1Label">mal waga 1</span>
-      <span class="inputLabels" id="mal2Label">mal waga 2</span>
-    </div>
-    <div id="inputThirdRow">
-      <input id="impWeightInput1" class="weightInputs" type="number">
-      <input id="impWeightInput2" class="weightInputs" type="number">
-      <input id="malWeightInput1" class="weightInputs" type="number">
-      <input id="malWeightInput2" class="weightInputs" type="number">
-    </div>
-    <div id="inputFourthRow">
-          <span id="impConverterValue1">
-           0.0000
-          </span>
-          <span id="impConverterValue2">
-           0.0000
-          </span>
-          <span id="malConverterValue1">
-           0.0000
-          </span>
-          <span id="malConverterValue2">
-           0.0000
-          </span>
-      </div>
-      <div id="inputFifthRow">
-      <div id="clock">
-      <input id="hrInput" class="hrInputs" type="number" placeholder="godz">
-      <span id="clockSpan">:</span>
-      <input id="minInput" class="hrInputs"  type="number" placeholder="min">
-      </div>
-      <button id="refreshHour" class="buttons icon-button" onclick="showTabs()"><i class="fa fa-refresh fa-spin"></i></button>
-      <button class="buttons icon-button" id="summaryButton"
-      onclick="create()"><i class="fa-solid fa-plus"></i></button>
-      <button id="raportButton" onclick="generateRaport()" disabled="true"
-      class="buttons icon-button"><i class="fas fa-th-list"></i></button>
-      
-      <button id="settingsButton" onclick="showSettings()" class="buttons icon-button"><i
-      class="fa fa-cog"></i>
-      </button>
-      <!--<button id="clearButton" onclick="" disabled="true"
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+            integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <title>Edge v2</title>
+        <style>
+            #inputSection {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                top: 0;
+                left: 0;
+                width: 100%;
+                padding: 1rem 0;
+                margin: auto;
+                position: fixed;
+                background: white;
+                border-bottom: 1px black solid;
+            }
+            #menu {
+                display: flex;
+                justify-content: space-evenly;
+            }
+            #menu a {
+                width: 45%;
+                text-align: center;
+                border: 2px solid black;
+                text-decoration: none;
+                padding: 5px 0;
+                color: black;
+            }
+            #inputFirstRow {
+                display: flex;
+                justify-content: space-evenly;
+                gap: 2px;
+            }
+            #inputSecondRow {
+                display: flex;
+                justify-content: space-evenly;
+                gap: 2px;
+                margin-bottom: -12px;
+            }
+            #inputSecondRow span {
+                font-size: 11px;
+            }
+            #inputThirdRow {
+                display: flex;
+                justify-content: space-evenly;
+                gap: 2px;
+            }
+            #inputThirdRow input {
+                width: 3rem;
+                text-align: center;
+            }
+            #inputFourthRow {
+                display: flex;
+                justify-content: space-evenly;
+                gap: 4px;
+                margin-top: -12px;
+            }
+            #inputFourthRow span {
+                font-size: 11px;
+                width: 3rem;
+                text-align: center;
+            }
+            #inputFifthRow {
+                display: flex;
+                justify-content: space-evenly;
+                gap: 2px;
+            }
+            #inputFifthRow input {
+                width: 1.8rem;
+                height: 1.65rem;
+                text-align: center;
+            }
+            .buttons {
+                background: white;
+                height: 2rem;
+            }
+            #mainContainer {
+                margin-top: 220px;
+            }
+            .tabButtons {
+                display: flex;
+                justify-content: space-between;
+            }
+            .tabButtons button {
+                width: 50%;
+                height: 2rem;
+                background: white;
+            }
+            .bActive {
+                color: white;
+                background-color: green !important;
+            }
+            .tabTitle {
+                margin: 0;
+                text-align: center;
+                border-left: 1px solid;
+                border-right: 1px solid;
+                border-top: 1px solid;
+                padding: 1rem 0;
+            }
+
+            #malTable,
+            #impTable {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            #malTable thead tr {
+                text-align: center;
+                margin: auto;
+                background: lightgrey;
+            }
+            #impTable thead tr {
+                text-align: center;
+                margin: auto;
+                background: lightgrey;
+            }
+
+            #malTable th {
+                border: 1px solid black;
+            }
+            #impTable th {
+                border: 1px solid black;
+            }
+            #tbody1 td {
+                text-align: center;
+                border: 1px solid black;
+            }
+            #tbody2 td {
+                text-align: center;
+                border: 1px solid black;
+            }
+            .deleteBtn {
+                padding: 5px 8px;
+                border: none;
+                background: red;
+                font-weight: 1000;
+            }
+            .icon-button {
+                width: 3rem;
+            }
+            #settingsWindow {
+                border: 2px solid black;
+                text-align: center;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                width: 300px;
+                height: 250px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: lightgrey;
+                opacity: 0;
+                z-index: -2;
+                transition: all 0.3s ease-in-out;
+            }
+            #settingsWindow.open {
+                opacity: 1;
+                z-index: 999;
+            }
+            #settingsBox {
+            }
+            #settingsFirstRow {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                margin: auto 20px;
+            }
+            #settingsFirstRow input {
+                width: 30px;
+                height: 20px;
+                margin: auto 15px;
+            }
+
+            #settingsFirstRow select {
+                width: 38px;
+                height: 28px;
+                margin: auto 15px;
+            }
+
+            #settingsSecondRow {
+                margin: 20px 0;
+            }
+        </style>
+    </head>
+    <body onload="reloadClock()">
+        <div id="inputSection">
+            <div id="menu">
+                <a href="https://majki91.github.io/RWTools/edge.html"
+                    >Krawędzie</a
+                >
+                <a href="https://majki91.github.io/RWTools/inventory.html"
+                    >Inwentura</a
+                >
+            </div>
+            <div id="inputFirstRow">
+                <select id="productSelection" class="inputSelect">
+                    <option value="Artic">Artic</option>
+                    <option value="Pacific">Pacific</option>
+                    <option value="PagOris">Pag. Oris</option>
+                    <option value="Tropic">Tropic</option>
+                    <option value="Ekla">Ekla</option>
+                    <option value="Krios">Krios</option>
+                    <option value="Alaska">Alaska</option>
+                    <option value="Blanka">Blanka</option>
+                    <option value="Medicare">Medicare</option>
+                    <option value="Koral">Koral</option>
+                    <option value="Sonar">Sonar</option>
+                </select>
+                <select
+                    class="inputSelect"
+                    id="edgeSelection"
+                    onchange="setThinByEdge()"
+                >
+                    <option value="A">A</option>
+                    <option value="E15S6">E15S6</option>
+                    <option value="E24S6">E24S6</option>
+                    <option value="E15S8">E15S8</option>
+                    <option value="E24S8">E24S8</option>
+                    <option value="X">X</option>
+                </select>
+
+                <select
+                    id="dim1Selection"
+                    class="inputSelect"
+                    onchange="setSecDim()"
+                >
+                    <option value="600">600</option>
+                    <option value="610">610</option>
+                    <option value="625">625</option>
+                    <option value="675">675</option>
+                    <option value="1200">1200</option>
+                    <option value="1220">1220</option>
+                    <option value="1250">1250</option>
+                    <option value="1350">1350</option>
+                </select>
+
+                <select id="dim2Selection" class="inputSelect">
+                    <option value="600">600</option>
+                    <option value="610">610</option>
+                    <option value="625">625</option>
+                    <option value="675">675</option>
+                </select>
+
+                <select id="thinSelection" class="inputSelect">
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="20">20</option>
+                    <option value="22">22</option>
+                    <option value="25">25</option>
+                    <option value="30">30</option>
+                    <option value="35">35</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
+            </div>
+
+            <div id="inputSecondRow">
+                <span class="inputLabels" id="imp1Label">imp waga 1</span>
+                <span class="inputLabels" id="imp2Label">imp waga 2</span>
+                <span class="inputLabels" id="mal1Label">mal waga 1</span>
+                <span class="inputLabels" id="mal2Label">mal waga 2</span>
+            </div>
+            <div id="inputThirdRow">
+                <input
+                    id="impWeightInput1"
+                    class="weightInputs"
+                    type="number"
+                />
+                <input
+                    id="impWeightInput2"
+                    class="weightInputs"
+                    type="number"
+                />
+                <input
+                    id="malWeightInput1"
+                    class="weightInputs"
+                    type="number"
+                />
+                <input
+                    id="malWeightInput2"
+                    class="weightInputs"
+                    type="number"
+                />
+            </div>
+            <div id="inputFourthRow">
+                <span id="impConverterValue1"> 0.0000 </span>
+                <span id="impConverterValue2"> 0.0000 </span>
+                <span id="malConverterValue1"> 0.0000 </span>
+                <span id="malConverterValue2"> 0.0000 </span>
+            </div>
+            <div id="inputFifthRow">
+                <div id="clock">
+                    <input
+                        id="hrInput"
+                        class="hrInputs"
+                        type="number"
+                        placeholder="godz"
+                    />
+                    <span id="clockSpan">:</span>
+                    <input
+                        id="minInput"
+                        class="hrInputs"
+                        type="number"
+                        placeholder="min"
+                    />
+                </div>
+                <button
+                    id="refreshHour"
+                    class="buttons icon-button"
+                    onclick="showTabs()"
+                >
+                    <i class="fa fa-refresh fa-spin"></i>
+                </button>
+                <button
+                    class="buttons icon-button"
+                    id="summaryButton"
+                    onclick="create()"
+                >
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+                <button
+                    id="raportButton"
+                    onclick="generateRaport()"
+                    disabled="true"
+                    class="buttons icon-button"
+                >
+                    <i class="fas fa-th-list"></i>
+                </button>
+
+                <button
+                    id="settingsButton"
+                    onclick="showSettings()"
+                    class="buttons icon-button"
+                >
+                    <i class="fa fa-cog"></i>
+                </button>
+                <!--<button id="clearButton" onclick="" disabled="true"
       class="buttons">del</button>-->
-      </div>
-</div>
+            </div>
+        </div>
 
-<div id="mainContainer">
-  <div id="settingsWindow" class="">
-    <div id="settingsBox">
-      <div id="settingsFirstRow">
-        <p style="margin-bottom:30px;">Ustawienia generowania raportów</p>
-        <p>Przedział max/min w %</p><input type="number" value="5" id="percentAmountInput">
-        <p>Ilość raportów</p>
-        <select id="resultAmount" class="inputSelect">
-        <option value="7">7</option>
-        <option value="6">6</option>
-        <option value="5">5</option>
-        <option value="4">4</option>
-        <option value="3">3</option>
-        <option value="2">2</option>
-        <option value="1">1</option>
-      </select>
-      </div>
-      <div id="settingsSecondRow">
-      <button id="closeSettings" class="buttons" onclick="closeSettings()">zamknij</button>
-      </div>
-    </div>
-  </div>
-  <div class="tabButtons">
-  <button id="firstTabButton" class="tabButton"
-  onclick="openTab('impResContainer')">imp</button>
-  <button id="secondTabButton" class="tabButton bActive"
-  onclick="openTab('malResContainer')">mal</button>
-  </div>
+        <div id="mainContainer">
+            <div id="settingsWindow" class="">
+                <div id="settingsBox">
+                    <div id="settingsFirstRow">
+                        <p style="margin-bottom: 30px">
+                            Ustawienia generowania raportów
+                        </p>
+                        <p>Przedział max/min w %</p>
+                        <input
+                            type="number"
+                            value="5"
+                            id="percentAmountInput"
+                        />
+                        <p>Ilość raportów</p>
+                        <select id="resultAmount" class="inputSelect">
+                            <option value="8">8</option>
+                            <option value="7">7</option>
+                            <option value="6">6</option>
+                            <option value="5">5</option>
+                            <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
+                        </select>
+                    </div>
+                    <div id="settingsSecondRow">
+                        <button
+                            id="closeSettings"
+                            class="buttons"
+                            onclick="closeSettings()"
+                        >
+                            zamknij
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="tabButtons">
+                <button
+                    id="firstTabButton"
+                    class="tabButton"
+                    onclick="openTab('impResContainer')"
+                >
+                    imp
+                </button>
+                <button
+                    id="secondTabButton"
+                    class="tabButton bActive"
+                    onclick="openTab('malResContainer')"
+                >
+                    mal
+                </button>
+            </div>
 
-  <div id="malResContainer" class="tabResults">
-    <h2 class="tabTitle">mal</h2>
-    <table id="malTable">
-      <thead>
-        <tr>
-          <th>Godz</th>
-          <th>Asortyment</th>
-          <th>Kr.1</th>
-          <th>Kr.2</th>
-          <th>Śr.</th>
-          <th>X</th>
-        </tr>
-      </thead>
-      <tbody id="tbody1"></tbody>
-    </table>
-  </div>
-  
-  <div id="impResContainer" class="tabResults" style="display:none;">
-    <h2 class="tabTitle">imp</h2>
-    <table id="impTable">
-      <thead>
-        <tr>
-          <th>Godz</th>
-          <th>Asortyment</th>
-          <th>Kr.1</th>
-          <th>Kr.2</th>
-          <th>Śr.</th>
-          <th>X</th>
-        </tr>
-      </thead>
-      <tbody id="tbody2"></tbody>
-    </table>
- </div>
- </div>
- </body>
-<script>
+            <div id="malResContainer" class="tabResults">
+                <h2 class="tabTitle">mal</h2>
+                <table id="malTable">
+                    <thead>
+                        <tr>
+                            <th>Godz</th>
+                            <th>Asortyment</th>
+                            <th>Kr.1</th>
+                            <th>Kr.2</th>
+                            <th>Śr.</th>
+                            <th>X</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody1"></tbody>
+                </table>
+            </div>
 
-  let malObjTab = [];
-  let impObjTab = [];
-  
-    //tablice wyników poszczególnych stron malowania i impregnacji
-  
-  let mal1ResultTab =[];
-  let mal2ResultTab =[];
-  let imp1ResultTab =[];
-  let imp2ResultTab =[];
-  
-  let percentAmount =5;
-  const percentAmountInput = document.getElementById("percentAmountInput");
+            <div id="impResContainer" class="tabResults" style="display: none">
+                <h2 class="tabTitle">imp</h2>
+                <table id="impTable">
+                    <thead>
+                        <tr>
+                            <th>Godz</th>
+                            <th>Asortyment</th>
+                            <th>Kr.1</th>
+                            <th>Kr.2</th>
+                            <th>Śr.</th>
+                            <th>X</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody2"></tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+    <script>
+        let malObjTab = [];
+        let impObjTab = [];
 
-  const tbodyEl1 = document.querySelector("tbody");
-  const tbodyEl2 = document.querySelector("tbody2");
-  const maltableEl = document.getElementById("malTable")
-  const impTableEl = document.getElementById("impTable");
-  
-  const raportButton = document.getElementById("raportButton");
-  
-  function create(e) {
-    const hrInput = document.getElementById("hrInput").value;
-    const minInput = document.getElementById("minInput").value;
-    const productSelection = document.getElementById("productSelection").value;
-    const edgeSelection = document.getElementById("edgeSelection").value;
-    // uwaga
-    // trzeba zamienic dim1 z dim2 na krawedziach frezowanych poniewaz dluzsza krawedz jest na drugiej maszynie
+        //tablice wyników poszczególnych stron malowania i impregnacji
+
+        let mal1ResultTab = [];
+        let mal2ResultTab = [];
+        let imp1ResultTab = [];
+        let imp2ResultTab = [];
+
+        let percentAmount = 5;
+        const percentAmountInput =
+            document.getElementById("percentAmountInput");
+
+        const tbodyEl1 = document.querySelector("tbody");
+        const tbodyEl2 = document.querySelector("tbody2");
+        const maltableEl = document.getElementById("malTable");
+        const impTableEl = document.getElementById("impTable");
+
+        const raportButton = document.getElementById("raportButton");
+        let usable = false;
+
+        function create(e) {
+            const hrInput = document.getElementById("hrInput").value;
+            const minInput = document.getElementById("minInput").value;
+            const productSelection =
+                document.getElementById("productSelection").value;
+            const edgeSelection =
+                document.getElementById("edgeSelection").value;
+            // uwaga
+            // trzeba zamienic dim1 z dim2 na krawedziach frezowanych poniewaz dluzsza krawedz jest na drugiej maszynie
+
+            const dim1Selection =
+                document.getElementById("dim1Selection").value;
+            const dim2Selection =
+                document.getElementById("dim2Selection").value;
+            const thinSelection =
+                document.getElementById("thinSelection").value;
+
+            const malWeightInput1 =
+                document.getElementById("malWeightInput1").value;
+            const malWeightInput2 =
+                document.getElementById("malWeightInput2").value;
+            const impWeightInput1 =
+                document.getElementById("impWeightInput1").value;
+            const impWeightInput2 =
+                document.getElementById("impWeightInput2").value;
+
+            const malConverterValue1 =
+                document.getElementById("malConverterValue1");
+            const malConverterValue2 =
+                document.getElementById("malConverterValue2");
+            const impConverterValue1 =
+                document.getElementById("impConverterValue1");
+            const impConverterValue2 =
+                document.getElementById("impConverterValue2");
+
+            let fullHour = hrInput + ":" + minInput;
+            let productName =
+                productSelection +
+                " " +
+                edgeSelection +
+                " " +
+                dim1Selection +
+                "x" +
+                dim2Selection +
+                "x" +
+                thinSelection;
+
+            let malEdge1Converter = 0;
+            let malEdge2Converter = 0;
+            let impEdge1Converter = 0;
+            let impEdge2Converter = 0;
+
+            if (validateData() == false) return false;
+
+            if (edgeSelection === "A") {
+                malEdge1Converter = setConverterByEdge(
+                    setMalAConverterFromTable(parseInt(thinSelection, 10)),
+                    parseInt(dim1Selection, 10)
+                );
+
+                malEdge1Converter = parseFloat(
+                    malEdge1Converter.toFixed(4),
+                    10
+                );
+
+                malConverterValue1.innerText = malEdge1Converter;
+
+                malEdge2Converter = setConverterByEdge(
+                    setMalAConverterFromTable(parseInt(thinSelection, 10)),
+                    parseInt(dim2Selection, 10)
+                );
+
+                malEdge2Converter = parseFloat(
+                    malEdge2Converter.toFixed(4),
+                    10
+                );
+                malConverterValue2.innerText = malEdge2Converter;
+            }
+            //uwaga zamiana dimow
+            if (edgeSelection === "E15S8") {
+                malEdge1Converter = setConverterByEdge(
+                    setMalES8E15ConverterFromTable(parseInt(thinSelection, 10)),
+                    parseInt(dim2Selection, 10)
+                );
+
+                //uwaga zamiana dimow
+
+                malEdge1Converter = malEdge1Converter.toFixed(4);
+
+                malConverterValue1.innerText = malEdge1Converter;
+
+                malEdge2Converter = setConverterByEdge(
+                    setMalES8E15ConverterFromTable(parseInt(thinSelection, 10)),
+                    parseInt(dim1Selection, 10)
+                );
+
+                malEdge2Converter = malEdge2Converter.toFixed(4);
+
+                malConverterValue2.innerText = malEdge2Converter;
+
+                impEdge1Converter = setConverterByEdge(
+                    setImpES8E15ConverterFromTable(parseInt(thinSelection, 10)),
+                    parseInt(dim2Selection, 10)
+                );
+
+                impEdge1Converter = impEdge1Converter.toFixed(4);
+
+                impConverterValue1.innerText = impEdge1Converter;
+
+                impEdge2Converter = setConverterByEdge(
+                    setImpES8E15ConverterFromTable(parseInt(thinSelection, 10)),
+                    parseInt(dim1Selection, 10)
+                );
+
+                impEdge2Converter = impEdge2Converter.toFixed(4);
+
+                impConverterValue2.innerText = impEdge2Converter;
+            }
+
+            if (edgeSelection === "E24S8") {
+                malEdge1Converter = setConverterByEdge(
+                    setMalES8E24ConverterFromTable(parseInt(thinSelection, 10)),
+                    parseInt(dim2Selection, 10)
+                );
+
+                malEdge1Converter = malEdge1Converter.toFixed(4);
+
+                malConverterValue1.innerText = malEdge1Converter;
+
+                malEdge2Converter = setConverterByEdge(
+                    setMalES8E24ConverterFromTable(parseInt(thinSelection, 10)),
+                    parseInt(dim1Selection, 10)
+                );
+
+                malEdge2Converter = malEdge2Converter.toFixed(4);
+
+                malConverterValue2.innerText = malEdge2Converter;
+
+                impEdge1Converter = setConverterByEdge(
+                    setImpES8E24ConverterFromTable(parseInt(thinSelection, 10)),
+                    parseInt(dim2Selection, 10)
+                );
+
+                impEdge1Converter = impEdge1Converter.toFixed(4);
+
+                impConverterValue1.innerText = impEdge1Converter;
+
+                impEdge2Converter = setConverterByEdge(
+                    setImpES8E24ConverterFromTable(parseInt(thinSelection, 10)),
+                    parseInt(dim1Selection, 10)
+                );
+
+                impEdge2Converter = impEdge2Converter.toFixed(4);
+
+                impConverterValue2.innerText = impEdge2Converter;
+            }
+
+            if (edgeSelection === "E24S6" || edgeSelection === "E15S6") {
+                malEdge1Converter = setConverterByEdge(
+                    setMalES6ConverterFromTable(parseInt(thinSelection, 10)),
+                    parseInt(dim2Selection, 10)
+                );
+
+                malEdge1Converter = malEdge1Converter.toFixed(4);
+
+                malConverterValue1.innerText = malEdge1Converter;
+
+                malEdge2Converter = setConverterByEdge(
+                    setMalES6ConverterFromTable(parseInt(thinSelection, 10)),
+                    parseInt(dim1Selection, 10)
+                );
+
+                malEdge2Converter = malEdge2Converter.toFixed(4);
+
+                malConverterValue2.innerText = malEdge2Converter;
+
+                impEdge1Converter = setConverterByEdge(
+                    setImpES6ConverterFromTable(parseInt(thinSelection, 10)),
+                    parseInt(dim2Selection, 10)
+                );
+
+                impEdge1Converter = impEdge1Converter.toFixed(4);
+
+                impConverterValue1.innerText = impEdge1Converter;
+
+                impEdge2Converter = setConverterByEdge(
+                    setImpES6ConverterFromTable(parseInt(thinSelection, 10)),
+                    parseInt(dim1Selection, 10)
+                );
+
+                impEdge2Converter = impEdge2Converter.toFixed(4);
+
+                impConverterValue2.innerText = impEdge2Converter;
+            }
+
+            if (edgeSelection === "X") {
+                malEdge1Converter = setConverterByEdge(
+                    setMalXConverterFromTable(parseInt(thinSelection, 10)),
+                    parseInt(dim2Selection, 10)
+                );
+
+                malEdge1Converter = malEdge1Converter.toFixed(4);
+
+                malConverterValue1.innerText = malEdge1Converter;
+
+                malEdge2Converter = setConverterByEdge(
+                    setMalXConverterFromTable(parseInt(thinSelection, 10)),
+                    parseInt(dim1Selection, 10)
+                );
+
+                malEdge2Converter = malEdge2Converter.toFixed(4);
+
+                malConverterValue2.innerText = malEdge2Converter;
+
+                impEdge1Converter = setConverterByEdge(
+                    setImpX2ConverterFromTable(parseInt(thinSelection, 10)),
+                    parseInt(dim2Selection, 10)
+                );
+
+                impEdge1Converter = impEdge1Converter.toFixed(4);
+
+                impConverterValue1.innerText = impEdge1Converter;
+
+                impEdge2Converter = setConverterByEdge(
+                    setImpX1ConverterFromTable(parseInt(thinSelection, 10)),
+                    parseInt(dim1Selection, 10)
+                );
+
+                impEdge2Converter = impEdge2Converter.toFixed(4);
+
+                impConverterValue2.innerText = impEdge2Converter;
+            }
+
+            let mal1Result = malWeightInput1 / malEdge1Converter;
+            let mal2Result = malWeightInput2 / malEdge2Converter;
+
+            let imp1Result = impWeightInput1 / impEdge1Converter;
+            let imp2Result = impWeightInput2 / impEdge2Converter;
+
+            mal1Result = mal1Result.toFixed(0);
+            mal1Result = Math.round(mal1Result / 10) * 10;
+
+            mal2Result = mal2Result.toFixed(0);
+            mal2Result = Math.round(mal2Result / 10) * 10;
+
+            imp1Result = imp1Result.toFixed(0);
+            imp1Result = Math.round(imp1Result / 10) * 10;
+
+            imp2Result = imp2Result.toFixed(0);
+            imp2Result = Math.round(imp2Result / 10) * 10;
+
+            let avrMalWeight = (mal1Result + mal2Result) / 2;
+            let avrImpWeight = (imp1Result + imp2Result) / 2;
+
+            let malObj = createObject(
+                fullHour,
+                productName,
+                mal1Result,
+                mal2Result,
+                avrMalWeight
+            );
+
+            let impObj = createObject(
+                fullHour,
+                productName,
+                imp1Result,
+                imp2Result,
+                avrImpWeight
+            );
+
+            if (malWeightInput1 > 0 && malWeightInput2 > 0) {
+                malObjTab.push(malObj);
+                mal1ResultTab.push(mal1Result);
+                mal2ResultTab.push(mal2Result);
+                raportButton.disabled = false;
+            }
+            if (impWeightInput1 > 0 && impWeightInput2 > 0) {
+                impObjTab.push(impObj);
+                imp1ResultTab.push(imp1Result);
+                imp2ResultTab.push(imp2Result);
+                raportButton.disabled = false;
+            }
+            showTab(malObjTab, tbody1);
+            showTab(impObjTab, tbody2);
+        }
+        function clickTest() {
+            console.log("clicked");
+        }
+        //koniec
+        function showSettings() {
+            const settingsWindow = document.getElementById("settingsWindow");
+            settingsWindow.classList.add("open");
+        }
+        function closeSettings() {
+            const settingsWindow = document.getElementById("settingsWindow");
+            if(resultAmountValue===8) {
+              usable=true}else usable=false
+            
+            settingsWindow.classList.remove("open");
     
-    const dim1Selection = document.getElementById("dim1Selection").value;
-    const dim2Selection = document.getElementById("dim2Selection").value;
-    const thinSelection = document.getElementById("thinSelection").value;
-    
-    
-    const malWeightInput1
-    =document.getElementById("malWeightInput1").value;
-    const malWeightInput2
-    =document.getElementById("malWeightInput2").value;
-    const impWeightInput1
-    =document.getElementById("impWeightInput1").value;
-    const impWeightInput2
-    =document.getElementById("impWeightInput2").value;
-    
-    const malConverterValue1
-    = document.getElementById("malConverterValue1");
-    const malConverterValue2
-    = document.getElementById("malConverterValue2");
-    const impConverterValue1
-    = document.getElementById("impConverterValue1");
-    const impConverterValue2
-    = document.getElementById("impConverterValue2");
-    
-    
-  
-    let fullHour = hrInput+":"+minInput;
-    let productName = productSelection + " " + edgeSelection + " " +
-    dim1Selection + "x" + dim2Selection + "x" + thinSelection;
-    
-    let malEdge1Converter =0;
-    let malEdge2Converter =0;
-    let impEdge1Converter =0;
-    let impEdge2Converter =0;
-    
-   if(validateData()==false)
-     return false;
-   
-  if (edgeSelection === "A"){
-        malEdge1Converter =
-        setConverterByEdge(setMalAConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
-        
-        malEdge1Converter=parseFloat(
-        malEdge1Converter.toFixed(4),10);
-        
-        malConverterValue1.innerText = malEdge1Converter;
-       
-        malEdge2Converter =
-        setConverterByEdge(setMalAConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
-        
-        malEdge2Converter=parseFloat(malEdge2Converter.toFixed(4),10);
-        ;
-        
-        malConverterValue2.innerText = malEdge2Converter;
-    } 
-//uwaga zamiana dimow
-    if (edgeSelection === "E15S8"){
-        malEdge1Converter =
-        setConverterByEdge(setMalES8E15ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
-        
-        //uwaga zamiana dimow
-        
-        malEdge1Converter= malEdge1Converter.toFixed(4);
-        
-        malConverterValue1.innerText = malEdge1Converter;
-        
-        malEdge2Converter =
-        setConverterByEdge(setMalES8E15ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
-        
-        
-        malEdge2Converter= malEdge2Converter.toFixed(4);
-        
-        malConverterValue2.innerText = malEdge2Converter;
-        
-     impEdge1Converter =
-        setConverterByEdge(setImpES8E15ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
-        
-        impEdge1Converter= impEdge1Converter.toFixed(4);
-        
-        impConverterValue1.innerText = impEdge1Converter;
-        
-        impEdge2Converter =
-        setConverterByEdge(setImpES8E15ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
-        
-        impEdge2Converter= impEdge2Converter.toFixed(4);
-        
-        impConverterValue2.innerText = impEdge2Converter;
-    } 
-    
-    if (edgeSelection === "E24S8"){
-        malEdge1Converter =
-        setConverterByEdge(setMalES8E24ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
-        
-        malEdge1Converter= malEdge1Converter.toFixed(4);
-        
-        malConverterValue1.innerText = malEdge1Converter;
-        
-        malEdge2Converter =
-        setConverterByEdge(setMalES8E24ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
-        
-        malEdge2Converter= malEdge2Converter.toFixed(4);
-        
-        malConverterValue2.innerText = malEdge2Converter;
-        
-     impEdge1Converter =
-        setConverterByEdge(setImpES8E24ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
-        
-        impEdge1Converter= impEdge1Converter.toFixed(4);
-        
-        impConverterValue1.innerText = impEdge1Converter;
-        
-        impEdge2Converter =
-        setConverterByEdge(setImpES8E24ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
-        
-        impEdge2Converter= impEdge2Converter.toFixed(4);
-        
-        impConverterValue2.innerText = impEdge2Converter;
-    } 
-    
-     if (edgeSelection === "E24S6" || edgeSelection === "E15S6" ){
-        malEdge1Converter =
-        setConverterByEdge(setMalES6ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
-        
-        
-        malEdge1Converter= malEdge1Converter.toFixed(4);
-        
-        malConverterValue1.innerText = malEdge1Converter;
-        
-        malEdge2Converter =
-        setConverterByEdge(setMalES6ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
-        
-        malEdge2Converter= malEdge2Converter.toFixed(4);
-        
-        malConverterValue2.innerText = malEdge2Converter;
-        
-     impEdge1Converter =
-        setConverterByEdge(setImpES6ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
-        
-        impEdge1Converter= impEdge1Converter.toFixed(4);
-        
-        impConverterValue1.innerText = impEdge1Converter;
-        
-        impEdge2Converter =
-        setConverterByEdge(setImpES6ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
-        
-        impEdge2Converter= impEdge2Converter.toFixed(4);
-        
-        impConverterValue2.innerText = impEdge2Converter;
-    } 
-    
-    if (edgeSelection === "X"){
-        malEdge1Converter =
-        setConverterByEdge(setMalXConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
-        
-        malEdge1Converter= malEdge1Converter.toFixed(4);
-        
-        malConverterValue1.innerText = malEdge1Converter;
-        
-        malEdge2Converter =
-        setConverterByEdge(setMalXConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
-        
-        malEdge2Converter= malEdge2Converter.toFixed(4);
-        
-        malConverterValue2.innerText = malEdge2Converter;
-        
-     impEdge1Converter =
-        setConverterByEdge(setImpX2ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim2Selection,10));
-        
-        impEdge1Converter= impEdge1Converter.toFixed(4);
-        
-        impConverterValue1.innerText = impEdge1Converter;
-        
-        impEdge2Converter =
-        setConverterByEdge(setImpX1ConverterFromTable(parseInt(thinSelection,10)),parseInt(dim1Selection,10));
-        
-        impEdge2Converter= impEdge2Converter.toFixed(4);
-        
-        impConverterValue2.innerText = impEdge2Converter;
-    } 
-    
-   
-    let mal1Result = malWeightInput1/ malEdge1Converter;
-    let mal2Result = malWeightInput2/ malEdge2Converter;
-    
-    let imp1Result = impWeightInput1/ impEdge1Converter;
-    let imp2Result = impWeightInput2/ impEdge2Converter;
-    
-  
-   
-    mal1Result = mal1Result.toFixed(0);
-    mal1Result = Math.round(mal1Result / 10)*10;
-    
-  
-    
-    mal2Result = mal2Result.toFixed(0);
-    mal2Result = Math.round(mal2Result / 10)*10;
- 
-    imp1Result = imp1Result.toFixed(0);
-    imp1Result = Math.round(imp1Result / 10)*10;
-    
-    imp2Result = imp2Result.toFixed(0);
-    imp2Result = Math.round(imp2Result / 10)*10;
- 
-  
-    let avrMalWeight = (mal1Result+mal2Result)/2;
-    let avrImpWeight = (imp1Result+imp2Result)/2;  
-    
-    let malObj =
-    createObject(fullHour,productName,mal1Result,mal2Result,avrMalWeight);
-    
-    let impObj =
-    createObject(fullHour,productName,imp1Result,imp2Result,avrImpWeight);
-     
-    if(malWeightInput1>0 && malWeightInput2>0){
-     malObjTab.push(malObj);
-     mal1ResultTab.push(mal1Result);
-     mal2ResultTab.push(mal2Result);
-     raportButton.disabled=false;
-    }
-    if(impWeightInput1>0 && impWeightInput2>0){ 
-      impObjTab.push(impObj);
-      imp1ResultTab.push(imp1Result);
-      imp2ResultTab.push(imp2Result);
-      raportButton.disabled=false;
-    }
-    showTab(malObjTab,tbody1);
-    showTab(impObjTab,tbody2);
-  }
-  function clickTest(){
-    console.log("clicked")
-  }
-  //koniec
-  function showSettings(){
-    const settingsWindow = document.getElementById("settingsWindow");
-    settingsWindow.classList.add("open");
-  }
-  function closeSettings(){
-    const settingsWindow = document.getElementById("settingsWindow");
-    settingsWindow.classList.remove("open");
-  }
-  
-   function averageNumber(averageTab){
-    let average = 0;
-    
-    for(let i=0;averageTab.length>i;i++){
-      //console.log("i:" +i);
-      //console.log(averageTab[i]);
-      average += averageTab[i];
-      //console.log(averageTab.length);
-    }
-    average = average/averageTab.length;
-    //console.log("average:"+average);
-    return average;
-  }
-  
-  function random(average,percent){
-    let percent100 = percent/100;
-    let percentDown = average-(average*percent100);
-    let percentUp = average+(average*percent100);
-    let randomNumber =0;
-    
-    randomNumber = Math.floor(Math.random() * (percentUp-percentDown)) + percentDown;
-    randomNumber = randomNumber.toFixed(0);
-    randomNumber = Math.round(randomNumber / 10)*10;
-    //console.log("rand:"+randomNumber);
-    
-    
-    return randomNumber;
-  }
-  
-  function generateRaport(){
-    let date = new Date();
-    let hour = date.getHours();
-    let min = date.getMinutes();
-    let clock = "";
-    let malO = "";
-    let productName ="";
-    let percentInput = parseInt(percentAmountInput.value,10);
-    const productSelection = document.getElementById("productSelection").value;
-    const edgeSelection = document.getElementById("edgeSelection").value;
-    const dim1Selection = document.getElementById("dim1Selection").value;
-    const dim2Selection = document.getElementById("dim2Selection").value;
-    const thinSelection = document.getElementById("thinSelection").value;
-    
-    const resultAmount = document.getElementById("resultAmount").value;
-    
-   let resultAmountValue = parseInt(resultAmount,10);
-   
-   
-   
-   /*if(min<10)
+        }
+
+        function averageNumber(averageTab) {
+            let average = 0;
+
+            for (let i = 0; averageTab.length > i; i++) {
+                //console.log("i:" +i);
+                //console.log(averageTab[i]);
+                average += averageTab[i];
+                //console.log(averageTab.length);
+            }
+            average = average / averageTab.length;
+            //console.log("average:"+average);
+            return average;
+        }
+
+        function random(average, percent) {
+            let percent100 = percent / 100;
+            let percentDown = average - average * percent100;
+            let percentUp = average + average * percent100;
+            let randomNumber = 0;
+
+            randomNumber =
+                Math.floor(Math.random() * (percentUp - percentDown)) +
+                percentDown;
+            randomNumber = randomNumber.toFixed(0);
+            randomNumber = Math.round(randomNumber / 10) * 10;
+            //console.log("rand:"+randomNumber);
+
+            return randomNumber;
+        }
+
+        function generateRaport() {
+            let date = new Date();
+            let hour = date.getHours();
+            let min = date.getMinutes();
+            let clock = "";
+            let malO = "";
+            let productName = "";
+            let percentInput = parseInt(percentAmountInput.value, 10);
+            const productSelection =
+                document.getElementById("productSelection").value;
+            const edgeSelection =
+                document.getElementById("edgeSelection").value;
+            const dim1Selection =
+                document.getElementById("dim1Selection").value;
+            const dim2Selection =
+                document.getElementById("dim2Selection").value;
+            const thinSelection =
+                document.getElementById("thinSelection").value;
+
+            const resultAmount = document.getElementById("resultAmount").value;
+
+            let resultAmountValue = parseInt(resultAmount, 10);
+
+            /*if(min<10)
     clock = hour + ":0" + min;
     else
     clock = hour + ":" + min;*/
-    
-    productName = productSelection+" "+edgeSelection + " " + dim1Selection +"x"+
-    dim2Selection +"x"+ thinSelection;
-    
-    if (mal1ResultTab.length>0 && mal2ResultTab.length>0){
-   
-     let malTabLength = malObjTab.length-1;
-     
-     let malFirstHour = malObjTab[malTabLength].hour;
-     
-     malFirstHour= parseInt(malFirstHour.slice(0,2),10);
-     
-     
-     
-     
-     //ostatnia dodana godzina i minuta
-     let malFirstMinutes = malObjTab[malTabLength].hour;
-     
-     
-     
-     malFirstMinutes = parseInt(malFirstMinutes.slice(3,5),10);
 
-     
-     
-      for(let i=0;i<resultAmountValue;i++){
-      let randomWg1 = random(averageNumber(mal1ResultTab),percentInput);
-      let randomWg2 =random(averageNumber(mal2ResultTab),percentInput);
-      let avrW = (randomWg1 + randomWg2)/2;
-     
-        malFirstHour++;
-        if(malFirstHour>=24)
-          malFirstHour = 0;
-        
-        
-        if(malFirstHour<10)
-        clock = "0"+malFirstHour;
-        else
-         clock = malFirstHour;
-         
-        if(malFirstMinutes<10)
-         clock+= ":0" + malFirstMinutes;
-        else
-         clock+= ":" + malFirstMinutes;
-      
-      malO = createObject(clock,productName,randomWg1,randomWg2,avrW);
-      
-      
-     
-     malObjTab.push(malO);
-     //averageNumber(mal1ResultTab);
-     //random(averageNumber(mal1ResultTab),percentInput);
-      }
-    }
-    
-      if (imp1ResultTab.length>0 && imp2ResultTab.length>0){
-        
-        let impTabLength = impObjTab.length-1;
-     
-     let impFirstHour = impObjTab[impTabLength].hour;
-     impFirstHour= parseInt(impFirstHour.slice(0,2),10);
-     
-     
-     
-     //ostatnia dodana godzina i minuta
-     let impFirstMinutes = impObjTab[impTabLength].hour;
-     impFirstMinutes = parseInt(impFirstMinutes.slice(3,5),10);
-        
-      for(let i=0;i<resultAmountValue;i++){
-      let randomWg1 = random(averageNumber(imp1ResultTab),percentInput);
-      let randomWg2 =random(averageNumber(imp2ResultTab),percentInput);
-      let avrW = (randomWg1 + randomWg2)/2;
-      
-        impFirstHour++;
-        if(impFirstHour>=24)
-          impFirstHour = 0;
-        
-        
-        if(impFirstHour<10)
-        clock = "0"+impFirstHour;
-        else
-        clock = impFirstHour;
-         
-        if(impFirstMinutes<10)
-         clock+= ":0" + impFirstMinutes;
-        else
-         clock+= ":" + impFirstMinutes;
-      
-      
-      impO = createObject(clock,productName,randomWg1,randomWg2,avrW);
-      
-      
-     
-     impObjTab.push(impO);
-     //averageNumber(imp1ResultTab);
-     //random(averageNumber(imp1ResultTab),percentInput);
-      }
-    }
-    showTabs();
-  }
-   function showTab(tab,tbody){
-     tbody.innerHTML=""
-     let fullHour="";
-     let productName="";
-     let malWeightInput1="";
-     let malWeightInput2="";
-     let avrMalWeight="";
-     
-     for(let i=0;tab.length>i;i++){
-       fullHour = tab[i].hour;
-       productName = tab[i].product;
-       malWeightInput1 = tab[i].weight1;
-       malWeightInput2 = tab[i].weight2;
-       avrMalWeight = tab[i].averageWeight;
-       
-       tbody.innerHTML += `
+            productName =
+                productSelection +
+                " " +
+                edgeSelection +
+                " " +
+                dim1Selection +
+                "x" +
+                dim2Selection +
+                "x" +
+                thinSelection;
+
+            if (mal1ResultTab.length > 0 && mal2ResultTab.length > 0) {
+                let malTabLength = malObjTab.length - 1;
+
+                let malFirstHour = malObjTab[malTabLength].hour;
+
+                malFirstHour = parseInt(malFirstHour.slice(0, 2), 10);
+
+                //ostatnia dodana godzina i minuta
+                let malFirstMinutes = malObjTab[malTabLength].hour;
+
+                malFirstMinutes = parseInt(malFirstMinutes.slice(3, 5), 10);
+
+                for (let i = 0; i < resultAmountValue; i++) {
+                    let randomWg1 = random(
+                        averageNumber(mal1ResultTab),
+                        percentInput
+                    );
+                    let randomWg2 = random(
+                        averageNumber(mal2ResultTab),
+                        percentInput
+                    );
+                    let avrW = (randomWg1 + randomWg2) / 2;
+
+                    malFirstHour++;
+                    if (malFirstHour >= 24) malFirstHour = 0;
+
+                    if (malFirstHour < 10) clock = "0" + malFirstHour;
+                    else clock = malFirstHour;
+
+                    if (malFirstMinutes < 10) clock += ":0" + malFirstMinutes;
+                    else clock += ":" + malFirstMinutes;
+
+                    malO = createObject(
+                        clock,
+                        productName,
+                        randomWg1,
+                        randomWg2,
+                        avrW
+                    );
+
+                    malObjTab.push(malO);
+                    //averageNumber(mal1ResultTab);
+                    //random(averageNumber(mal1ResultTab),percentInput);
+                }
+            }
+
+            if (imp1ResultTab.length > 0 && imp2ResultTab.length > 0) {
+                let impTabLength = impObjTab.length - 1;
+
+                let impFirstHour = impObjTab[impTabLength].hour;
+                impFirstHour = parseInt(impFirstHour.slice(0, 2), 10);
+
+                //ostatnia dodana godzina i minuta
+                let impFirstMinutes = impObjTab[impTabLength].hour;
+                impFirstMinutes = parseInt(impFirstMinutes.slice(3, 5), 10);
+
+                for (let i = 0; i < resultAmountValue; i++) {
+                    let randomWg1 = random(
+                        averageNumber(imp1ResultTab),
+                        percentInput
+                    );
+                    let randomWg2 = random(
+                        averageNumber(imp2ResultTab),
+                        percentInput
+                    );
+                    let avrW = (randomWg1 + randomWg2) / 2;
+
+                    impFirstHour++;
+                    if (impFirstHour >= 24) impFirstHour = 0;
+
+                    if (impFirstHour < 10) clock = "0" + impFirstHour;
+                    else clock = impFirstHour;
+
+                    if (impFirstMinutes < 10) clock += ":0" + impFirstMinutes;
+                    else clock += ":" + impFirstMinutes;
+
+                    impO = createObject(
+                        clock,
+                        productName,
+                        randomWg1,
+                        randomWg2,
+                        avrW
+                    );
+
+                    impObjTab.push(impO);
+                    //averageNumber(imp1ResultTab);
+                    //random(averageNumber(imp1ResultTab),percentInput);
+                }
+            }
+            showTabs();
+        }
+        function showTab(tab, tbody) {
+            tbody.innerHTML = "";
+            let fullHour = "";
+            let productName = "";
+            let malWeightInput1 = "";
+            let malWeightInput2 = "";
+            let avrMalWeight = "";
+
+            for (let i = 0; tab.length > i; i++) {
+                fullHour = tab[i].hour;
+                productName = tab[i].product;
+                malWeightInput1 = tab[i].weight1;
+                malWeightInput2 = tab[i].weight2;
+                avrMalWeight = tab[i].averageWeight;
+
+                tbody.innerHTML += `
             <tr>
                 
                 <td>${fullHour}</td>
@@ -820,471 +959,476 @@
                 </td>
             </tr>
         `;
-     }
-   }
-      function onDeleteRowMal(e) {
-       
-        if (!e.target.classList.contains("deleteBtn")) {
-          return;
+            }
+        }
+        function onDeleteRowMal(e) {
+            if (!e.target.classList.contains("deleteBtn")) {
+                return;
+            }
+
+            const btn = e.target;
+            const searchedEl = btn.closest("tr").childNodes[1].innerText;
+            let delEl = malObjTab
+                .map(object => object.hour)
+                .indexOf(searchedEl);
+
+            btn.closest("tr").remove();
+            malObjTab.splice(delEl, 1);
+            showTabs();
         }
 
-        const btn = e.target;
-        const searchedEl = btn.closest("tr").childNodes[1].innerText;
-        let delEl = malObjTab.map(object => object.hour).indexOf(searchedEl);
-        
-        
-        btn.closest("tr").remove();
-        malObjTab.splice(delEl,1);
-        showTabs();
-      }
-      
-     function onDeleteRowImp(e) {
-       
-        if (!e.target.classList.contains("deleteBtn")) {
-          return;
-          
+        function onDeleteRowImp(e) {
+            if (!e.target.classList.contains("deleteBtn")) {
+                return;
+            }
+            const btn = e.target;
+            const searchedEl = btn.closest("tr").childNodes[1].innerText;
+            let delEl = impObjTab
+                .map(object => object.hour)
+                .indexOf(searchedEl);
+
+            btn.closest("tr").remove();
+            impObjTab.splice(delEl, 1);
+            showTabs();
+
+            btn.closest("tr").remove();
         }
-        const btn = e.target;
-        const searchedEl = btn.closest("tr").childNodes[1].innerText;
-        let delEl = impObjTab.map(object => object.hour).indexOf(searchedEl);
-        
-        
-        btn.closest("tr").remove();
-        impObjTab.splice(delEl,1);
-        showTabs();
 
-        
-        btn.closest("tr").remove();
-      }
+        maltableEl.addEventListener("click", onDeleteRowMal);
+        impTableEl.addEventListener("click", onDeleteRowImp);
 
-      maltableEl.addEventListener("click", onDeleteRowMal);
-      impTableEl.addEventListener("click",onDeleteRowImp);
-      
+        function reloadClock() {
+            const date = new Date();
+            const hour = date.getHours();
+            const minutes = date.getMinutes();
 
- function reloadClock(){
-    const date = new Date();
-    const hour = date.getHours();
-    const minutes = date.getMinutes();
-    
-    hrInput.value = hour;
-    
-    if(minutes<10)
-    minInput.value = "0"+minutes;
-    else
-    minInput.value = minutes;
-    setThinByEdge();
-  }
-  
-  function showTabs(){
-    showTab(malObjTab,tbody1);
-    showTab(impObjTab,tbody2);
-  }
-  
-  function setThinByEdge(){
-    const thinSelection = document.getElementById("thinSelection");
-    const edgeSelection = document.getElementById("edgeSelection");
-   
-   if(edgeSelection.value === "X"){
-     document.querySelectorAll("#thinSelection option").forEach(opt => {
-        opt.disabled = true;
-     }
-);
-    thinSelection[5].disabled =false;
-    thinSelection.value = "22";
-   }
-   else{
-     document.querySelectorAll("#thinSelection option").forEach(opt => {
-        opt.disabled = false;
-     });
-   }
-   
-   if(edgeSelection.value === "E15S6" || edgeSelection.value === "E24S6"){
-     document.querySelectorAll("#thinSelection option").forEach(opt => {
-        opt.disabled = true;
-     }
-);
-    thinSelection[0].disabled =false;
-    thinSelection[1].disabled =false;
-    thinSelection.value = "12";
-   }
-   /*else{
+            hrInput.value = hour;
+
+            if (minutes < 10) minInput.value = "0" + minutes;
+            else minInput.value = minutes;
+            setThinByEdge();
+        }
+
+        function showTabs() {
+            showTab(malObjTab, tbody1);
+            showTab(impObjTab, tbody2);
+        }
+
+        function setThinByEdge() {
+            const thinSelection = document.getElementById("thinSelection");
+            const edgeSelection = document.getElementById("edgeSelection");
+
+            if (edgeSelection.value === "X") {
+                document
+                    .querySelectorAll("#thinSelection option")
+                    .forEach(opt => {
+                        opt.disabled = true;
+                    });
+                thinSelection[5].disabled = false;
+                thinSelection.value = "22";
+            } else {
+                document
+                    .querySelectorAll("#thinSelection option")
+                    .forEach(opt => {
+                        opt.disabled = false;
+                    });
+            }
+
+            if (
+                edgeSelection.value === "E15S6" ||
+                edgeSelection.value === "E24S6"
+            ) {
+                document
+                    .querySelectorAll("#thinSelection option")
+                    .forEach(opt => {
+                        opt.disabled = true;
+                    });
+                thinSelection[0].disabled = false;
+                thinSelection[1].disabled = false;
+                thinSelection.value = "12";
+            }
+            /*else{
      document.querySelectorAll("#thinSelection option").forEach(opt => {
         opt.disabled = false;
      });
    }*/
-   
-   if(edgeSelection.value === "E15S8" || edgeSelection.value === "E24S8" ){
-    thinSelection.value = "15";
-    thinSelection[0].disabled = true;
-    thinSelection[1].disabled = true;
-    thinSelection[5].disabled = true;
-   }
-   
-   if(edgeSelection.value === "A")
-    thinSelection.value = "12";
-    
-    if(edgeSelection.value === "A")
-    {
-      impWeightInput1.disabled=true;
-      impWeightInput2.disabled=true;
-      firstTabButton.disabled=true;
-    }
-    else
-    {
-      impWeightInput1.disabled=false;
-      impWeightInput2.disabled=false;
-      firstTabButton.disabled=false;
-    }
-  }
-  
-  function setSecDim(){
-   
-   if(dim1Selection.value === "600")
-     dim2Selection.value = "600";
-   if(dim1Selection.value === "610")
-     dim2Selection.value = "610";
-   if(dim1Selection.value === "625")
-     dim2Selection.value = "625";
-   if(dim1Selection.value === "675")
-     dim2Selection.value = "675";
-   if(dim1Selection.value === "1200")
-     dim2Selection.value = "600";
-   if(dim1Selection.value === "1220")
-     dim2Selection.value = "610";
-   if(dim1Selection.value === "1250" || dim1Selection.value === "1350")
-     dim2Selection.value = "625";
-  }
-  
-  function openTab(tabName) {
-  let x = document.getElementsByClassName("tabResults");
-  let b = document.getElementsByClassName("tabButton");
-  
-  if(tabName === "malResContainer")
-  {
-    firstTabButton.classList.remove("bActive");
-    secondTabButton.classList.add("bActive")
-  }
-  else if (tabName === "impResContainer"){
-    firstTabButton.classList.add("bActive");
-    secondTabButton.classList.remove("bActive");
-  }
-  
-  for (let i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  document.getElementById(tabName).style.display = "block";
-}
 
-function setMalAConverterFromTable(thin){
-    switch (thin){
-     case 12:
-       return 0.012;
-       break;
-     case 13:
-       return 0.013;
-       break;
-     case 15:
-       return 0.015;
-       break;
-     case 16:
-       return 0.016;
-       break;
-     case 20:
-       return 0.020;
-       break;
-     case 22:
-       return 0.022;
-       break
-     case 25:
-       return 0.025;
-       break;
-     case 30:
-       return 0.030;
-       break;
-     case 35:
-       return 0.035;
-       break;
-     case 40:
-       return 0.040;
-       break;
-     case 50:
-       return 0.050;
-       break;
-       
-     default:
-       return 0;
-  }
-  }
-  
-  function setMalES8E15ConverterFromTable(thin){
-    switch (thin){
-    case 15:
-       return 0.019;
-       break;
-     case 16:
-       return 0.020;
-       break;
-     case 20:
-       return 0.024;
-       break;
-     /*case 22:
-       return 0.022;
-       break;*/
-     case 25:
-       return 0.029;
-       break;
-     /*case 30:
-       return 0.030;
-       break;*/
-     case 35:
-       return 0.029;
-       break;
-     case 40:
-       return 0.029;
-       break;
-     case 50:
-       return 0.029;
-       break;
-       
-     default:
-       return 0;
-  }
-  }
-  
-  function setMalES8E24ConverterFromTable(thin){
-    switch (thin){
-    case 15:
-       return 0.020;
-       break;
-     case 16:
-       return 0.021;
-       break;
-     case 20:
-       return 0.025;
-       break;
-     /*case 22:
-       return 0.022;
-       break;*/
-     case 25:
-       return 0.030;
-       break;
-     /*case 30:
-       return 0.030;
-       break;*/
-     case 35:
-       return 0.040;
-       break;
-     case 40:
-       return 0.045;
-       break;
-     case 50:
-       return 0.055;
-       break;
-       
-     default:
-       return 0;
-  }
-  }
-  
-  function setMalES6ConverterFromTable(thin){
-    switch (thin){
-    case 12:
-       return 0.012;
-       break;
-     case 13:
-       return 0.012;
-       break;
-       
-     default:
-       return 0;
-  }
-  }
-  
-  function setMalXConverterFromTable(thin){
-    switch (thin){
-    case 22:
-       return 0.008;
-       break;
-       
-     default:
-       return 0;
-  }
-  }
-  
-function setImpES8E15ConverterFromTable(thin){
-    switch (thin){
-    case 15:
-       return 0.019;
-       break;
-     case 16:
-       return 0.020;
-       break;
-     case 20:
-       return 0.024;
-       break;
-     /*case 22:
-       return 0.022;
-       break;*/
-     case 25:
-       return 0.029;
-       break;
-     /*case 30:
-       return 0.030;
-       break;*/
-     case 35:
-       return 0.040;
-       break;
-     case 40:
-       return 0.045;
-       break;
-     case 50:
-       return 0.055;
-       break;
-       
-     default:
-       return 0;
-  }
-  }
-  
-  function setImpES8E24ConverterFromTable(thin){
-    switch (thin){
-    case 15:
-       return 0.020;
-       break;
-     case 16:
-       return 0.021;
-       break;
-     case 20:
-       return 0.025;
-       break;
-     /*case 22:
-       return 0.022;
-       break;*/
-     case 25:
-       return 0.030;
-       break;
-     /*case 30:
-       return 0.030;
-       break;*/
-     case 35:
-       return 0.040;
-       break;
-     case 40:
-       return 0.045;
-       break;
-     case 50:
-       return 0.055;
-       break;
-       
-     default:
-       return 0;
-  }
-  }
-  
-  function setImpES6ConverterFromTable(thin){
-    switch (thin){
-    case 12:
-       return 0.017;
-       break;
-     case 13:
-       return 0.018;
-       break;
-       
-     default:
-       return 0;
-  }
-  }
-  
-  function setImpX1ConverterFromTable(thin){
-    switch (thin){
-    case 22:
-       return 0.040;
-       break;
-       
-     default:
-       return 0;
-  }
-  }
-  
-  function setImpX2ConverterFromTable(thin){
-    switch (thin){
-    case 22:
-       return 0.036;
-       break;
-       
-     default:
-       return 0;
-  }
-  }
-  function setConverterByEdge(firstConverter,dimension){
-    let doubledConverter = firstConverter * 2;
-    let dimDivided = dimension/1000;
-    return doubledConverter * dimDivided;
-  }
-  
-  function validateData(){
-    
-    if (impWeightInput1.value ===""){
-      impWeightInput1.value =0;
-    }
-    if (impWeightInput2.value ==="")
-      impWeightInput2.value =0;
-    
-    if (malWeightInput1.value ==="")
-      malWeightInput1.value =0;
-    if (malWeightInput2.value ==="")
-      malWeightInput2.value =0;
-    
-    let malWeightInput1Value =
-    parseInt(document.getElementById("malWeightInput1").value,10);
-    let malWeightInput2Value =
-    parseInt(document.getElementById("malWeightInput2").value,10);
-    let impWeightInput1Value =
-    parseInt(document.getElementById("impWeightInput1").value,10);
-    let impWeightInput2Value =
-    parseInt(document.getElementById("impWeightInput2").value,10);
-    
-    let message="";
-    let validated = true;
-    
-    if (impWeightInput1Value === 0 && impWeightInput2Value >0){
-      message+="wypelnij 1 imp\n";
-      validated = false;
-    }
-    if (impWeightInput1Value > 0 && impWeightInput2Value === 0){
-      message+="wypelnij 2 imp\n";
-      validated = false;
-    }
-    
-    if (malWeightInput1Value === 0 && malWeightInput2Value >0){
-      message+="wypelnij 1 mal\n";
-      validated = false;
-    }
-    if (malWeightInput1Value > 0 && malWeightInput2Value === 0){
-      message+="wypelnij 2 mal\n";
-      validated = false;
-    }
-    
-    if (validated == false) 
-      window.alert(message);
-    
-    return validated;
-  }
+            if (
+                edgeSelection.value === "E15S8" ||
+                edgeSelection.value === "E24S8"
+            ) {
+                thinSelection.value = "15";
+                thinSelection[0].disabled = true;
+                thinSelection[1].disabled = true;
+                thinSelection[5].disabled = true;
+            }
 
-function createObject(hour,product,weight1,weight2,averageWeight){
-  const malObj ={
-    hour:hour,
-    product:product,
-    weight1:weight1,
-    weight2:weight2,
-    averageWeight:averageWeight,
-    showTxtData:function(){
-      return hour+ " " + product + " " + weight1 + " " + weight2 + " " +
-      averageWeight;
-    }
-  }
-  return malObj;
-}
+            if (edgeSelection.value === "A") thinSelection.value = "12";
 
-</script>
+            if (edgeSelection.value === "A") {
+                impWeightInput1.disabled = true;
+                impWeightInput2.disabled = true;
+                firstTabButton.disabled = true;
+            } else {
+                impWeightInput1.disabled = false;
+                impWeightInput2.disabled = false;
+                firstTabButton.disabled = false;
+            }
+        }
+
+        function setSecDim() {
+            if (dim1Selection.value === "600") dim2Selection.value = "600";
+            if (dim1Selection.value === "610") dim2Selection.value = "610";
+            if (dim1Selection.value === "625") dim2Selection.value = "625";
+            if (dim1Selection.value === "675") dim2Selection.value = "675";
+            if (dim1Selection.value === "1200") dim2Selection.value = "600";
+            if (dim1Selection.value === "1220") dim2Selection.value = "610";
+            if (
+                dim1Selection.value === "1250" ||
+                dim1Selection.value === "1350"
+            )
+                dim2Selection.value = "625";
+        }
+
+        function openTab(tabName) {
+            let x = document.getElementsByClassName("tabResults");
+            let b = document.getElementsByClassName("tabButton");
+
+            if (tabName === "malResContainer") {
+                firstTabButton.classList.remove("bActive");
+                secondTabButton.classList.add("bActive");
+            } else if (tabName === "impResContainer") {
+                firstTabButton.classList.add("bActive");
+                secondTabButton.classList.remove("bActive");
+            }
+
+            for (let i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            document.getElementById(tabName).style.display = "block";
+        }
+
+        function setMalAConverterFromTable(thin) {
+            switch (thin) {
+                case 12:
+                    return 0.012;
+                    break;
+                case 13:
+                    return 0.013;
+                    break;
+                case 15:
+                    return 0.015;
+                    break;
+                case 16:
+                    return 0.016;
+                    break;
+                case 20:
+                    return 0.02;
+                    break;
+                case 22:
+                    return 0.022;
+                    break;
+                case 25:
+                    return 0.025;
+                    break;
+                case 30:
+                    return 0.03;
+                    break;
+                case 35:
+                    return 0.035;
+                    break;
+                case 40:
+                    return 0.04;
+                    break;
+                case 50:
+                    return 0.05;
+                    break;
+
+                default:
+                    return 0;
+            }
+        }
+
+        function setMalES8E15ConverterFromTable(thin) {
+            switch (thin) {
+                case 15:
+                    return 0.019;
+                    break;
+                case 16:
+                    return 0.02;
+                    break;
+                case 20:
+                    return 0.024;
+                    break;
+                /*case 22:
+       return 0.022;
+       break;*/
+                case 25:
+                    return 0.029;
+                    break;
+                /*case 30:
+       return 0.030;
+       break;*/
+                case 35:
+                    return 0.029;
+                    break;
+                case 40:
+                    return 0.029;
+                    break;
+                case 50:
+                    return 0.029;
+                    break;
+
+                default:
+                    return 0;
+            }
+        }
+
+        function setMalES8E24ConverterFromTable(thin) {
+            switch (thin) {
+                case 15:
+                    return 0.02;
+                    break;
+                case 16:
+                    return 0.021;
+                    break;
+                case 20:
+                    return 0.025;
+                    break;
+                /*case 22:
+       return 0.022;
+       break;*/
+                case 25:
+                    return 0.03;
+                    break;
+                /*case 30:
+       return 0.030;
+       break;*/
+                case 35:
+                    return 0.04;
+                    break;
+                case 40:
+                    return 0.045;
+                    break;
+                case 50:
+                    return 0.055;
+                    break;
+
+                default:
+                    return 0;
+            }
+        }
+
+        function setMalES6ConverterFromTable(thin) {
+            switch (thin) {
+                case 12:
+                    return 0.012;
+                    break;
+                case 13:
+                    return 0.012;
+                    break;
+
+                default:
+                    return 0;
+            }
+        }
+
+        function setMalXConverterFromTable(thin) {
+            switch (thin) {
+                case 22:
+                    return 0.008;
+                    break;
+
+                default:
+                    return 0;
+            }
+        }
+
+        function setImpES8E15ConverterFromTable(thin) {
+            switch (thin) {
+                case 15:
+                    return 0.019;
+                    break;
+                case 16:
+                    return 0.02;
+                    break;
+                case 20:
+                    return 0.024;
+                    break;
+                /*case 22:
+       return 0.022;
+       break;*/
+                case 25:
+                    return 0.029;
+                    break;
+                /*case 30:
+       return 0.030;
+       break;*/
+                case 35:
+                    return 0.04;
+                    break;
+                case 40:
+                    return 0.045;
+                    break;
+                case 50:
+                    return 0.055;
+                    break;
+
+                default:
+                    return 0;
+            }
+        }
+
+        function setImpES8E24ConverterFromTable(thin) {
+            switch (thin) {
+                case 15:
+                    return 0.02;
+                    break;
+                case 16:
+                    return 0.021;
+                    break;
+                case 20:
+                    return 0.025;
+                    break;
+                /*case 22:
+       return 0.022;
+       break;*/
+                case 25:
+                    return 0.03;
+                    break;
+                /*case 30:
+       return 0.030;
+       break;*/
+                case 35:
+                    return 0.04;
+                    break;
+                case 40:
+                    return 0.045;
+                    break;
+                case 50:
+                    return 0.055;
+                    break;
+
+                default:
+                    return 0;
+            }
+        }
+
+        function setImpES6ConverterFromTable(thin) {
+            switch (thin) {
+                case 12:
+                    return 0.017;
+                    break;
+                case 13:
+                    return 0.018;
+                    break;
+
+                default:
+                    return 0;
+            }
+        }
+
+        function setImpX1ConverterFromTable(thin) {
+            switch (thin) {
+                case 22:
+                    return 0.04;
+                    break;
+
+                default:
+                    return 0;
+            }
+        }
+
+        function setImpX2ConverterFromTable(thin) {
+            switch (thin) {
+                case 22:
+                    return 0.036;
+                    break;
+
+                default:
+                    return 0;
+            }
+        }
+        function setConverterByEdge(firstConverter, dimension) {
+            let doubledConverter = firstConverter * 2;
+            let dimDivided = dimension / 1000;
+            return doubledConverter * dimDivided;
+        }
+
+        function validateData() {
+            if (impWeightInput1.value === "") {
+                impWeightInput1.value = 0;
+            }
+            if (impWeightInput2.value === "") impWeightInput2.value = 0;
+
+            if (malWeightInput1.value === "") malWeightInput1.value = 0;
+            if (malWeightInput2.value === "") malWeightInput2.value = 0;
+
+            let malWeightInput1Value = parseInt(
+                document.getElementById("malWeightInput1").value,
+                10
+            );
+            let malWeightInput2Value = parseInt(
+                document.getElementById("malWeightInput2").value,
+                10
+            );
+            let impWeightInput1Value = parseInt(
+                document.getElementById("impWeightInput1").value,
+                10
+            );
+            let impWeightInput2Value = parseInt(
+                document.getElementById("impWeightInput2").value,
+                10
+            );
+
+            let message = "";
+            let validated = true;
+
+            if (impWeightInput1Value === 0 && impWeightInput2Value > 0) {
+                message += "wypelnij 1 imp\n";
+                validated = false;
+            }
+            if (impWeightInput1Value > 0 && impWeightInput2Value === 0) {
+                message += "wypelnij 2 imp\n";
+                validated = false;
+            }
+
+            if (malWeightInput1Value === 0 && malWeightInput2Value > 0) {
+                message += "wypelnij 1 mal\n";
+                validated = false;
+            }
+            if (malWeightInput1Value > 0 && malWeightInput2Value === 0) {
+                message += "wypelnij 2 mal\n";
+                validated = false;
+            }
+
+            if (validated == false) window.alert(message);
+
+            return validated;
+        }
+
+        function createObject(hour, product, weight1, weight2, averageWeight) {
+            const malObj = {
+                hour: hour,
+                product: product,
+                weight1: weight1,
+                weight2: weight2,
+                averageWeight: averageWeight,
+                showTxtData: function () {
+                    return (
+                        hour +
+                        " " +
+                        product +
+                        " " +
+                        weight1 +
+                        " " +
+                        weight2 +
+                        " " +
+                        averageWeight
+                    );
+                }
+            };
+            return malObj;
+        }
+    </script>
 </html>
