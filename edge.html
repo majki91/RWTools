@@ -372,7 +372,7 @@
                         />
                         <p>Ilość raportów</p>
                         <select
-                            id="resultAmount"
+                            id="resultAmountSelect"
                             class="inputSelect"
                             onchange="resultAmountChk()"
                         >
@@ -761,7 +761,7 @@
             console.log("clicked");
         }
         //koniec
-        let resultAmount = document.getElementById("resultAmount").value;
+        let resultAmount = document.getElementById("resultAmountSelect").value;
         let resultAmountValue = parseInt(resultAmount, 10);
 
         function resultAmountChk() {
