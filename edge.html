@@ -758,8 +758,7 @@
         }
         //koniec
         function showSettings() {
-            const resultAmount = document.getElementById("resultAmount").value;
-            let resultAmountValue = parseInt(resultAmount, 10);
+            
             const settingsWindow = document.getElementById("settingsWindow");
             settingsWindow.classList.add("open");
 
@@ -803,9 +802,9 @@
 
             return randomNumber;
         }
-const resultAmount = document.getElementById("resultAmount").value;
+        const resultAmount = document.getElementById("resultAmount").value;
 
-            let resultAmountValue = parseInt(resultAmount, 10);
+        let resultAmountValue = parseInt(resultAmount, 10);
         function generateRaport() {
             let date = new Date();
             let hour = date.getHours();
@@ -824,8 +823,6 @@ const resultAmount = document.getElementById("resultAmount").value;
                 document.getElementById("dim2Selection").value;
             const thinSelection =
                 document.getElementById("thinSelection").value;
-
-            
 
             /*if(min<10)
          clock = hour + ":0" + min;
