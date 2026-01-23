@@ -761,13 +761,13 @@
             console.log("clicked");
         }
         //koniec
-        const resultAmount = document.getElementById("resultAmount").value;
+        let resultAmount = document.getElementById("resultAmount").value;
         let resultAmountValue = parseInt(resultAmount, 10);
 
         function resultAmountCheck() {
             if (resultAmountValue > 7) usable = true;
             console.log("resultAmountValue:" + resultAmountValue);
-            console.log("usable:"+usable);
+            console.log("usable:" + usable);
         }
         function showSettings() {
             const settingsWindow = document.getElementById("settingsWindow");
