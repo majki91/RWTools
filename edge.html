@@ -760,14 +760,15 @@
         function showSettings() {
             const settingsWindow = document.getElementById("settingsWindow");
             settingsWindow.classList.add("open");
+            if(resultAmountValue>7) 
+              usable=true;
         }
         function closeSettings() {
             const settingsWindow = document.getElementById("settingsWindow");
-            if(resultAmountValue>7) 
-              usable=true;
+            
             
             settingsWindow.classList.remove("open");
-            console.log("usable:"+usable)
+            console.log("usable:"+usable);
     
         }
 
