@@ -409,7 +409,7 @@ p {
 #contact li {
     width: auto;
     margin-bottom: 1.5rem;
-    font-size: clamp(10px, 2vw, 26px);
+    font-size: clamp(10px, 3vw, 26px);
 }
 
 #contact span {
