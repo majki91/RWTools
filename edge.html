@@ -763,10 +763,11 @@
         }
         function closeSettings() {
             const settingsWindow = document.getElementById("settingsWindow");
-            if(resultAmountValue===8) {
-              usable=true}else usable=false
+            if(resultAmountValue>7) 
+              usable=true;
             
             settingsWindow.classList.remove("open");
+            console.log("usable:"+usable)
     
         }
 
