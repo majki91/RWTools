@@ -761,12 +761,12 @@
             console.log("clicked");
         }
         //koniec
-        let resultAmountCheck = document.getElementById("resultAmount").value;
-        let resultAmountValueCheck = parseInt(resultAmountCheck, 10);
+        let resultAmount = document.getElementById("resultAmount").value;
+        let resultAmountValue = parseInt(resultAmount, 10);
 
         function resultAmountChk() {
-            if (resultAmountValueCheck > 7) usable = true;
-            console.log("resultAmountValue:" + resultAmountValueCheck);
+            if (resultAmountValue > 7) usable = true;
+            console.log("resultAmountValue:" + resultAmountValue);
             console.log("usable:" + usable);
         }
         function showSettings() {
@@ -829,7 +829,7 @@
 
             //const resultAmount = document.getElementById("resultAmount").value;
 
-           // let resultAmountValue = parseInt(resultAmount, 10);
+            // let resultAmountValue = parseInt(resultAmount, 10);
 
             /*if(min<10)
          clock = hour + ":0" + min;
