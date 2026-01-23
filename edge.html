@@ -374,7 +374,7 @@
                         <select
                             id="resultAmount"
                             class="inputSelect"
-                            onchange="resultAmountCheck()"
+                            onchange="resultAmountChk()"
                         >
                             <option value="8">8</option>
                             <option selected value="7">7</option>
@@ -764,7 +764,7 @@
         let resultAmountCheck = document.getElementById("resultAmount").value;
         let resultAmountValueCheck = parseInt(resultAmountCheck, 10);
 
-        function resultAmountCheck() {
+        function resultAmountChk() {
             if (resultAmountValueCheck > 7) usable = true;
             console.log("resultAmountValue:" + resultAmountValueCheck);
             console.log("usable:" + usable);
