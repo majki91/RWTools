@@ -758,6 +758,8 @@
         }
         //koniec
         function showSettings() {
+            const resultAmount = document.getElementById("resultAmount").value;
+            let resultAmountValue = parseInt(resultAmount, 10);
             const settingsWindow = document.getElementById("settingsWindow");
             settingsWindow.classList.add("open");
 
@@ -803,9 +805,6 @@
         }
 
         function generateRaport() {
-            const resultAmount = document.getElementById("resultAmount").value;
-            let resultAmountValue = parseInt(resultAmount, 10);
-            
             let date = new Date();
             let hour = date.getHours();
             let min = date.getMinutes();
@@ -823,6 +822,10 @@
                 document.getElementById("dim2Selection").value;
             const thinSelection =
                 document.getElementById("thinSelection").value;
+
+            const resultAmount = document.getElementById("resultAmount").value;
+
+            let resultAmountValue = parseInt(resultAmount, 10);
 
             /*if(min<10)
          clock = hour + ":0" + min;
