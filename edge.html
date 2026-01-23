@@ -801,10 +801,10 @@
 
             return randomNumber;
         }
-        const resultAmount = document.getElementById("resultAmount").value;
-
-        let resultAmountValue = parseInt(resultAmount, 10);
+        
         function generateRaport() {
+        const resultAmount = document.getElementById("resultAmount").value;
+        let resultAmountValue = parseInt(resultAmount, 10);
             let date = new Date();
             let hour = date.getHours();
             let min = date.getMinutes();
