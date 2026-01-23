@@ -757,9 +757,10 @@
             console.log("clicked");
         }
         //koniec
+        const resultAmountCheck = document.getElementById("resultAmount").value;
+        let resultAmountCheckValue = parseInt(resultAmountCheck, 10);
+        
         function showSettings() {
-            const resultAmount = document.getElementById("resultAmount").value;
-            let resultAmountValue = parseInt(resultAmount, 10);
             const settingsWindow = document.getElementById("settingsWindow");
             settingsWindow.classList.add("open");
 
