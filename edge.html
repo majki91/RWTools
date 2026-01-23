@@ -373,7 +373,7 @@
                         <p>Ilość raportów</p>
                         <select id="resultAmount" class="inputSelect">
                             <option value="8">8</option>
-                            <option value="7">7</option>
+                            <option selected value="7">7</option>
                             <option value="6">6</option>
                             <option value="5">5</option>
                             <option value="4">4</option>
@@ -758,8 +758,10 @@
         }
         //koniec
         function showSettings() {
-            const settingsWindow = document.getElementById("settingsWindow");
-            settingsWindow.classList.add("open");
+          const resultAmount = document.getElementById("resultAmount").value;
+          let resultAmountValue = parseInt(resultAmount, 10);
+          const settingsWindow = document.getElementById("settingsWindow");
+          settingsWindow.classList.add("open");
             if(resultAmountValue>7) 
               usable=true;
         }
