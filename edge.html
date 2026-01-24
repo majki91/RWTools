@@ -1414,8 +1414,8 @@
                 message += "wypelnij 2 mal\n";
                 validated = false;
             }
-if(validated == false && usable == false) return;
-            if (validated == false) window.alert(message);
+            if (validated == false && usable == false) return;
+            else if (validated == false && usable == true) window.alert(message);
 
             return validated;
         }
