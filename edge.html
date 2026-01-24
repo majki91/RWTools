@@ -1396,7 +1396,7 @@
             let message = "";
             let validated = true;
 
-if(usable) validated = false;
+            if (usable==false) validated = false;
             if (impWeightInput1Value === 0 && impWeightInput2Value > 0) {
                 message += "wypelnij 1 imp\n";
                 validated = false;
