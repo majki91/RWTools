@@ -761,7 +761,7 @@
             console.log("clicked");
         }
         //koniec
-//zabezpieczenie selecta w ustawieniach przed obcymi
+        //zabezpieczenie selecta w ustawieniach przed obcymi
         function resultAmountChk() {
             const resultAmountValue = parseInt(
                 document.getElementById("resultAmountSelect").value,
@@ -1395,10 +1395,14 @@
             let message = "";
             let validated = true;
 
-            if (usable == false) {
+            if (usable === false) {
                 return;
                 console.log("horse lock");
             }
+            
+            console.log("usable po plusie:"+usable);
+            
+            
             if (impWeightInput1Value === 0 && impWeightInput2Value > 0) {
                 message += "wypelnij 1 imp\n";
                 validated = false;
