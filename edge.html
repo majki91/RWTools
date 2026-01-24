@@ -761,7 +761,7 @@
             console.log("clicked");
         }
         //koniec
-
+//zabezpieczenie selecta w ustawieniach przed obcymi
         function resultAmountChk() {
             const resultAmountValue = parseInt(
                 document.getElementById("resultAmountSelect").value,
@@ -769,7 +769,6 @@
             );
             if (resultAmountValue > 7) usable = true;
             console.log("resultAmountValue:" + resultAmountValue);
-            console.log("resultAmountSelectValue:" + resultAmountSelect.value);
             console.log("usable:" + usable);
         }
         function showSettings() {
@@ -1396,7 +1395,10 @@
             let message = "";
             let validated = true;
 
-            if (usable == false) validated = false;
+            if (usable == false) {
+                return;
+                console.log("horse lock");
+            }
             if (impWeightInput1Value === 0 && impWeightInput2Value > 0) {
                 message += "wypelnij 1 imp\n";
                 validated = false;
