@@ -1396,7 +1396,7 @@
             let message = "";
             let validated = true;
 
-            if (usable==false) validated = false;
+            if (usable == false) validated = false;
             if (impWeightInput1Value === 0 && impWeightInput2Value > 0) {
                 message += "wypelnij 1 imp\n";
                 validated = false;
@@ -1414,7 +1414,7 @@
                 message += "wypelnij 2 mal\n";
                 validated = false;
             }
-
+if(validated == false && usable == false) return;
             if (validated == false) window.alert(message);
 
             return validated;
