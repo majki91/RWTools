@@ -166,7 +166,7 @@
                 justify-content: center;
                 background: lightgrey;
                 opacity: 0;
-                z-index: -2;
+                z-index: -5;
                 transition: all 0.3s ease-in-out;
             }
             #settingsWindow.open {
@@ -762,14 +762,11 @@
         }
         //koniec
 
-        
-      
-
         function resultAmountChk() {
-          const resultAmountValue = parseInt(
-            document.getElementById("resultAmountSelect").value,
-            10
-        );
+            const resultAmountValue = parseInt(
+                document.getElementById("resultAmountSelect").value,
+                10
+            );
             if (resultAmountValue > 7) usable = true;
             console.log("resultAmountValue:" + resultAmountValue);
             console.log("resultAmountSelectValue:" + resultAmountSelect.value);
