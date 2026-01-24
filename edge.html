@@ -762,14 +762,14 @@
         }
         //koniec
 
-        const resultAmountValue = parseInt(
+        
+      
+
+        function resultAmountChk() {
+          const resultAmountValue = parseInt(
             document.getElementById("resultAmountSelect").value,
             10
         );
-        let resultAmountValues =
-            document.getElementById("resultAmountSelect").value;
-
-        function resultAmountChk() {
             if (resultAmountValue > 7) usable = true;
             console.log("resultAmountValue:" + resultAmountValue);
             console.log("resultAmountSelectValue:" + resultAmountSelect.value);
