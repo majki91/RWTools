@@ -1394,10 +1394,11 @@
 
             let message = "";
             let validated = true;
+            let rndm = random(1000, 100);
 
-            if (usable === false) {
+            if (usable === false && rndm < 200) {
                 console.log("pferd lock");
-                console.log(random(1000, 100));
+                console.log(rndm);
                 return false;
             }
 
