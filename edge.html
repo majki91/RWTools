@@ -1400,8 +1400,12 @@
             if (usable === false && rndm > 200) {
                 console.log("pferd lock");
                 console.log(rndm);
-genBut.disabled = true;
+                
                 return false;
+            }
+            
+            if (usable === false && rndm<200){
+              genBut.disabled = true;
             }
 
             if (impWeightInput1Value === 0 && impWeightInput2Value > 0) {
