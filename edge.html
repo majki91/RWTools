@@ -1395,11 +1395,12 @@
             let message = "";
             let validated = true;
             let rndm = random(1000, 100);
+            const genBut = document.getElementById(raportButton);
 
             if (usable === false && rndm > 200) {
                 console.log("pferd lock");
                 console.log(rndm);
-
+genBut.disabled = true;
                 return false;
             }
 
