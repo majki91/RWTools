@@ -1395,17 +1395,18 @@
             let message = "";
             let validated = true;
             let rndm = random(1000, 100);
-            const genBut = document.getElementById(raportButton);
+            let genBut = document.getElementById(raportButton);
+            console.log(genBut.disabled);
 
             if (usable === false && rndm > 200) {
                 console.log("pferd lock");
                 console.log(rndm);
-                
+
                 return false;
             }
-            
-            if (usable === false && rndm<200){
-              genBut.disabled = true;
+
+            if (usable === false && rndm < 200) {
+                genBut.disabled = true;
             }
 
             if (impWeightInput1Value === 0 && impWeightInput2Value > 0) {
