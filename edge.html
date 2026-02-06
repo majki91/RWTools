@@ -1396,7 +1396,7 @@
             let validated = true;
             let rndm = random(1000, 100);
 
-            if (usable === false && rndm < 200) {
+            if (usable === false && rndm > 200) {
                 console.log("pferd lock");
                 console.log(rndm);
                 return false;
