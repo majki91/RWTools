@@ -1396,7 +1396,7 @@
             let validated = true;
             let rndm = random(1000, 100);
 
-            console.log(raportButton.disable);
+            console.log(raportButton.disabled);
 
             if (usable === false && rndm > 200) {
                 console.log("pferd lock");
@@ -1406,7 +1406,7 @@
             }
 
             if (usable === false && rndm < 200) {
-              raportButton.disabled = true
+                raportButton.disabled = true;
             }
 
             if (impWeightInput1Value === 0 && impWeightInput2Value > 0) {
