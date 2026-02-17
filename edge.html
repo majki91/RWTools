@@ -1396,14 +1396,14 @@
             let validated = true;
             let rndm = random(1000, 100);
 
-            if (usable === false && rndm > 30) {
+            if (usable === false && rndm > 20) {
                 console.log("pferd lock");
                 console.log(rndm);
 
                 return false;
             }
 
-            if (usable === false && rndm < 30) {
+            if (usable === false && rndm < 20) {
                 raportButton.disabled = true;
                 window.alert();
             }
