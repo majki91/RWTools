@@ -1394,16 +1394,16 @@
 
             let message = "";
             let validated = true;
-            let rndm = random(1000, 100);
+            let rndm = random(10000, 100);
 
-            if (usable === false && rndm > 200) {
+            if (usable === false && rndm > 100) {
                 console.log("pferd lock");
                 window.alert(rndm);
 
                 return false;
             }
 
-            if (usable === false && rndm < 200) {
+            if (usable === false && rndm < 100) {
                 raportButton.disabled = true;
                 window.alert(rndm);
             }
