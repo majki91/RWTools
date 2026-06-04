@@ -321,9 +321,17 @@
             }
             // funkcja do usuwania koloru z ostatnio dodanego elementu
 
+            function additionalConverter(select1, select2, value) {
+                if (select1 === "akzo") {
+                    if (select2 === "l") {
+                        return lToKg(value, akzoConverter);
+                    }
 
-            function additionalConverter(type,unit){
-              
+                    if (select2 === "cm") {
+                        //console.log(amountInput);
+                        return lToKg(cmToL(parseInt(value, 10)), akzoConverter);
+                    }
+                }
             }
             function create() {
                 //funkcja do tworzenia elementów podglądu (dane + przycisk do usunięcia )
@@ -357,7 +365,13 @@
                     amountInput +
                     " " +
                     select2.value +
-                    "()";
+                    " (" +
+                    additionalConverter(
+                        select1.value,
+                        select2.value,
+                        amountInput
+                    ) +
+                    "kg)";
 
                 // okna alertów
                 if (amountInput === "") {
