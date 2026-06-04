@@ -425,11 +425,11 @@
                     " " +
                     select2.value +
                     " (" +
-                    Number(additionalConverter(
+                    additionalConverter(
                         select1.value,
                         select2.value,
                         amountInput
-                    )).tofixed(2) +
+                    ) +
                     "kg)";
 
                 // okna alertów
