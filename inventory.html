@@ -356,7 +356,7 @@
     //uzupełnienie danych do elementów podgladu
     removeButton.innerHTML ='<i class="fa fa-trash"></i>';
     removeButton.setAttribute("onclick","removeElement(this)");
-    amountParag.innerText = select1.value + " " + amountInput+" "+ select2.value;
+    amountParag.innerText = select1.value + " " + amountInput+" "+ select2.value + "()";
     
     // okna alertów 
     if(amountInput===""){
