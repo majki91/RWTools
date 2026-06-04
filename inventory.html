@@ -332,6 +332,65 @@
                         return lToKg(cmToL(parseInt(value, 10)), akzoConverter);
                     }
                 }
+                if (select1 === "teknos") {
+                    if (select2 === "l") {
+                        return lToKg(value, rlxConverter);
+                    }
+
+                    if (select2 === "cm") {
+                        //console.log(amountInput);
+                        return lToKg(cmToL(parseInt(value, 10)), rlxConverter);
+                    }
+                }
+                if (select1 === "rlx") {
+                    if (select2 === "l") {
+                        return lToKg(value, rlxConverter);
+                    }
+
+                    if (select2 === "cm") {
+                        //console.log(amountInput);
+                        return lToKg(cmToL(parseInt(value, 10)), rlxConverter);
+                    }
+                }
+                if (select1 === "7307") {
+                    if (select2 === "l") {
+                        return lToKg(value, sevenThreeConverter);
+                    }
+
+                    if (select2 === "cm") {
+                        //console.log(amountInput);
+                        return lToKg(
+                            cmToL(parseInt(value, 10)),
+                            sevenThreeConverter
+                        );
+                    }
+                }
+                if (select1 === "magellan") {
+                    if (select2 === "l") {
+                        return lToKg(value, magellanConverter);
+                    }
+
+                    if (select2 === "cm") {
+                        //console.log(amountInput);
+                        return lToKg(
+                            cmToL(parseInt(value, 10)),
+                            magellanConverter
+                        );
+                    }
+                }
+                if (select1 === "gevecoat") {
+                    if (select2 === "l") {
+                        return lToKg(value, gevecoatConverter);
+                    }
+
+                    if (select2 === "cm") {
+                        //console.log(amountInput);
+                        return lToKg(
+                            cmToL(parseInt(value, 10)),
+                            gevecoatConverter
+                        );
+                    }
+                }
             }
             function create() {
                 //funkcja do tworzenia elementów podglądu (dane + przycisk do usunięcia )
