@@ -1,1290 +1,1326 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Inwentaryzacja</title>
-  <script
-  src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
-  integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow=="
-  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <style>
-  
-  html{
-    scroll-behavior: smooth;
-  }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Inwentaryzacja</title>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+            integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <style>
+            html {
+                scroll-behavior: smooth;
+            }
 
-  body{
-    z-index: -1;
-  }
-  #inputSection{
-    top: 0;
-    left: 0;
-    position: fixed;
-    padding: 15px 0;
-    width: 100%;
-    background: white;
-    border-bottom: 1px solid black;
-    z-index: 1;
-    
-  }
-  
-  #section1{
-    margin-top: 140px;
-    scroll-margin-top: 140px;
-  }
-  
-  #section1 a{
-   margin-left: 70%;
-   margin-top: -10px;
-   position: absolute;
-   width: 50px;
-   text-align: center;
-   text-decoration: none;
-   color:black;
-   z-index: 0;
-   
-  }
-  select{
-    border: 2px solid black;
-    background: white;
-    margin: 0 3px;
-  }
-  #select1{
-    width: 80px;
-  }
-    input {
-      border: 2px solid black;
-      width: 60px;
-    }
-    
-    .butn{
-      border: 2px solid black;
-      background: white;
-      padding:10px 10px;
-      width: 4.5rem;
-    }
-    .btn {
-      border: 2px solid black;
-      background: white;
-      margin: 5px;
-      width: 3rem;
-    }
-    .hide{
-      opacity: 0;
-    }
-    
-    .show{
-      opacity: 1;
-    }
-    
-    .showBorder{
-      border :1px solid black;
-    }
-    
-    .hideBorder{
-      border:0px;
-    }
-    
-    .box-container{
-      display: block;
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-    
-    #box{
-      display: block;
-      padding: 3px 20px;
-      display: flex;
-      justify-content: space-between;
-      border: 1px solid black;
-      margin : 5px 0;
-      
-    }
-    #box p {
-      min-width: 40%;
-    }
-    .last{
-      background: green;
-      color : white;
-    }
-    
-    h3{
-      width: 50%;
-    }
-    hr{
-      width: 90px;
-      margin-left: 0;
-    }
-    
-    #summaryContainer{
-      width:80%;
-      margin: 10px auto;
-      border: 1px solid black;
-      display: flex;
-      text-align: center;
-    }
-    
-    #smrConFirstHalf{
-      flex: 50%;
-    }
-    
-    #smrConSecondHalf{
-      flex:50%;
-    }
-    #downButtons{
-      display: flex;
-      justify-content: space-around;
-    }
-    #summary a{
-      width: 50px;
-      text-align: center;
-      text-decoration: none;
-      color:black;
-    }
-    span{
-      display: block;
-      scroll-margin-top: 300px;
-    }
-     #menu{
-      margin-top:0px;
-      display:flex;
-      justify-content: space-evenly;
-      margin-bottom:15px;
-    }
-    #menu a{
-      width: 45%;
-      text-align: center;
-      border: 2px solid black ;
-      text-decoration: none;
-      padding:5px 0;
-      color: black;
-    }
-    
-    #createButton{
-      border: 2px solid black;
-      background: white;
-    }
+            body {
+                z-index: -1;
+            }
+            #inputSection {
+                top: 0;
+                left: 0;
+                position: fixed;
+                padding: 15px 0;
+                width: 100%;
+                background: white;
+                border-bottom: 1px solid black;
+                z-index: 1;
+            }
+
+            #section1 {
+                margin-top: 140px;
+                scroll-margin-top: 140px;
+            }
+
+            #section1 a {
+                margin-left: 70%;
+                margin-top: -10px;
+                position: absolute;
+                width: 50px;
+                text-align: center;
+                text-decoration: none;
+                color: black;
+                z-index: 0;
+            }
+            select {
+                border: 2px solid black;
+                background: white;
+                margin: 0 3px;
+            }
+            #select1 {
+                width: 80px;
+            }
+            input {
+                border: 2px solid black;
+                width: 60px;
+            }
+
+            .butn {
+                border: 2px solid black;
+                background: white;
+                padding: 10px 10px;
+                width: 4.5rem;
+            }
+            .btn {
+                border: 2px solid black;
+                background: white;
+                margin: 5px;
+                width: 3rem;
+            }
+            .hide {
+                opacity: 0;
+            }
+
+            .show {
+                opacity: 1;
+            }
+
+            .showBorder {
+                border: 1px solid black;
+            }
+
+            .hideBorder {
+                border: 0px;
+            }
+
+            .box-container {
+                display: block;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                margin-top: 10px;
+            }
+
+            #box {
+                display: block;
+                padding: 3px 20px;
+                display: flex;
+                justify-content: space-between;
+                border: 1px solid black;
+                margin: 5px 0;
+            }
+            #box p {
+                min-width: 40%;
+            }
+            .last {
+                background: green;
+                color: white;
+            }
+
+            h3 {
+                width: 50%;
+            }
+            hr {
+                width: 90px;
+                margin-left: 0;
+            }
+
+            #summaryContainer {
+                width: 80%;
+                margin: 10px auto;
+                border: 1px solid black;
+                display: flex;
+                text-align: center;
+            }
+
+            #smrConFirstHalf {
+                flex: 50%;
+            }
+
+            #smrConSecondHalf {
+                flex: 50%;
+            }
+            #downButtons {
+                display: flex;
+                justify-content: space-around;
+            }
+            #summary a {
+                width: 50px;
+                text-align: center;
+                text-decoration: none;
+                color: black;
+            }
+            span {
+                display: block;
+                scroll-margin-top: 300px;
+            }
+            #menu {
+                margin-top: 0px;
+                display: flex;
+                justify-content: space-evenly;
+                margin-bottom: 15px;
+            }
+            #menu a {
+                width: 45%;
+                text-align: center;
+                border: 2px solid black;
+                text-decoration: none;
+                padding: 5px 0;
+                color: black;
+            }
+
+            #createButton {
+                border: 2px solid black;
+                background: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <div id="inputSection">
+                <div id="menu">
+                    <a href="https://majki91.github.io/RWTools/edge.html"
+                        >Krawędzie</a
+                    >
+                    <a href="https://majki91.github.io/RWTools/inventory.html"
+                        >Inwentura</a
+                    >
+                </div>
+                <select id="sectionSelect" onchange="clrClass()">
+                    <option value="section1">Oven 1</option>
+                    <option value="section2">Kabina/k2</option>
+                    <option value="section3">Kurtyna 1</option>
+                    <option value="section4">Ring 1</option>
+                    <option value="section5">Ring 2</option>
+                </select>
+                <select id="select1">
+                    <option value="rlx">rlx</option>
+                    <option value="teknos">teknos</option>
+                    <option value="akzo">akzo</option>
+                    <option value="7307">7307</option>
+                    <option value="magellan">magellan</option>
+                    <option value="gevecoat">gevecoat</option>
+                </select>
+
+                <input id="amountInput" style="width: 45px" type="number" />
+
+                <select id="select2">
+                    <option value="cm">cm</option>
+                    <option value="l">l</option>
+                    <option value="kg">kg</option>
+                </select>
+
+                <button id="createButton" onclick="create()">Dodaj</button>
+            </div>
+
+            <div id="section1">
+                <a href="#clr" class="butn"
+                    ><i class="fa-solid fa-arrow-down"></i
+                ></a>
+                <h3>Oven 1</h3>
+                <hr />
+
+                <div class="box-container" id="box-container1"></div>
+            </div>
+            <span id="endSec1"></span>
+            <!-- pomocniczy span do śledzenia ostatniego elementu -->
+
+            <div id="section2">
+                <h3>Kabina/Kurtyna 2</h3>
+                <hr />
+
+                <div class="box-container" id="box-container2"></div>
+            </div>
+            <span id="endSec2"></span>
+
+            <div id="section3">
+                <h3>Kurtyna1</h3>
+                <hr />
+
+                <div class="box-container" id="box-container3"></div>
+            </div>
+            <span id="endSec3"></span>
+
+            <div id="section4">
+                <h3>Ring 1</h3>
+                <hr />
+
+                <div class="box-container" id="box-container4"></div>
+            </div>
+            <span id="endSec4"></span>
+
+            <div id="section5">
+                <h3>Ring 2</h3>
+                <hr />
+
+                <div class="box-container" id="box-container5"></div>
+            </div>
+            <span id="endSec5"></span>
+        </div>
+
+        <div id="summary">
+            <div class="hide" id="summaryContainer">
+                <div id="smrConFirstHalf">
+                    <p id="akzoLabel"></p>
+                    <p id="rlxLabel"></p>
+                    <p id="tknLabel"></p>
+                    <p id="sevenThreeLabel"></p>
+                    <p id="magellanLabel"></p>
+                    <p id="gevecoatLabel"></p>
+                </div>
+                <div id="smrConSecondHalf">
+                    <p id="akzoResult"></p>
+                    <p id="rlxResult"></p>
+                    <p id="tknResult"></p>
+                    <p id="sevenThreeResult"></p>
+                    <p id="magellanResult"></p>
+                    <p id="gevecoatResult"></p>
+                </div>
+            </div>
+            <p id="summaryP"></p>
+            <p id="objP"></p>
+            <div id="downButtons">
+                <button class="butn" onclick="result()">
+                    <i class="fa-solid fa-equals"></i>
+                </button>
+
+                <button id="clr" class="butn" onclick="clearing()">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+
+                <a href="#section1" class="butn"
+                    ><i class="fa-solid fa-arrow-up"></i
+                ></a>
+            </div>
+        </div>
+        <script>
+            const data = [];
+            const akzoData = [];
+            const rlxData = [];
+            const tknData = [];
+            const sevenThreeData = [];
+            const magellanData = [];
+            const gevecoatData = [];
+
+            const akzoConverter = 1.5;
+            const rlxConverter = 1.75;
+            const tknConverter = 1.75;
+            const sevenThreeConverter = 1.68;
+            const magellanConverter = 1.05;
+            const gevecoatConverter = 1.5;
+
+            const mainDiv = document.getElementById("main");
+            const section1Div = document.getElementById("section1");
+            const section2Div = document.getElementById("section2");
+            const section3Div = document.getElementById("section3");
+            const section4Div = document.getElementById("section4");
+            const section5Div = document.getElementById("section5");
+
+            const boxContainer1 = document.getElementById("box-container1");
+            const boxContainer2 = document.getElementById("box-container2");
+            const boxContainer3 = document.getElementById("box-container3");
+            const boxContainer4 = document.getElementById("box-container4");
+            const boxContainer5 = document.getElementById("box-container5");
+
+            function clrClass() {
+                for (let i = 0; i < box.length; i++)
+                    box[i].classList.remove("last");
+            }
+            // funkcja do usuwania koloru z ostatnio dodanego elementu
 
 
-  </style>
-</head>
-<body>
-<div id="main">
-  <div id="inputSection">
-    <div id="menu">
-       <a href="https://majki91.github.io/RWTools/edge.html">Krawędzie</a>
-       <a href="https://majki91.github.io/RWTools/inventory.html">Inwentura</a>
-    </div>
-  <select id="sectionSelect" onchange="clrClass()">
-    <option value="section1">Oven 1</option>
-    <option value="section2">Kabina/k2</option> 
-    <option value="section3">Kurtyna 1</option> 
-    <option value="section4">Ring 1</option> 
-    <option value="section5">Ring 2</option> 
-  </select>
-  <select id="select1">
-   <option value="rlx">rlx</option>
-   <option value="teknos">teknos</option>
-   <option value="akzo">akzo</option>
-   <option value="7307">7307</option>
-   <option value="magellan">magellan</option>
-   <option value="gevecoat">gevecoat</option>
-  </select>
-  
- <input id="amountInput" style="width:45px;" type="number">
- 
-  <select id="select2">
-   <option value="cm">cm</option>
-   <option value="l">l</option>
-   <option value="kg">kg</option>
-  </select>
-  
-<button id="createButton" onclick="create()">Dodaj</button>
-</div>
+            function additionalConverter(type,unit){
+              
+            }
+            function create() {
+                //funkcja do tworzenia elementów podglądu (dane + przycisk do usunięcia )
 
-<div id="section1">
-  <a href="#clr" class="butn"><i class="fa-solid fa-arrow-down"></i></a>
-  <h3>Oven 1</h3>
-  <hr>
-   
-<div class="box-container" id="box-container1">
-  
-</div>
-</div>
-<span id="endSec1"></span>
-<!-- pomocniczy span do śledzenia ostatniego elementu -->
+                // tworzenie divow do przetrzymywania elementów podgladu
+                const box = document.createElement("div");
+                box.id = "box";
 
+                //const editButton = document.createElement('button');
 
-<div id="section2">
-  <h3>Kabina/Kurtyna 2</h3>
-  <hr>
-   
-<div class="box-container" id="box-container2">
-  
- </div>
- </div>
- <span id="endSec2"></span>
- 
- <div id="section3">
-  <h3>Kurtyna1</h3>
-  <hr>
-   
-<div class="box-container" id="box-container3">
-  
- </div>
- </div>
- <span id="endSec3"></span>
+                //tworzenie elementów podglądu i implementacja elementów formularza do
+                //wprowadzania danych
+                const removeButton = document.createElement("button");
+                const amountParag = document.createElement("p");
+                const select1 = document.getElementById("select1");
+                const select2 = document.getElementById("select2");
+                const amountInput =
+                    document.getElementById("amountInput").value;
 
-<div id="section4">
-  <h3>Ring 1</h3>
-  <hr>
-   
-<div class="box-container" id="box-container4">
-  
- </div>
- </div>
-<span id="endSec4"></span>
- 
-<div id="section5">
-  <h3>Ring 2</h3>
-  <hr>
-   
-<div class="box-container" id="box-container5">
-  
- </div>
- </div>
-<span id="endSec5"></span>
+                //editButton.classList.add("btn");
 
-</div>
+                removeButton.className = "btn";
 
-<div id="summary">
-  <div class="hide" id="summaryContainer">
-    <div id="smrConFirstHalf">
-      <p id="akzoLabel"></p>
-      <p id="rlxLabel"></p>
-      <p id="tknLabel"></p>
-      <p id="sevenThreeLabel"></p>
-      <p id="magellanLabel"></p>
-      <p id="gevecoatLabel"></p>
-    </div>
-    <div id="smrConSecondHalf">
-      <p id="akzoResult"></p>
-      <p id="rlxResult"></p>
-      <p id="tknResult"></p>
-      <p id="sevenThreeResult"></p>
-      <p id="magellanResult"></p>
-      <p id="gevecoatResult"></p>
-    </div>
-  </div>
-  <p id="summaryP"></p>
-    <p id="objP"></p>
-  <div id="downButtons">
-   <button class="butn" onclick="result()"><i class="fa-solid fa-equals"></i></button>
+                //editButton.innerText = 'edytuj';
+                //uzupełnienie danych do elementów podgladu
+                removeButton.innerHTML = '<i class="fa fa-trash"></i>';
+                removeButton.setAttribute("onclick", "removeElement(this)");
+                amountParag.innerText =
+                    select1.value +
+                    " " +
+                    amountInput +
+                    " " +
+                    select2.value +
+                    "()";
 
-   <button id="clr" class="butn" onclick="clearing()"><i class="fa-solid
-   fa-trash"></i></button>
-   
-   <a href="#section1" class="butn"><i class="fa-solid fa-arrow-up"></i></a>
-  </div>
-</div>
-<script>
+                // okna alertów
+                if (amountInput === "") {
+                    window.alert("okno nie może byc puste");
+                    return false;
+                } else if (
+                    (select2.value === "cm" && amountInput > 100) ||
+                    amountInput < 1
+                ) {
+                    window.alert("niepoprawne dane");
+                    return false;
+                } else if (select2.value === "cm" && amountInput % 2 != 0) {
+                    window.alert("Wpisz parzystą ilość cm");
+                    return false;
+                }
+                // przypisanie odpowiedniego kontenera w zależności od wyboru sekcji
+                else {
+                    if (sectionSelect.value === "section1") {
+                        section1Div.appendChild(boxContainer1);
+                        boxContainer1.appendChild(box);
+                    }
+                    if (sectionSelect.value === "section2") {
+                        section2Div.appendChild(boxContainer2);
+                        boxContainer2.appendChild(box);
+                    }
+                    if (sectionSelect.value === "section3") {
+                        section3Div.appendChild(boxContainer3);
+                        boxContainer3.appendChild(box);
+                    }
+                    if (sectionSelect.value === "section4") {
+                        section4Div.appendChild(boxContainer4);
+                        boxContainer4.appendChild(box);
+                    }
+                    if (sectionSelect.value === "section5") {
+                        section5Div.appendChild(boxContainer5);
+                        boxContainer5.appendChild(box);
+                    }
+                    //boxContainer.appendChild(box);
 
- const data = [];
- const akzoData = [];
- const rlxData = [];
- const tknData = [];
- const sevenThreeData =[];
- const magellanData = [];
- const gevecoatData =[];
- 
- const akzoConverter = 1.5;
- const rlxConverter = 1.75;
- const tknConverter = 1.75;
- const sevenThreeConverter = 1.68;
- const magellanConverter = 1.05;
- const gevecoatConverter = 1.5;
- 
- 
- const mainDiv = document.getElementById("main");
- const section1Div = document.getElementById("section1");
- const section2Div = document.getElementById("section2");
- const section3Div = document.getElementById("section3");
- const section4Div = document.getElementById("section4");
- const section5Div = document.getElementById("section5");
- 
- const boxContainer1 = document.getElementById("box-container1");
- const boxContainer2 = document.getElementById("box-container2");
- const boxContainer3 = document.getElementById("box-container3");
- const boxContainer4 = document.getElementById("box-container4");
- const boxContainer5 = document.getElementById("box-container5");
- 
- function clrClass(){
-   for(let i = 0;i<box.length;i++)
-   box[i].classList.remove("last");
- }
- // funkcja do usuwania koloru z ostatnio dodanego elementu
- 
- function create(){
-   //funkcja do tworzenia elementów podglądu (dane + przycisk do usunięcia )
-   
-   // tworzenie divow do przetrzymywania elementów podgladu
-    const box = document.createElement("div");
-    box.id = "box";
-    
-    
-    //const editButton = document.createElement('button');
-    
-    //tworzenie elementów podglądu i implementacja elementów formularza do
-     //wprowadzania danych
-    const removeButton = document.createElement("button");
-    const amountParag = document.createElement("p");
-    const select1 = document.getElementById("select1");
-    const select2 = document.getElementById("select2");
-    const amountInput = document.getElementById("amountInput").value;
-    
-    //editButton.classList.add("btn");
-    
-    
-    removeButton.className ="btn";
- 
-    
-    //editButton.innerText = 'edytuj';
-    //uzupełnienie danych do elementów podgladu
-    removeButton.innerHTML ='<i class="fa fa-trash"></i>';
-    removeButton.setAttribute("onclick","removeElement(this)");
-    amountParag.innerText = select1.value + " " + amountInput+" "+ select2.value + "()";
-    
-    // okna alertów 
-    if(amountInput===""){
-      window.alert("okno nie może byc puste");
-      return false;
-    }
-    else if (select2.value === "cm" && amountInput>100 ||amountInput<1){
-      window.alert("niepoprawne dane")
-      return false;
-    }
-    else if (select2.value === "cm" && (amountInput % 2 !=0))
-    {
-      window.alert("Wpisz parzystą ilość cm");
-      return false;
-    }
-    // przypisanie odpowiedniego kontenera w zależności od wyboru sekcji
-    else{
-    if(sectionSelect.value === "section1"){
-      section1Div.appendChild(boxContainer1);
-      boxContainer1.appendChild(box);
-    }
-    if(sectionSelect.value === "section2"){
-      section2Div.appendChild(boxContainer2);
-      boxContainer2.appendChild(box);
-    }
-    if(sectionSelect.value === "section3"){
-      section3Div.appendChild(boxContainer3);
-      boxContainer3.appendChild(box);
-    }
-    if(sectionSelect.value === "section4"){
-      section4Div.appendChild(boxContainer4);
-      boxContainer4.appendChild(box);
-    }
-    if(sectionSelect.value === "section5"){
-      section5Div.appendChild(boxContainer5);
-      boxContainer5.appendChild(box);
-    }
-    //boxContainer.appendChild(box);
-    
-    //przypisanie reszty wyswietlanych elementów podgladu do kontenera glownego
-    box.appendChild(amountParag);
+                    //przypisanie reszty wyswietlanych elementów podgladu do kontenera glownego
+                    box.appendChild(amountParag);
 
-    box.appendChild(removeButton);
-    
-    clrClass();
-    box.classList.add("last");
-    
-    
-    
-    
-    // porównanie danych i wprowadzenie ich do odpowiednich tablic
-      if (select1.value === "akzo")
-      {
-        if (select2.value === "l")
-        {
-          akzoData.push(lToKg(amountInput,akzoConverter));
-          
-        }
-        
-        if(select2.value === "cm"){
-          //console.log(amountInput);
-          akzoData.push(lToKg(cmToL(parseInt(amountInput,10)),akzoConverter));
-        }
-        
-        if(select2.value === "kg")
-          akzoData.push(parseInt(amountInput,10));
-        
-      }
-      
-      if (select1.value === "rlx")
-      {
-        if (select2.value === "l")
-        {
-          rlxData.push(lToKg(amountInput,rlxConverter));
-          data.push(objects(select1.value, amountInput, select2.value));
-        }
-        
-        if(select2.value === "cm"){
-          console.log(amountInput);
-          rlxData.push(lToKg(cmToL(parseInt(amountInput,10)),rlxConverter))
-          data.push(objects(select1.value, amountInput, select2.value));
-        }
-        if(select2.value === "kg")
-          rlxData.push(parseInt(amountInput,10));
-      }
-      
-      if (select1.value === "teknos")
-      {
-        if (select2.value === "l")
-        {
-          tknData.push(lToKg(amountInput,tknConverter));
-          data.push(objects(select1.value, amountInput, select2.value));
-        }
-        
-        if(select2.value === "cm"){
-          console.log(amountInput);
-          tknData.push(lToKg(cmToL(parseInt(amountInput,10)),tknConverter))
-          data.push(objects(select1.value, amountInput, select2.value));
-        }
-        if(select2.value === "kg")
-          tknData.push(parseInt(amountInput,10));
-      }
-      
-      if (select1.value === "7307")
-      {
-        if (select2.value === "l")
-        {
-          sevenThreeData.push(lToKg(amountInput,sevenThreeConverter));
-        }
-        
-        if(select2.value === "cm"){
-          console.log(amountInput);
-          sevenThreeData.push(lToKg(cmToL(parseInt(amountInput,10)),sevenThreeConverter));
-        }
-        if(select2.value === "kg")
-          sevenThreeData.push(parseInt(amountInput,10));
-      }
-      
-      if (select1.value === "magellan")
-      {
-        if (select2.value === "l")
-        {
-          magellanData.push(lToKg(amountInput,magellanConverter));
-        }
-        
-        if(select2.value === "cm"){
-          console.log(amountInput);
-          magellanData.push(lToKg(cmToLBig(parseInt(amountInput,10)),magellanConverter));
-        }
-        if(select2.value === "kg")
-          magellanData.push(parseInt(amountInput,10));
-      }
-      
-      if (select1.value === "gevecoat")
-      {
-        if (select2.value === "l")
-        {
-          gevecoatData.push(lToKg(amountInput,gevecoatConverter));
-        }
-        
-        if(select2.value === "cm"){
-          console.log(amountInput);
-          gevecoatData.push(lToKg(cmToL(parseInt(amountInput,10)),gevecoatConverter));
-        }
-        if(select2.value === "kg")
-          gevecoatData.push(parseInt(amountInput,10));
-      }
-      
-    }
-   amountInput.value='';
-		
-   if (sectionSelect.value === "section1")
-     document.getElementById("endSec1").scrollIntoView();
-     
-   if (sectionSelect.value === "section2")
-     document.getElementById("endSec2").scrollIntoView();
-     
-   if (sectionSelect.value === "section3")
-     document.getElementById("endSec3").scrollIntoView();
-   if (sectionSelect.value === "section4")
-     document.getElementById("endSec4").scrollIntoView();
-   if (sectionSelect.value === "section5")
-     document.getElementById("endSec5").scrollIntoView();
-      
-   //document.getElementById("clr" ).scrollIntoView();
- }
- 
- function removeElement(element){
-// funkcja do usuwania elementów z podglądu, jednoczenie usuwa daną wartość z
-//tablicy
-   console.log(element);
-   console.log(element.previousElementSibling);
-   
-   let amount =0;
-   //przypisanie do zmiennej childrena kontenera czyli paragrafu
-   let p = element.previousElementSibling.innerText;
-   // wyszukiwanie slow i zamiana na puste miejsce
-   if(p.includes("rlx")){
-     p=p.replace("rlx","");
-     console.log(p);
-   
-     if(p.includes("cm")){
-       p = p.replace("cm","");
-       //przeksztalcania stringa w liczbę
-       amount = parseInt(p,10);
-       console.log(amount);
-       //konwertowanie do odpowiedniej wartości
-       amount = lToKg(cmToL(amount),rlxConverter);
-       //wyszukiwanie pozycji w tablicy 
-       const index = rlxData.indexOf(amount);
-       console.log(amount,index);
-       //usuwanie elementu w tablicy jeżeli został znaleziony
-       if (index > -1) {
-         rlxData.splice(index, 1);
-       }
-     }
-       
-       if(p.includes("l")){
-       p = p.replace("l","");
-   
-       amount = parseInt(p,10);
-       console.log(amount);
-      
-       amount = lToKg(amount,rlxConverter);
-       
-       const index = rlxData.indexOf(amount);
-       console.log(amount,index);
-       
-       if (index > -1) {
-         rlxData.splice(index, 1);
-       }
-      }
-      
-      if(p.includes("kg")){
-       p = p.replace("kg","");
-   
-       amount = parseInt(p,10);
-       console.log(amount);
-       
-       const index = rlxData.indexOf(amount);
-       console.log(amount,index);
-       
-       if (index > -1) {
-         rlxData.splice(index, 1);
-       }
-      }
-   }
-   
-   if(p.includes("teknos")){
-     p=p.replace("teknos","");
-     console.log(p);
-   
-     if(p.includes("cm")){
-       p = p.replace("cm","");
-       //przeksztalcania stringa w liczbę
-       amount = parseInt(p,10);
-       console.log(amount);
-       //konwertowanie do odpowiedniej wartości
-       amount = lToKg(cmToL(amount),tknConverter);
-       //wyszukiwanie pozycji w tablicy 
-       const index = tknData.indexOf(amount);
-       console.log(amount,index);
-       //usuwanie elementu w tablicy jeżeli został znaleziony
-       if (index > -1) {
-         tknData.splice(index, 1);
-       }
-     }
-       
-       if(p.includes("l")){
-       p = p.replace("l","");
-   
-       amount = parseInt(p,10);
-       console.log(amount);
-      
-       amount = lToKg(amount,tknConverter);
-       
-       const index = tknData.indexOf(amount);
-       console.log(amount,index);
-       
-       if (index > -1) {
-         tknData.splice(index, 1);
-       }
-      }
-      
-      if(p.includes("kg")){
-       p = p.replace("kg","");
-   
-       amount = parseInt(p,10);
-       console.log(amount);
-       
-       const index = tknData.indexOf(amount);
-       console.log(amount,index);
-       
-       if (index > -1) {
-         tknData.splice(index, 1);
-       }
-      }
-   }
-   
-   if(p.includes("akzo")){
-     p=p.replace("akzo","");
-     console.log(p);
-   
-     if(p.includes("cm")){
-       p = p.replace("cm","");
-       amount = parseInt(p,10);
-       console.log(amount);
-      
-       amount = lToKg(cmToL(amount),akzoConverter);
-       
-       const index = akzoData.indexOf(amount);
-       console.log(amount,index);
-       
-       if (index > -1) {
-         akzoData.splice(index, 1);
-       }
-     }
-       
-       if(p.includes("l")){
-       p = p.replace("l","");
-   
-       amount = parseInt(p,10);
-       console.log(amount);
-      
-       amount = lToKg(amount,akzoConverter);
-       
-       const index = akzoData.indexOf(amount);
-       console.log(amount,index);
-       
-       if (index > -1) {
-         akzoData.splice(index, 1);
-       }
-      }
-      
-      if(p.includes("kg")){
-       p = p.replace("kg","");
-   
-       amount = parseInt(p,10);
-       console.log(amount);
-       
-       const index = akzoData.indexOf(amount);
-       console.log(amount,index);
-       
-       if (index > -1) {
-         akzoData.splice(index, 1);
-       }
-      }
-   }
-      
-    if(p.includes("gevecoat")){
-     console.log(p);
-     p=p.replace("gevecoat","");
-     console.log(p);
-   
-     if(p.includes("cm")){
-       p = p.replace("cm","");
-       amount = parseInt(p,10);
-       console.log(amount);
-      
-       amount = lToKg(cmToL(amount),gevecoatConverter);
-       
-       const index = gevecoatData.indexOf(amount);
-       console.log(amount,index);
-       
-       if (index > -1) {
-         gevecoatData.splice(index, 1);
-       }
-     }
-       
-       if(p.includes("l")){
-       p = p.replace("l","");
-   
-       amount = parseInt(p,10);
-       console.log(amount);
-      
-       amount = lToKg(amount,gevecoatConverter);
-       
-       const index = gevecoatData.indexOf(amount);
-       console.log(amount,index);
-       
-       if (index > -1) {
-         gevecoatData.splice(index, 1);
-       }
-      }
-      
-      if(p.includes("kg")){
-       p = p.replace("kg","");
-   
-       amount = parseInt(p,10);
-       console.log(amount);
-       
-       const index = gevecoatData.indexOf(amount);
-       console.log(amount,index);
-       
-       if (index > -1) {
-         gevecoatData.splice(index, 1);
-       }
-      }
-    }
-      
-    if(p.includes("7307")){
-     console.log(p);
-     p=p.replace("7307","");
-     console.log(p);
-   
-     if(p.includes("cm")){
-       p = p.replace("cm","");
-       amount = parseInt(p,10);
-       console.log(amount);
-      
-       amount = lToKg(cmToL(amount),sevenThreeConverter);
-       
-       const index = sevenThreeData.indexOf(amount);
-       console.log(amount,index);
-       
-       if (index > -1) {
-         sevenThreeData.splice(index, 1);
-       }
-     }
-       
-       if(p.includes("l")){
-       p = p.replace("l","");
-   
-       amount = parseInt(p,10);
-       console.log(amount);
-      
-       amount = lToKg(amount,sevenThreeConverter);
-       
-       const index = sevenThreeData.indexOf(amount);
-       console.log(amount,index);
-       
-       if (index > -1) {
-         sevenThreeData.splice(index, 1);
-       }
-      }
-      
-      if(p.includes("kg")){
-       p = p.replace("kg","");
-   
-       amount = parseInt(p,10);
-       console.log(amount);
-       
-       const index = sevenThreeData.indexOf(amount);
-       console.log(amount,index);
-       
-       if (index > -1) {
-         sevenThreeData.splice(index, 1);
-       }
-      }
-   }
-   
-   if(p.includes("magellan")){
-     console.log(p);
-     p=p.replace("magellan","");
-     console.log(p);
-   
-     if(p.includes("cm")){
-       p = p.replace("cm","");
-       amount = parseInt(p,10);
-       console.log(amount);
-      
-       amount = lToKg(cmToLBig(amount),magellanConverter);
-       
-       const index = magellanData.indexOf(amount);
-       console.log(amount,index);
-       
-       if (index > -1) {
-         magellanData.splice(index, 1);
-       }
-     }
-       
-       if(p.includes("l")){
-       p = p.replace("l","");
-   
-       amount = parseInt(p,10);
-       console.log(amount);
-      
-       amount = lToKg(amount,magellanConverter);
-       
-       const index = magellanData.indexOf(amount);
-       console.log(amount,index);
-       
-       if (index > -1) {
-         magellanData.splice(index, 1);
-       }
-      }
-      
-      if(p.includes("kg")){
-       p = p.replace("kg","");
-   
-       amount = parseInt(p,10);
-       console.log(amount);
-       
-       const index = magellanData.indexOf(amount);
-       console.log(amount,index);
-       
-       if (index > -1) {
-         magellanData.splice(index, 1);
-       }
-      }
-   }
-   
-   //usuwanie calego diva z elementem podglądu 
-   element.parentElement.remove();
- 
- }
- 
- function result(){
-   //funkcja do wyświetlania wyników obliczeń 
-   let removeB = document.getElementsByClassName("btn");
-   //console.log(removeB);
-   let akzoBuf=0;
-   let rlxBuf = 0;
-   let tknBuf = 0;
-   let sevenThreeBuf =0;
-   let magellanBuf = 0;
-   let gevecoatBuf = 0;
-  
-   const summaryDiv = document.getElementById("summaryContainer");
-   const firstHalf = document.getElementById("smrConFirstHalf");
-   const secondHalf = document.getElementById("smrConSecondHalf");
-   const objParag = document.getElementById("objP");
-   //ukrywanie przycisku usunięcia poprzez dodanie klasy hide
-   for (let j=0;j<removeB.length;j++){
-     //console.log(j+ " " + removeB[j]);
-     removeB[j].classList.add("hide");
-     removeB[j].setAttribute("disabled","true");
-     }
-   //sumowanie danych do zmiennych pomocniczych 
-   for (let i=0;i<akzoData.length;i++){
-     akzoBuf += parseInt(akzoData[i],10);
-   }
-   
-   for (let i=0;i<rlxData.length;i++){
-     rlxBuf += parseInt(rlxData[i],10);
-   }
-   for (let i=0;i<tknData.length;i++){
-     tknBuf += parseInt(tknData[i],10);
-   }
-   for (let i=0;i<sevenThreeData.length;i++){
-     sevenThreeBuf += parseInt(sevenThreeData[i],10);
-   }
-   for (let i=0;i<magellanData.length;i++){
-     magellanBuf += parseInt(magellanData[i],10);
-   }
-   
-   for (let i=0;i<gevecoatData.length;i++){
-     gevecoatBuf += parseInt(gevecoatData[i],10);
-   }
-   //obsługa obiektów (testowe)
-  //objParag.innerText = "objects:\n";
-   
-   /*for (let i=0;i<data.length;i++){
+                    box.appendChild(removeButton);
+
+                    clrClass();
+                    box.classList.add("last");
+
+                    // porównanie danych i wprowadzenie ich do odpowiednich tablic
+                    if (select1.value === "akzo") {
+                        if (select2.value === "l") {
+                            akzoData.push(lToKg(amountInput, akzoConverter));
+                        }
+
+                        if (select2.value === "cm") {
+                            //console.log(amountInput);
+                            akzoData.push(
+                                lToKg(
+                                    cmToL(parseInt(amountInput, 10)),
+                                    akzoConverter
+                                )
+                            );
+                        }
+
+                        if (select2.value === "kg")
+                            akzoData.push(parseInt(amountInput, 10));
+                    }
+
+                    if (select1.value === "rlx") {
+                        if (select2.value === "l") {
+                            rlxData.push(lToKg(amountInput, rlxConverter));
+                            data.push(
+                                objects(
+                                    select1.value,
+                                    amountInput,
+                                    select2.value
+                                )
+                            );
+                        }
+
+                        if (select2.value === "cm") {
+                            console.log(amountInput);
+                            rlxData.push(
+                                lToKg(
+                                    cmToL(parseInt(amountInput, 10)),
+                                    rlxConverter
+                                )
+                            );
+                            data.push(
+                                objects(
+                                    select1.value,
+                                    amountInput,
+                                    select2.value
+                                )
+                            );
+                        }
+                        if (select2.value === "kg")
+                            rlxData.push(parseInt(amountInput, 10));
+                    }
+
+                    if (select1.value === "teknos") {
+                        if (select2.value === "l") {
+                            tknData.push(lToKg(amountInput, tknConverter));
+                            data.push(
+                                objects(
+                                    select1.value,
+                                    amountInput,
+                                    select2.value
+                                )
+                            );
+                        }
+
+                        if (select2.value === "cm") {
+                            console.log(amountInput);
+                            tknData.push(
+                                lToKg(
+                                    cmToL(parseInt(amountInput, 10)),
+                                    tknConverter
+                                )
+                            );
+                            data.push(
+                                objects(
+                                    select1.value,
+                                    amountInput,
+                                    select2.value
+                                )
+                            );
+                        }
+                        if (select2.value === "kg")
+                            tknData.push(parseInt(amountInput, 10));
+                    }
+
+                    if (select1.value === "7307") {
+                        if (select2.value === "l") {
+                            sevenThreeData.push(
+                                lToKg(amountInput, sevenThreeConverter)
+                            );
+                        }
+
+                        if (select2.value === "cm") {
+                            console.log(amountInput);
+                            sevenThreeData.push(
+                                lToKg(
+                                    cmToL(parseInt(amountInput, 10)),
+                                    sevenThreeConverter
+                                )
+                            );
+                        }
+                        if (select2.value === "kg")
+                            sevenThreeData.push(parseInt(amountInput, 10));
+                    }
+
+                    if (select1.value === "magellan") {
+                        if (select2.value === "l") {
+                            magellanData.push(
+                                lToKg(amountInput, magellanConverter)
+                            );
+                        }
+
+                        if (select2.value === "cm") {
+                            console.log(amountInput);
+                            magellanData.push(
+                                lToKg(
+                                    cmToLBig(parseInt(amountInput, 10)),
+                                    magellanConverter
+                                )
+                            );
+                        }
+                        if (select2.value === "kg")
+                            magellanData.push(parseInt(amountInput, 10));
+                    }
+
+                    if (select1.value === "gevecoat") {
+                        if (select2.value === "l") {
+                            gevecoatData.push(
+                                lToKg(amountInput, gevecoatConverter)
+                            );
+                        }
+
+                        if (select2.value === "cm") {
+                            console.log(amountInput);
+                            gevecoatData.push(
+                                lToKg(
+                                    cmToL(parseInt(amountInput, 10)),
+                                    gevecoatConverter
+                                )
+                            );
+                        }
+                        if (select2.value === "kg")
+                            gevecoatData.push(parseInt(amountInput, 10));
+                    }
+                }
+                amountInput.value = "";
+
+                if (sectionSelect.value === "section1")
+                    document.getElementById("endSec1").scrollIntoView();
+
+                if (sectionSelect.value === "section2")
+                    document.getElementById("endSec2").scrollIntoView();
+
+                if (sectionSelect.value === "section3")
+                    document.getElementById("endSec3").scrollIntoView();
+                if (sectionSelect.value === "section4")
+                    document.getElementById("endSec4").scrollIntoView();
+                if (sectionSelect.value === "section5")
+                    document.getElementById("endSec5").scrollIntoView();
+
+                //document.getElementById("clr" ).scrollIntoView();
+            }
+
+            function removeElement(element) {
+                // funkcja do usuwania elementów z podglądu, jednoczenie usuwa daną wartość z
+                //tablicy
+                console.log(element);
+                console.log(element.previousElementSibling);
+
+                let amount = 0;
+                //przypisanie do zmiennej childrena kontenera czyli paragrafu
+                let p = element.previousElementSibling.innerText;
+                // wyszukiwanie slow i zamiana na puste miejsce
+                if (p.includes("rlx")) {
+                    p = p.replace("rlx", "");
+                    console.log(p);
+
+                    if (p.includes("cm")) {
+                        p = p.replace("cm", "");
+                        //przeksztalcania stringa w liczbę
+                        amount = parseInt(p, 10);
+                        console.log(amount);
+                        //konwertowanie do odpowiedniej wartości
+                        amount = lToKg(cmToL(amount), rlxConverter);
+                        //wyszukiwanie pozycji w tablicy
+                        const index = rlxData.indexOf(amount);
+                        console.log(amount, index);
+                        //usuwanie elementu w tablicy jeżeli został znaleziony
+                        if (index > -1) {
+                            rlxData.splice(index, 1);
+                        }
+                    }
+
+                    if (p.includes("l")) {
+                        p = p.replace("l", "");
+
+                        amount = parseInt(p, 10);
+                        console.log(amount);
+
+                        amount = lToKg(amount, rlxConverter);
+
+                        const index = rlxData.indexOf(amount);
+                        console.log(amount, index);
+
+                        if (index > -1) {
+                            rlxData.splice(index, 1);
+                        }
+                    }
+
+                    if (p.includes("kg")) {
+                        p = p.replace("kg", "");
+
+                        amount = parseInt(p, 10);
+                        console.log(amount);
+
+                        const index = rlxData.indexOf(amount);
+                        console.log(amount, index);
+
+                        if (index > -1) {
+                            rlxData.splice(index, 1);
+                        }
+                    }
+                }
+
+                if (p.includes("teknos")) {
+                    p = p.replace("teknos", "");
+                    console.log(p);
+
+                    if (p.includes("cm")) {
+                        p = p.replace("cm", "");
+                        //przeksztalcania stringa w liczbę
+                        amount = parseInt(p, 10);
+                        console.log(amount);
+                        //konwertowanie do odpowiedniej wartości
+                        amount = lToKg(cmToL(amount), tknConverter);
+                        //wyszukiwanie pozycji w tablicy
+                        const index = tknData.indexOf(amount);
+                        console.log(amount, index);
+                        //usuwanie elementu w tablicy jeżeli został znaleziony
+                        if (index > -1) {
+                            tknData.splice(index, 1);
+                        }
+                    }
+
+                    if (p.includes("l")) {
+                        p = p.replace("l", "");
+
+                        amount = parseInt(p, 10);
+                        console.log(amount);
+
+                        amount = lToKg(amount, tknConverter);
+
+                        const index = tknData.indexOf(amount);
+                        console.log(amount, index);
+
+                        if (index > -1) {
+                            tknData.splice(index, 1);
+                        }
+                    }
+
+                    if (p.includes("kg")) {
+                        p = p.replace("kg", "");
+
+                        amount = parseInt(p, 10);
+                        console.log(amount);
+
+                        const index = tknData.indexOf(amount);
+                        console.log(amount, index);
+
+                        if (index > -1) {
+                            tknData.splice(index, 1);
+                        }
+                    }
+                }
+
+                if (p.includes("akzo")) {
+                    p = p.replace("akzo", "");
+                    console.log(p);
+
+                    if (p.includes("cm")) {
+                        p = p.replace("cm", "");
+                        amount = parseInt(p, 10);
+                        console.log(amount);
+
+                        amount = lToKg(cmToL(amount), akzoConverter);
+
+                        const index = akzoData.indexOf(amount);
+                        console.log(amount, index);
+
+                        if (index > -1) {
+                            akzoData.splice(index, 1);
+                        }
+                    }
+
+                    if (p.includes("l")) {
+                        p = p.replace("l", "");
+
+                        amount = parseInt(p, 10);
+                        console.log(amount);
+
+                        amount = lToKg(amount, akzoConverter);
+
+                        const index = akzoData.indexOf(amount);
+                        console.log(amount, index);
+
+                        if (index > -1) {
+                            akzoData.splice(index, 1);
+                        }
+                    }
+
+                    if (p.includes("kg")) {
+                        p = p.replace("kg", "");
+
+                        amount = parseInt(p, 10);
+                        console.log(amount);
+
+                        const index = akzoData.indexOf(amount);
+                        console.log(amount, index);
+
+                        if (index > -1) {
+                            akzoData.splice(index, 1);
+                        }
+                    }
+                }
+
+                if (p.includes("gevecoat")) {
+                    console.log(p);
+                    p = p.replace("gevecoat", "");
+                    console.log(p);
+
+                    if (p.includes("cm")) {
+                        p = p.replace("cm", "");
+                        amount = parseInt(p, 10);
+                        console.log(amount);
+
+                        amount = lToKg(cmToL(amount), gevecoatConverter);
+
+                        const index = gevecoatData.indexOf(amount);
+                        console.log(amount, index);
+
+                        if (index > -1) {
+                            gevecoatData.splice(index, 1);
+                        }
+                    }
+
+                    if (p.includes("l")) {
+                        p = p.replace("l", "");
+
+                        amount = parseInt(p, 10);
+                        console.log(amount);
+
+                        amount = lToKg(amount, gevecoatConverter);
+
+                        const index = gevecoatData.indexOf(amount);
+                        console.log(amount, index);
+
+                        if (index > -1) {
+                            gevecoatData.splice(index, 1);
+                        }
+                    }
+
+                    if (p.includes("kg")) {
+                        p = p.replace("kg", "");
+
+                        amount = parseInt(p, 10);
+                        console.log(amount);
+
+                        const index = gevecoatData.indexOf(amount);
+                        console.log(amount, index);
+
+                        if (index > -1) {
+                            gevecoatData.splice(index, 1);
+                        }
+                    }
+                }
+
+                if (p.includes("7307")) {
+                    console.log(p);
+                    p = p.replace("7307", "");
+                    console.log(p);
+
+                    if (p.includes("cm")) {
+                        p = p.replace("cm", "");
+                        amount = parseInt(p, 10);
+                        console.log(amount);
+
+                        amount = lToKg(cmToL(amount), sevenThreeConverter);
+
+                        const index = sevenThreeData.indexOf(amount);
+                        console.log(amount, index);
+
+                        if (index > -1) {
+                            sevenThreeData.splice(index, 1);
+                        }
+                    }
+
+                    if (p.includes("l")) {
+                        p = p.replace("l", "");
+
+                        amount = parseInt(p, 10);
+                        console.log(amount);
+
+                        amount = lToKg(amount, sevenThreeConverter);
+
+                        const index = sevenThreeData.indexOf(amount);
+                        console.log(amount, index);
+
+                        if (index > -1) {
+                            sevenThreeData.splice(index, 1);
+                        }
+                    }
+
+                    if (p.includes("kg")) {
+                        p = p.replace("kg", "");
+
+                        amount = parseInt(p, 10);
+                        console.log(amount);
+
+                        const index = sevenThreeData.indexOf(amount);
+                        console.log(amount, index);
+
+                        if (index > -1) {
+                            sevenThreeData.splice(index, 1);
+                        }
+                    }
+                }
+
+                if (p.includes("magellan")) {
+                    console.log(p);
+                    p = p.replace("magellan", "");
+                    console.log(p);
+
+                    if (p.includes("cm")) {
+                        p = p.replace("cm", "");
+                        amount = parseInt(p, 10);
+                        console.log(amount);
+
+                        amount = lToKg(cmToLBig(amount), magellanConverter);
+
+                        const index = magellanData.indexOf(amount);
+                        console.log(amount, index);
+
+                        if (index > -1) {
+                            magellanData.splice(index, 1);
+                        }
+                    }
+
+                    if (p.includes("l")) {
+                        p = p.replace("l", "");
+
+                        amount = parseInt(p, 10);
+                        console.log(amount);
+
+                        amount = lToKg(amount, magellanConverter);
+
+                        const index = magellanData.indexOf(amount);
+                        console.log(amount, index);
+
+                        if (index > -1) {
+                            magellanData.splice(index, 1);
+                        }
+                    }
+
+                    if (p.includes("kg")) {
+                        p = p.replace("kg", "");
+
+                        amount = parseInt(p, 10);
+                        console.log(amount);
+
+                        const index = magellanData.indexOf(amount);
+                        console.log(amount, index);
+
+                        if (index > -1) {
+                            magellanData.splice(index, 1);
+                        }
+                    }
+                }
+
+                //usuwanie calego diva z elementem podglądu
+                element.parentElement.remove();
+            }
+
+            function result() {
+                //funkcja do wyświetlania wyników obliczeń
+                let removeB = document.getElementsByClassName("btn");
+                //console.log(removeB);
+                let akzoBuf = 0;
+                let rlxBuf = 0;
+                let tknBuf = 0;
+                let sevenThreeBuf = 0;
+                let magellanBuf = 0;
+                let gevecoatBuf = 0;
+
+                const summaryDiv = document.getElementById("summaryContainer");
+                const firstHalf = document.getElementById("smrConFirstHalf");
+                const secondHalf = document.getElementById("smrConSecondHalf");
+                const objParag = document.getElementById("objP");
+                //ukrywanie przycisku usunięcia poprzez dodanie klasy hide
+                for (let j = 0; j < removeB.length; j++) {
+                    //console.log(j+ " " + removeB[j]);
+                    removeB[j].classList.add("hide");
+                    removeB[j].setAttribute("disabled", "true");
+                }
+                //sumowanie danych do zmiennych pomocniczych
+                for (let i = 0; i < akzoData.length; i++) {
+                    akzoBuf += parseInt(akzoData[i], 10);
+                }
+
+                for (let i = 0; i < rlxData.length; i++) {
+                    rlxBuf += parseInt(rlxData[i], 10);
+                }
+                for (let i = 0; i < tknData.length; i++) {
+                    tknBuf += parseInt(tknData[i], 10);
+                }
+                for (let i = 0; i < sevenThreeData.length; i++) {
+                    sevenThreeBuf += parseInt(sevenThreeData[i], 10);
+                }
+                for (let i = 0; i < magellanData.length; i++) {
+                    magellanBuf += parseInt(magellanData[i], 10);
+                }
+
+                for (let i = 0; i < gevecoatData.length; i++) {
+                    gevecoatBuf += parseInt(gevecoatData[i], 10);
+                }
+                //obsługa obiektów (testowe)
+                //objParag.innerText = "objects:\n";
+
+                /*for (let i=0;i<data.length;i++){
      objParag.innerText += data[i].showTxtData() + "\n";
    }*/
-   //wyświetlanie danych
-   
-   summaryContainer.classList.add("show");
-   
-   akzoLabel.innerText = "akzo";
-   akzoResult.innerText = akzoBuf + " kg";
-   rlxLabel.innerText = "rlx";
-   rlxResult.innerText = rlxBuf + " kg";
-   tknLabel.innerText = "teknos";
-   tknResult.innerText = tknBuf + " kg";
-   sevenThreeLabel.innerText = "7307";
-   sevenThreeResult.innerText = sevenThreeBuf + " kg";
-   magellanLabel.innerText = "magellan";
-   magellanResult.innerText = magellanBuf + " kg";
-   gevecoatLabel.innerText = "gevecoat";
-   gevecoatResult.innerText = gevecoatBuf + " kg";
-   document.getElementById("clr" ).scrollIntoView();
- }
- //funkcja obsługi obiektów
- function objects(name,amount,unit){
-  const obj ={
-    name:name,
-    amount:amount,
-    unit:unit,
-    showTxtData:function(){
-      return name+ " " + amount + " " + unit;
-    }
-    
-  }
-  return obj;
-}
- //funkcja czyszczenia wszystkich danych
- function clearing(){
-   const objParag = document.getElementById("objP");
- 
-   boxContainer1.innerHTML="";
-   boxContainer2.innerHTML="";
-   boxContainer3.innerHTML="";
-   boxContainer4.innerHTML="";
-   boxContainer5.innerHTML="";
-   
-   akzoLabel.innerText = "";
-   akzoResult.innerText ="";
-   rlxLabel.innerText ="";
-   rlxResult.innerText ="";
-   tknLabel.innerText ="";
-   tknResult.innerText ="";
-   sevenThreeLabel.innerText = "";
-   sevenThreeResult.innerText = "";
-   magellanLabel.innerText ="";
-   magellanResult.innerText ="";
-   gevecoatLabel.innerText = "";
-   gevecoatResult.innerText = "";
-   
-   summaryContainer.classList.remove("show");
-   summaryContainer.classList.add("hide");
-   
-   objParag.innerHTML ="";
-   data.length =0;
-   akzoData.length =0;
-   rlxData.length =0;
-   tknData.length =0;
-   sevenThreeData.length =0;
-   magellanData.length =0;
-   gevecoatData.length =0;
-   
- }
- //konwersja litrów do kilogramów
- function lToKg(l,converter)
- {
-   let result = l * converter;
-   return result;
- }
- //konwersja cm do litrów wraz z tabelą danych
- function cmToL(cm){
-   switch (cm){
-     case 2:
-       return 860;
-       break;
-     case 4:
-       return 844;
-       break;
-     case 6:
-       return 829;
-       break;
-     case 8:
-       return 813;
-       break;
-     case 10:
-       return 797;
-       break;
-     case 12:
-       return 781;
-       break;
-     case 14:
-       return 766;
-       break;
-     case 16:
-       return 750;
-       break;
-     case 18:
-       return 734;
-       break;
-     case 20:
-       return 719;
-       break;
-     case 22:
-       return 703;
-       break;
-     case 24:
-       return 687;
-       break;
-     case 26:
-       return 672;
-       break;
-     case 28:
-       return 656;
-       break;
-     case 30:
-       return 640;
-       break;
-     case 32:
-       return 624;
-       break;
-     case 34:
-       return 609;
-       break;
-     case 36:
-       return 593;
-       break;
-     case 38:
-       return 577;
-       break;
-    case 40:
-       return 562;
-       break;
-    case 42:
-       return 546;
-       break;
-    case 44:
-       return 530;
-       break;
-    case 46:
-       return 515;
-       break;
-    case 48:
-       return 499;
-       break;
-    case 50:
-       return 483;
-       break;
-    case 52:
-       return 467;
-       break;
-    case 54:
-       return 452;
-       break;
-    case 56:
-       return 436;
-       break;
-       
-    case 58:
-       return 420;
-       break;
-    case 60:
-       return 405;
-       break;
-    case 62:
-       return 389;
-       break;
-    case 64:
-       return 373;
-       break;
-    case 66:
-       return 358;
-       break;
-    case 68:
-       return 342;
-       break;
-    case 70:
-       return 326;
-       break;
-    case 72:
-       return 310;
-       break;
-    case 74:
-       return 295;
-       break;
-    case 76:
-       return 279;
-       break;
-    case 78:
-       return 263;
-       break;
-    case 80:
-       return 248;
-       break;
-    case 82:
-       return 232;
-       break;
-    case 84:
-       return 216;
-       break;
-    case 86:
-       return 201;
-       break;
-    case 88:
-       return 185;
-       break;
-    case 90:
-       return 169;
-       break;
-    case 92:
-       return 153;
-       break;
-    case 94:
-       return 138;
-       break;
-    case 96:
-       return 122;
-       break;
-    case 98:
-       return 106;
-       break;
-    case 100:
-       return 91;
-       break;
-       
-     default:
-     return 0;
-   }
- }
-   //konwersja cm do litrów większego miskera
-   function cmToLBig(cm){
-     switch (cm){
-     case 2:
-       return 1826;
-       break;
-     case 4:
-       return 1806;
-       break;
-     case 6:
-       return 1786;
-       break;
-     case 8:
-       return 1766;
-       break;
-     case 10:
-       return 1746;
-       break;
-     case 12:
-       return 1726;
-       break;
-     case 14:
-       return 1706;
-       break;
-     case 16:
-       return 1686;
-       break;
-     case 18:
-       return 1666;
-       break;
-     case 20:
-       return 1646;
-       break;
-     case 22:
-       return 1626;
-       break;
-     case 24:
-       return 1606;
-       break;
-     case 26:
-       return 1586;
-       break;
-     case 28:
-       return 1566;
-       break;
-     case 30:
-       return 1546;
-       break;
-     case 32:
-       return 1526;
-       break;
-     case 34:
-       return 1506;
-       break;
-     case 36:
-       return 1486;
-       break;
-     case 38:
-       return 1466;
-       break;
-    case 40:
-       return 1426;
-       break;
-    case 42:
-       return 1406;
-       break;
-    case 44:
-       return 1386;
-       break;
-    case 46:
-       return 1366;
-       break;
-    case 48:
-       return 1346;
-       break;
-    case 50:
-       return 1326;
-       break;
-    case 52:
-       return 1306;
-       break;
-    case 54:
-       return 1286;
-       break;
-    case 56:
-       return 1266;
-       break;
-    case 58:
-       return 1246;
-       break;
-    case 60:
-       return 1226;
-       break;
-    case 62:
-       return 1206;
-       break;
-    case 64:
-       return 1186;
-       break;
-    case 66:
-       return 1166;
-       break;
-    case 68:
-       return 1146;
-       break;
-    case 70:
-       return 1126;
-       break;
-    case 72:
-       return 1106;
-       break;
-    case 74:
-       return 1086;
-       break;
-    case 76:
-       return 1066;
-       break;
-    case 78:
-       return 1046;
-       break;
-    case 80:
-       return 1026;
-       break;
-    case 82:
-       return 1006;
-       break;
-    case 84:
-       return 986;
-       break;
-    case 86:
-       return 966;
-       break;
-    case 88:
-       return 946;
-       break;
-    case 90:
-       return 926;
-       break;
-    case 92:
-       return 906;
-       break;
-    case 94:
-       return 886;
-       break;
-    case 96:
-       return 866;
-       break;
-    case 98:
-       return 846;
-       break;
-    case 100:
-       return 826;
-       break;
-       
-    default:
-    return 0
-   }
- }
- 
+                //wyświetlanie danych
 
+                summaryContainer.classList.add("show");
 
-</script>  
-</body>
+                akzoLabel.innerText = "akzo";
+                akzoResult.innerText = akzoBuf + " kg";
+                rlxLabel.innerText = "rlx";
+                rlxResult.innerText = rlxBuf + " kg";
+                tknLabel.innerText = "teknos";
+                tknResult.innerText = tknBuf + " kg";
+                sevenThreeLabel.innerText = "7307";
+                sevenThreeResult.innerText = sevenThreeBuf + " kg";
+                magellanLabel.innerText = "magellan";
+                magellanResult.innerText = magellanBuf + " kg";
+                gevecoatLabel.innerText = "gevecoat";
+                gevecoatResult.innerText = gevecoatBuf + " kg";
+                document.getElementById("clr").scrollIntoView();
+            }
+            //funkcja obsługi obiektów
+            function objects(name, amount, unit) {
+                const obj = {
+                    name: name,
+                    amount: amount,
+                    unit: unit,
+                    showTxtData: function () {
+                        return name + " " + amount + " " + unit;
+                    }
+                };
+                return obj;
+            }
+            //funkcja czyszczenia wszystkich danych
+            function clearing() {
+                const objParag = document.getElementById("objP");
+
+                boxContainer1.innerHTML = "";
+                boxContainer2.innerHTML = "";
+                boxContainer3.innerHTML = "";
+                boxContainer4.innerHTML = "";
+                boxContainer5.innerHTML = "";
+
+                akzoLabel.innerText = "";
+                akzoResult.innerText = "";
+                rlxLabel.innerText = "";
+                rlxResult.innerText = "";
+                tknLabel.innerText = "";
+                tknResult.innerText = "";
+                sevenThreeLabel.innerText = "";
+                sevenThreeResult.innerText = "";
+                magellanLabel.innerText = "";
+                magellanResult.innerText = "";
+                gevecoatLabel.innerText = "";
+                gevecoatResult.innerText = "";
+
+                summaryContainer.classList.remove("show");
+                summaryContainer.classList.add("hide");
+
+                objParag.innerHTML = "";
+                data.length = 0;
+                akzoData.length = 0;
+                rlxData.length = 0;
+                tknData.length = 0;
+                sevenThreeData.length = 0;
+                magellanData.length = 0;
+                gevecoatData.length = 0;
+            }
+            //konwersja litrów do kilogramów
+            function lToKg(l, converter) {
+                let result = l * converter;
+                return result;
+            }
+            //konwersja cm do litrów wraz z tabelą danych
+            function cmToL(cm) {
+                switch (cm) {
+                    case 2:
+                        return 860;
+                        break;
+                    case 4:
+                        return 844;
+                        break;
+                    case 6:
+                        return 829;
+                        break;
+                    case 8:
+                        return 813;
+                        break;
+                    case 10:
+                        return 797;
+                        break;
+                    case 12:
+                        return 781;
+                        break;
+                    case 14:
+                        return 766;
+                        break;
+                    case 16:
+                        return 750;
+                        break;
+                    case 18:
+                        return 734;
+                        break;
+                    case 20:
+                        return 719;
+                        break;
+                    case 22:
+                        return 703;
+                        break;
+                    case 24:
+                        return 687;
+                        break;
+                    case 26:
+                        return 672;
+                        break;
+                    case 28:
+                        return 656;
+                        break;
+                    case 30:
+                        return 640;
+                        break;
+                    case 32:
+                        return 624;
+                        break;
+                    case 34:
+                        return 609;
+                        break;
+                    case 36:
+                        return 593;
+                        break;
+                    case 38:
+                        return 577;
+                        break;
+                    case 40:
+                        return 562;
+                        break;
+                    case 42:
+                        return 546;
+                        break;
+                    case 44:
+                        return 530;
+                        break;
+                    case 46:
+                        return 515;
+                        break;
+                    case 48:
+                        return 499;
+                        break;
+                    case 50:
+                        return 483;
+                        break;
+                    case 52:
+                        return 467;
+                        break;
+                    case 54:
+                        return 452;
+                        break;
+                    case 56:
+                        return 436;
+                        break;
+
+                    case 58:
+                        return 420;
+                        break;
+                    case 60:
+                        return 405;
+                        break;
+                    case 62:
+                        return 389;
+                        break;
+                    case 64:
+                        return 373;
+                        break;
+                    case 66:
+                        return 358;
+                        break;
+                    case 68:
+                        return 342;
+                        break;
+                    case 70:
+                        return 326;
+                        break;
+                    case 72:
+                        return 310;
+                        break;
+                    case 74:
+                        return 295;
+                        break;
+                    case 76:
+                        return 279;
+                        break;
+                    case 78:
+                        return 263;
+                        break;
+                    case 80:
+                        return 248;
+                        break;
+                    case 82:
+                        return 232;
+                        break;
+                    case 84:
+                        return 216;
+                        break;
+                    case 86:
+                        return 201;
+                        break;
+                    case 88:
+                        return 185;
+                        break;
+                    case 90:
+                        return 169;
+                        break;
+                    case 92:
+                        return 153;
+                        break;
+                    case 94:
+                        return 138;
+                        break;
+                    case 96:
+                        return 122;
+                        break;
+                    case 98:
+                        return 106;
+                        break;
+                    case 100:
+                        return 91;
+                        break;
+
+                    default:
+                        return 0;
+                }
+            }
+            //konwersja cm do litrów większego miskera
+            function cmToLBig(cm) {
+                switch (cm) {
+                    case 2:
+                        return 1826;
+                        break;
+                    case 4:
+                        return 1806;
+                        break;
+                    case 6:
+                        return 1786;
+                        break;
+                    case 8:
+                        return 1766;
+                        break;
+                    case 10:
+                        return 1746;
+                        break;
+                    case 12:
+                        return 1726;
+                        break;
+                    case 14:
+                        return 1706;
+                        break;
+                    case 16:
+                        return 1686;
+                        break;
+                    case 18:
+                        return 1666;
+                        break;
+                    case 20:
+                        return 1646;
+                        break;
+                    case 22:
+                        return 1626;
+                        break;
+                    case 24:
+                        return 1606;
+                        break;
+                    case 26:
+                        return 1586;
+                        break;
+                    case 28:
+                        return 1566;
+                        break;
+                    case 30:
+                        return 1546;
+                        break;
+                    case 32:
+                        return 1526;
+                        break;
+                    case 34:
+                        return 1506;
+                        break;
+                    case 36:
+                        return 1486;
+                        break;
+                    case 38:
+                        return 1466;
+                        break;
+                    case 40:
+                        return 1426;
+                        break;
+                    case 42:
+                        return 1406;
+                        break;
+                    case 44:
+                        return 1386;
+                        break;
+                    case 46:
+                        return 1366;
+                        break;
+                    case 48:
+                        return 1346;
+                        break;
+                    case 50:
+                        return 1326;
+                        break;
+                    case 52:
+                        return 1306;
+                        break;
+                    case 54:
+                        return 1286;
+                        break;
+                    case 56:
+                        return 1266;
+                        break;
+                    case 58:
+                        return 1246;
+                        break;
+                    case 60:
+                        return 1226;
+                        break;
+                    case 62:
+                        return 1206;
+                        break;
+                    case 64:
+                        return 1186;
+                        break;
+                    case 66:
+                        return 1166;
+                        break;
+                    case 68:
+                        return 1146;
+                        break;
+                    case 70:
+                        return 1126;
+                        break;
+                    case 72:
+                        return 1106;
+                        break;
+                    case 74:
+                        return 1086;
+                        break;
+                    case 76:
+                        return 1066;
+                        break;
+                    case 78:
+                        return 1046;
+                        break;
+                    case 80:
+                        return 1026;
+                        break;
+                    case 82:
+                        return 1006;
+                        break;
+                    case 84:
+                        return 986;
+                        break;
+                    case 86:
+                        return 966;
+                        break;
+                    case 88:
+                        return 946;
+                        break;
+                    case 90:
+                        return 926;
+                        break;
+                    case 92:
+                        return 906;
+                        break;
+                    case 94:
+                        return 886;
+                        break;
+                    case 96:
+                        return 866;
+                        break;
+                    case 98:
+                        return 846;
+                        break;
+                    case 100:
+                        return 826;
+                        break;
+
+                    default:
+                        return 0;
+                }
+            }
+        </script>
+    </body>
 </html>
