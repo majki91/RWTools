@@ -50,8 +50,19 @@ export default function TestPage() {
 
     const [newPrice, setNewPrice] = useState("");
     const [newPanel, setNewPanel] = useState("");
-    const [editingId, setEditingId] = useState(null);
+    const [editingRepairId, setEditingRepairId] = useState(null);
     const [repairFilter, setRepairFilter] = useState("Wszystkie");
+
+    let modifiers = 0;
+    let disassemblyPrice = Number(disassemblyTime * 50);
+
+    if (isAluminium) modifiers += 25;
+    if (isGlue) modifiers += 10;
+    if (isEdge) modifiers += 15;
+    if (isReinforcement) modifiers += 10;
+    if (isHSS) modifiers += 20;
+    if (isSharp) modifiers += 10;
+    if (isDeep) modifiers += 15;
 
     useEffect(() => {
         const savedRepairs = localStorage.getItem("repairs");
@@ -75,29 +86,26 @@ export default function TestPage() {
         }
     }, []);
 
+    function calculateFinalPrice(r) {
+        const base = Number(r.price);
+        const mod = Number(r.modifiers || 0);
+        const dis = r.isDisassembly ? Number(r.disassemblyTime) * 50 : 0;
+
+        const perItem = base + base * (mod / 100) + dis;
+
+        return perItem * Number(r.quantity);
+    }
+
     //komponenty
     function RepairItem({ r }) {
         return (
             <div>
                 <li style={{ listStyleType: "none" }}>
                     <p>
-                        {editingId === r.id && newPanel !== ""
-                            ? newPanel
-                            : r.panel}
-                        –{" "}
-                        {editingId === r.id && newPrice !== ""
-                            ? newPrice
-                            : r.price}{" "}
-                        zł
+                        {r.panel}– {r.price} zł
                     </p>
                     <p>Termin: {r.date}</p>
                     <p>Opis: {r.description}</p>
-                    <p>
-                        Demontaż:
-                        {r.isDisassembly === true
-                            ? "Tak (" + r.disassemblyTime + "h)"
-                            : "Nie"}
-                    </p>
                     <p>
                         Modyfikatory:
                         <li
@@ -106,6 +114,10 @@ export default function TestPage() {
                                 flexDirection: "column"
                             }}
                         >
+                            Demontaż:
+                            {r.isDisassembly === true
+                                ? "Tak (" + r.disassemblyTime + "h) = "
+                                : "Nie"}
                             {r.isAluminium && <span>✅Aluminium(25%)</span>}
                             {r.isGlue && <span>✅Klej(10%)</span>}
                             {r.isEdge && <span>✅Rant(15%)</span>}
@@ -127,6 +139,10 @@ export default function TestPage() {
                         </li>
                     </p>
                     <p>Ilość:{r.quantity}</p>
+                    <p>
+                        Cena finalna:
+                        {Number(calculateFinalPrice(r)) * Number(r.quantity)} zł
+                    </p>
                     Status:
                     <span
                         style={{
@@ -161,29 +177,7 @@ export default function TestPage() {
                             ))}
                         </ul>
                     </div>
-                    {editingId === r.id && (
-                        <p>
-                            <input
-                                value={newPanel}
-                                onChange={e => setNewPanel(e.target.value)}
-                            />
-                            <input
-                                type="number"
-                                value={newPrice}
-                                onChange={e => setNewPrice(e.target.value)}
-                            />
-
-                            <button
-                                disabled={newPrice === "" || newPanel === ""}
-                                onClick={handleSaveRepair}
-                            >
-                                Zapisz
-                            </button>
-                            <button onClick={() => setEditingId(null)}>
-                                Anuluj
-                            </button>
-                        </p>
-                    )}
+                    {editingRepairId === r.id}
                 </li>
             </div>
         );
@@ -308,6 +302,7 @@ export default function TestPage() {
             carId: selectedCarId,
             panel: panel,
             price: Number(price),
+            modifiers: Number(modifiers),
             status: status,
             history: [
                 { date: new Date().toLocaleDateString(), status: status }
@@ -348,20 +343,60 @@ export default function TestPage() {
         setRepairs(repairs.filter(r => r.id !== id));
     }
     function startEdit(r) {
-        setEditingId(r.id);
-        setNewPanel(r.panel);
-        setNewPrice(r.price);
+        setEditingRepairId(r.id);
+        setPanel(r.panel);
+        setPrice(r.price);
+        setDescription(r.description);
+        setIsDisassembly(r.isDisassembly);
+        setDisassemblyTime(r.disassemblyTime);
+        setIsAluminium(r.isAluminium);
+        setIsGlue(r.isGlue);
+        setIsEdge(r.isEdge);
+        setIsReinforcement(r.isReinforcement);
+        setIsHSS(r.isHSS);
+        setIsSharp(r.isSharp);
+        setIsDeep(r.isDeep);
+        setQuantity(r.quantity);
     }
 
     function handleSaveRepair() {
         setRepairs(
             repairs.map(r =>
-                r.id === editingId
-                    ? { ...r, price: newPrice, panel: newPanel }
+                r.id === editingRepairId
+                    ? {
+                          ...r,
+                          price: price,
+                          panel: panel,
+                          description: description,
+                          isDisassembly: isDisassembly,
+                          disassemblyTime: disassemblyTime,
+                          isAluminium: isAluminium,
+                          isGlue: isGlue,
+                          isEdge: isEdge,
+                          isReinforcement: isReinforcement,
+                          isHSS: isHSS,
+                          isSharp: isSharp,
+                          isDeep: isDeep,
+                          quantity: quantity
+                      }
                     : r
             )
         );
-        setEditingId(null);
+
+        setEditingRepairId(null);
+        setPanel("");
+        setPrice("");
+        setDescription("");
+        setIsDisassembly(false);
+        setDisassemblyTime("");
+        setIsAluminium(false);
+        setIsGlue(false);
+        setIsEdge(false);
+        setIsReinforcement(false);
+        setIsHSS(false);
+        setIsSharp(false);
+        setIsDeep(false);
+        setQuantity(1);
     }
 
     function changeStatus(id, newStatus) {
@@ -395,9 +430,13 @@ export default function TestPage() {
         localStorage.setItem("clients", JSON.stringify(clients));
     }, [clients]);
 
-    const total = repairs
+    const totalRepairsPrice = repairs
         .filter(r => selectedCarId === r.carId)
-        .reduce((sum, r) => sum + Number(r.price), 0);
+        .reduce(
+            (sum, r) =>
+                sum + Number(calculateFinalPrice(r)) * Number(r.quantity),
+            0
+        );
 
     const selectedCar = cars.find(c => c.carId === selectedCarId);
     const selectedClient = clients.find(c => c.clientId === selectedClientId);
@@ -675,7 +714,6 @@ export default function TestPage() {
                         <option>W trakcie</option>
                         <option>Zrobiona</option>
                     </select>
-
                     <ul
                         style={{
                             paddingBottom: "1rem"
@@ -692,9 +730,12 @@ export default function TestPage() {
                                 <RepairItem r={r} key={r.id} />
                             ))}
                     </ul>
-                    <p>Suma: {total} zł</p>
-                    <h2>Dodaj wgniecenia</h2>
-
+                    <p>Suma napraw: {totalRepairsPrice} zł</p>
+                    <h2>
+                        {editingRepairId != null
+                            ? "Edytuj wgniecenia"
+                            : "Dodaj wgniecenia"}
+                    </h2>
                     <input
                         type="date"
                         value={date}
@@ -705,20 +746,17 @@ export default function TestPage() {
                         value={panel}
                         onChange={e => setPanel(e.target.value)}
                     />
-
                     <input
                         placeholder="Cena"
                         value={price}
                         onChange={e => setPrice(e.target.value)}
                     />
-
                     <textarea
                         style={{ height: "3rem" }}
                         placeholder="Opis:"
                         value={description}
                         onChange={e => setDescription(e.target.value)}
                     />
-
                     <p>
                         <input
                             type="checkbox"
@@ -736,55 +774,97 @@ export default function TestPage() {
                             />
                         )}
                     </p>
-
-                    <div>
-                        <input
-                            type="checkbox"
-                            checked={isAluminium}
-                            onChange={e => setIsAluminium(e.target.checked)}
-                        />
-                        Aluminium(25%)
-                        <input
-                            type="checkbox"
-                            checked={isGlue}
-                            onChange={e => setIsGlue(e.target.checked)}
-                        />
-                        Klej(10%)
-                        <input
-                            type="checkbox"
-                            checked={isEdge}
-                            onChange={e => setIsEdge(e.target.checked)}
-                        />
-                        Rant(15%)
-                        <input
-                            type="checkbox"
-                            checked={isReinforcement}
-                            onChange={e => setIsReinforcement(e.target.checked)}
-                        />
-                        Wzmocnienie(10%)
-                        <input
-                            type="checkbox"
-                            checked={isHSS}
-                            onChange={e => setIsHSS(e.target.checked)}
-                        />
-                        Twarda blacha(20%)
-                        <input
-                            type="checkbox"
-                            checked={isSharp}
-                            onChange={e => setIsSharp(e.target.checked)}
-                        />
-                        Ostra(10%)
-                        <input
-                            type="checkbox"
-                            checked={isDeep}
-                            onChange={e => setIsDeep(e.target.checked)}
-                        />
-                        Głęboka(15%)
+                    <div
+                        style={{
+                            display: "flex",
+                            flexDirection: "column"
+                        }}
+                    >
+                        <p>
+                            <input
+                                type="checkbox"
+                                checked={isAluminium}
+                                onChange={e => setIsAluminium(e.target.checked)}
+                            />
+                            <span>Aluminium(25%)</span>
+                        </p>
+                        <p>
+                            <input
+                                type="checkbox"
+                                checked={isGlue}
+                                onChange={e => setIsGlue(e.target.checked)}
+                            />
+                            <span>Klej(10%)</span>
+                        </p>
+                        <p>
+                            <input
+                                type="checkbox"
+                                checked={isEdge}
+                                onChange={e => setIsEdge(e.target.checked)}
+                            />
+                            <span>Rant(15%)</span>
+                        </p>
+                        <p>
+                            <input
+                                type="checkbox"
+                                checked={isReinforcement}
+                                onChange={e =>
+                                    setIsReinforcement(e.target.checked)
+                                }
+                            />
+                            <span> Wzmocnienie(10%)</span>
+                        </p>
+                        <p>
+                            <input
+                                type="checkbox"
+                                checked={isHSS}
+                                onChange={e => setIsHSS(e.target.checked)}
+                            />
+                            <span>Twarda blacha(20%)</span>
+                        </p>
+                        <p>
+                            <input
+                                type="checkbox"
+                                checked={isSharp}
+                                onChange={e => setIsSharp(e.target.checked)}
+                            />
+                            <span> Ostra(10%)</span>
+                        </p>
+                        <p>
+                            <input
+                                type="checkbox"
+                                checked={isDeep}
+                                onChange={e => setIsDeep(e.target.checked)}
+                            />
+                            <span>Głęboka(15%)</span>
+                        </p>
                     </div>
+                    <p>Bazowa cena wgniecenia:{price} zł</p>
 
-                    <input value={quantity} onChange={e => setQuantity(e.target.value)} placeholder="Ilosć" />
-
-                    <button onClick={addRepair}>Dodaj</button>
+                    <p>Modyfikatory: {modifiers}%</p>
+                    {isDisassembly ? <p>Demontaż:{disassemblyPrice} zł</p> : ""}
+                    <p>
+                        Aktualna cena wgniecenia:
+                        {Number(price) +
+                            price * (Number(modifiers) / 100) +
+                            (isDisassembly ? disassemblyTime * 50 : 0) *
+                                quantity}
+                        zł
+                    </p>
+                    <input
+                        value={quantity}
+                        onChange={e => setQuantity(e.target.value)}
+                        placeholder="Ilosć"
+                    />
+                    <button
+                        onClick={
+                            editingRepairId === null
+                                ? addRepair
+                                : handleSaveRepair
+                        }
+                    >
+                        {editingRepairId != null ? "Zapisz" : "Dodaj"}
+                    </button>
                 </div>
             )}
         </div>
