@@ -1,9 +1,15 @@
 import { useState, useEffect } from "react";
 
-export default function TestPage() {
+export default function TestPage({
+    clients,
+    setClients,
+    cars,
+    setCars,
+    repairs,
+    setRepairs
+}) {
     const today = new Date().toISOString().split("T")[0];
 
-    const [clients, setClients] = useState([]);
     const [selectedClientId, setSelectedClientId] = useState(null);
     const [clientName, setClientName] = useState("");
     const [clientSurname, setClientSurname] = useState("");
@@ -16,7 +22,6 @@ export default function TestPage() {
     const [editPhone, setEditPhone] = useState("");
     const [searchClient, setSearchClient] = useState("");
 
-    const [cars, setCars] = useState([]);
     const [selectedCarId, setSelectedCarId] = useState(null);
     const [carName, setCarName] = useState("");
     const [carId, setCarId] = useState("");
@@ -31,7 +36,6 @@ export default function TestPage() {
     const [editYear, setEditYear] = useState("");
     const [editRegistration, setEditRegistration] = useState("");
 
-    const [repairs, setRepairs] = useState([]);
     const [panel, setPanel] = useState("");
     const [price, setPrice] = useState("");
     const [status, setStatus] = useState("Nowa");
@@ -47,6 +51,7 @@ export default function TestPage() {
     const [isSharp, setIsSharp] = useState(false);
     const [isDeep, setIsDeep] = useState(false);
     const [quantity, setQuantity] = useState(1);
+    const [orderNumber, setOrderNumber] = useState("");
 
     const [newPrice, setNewPrice] = useState("");
     const [newPanel, setNewPanel] = useState("");
@@ -65,26 +70,10 @@ export default function TestPage() {
     if (isDeep) modifiers += 15;
 
     useEffect(() => {
-        const savedRepairs = localStorage.getItem("repairs");
-
-        if (savedRepairs) {
-            setRepairs(JSON.parse(savedRepairs));
-        }
-    }, []);
-    useEffect(() => {
-        const savedCars = localStorage.getItem("cars");
-
-        if (savedCars) {
-            setCars(JSON.parse(savedCars));
-        }
-    }, []);
-    useEffect(() => {
-        const savedClients = localStorage.getItem("clients");
-
-        if (savedClients) {
-            setClients(JSON.parse(savedClients));
-        }
-    }, []);
+        const year = new Date().getFullYear();
+        const suggestion = `${year}/${repairs.length + 1}`;
+        setOrderNumber(suggestion);
+    }, [repairs.length]);
 
     function calculateFinalPrice(r) {
         const base = Number(r.price);
@@ -93,7 +82,7 @@ export default function TestPage() {
 
         const perItem = base + base * (mod / 100) + dis;
 
-        return perItem * Number(r.quantity);
+        return perItem;
     }
 
     //komponenty
@@ -101,6 +90,7 @@ export default function TestPage() {
         return (
             <div>
                 <li style={{ listStyleType: "none" }}>
+                    <p>Zlecenie:{r.orderNumber}</p>
                     <p>
                         {r.panel}– {r.price} zł
                     </p>
@@ -116,8 +106,12 @@ export default function TestPage() {
                         >
                             Demontaż:
                             {r.isDisassembly === true
-                                ? "Tak (" + r.disassemblyTime + "h) = "
-                                : "Nie"}
+                                ? "Tak (" +
+                                  r.disassemblyTime +
+                                  "h) =" +
+                                  Number(r.disassemblyTime * 50) +
+                                  "zł"
+                                : ""}
                             {r.isAluminium && <span>✅Aluminium(25%)</span>}
                             {r.isGlue && <span>✅Klej(10%)</span>}
                             {r.isEdge && <span>✅Rant(15%)</span>}
@@ -214,6 +208,10 @@ export default function TestPage() {
         const clientCarIds = cars
             .filter(c => c.clientId === id)
             .map(c => c.carId);
+        const confirmDelete = window.confirm("Na pewno chcesz usunąć?");
+
+        if (!confirmDelete) return;
+
         setClients(clients.filter(c => c.clientId !== id));
         setCars(cars.filter(c => c.clientId !== id));
         setRepairs(repairs.filter(r => !clientCarIds.includes(r.carId)));
@@ -266,6 +264,8 @@ export default function TestPage() {
     }
 
     function deleteCar(id) {
+        const confirmDelete = window.confirm("Na pewno chcesz usunąć?");
+        if (!confirmDelete) return;
         setCars(cars.filter(c => c.carId !== id));
         setRepairs(repairs.filter(r => r.carId !== id));
     }
@@ -299,6 +299,7 @@ export default function TestPage() {
     function addRepair() {
         const newRepair = {
             id: Date.now() + Math.random(),
+            orderNumber: orderNumber,
             carId: selectedCarId,
             panel: panel,
             price: Number(price),
@@ -340,6 +341,8 @@ export default function TestPage() {
     }
 
     function deleteRepair(id) {
+        const confirmDelete = window.confirm("Na pewno chcesz usunąć?");
+        if (!confirmDelete) return;
         setRepairs(repairs.filter(r => r.id !== id));
     }
     function startEdit(r) {
@@ -397,6 +400,7 @@ export default function TestPage() {
         setIsSharp(false);
         setIsDeep(false);
         setQuantity(1);
+        setDisassemblyTime(0);
     }
 
     function changeStatus(id, newStatus) {
@@ -420,15 +424,6 @@ export default function TestPage() {
             )
         );
     }
-    useEffect(() => {
-        localStorage.setItem("repairs", JSON.stringify(repairs));
-    }, [repairs]);
-    useEffect(() => {
-        localStorage.setItem("cars", JSON.stringify(cars));
-    }, [cars]);
-    useEffect(() => {
-        localStorage.setItem("clients", JSON.stringify(clients));
-    }, [clients]);
 
     const totalRepairsPrice = repairs
         .filter(r => selectedCarId === r.carId)
@@ -707,7 +702,9 @@ export default function TestPage() {
                             Zamknij auto
                         </button>
                     )}
-                    <h3>Lista</h3>
+                    
+                    <h3>Lista napraw</h3>
+
                     <select onChange={e => setRepairFilter(e.target.value)}>
                         <option>Wszystkie</option>
                         <option>Nowa</option>
@@ -737,15 +734,95 @@ export default function TestPage() {
                             : "Dodaj wgniecenia"}
                     </h2>
                     <input
+                        value={orderNumber}
+                        onChange={e => setOrderNumber(e.target.value)}
+                    />
+                    <input
                         type="date"
                         value={date}
                         onChange={e => setDate(e.target.value)}
                     />
-                    <input
-                        placeholder="Panel"
+                    <select
                         value={panel}
                         onChange={e => setPanel(e.target.value)}
-                    />
+                    >
+                        <option value="" disabled>
+                            Wybierz część
+                        </option>
+
+                        <optgroup label="Przód">
+                            <option value="Maska">Maska</option>
+                            <option value="Zderzak przedni">
+                                Zderzak przedni
+                            </option>
+                            <option value="Błotnik lewy przód">
+                                Błotnik lewy przód
+                            </option>
+                            <option value="Błotnik prawy przód">
+                                Błotnik prawy przód
+                            </option>
+                            <option value="Słupek A lewy">Słupek A lewy</option>
+                            <option value="Słupek A prawy">
+                                Słupek A prawy
+                            </option>
+                        </optgroup>
+
+                        <optgroup label="Bok">
+                            <option value="Drzwi lewe przednie">
+                                Drzwi lewe przednie
+                            </option>
+                            <option value="Drzwi prawe przednie">
+                                Drzwi prawe przednie
+                            </option>
+                            <option value="Drzwi lewe tylne">
+                                Drzwi lewe tylne
+                            </option>
+                            <option value="Drzwi prawe tylne">
+                                Drzwi prawe tylne
+                            </option>
+                            <option value="Próg lewy">Próg lewy</option>
+                            <option value="Próg prawy">Próg prawy</option>
+                            <option value="Słupek B lewy">Słupek B lewy</option>
+                            <option value="Słupek B prawy">
+                                Słupek B prawy
+                            </option>
+                        </optgroup>
+
+                        <optgroup label="Tył">
+                            <option value="Klapa bagażnika">
+                                Klapa bagażnika
+                            </option>
+                            <option value="Zderzak tylny">Zderzak tylny</option>
+                            <option value="Błotnik lewy tył">
+                                Błotnik lewy tył
+                            </option>
+                            <option value="Błotnik prawy tył">
+                                Błotnik prawy tył
+                            </option>
+                            <option value="Słupek C lewy">Słupek C lewy</option>
+                            <option value="Słupek C prawy">
+                                Słupek C prawy
+                            </option>
+                        </optgroup>
+
+                        <optgroup label="Inne">
+                            <option value="Dach">Dach</option>
+                            <option value="Inne">Inne</option>
+                        </optgroup>
+                    </select>
+
+                    <select
+                        onChange={e => setPrice(e.target.value)}
+                        defaultValue=""
+                    >
+                        <option value="" disabled>
+                            Wybierz rozmiar
+                        </option>
+                        <option value="100">0-30mm(S)</option>
+                        <option value="200">30-60mm(M)</option>
+                        <option value="400">60-100mm(L)</option>
+                        <option value="600">100mm+(XL)</option>
+                    </select>
                     <input
                         placeholder="Cena"
                         value={price}
@@ -757,6 +834,7 @@ export default function TestPage() {
                         value={description}
                         onChange={e => setDescription(e.target.value)}
                     />
+
                     <p>
                         <input
                             type="checkbox"
