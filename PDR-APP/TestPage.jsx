@@ -37,12 +37,13 @@ export default function TestPage({
     const [editRegistration, setEditRegistration] = useState("");
 
     const [panel, setPanel] = useState("");
-    const [price, setPrice] = useState("");
+    const [price, setPrice] = useState(0);
+    const [rabat, setRabat] = useState(0);
     const [status, setStatus] = useState("Nowa");
     const [date, setDate] = useState(today);
     const [description, setDescription] = useState("");
     const [isDisassembly, setIsDisassembly] = useState(false);
-    const [disassemblyTime, setDisassemblyTime] = useState("");
+    const [disassemblyTime, setDisassemblyTime] = useState(0);
     const [isAluminium, setIsAluminium] = useState(false);
     const [isGlue, setIsGlue] = useState(false);
     const [isEdge, setIsEdge] = useState(false);
@@ -52,6 +53,9 @@ export default function TestPage({
     const [isDeep, setIsDeep] = useState(false);
     const [quantity, setQuantity] = useState(1);
     const [orderNumber, setOrderNumber] = useState("");
+    const [estimatedRepairTime, setEstimatedRepairTime] = useState(0);
+    const [actualRepairTime, setActualRepairTime] = useState(0);
+    const [paid, setPaid] = useState("Nieopłacone");
 
     const [newPrice, setNewPrice] = useState("");
     const [newPanel, setNewPanel] = useState("");
@@ -60,6 +64,13 @@ export default function TestPage({
 
     let modifiers = 0;
     let disassemblyPrice = Number(disassemblyTime * 50);
+    let actualPrice =
+        calculateFinalPrice({
+            price,
+            modifiers,
+            isDisassembly,
+            disassemblyTime
+        }) * quantity;
 
     if (isAluminium) modifiers += 25;
     if (isGlue) modifiers += 10;
@@ -87,15 +98,20 @@ export default function TestPage({
 
     //komponenty
     function RepairItem({ r }) {
+        const total = Number(calculateFinalPrice(r)) * Number(r.quantity);
+
+        const afterDiscount = total - Number(r.rabat);
         return (
             <div>
                 <li style={{ listStyleType: "none" }}>
-                    <p>Zlecenie:{r.orderNumber}</p>
-                    <p>
-                        {r.panel}– {r.price} zł
-                    </p>
+                    <p>Naprawa:{r.orderNumber}</p>
                     <p>Termin: {r.date}</p>
+                    <h3>{r.panel}</h3>
                     <p>Opis: {r.description}</p>
+                    <p>
+                        Cena bazowa:
+                        {r.price} zł
+                    </p>
                     <p>
                         Modyfikatory:
                         <li
@@ -111,7 +127,7 @@ export default function TestPage({
                                   "h) =" +
                                   Number(r.disassemblyTime * 50) +
                                   "zł"
-                                : ""}
+                                : "0 zł"}
                             {r.isAluminium && <span>✅Aluminium(25%)</span>}
                             {r.isGlue && <span>✅Klej(10%)</span>}
                             {r.isEdge && <span>✅Rant(15%)</span>}
@@ -131,11 +147,18 @@ export default function TestPage({
                                 ? "brak"
                                 : ""}
                         </li>
+                        <p>Łącznie:{r.modifiers}%</p>
                     </p>
                     <p>Ilość:{r.quantity}</p>
+                    <p>Szacowany czas naprawy:{r.estimatedRepairTime}h</p>
                     <p>
-                        Cena finalna:
-                        {Number(calculateFinalPrice(r)) * Number(r.quantity)} zł
+                        Cena:
+                        {total} zł
+                    </p>
+                    <p>Rabat:{r.rabat} zł</p>
+                    <p>
+                        Cena po rabacie:
+                        {afterDiscount} zł
                     </p>
                     Status:
                     <span
@@ -159,8 +182,55 @@ export default function TestPage({
                         <option value="W trakcie">W trakcie</option>
                         <option value="Zrobiona">Zrobiona</option>
                     </select>
-                    <button onClick={() => startEdit(r)}>✏️</button>
+                    <button onClick={() => startEditRepair(r)}>✏️</button>
                     <button onClick={() => deleteRepair(r.id)}>❌</button>
+                    {r.status === "Zrobiona" && (
+                        <div>
+                            <p>
+                                Płatność:{" "}
+                                <span
+                                    style={{
+                                        color:
+                                            r.paid === "Opłacone"
+                                                ? "green"
+                                                : r.paid === "Częściowo"
+                                                  ? "yellow"
+                                                  : "red"
+                                    }}
+                                >
+                                    {r.paid}
+                                </span>
+                                <select
+                                    value={r.paid}
+                                    onChange={e =>
+                                        updateRepair(r.id, {
+                                            paid: e.target.value
+                                        })
+                                    }
+                                >
+                                    <option value="Nieopłacone">
+                                        Nieopłacone
+                                    </option>
+                                    <option value="Częściowo">Częściowo</option>
+                                    <option value="Opłacone">Opłacone</option>
+                                </select>
+                            </p>
+                            Realny czas naprawy:{r.actualRepairTime} h
+                            <input
+                                style={{ width: "80%" }}
+                                type="range"
+                                min="0"
+                                max="30"
+                                step="0.5"
+                                value={r.actualRepairTime}
+                                onChange={e =>
+                                    updateRepair(r.id, {
+                                        actualRepairTime: e.target.value
+                                    })
+                                }
+                            />
+                        </div>
+                    )}
                     <div style={{ fontSize: 8 }}>
                         <h3>Historia</h3>
                         <ul>
@@ -303,6 +373,8 @@ export default function TestPage({
             carId: selectedCarId,
             panel: panel,
             price: Number(price),
+            rabat: rabat,
+
             modifiers: Number(modifiers),
             status: status,
             history: [
@@ -319,16 +391,19 @@ export default function TestPage({
             isHSS: isHSS,
             isSharp: isSharp,
             isDeep: isDeep,
-            quantity: quantity
+            quantity: quantity,
+            estimatedRepairTime: estimatedRepairTime,
+            actualRepairTime: actualRepairTime,
+            paid: paid
         };
 
         setRepairs([...repairs, newRepair]);
 
         setPanel("");
-        setPrice("");
+        setPrice(0);
         setDescription("");
         setIsDisassembly(false);
-        setDisassemblyTime("");
+        setDisassemblyTime(0);
         setIsAluminium(false);
 
         setIsGlue(false);
@@ -338,6 +413,10 @@ export default function TestPage({
         setIsSharp(false);
         setIsDeep(false);
         setQuantity(1);
+        setEstimatedRepairTime(0);
+        setActualRepairTime(0);
+        setPaid("Nieopłacone");
+        setRabat(0);
     }
 
     function deleteRepair(id) {
@@ -345,7 +424,7 @@ export default function TestPage({
         if (!confirmDelete) return;
         setRepairs(repairs.filter(r => r.id !== id));
     }
-    function startEdit(r) {
+    function startEditRepair(r) {
         setEditingRepairId(r.id);
         setPanel(r.panel);
         setPrice(r.price);
@@ -360,6 +439,10 @@ export default function TestPage({
         setIsSharp(r.isSharp);
         setIsDeep(r.isDeep);
         setQuantity(r.quantity);
+        setEstimatedRepairTime(r.estimatedRepairTime);
+        setActualRepairTime(r.actualRepairTime);
+        setPaid(r.paid);
+        setRabat(r.rabat);
     }
 
     function handleSaveRepair() {
@@ -380,7 +463,11 @@ export default function TestPage({
                           isHSS: isHSS,
                           isSharp: isSharp,
                           isDeep: isDeep,
-                          quantity: quantity
+                          quantity: quantity,
+                          estimatedRepairTime: estimatedRepairTime,
+                          actualRepairTime: actualRepairTime,
+                          paid: paid,
+                          rabat: rabat
                       }
                     : r
             )
@@ -388,10 +475,10 @@ export default function TestPage({
 
         setEditingRepairId(null);
         setPanel("");
-        setPrice("");
+        setPrice(0);
         setDescription("");
         setIsDisassembly(false);
-        setDisassemblyTime("");
+        setDisassemblyTime(0);
         setIsAluminium(false);
         setIsGlue(false);
         setIsEdge(false);
@@ -401,6 +488,10 @@ export default function TestPage({
         setIsDeep(false);
         setQuantity(1);
         setDisassemblyTime(0);
+        setEstimatedRepairTime(0);
+        setActualRepairTime(0);
+        setPaid("Nieopłacone");
+        setRabat(0);
     }
 
     function changeStatus(id, newStatus) {
@@ -425,11 +516,19 @@ export default function TestPage({
         );
     }
 
+    function updateRepair(id, changes) {
+        setRepairs(repairs =>
+            repairs.map(r => (r.id === id ? { ...r, ...changes } : r))
+        );
+    }
+
     const totalRepairsPrice = repairs
         .filter(r => selectedCarId === r.carId)
         .reduce(
             (sum, r) =>
-                sum + Number(calculateFinalPrice(r)) * Number(r.quantity),
+                sum +
+                Number(calculateFinalPrice(r)) * Number(r.quantity) -
+                Number(r.rabat),
             0
         );
 
@@ -702,9 +801,7 @@ export default function TestPage({
                             Zamknij auto
                         </button>
                     )}
-                    
                     <h3>Lista napraw</h3>
-
                     <select onChange={e => setRepairFilter(e.target.value)}>
                         <option>Wszystkie</option>
                         <option>Nowa</option>
@@ -727,7 +824,7 @@ export default function TestPage({
                                 <RepairItem r={r} key={r.id} />
                             ))}
                     </ul>
-                    <p>Suma napraw: {totalRepairsPrice} zł</p>
+                    <p>Suma wszystkich napraw: {totalRepairsPrice} zł</p>
                     <h2>
                         {editingRepairId != null
                             ? "Edytuj wgniecenia"
@@ -810,7 +907,6 @@ export default function TestPage({
                             <option value="Inne">Inne</option>
                         </optgroup>
                     </select>
-
                     <select
                         onChange={e => setPrice(e.target.value)}
                         defaultValue=""
@@ -823,18 +919,29 @@ export default function TestPage({
                         <option value="400">60-100mm(L)</option>
                         <option value="600">100mm+(XL)</option>
                     </select>
+                    Cena:
                     <input
                         placeholder="Cena"
                         value={price}
                         onChange={e => setPrice(e.target.value)}
                     />
+                    Opis:
                     <textarea
                         style={{ height: "3rem" }}
                         placeholder="Opis:"
                         value={description}
                         onChange={e => setDescription(e.target.value)}
                     />
-
+                    Szacowany czas naprawy: {estimatedRepairTime} h
+                    <input
+                        style={{ width: "80%" }}
+                        type="range"
+                        min="0"
+                        max="30"
+                        step="0.5"
+                        value={estimatedRepairTime}
+                        onChange={e => setEstimatedRepairTime(e.target.value)}
+                    />
                     <p>
                         <input
                             type="checkbox"
@@ -918,7 +1025,6 @@ export default function TestPage({
                         </p>
                     </div>
                     <p>Bazowa cena wgniecenia:{price} zł</p>
-
                     <p>Modyfikatory: {modifiers}%</p>
                     {isDisassembly ? <p>Demontaż:{disassemblyPrice} zł</p> : ""}
                     <p>
@@ -928,6 +1034,14 @@ export default function TestPage({
                             (isDisassembly ? disassemblyTime * 50 : 0) *
                                 quantity}
                         zł
+                    </p>
+                    <p>
+                        {" "}
+                        Rabat:{" "}
+                        <input
+                            onChange={e => setRabat(e.target.value)}
+                            value={rabat}
+                        />
                     </p>
                     <input
                         value={quantity}
