@@ -4,7 +4,7 @@ export default function Dashboard({ clients, cars, repairs }) {
         const mod = Number(r.modifiers || 0);
         const dis = r.isDisassembly ? Number(r.disassemblyTime) * 50 : 0;
         const perItem = base + base * (mod / 100) + dis;
-        return sum + perItem * Number(r.quantity || 1);
+        return sum + perItem * Number(r.quantity || 1) - r.rabat;
     }, 0);
 
     function calculateFinalPrice(r) {
@@ -14,7 +14,7 @@ export default function Dashboard({ clients, cars, repairs }) {
 
         const perItem = base + base * (mod / 100) + dis;
 
-        return perItem;
+        return perItem - r.rabat;
     }
 
     const mostExpensive = repairs.reduce((max, r) => {
