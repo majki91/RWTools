@@ -93,9 +93,14 @@
                     id="fileName"
                     style="margin-bottom: 15px; font-style: italic"
                 ></div>
-<button type="submit" id="uploadBtn" disabled style="display: inline-block; background-color: #cccccc;">🎉 Wyślij do zdjęcie do naszego albumu 💌</button>
-
-                
+                <button
+                    type="submit"
+                    id="uploadBtn"
+                    disabled
+                    style="display: inline-block; background-color: #cccccc"
+                >
+                    🎉 Wyślij do zdjęcie do naszego albumu 💌
+                </button>
             </form>
 
             <div id="status"></div>
@@ -108,13 +113,14 @@
             const statusDiv = document.getElementById("status");
             const form = document.getElementById("weddingForm");
 
-            fileInput.addEventListener("change", () => {
-                if (fileInput.files.length > 0) {
-                    fileNameDiv.innerText =
-                        "Wybrano: " + fileInput.files[0].name;
-                    uploadBtn.style.display = "inline-block";
-                }
-            });
+            fileInput.addEventListener('change', () => {
+    if (fileInput.files.length > 0) {
+        fileNameDiv.innerText = "Wybrano: " + fileInput.files[0].name;
+        uploadBtn.disabled = false; // Odblokowujemy przycisk
+        uploadBtn.style.backgroundColor = "#28a745"; // Zmieniamy kolor na zielony
+    }
+});
+
 
             form.addEventListener("submit", async e => {
                 e.preventDefault();
