@@ -57,7 +57,7 @@
                 border-radius: 25px;
                 font-weight: bold;
                 cursor: pointer;
-                display: none; /* Pokazuje się dopiero po wybraniu zdjęcia */
+                display: none;
             }
             #status {
                 margin-top: 20px;
@@ -116,7 +116,7 @@
                 }
             });
 
-            // Obsługa wysyłki formularza przez JavaScript (Fetch API)
+
             form.addEventListener("submit", async e => {
                 e.preventDefault();
 
@@ -132,7 +132,7 @@
                 formData.append("photo", file);
 
                 try {
-                    // Wysyłamy plik do naszego skryptu PHP na serwerze
+                  
                     const response = await fetch("upload.php", {
                         method: "POST",
                         body: formData
