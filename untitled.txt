@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nasze Wesele - Wrzuć zdjęcie!</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            background-color: #f9f6f0;
+            color: #4a4a4a;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        h1 { font-size: 24px; margin-bottom: 5px; color: #8d7053; }
+        p { font-size: 14px; margin-bottom: 25px; }
+        .btn-select {
+            background-color: #8d7053;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        #uploadBtn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            display: none; /* Pokazuje się dopiero po wybraniu zdjęcia */
+        }
+        #status {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>📸 Ślubny Album Gości</h1>
+        <p>Zrób zdjęcie lub wybierz z galerii i podziel się z nami wspomnieniami!</p>
+
+        <form id="weddingForm">
+            <!-- Ukryty domyślny przycisk, klikamy go za pomocą .btn-select -->
+            <input type="file" id="fileInput" accept="image/*" capture="environment" style="display: none;">
+            
+            <label for="fileInput" class="btn-select">👉 Wybierz lub zrób zdjęcie</label>
+            
+            <div id="fileName" style="margin-bottom: 15px; font-style: italic;"></div>
+            
+            <button type="submit" id="uploadBtn">🎉 Wyślij do Dropboxa</button>
+        </form>
+
+        <div id="status"></div>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const uploadBtn = document.getElementById('uploadBtn');
+        const fileNameDiv = document.getElementById('fileName');
+        const statusDiv = document.getElementById('status');
+        const form = document.getElementById('weddingForm');
+
+        // Pokazuje przycisk "Wyślij", gdy gość wybierze zdjęcie
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length > 0) {
+                fileNameDiv.innerText = "Wybrano: " + fileInput.files[0].name;
+                uploadBtn.style.display = 'inline-block';
+            }
+        });
+
+        // Obsługa wysyłki formularza przez JavaScript (Fetch API)
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const file = fileInput.files[0];
+            if (!file) return;
+
+            statusDiv.innerHTML = "Wysyłanie zdjęcia... Proszę nie zamykać strony. ⏳";
+            statusDiv.style.color = "#333";
+            uploadBtn.disabled = true;
+
+            const formData = new FormData();
+            formData.append('photo', file);
+
+            try {
+                // Wysyłamy plik do naszego skryptu PHP na serwerze
+                const response = await fetch('upload.php', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    statusDiv.innerHTML = "Dziękujemy! Zdjęcie zostało dodane do albumu. ❤️ 🎉";
+                    statusDiv.style.color = "green";
+                    form.reset();
+                    fileNameDiv.innerText = "";
+                    uploadBtn.style.display = 'none';
+                } else {
+                    statusDiv.innerHTML = "Coś poszło nie tak. Spróbuj przesłać jeszcze raz! 😢";
+                    statusDiv.style.color = "red";
+                }
+            } catch (error) {
+                statusDiv.innerHTML = "Błąd połączenia z serwerem.";
+                statusDiv.style.color = "red";
+            } finally {
+                uploadBtn.disabled = false;
+            }
+        });
+    </script>
+
+</body>
+</html>
