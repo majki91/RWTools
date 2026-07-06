@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
     
     // !!! TUTAJ WKLEJ SWÓJ GENEROWANY TOKEN Z DROPBOX DEVELOPER APP CONSOLE !!!
-    $accessToken = 'TWÓJ_TOKEN_Z_DROPBOXA'; 
+    $accessToken = 'sl.u.AGkI9To62qs68Lj7DpWjKnkDq6rnv9qwqeT4qPpBtM_fzm636I19WGOgqLAa_q1GT3oFdfMD0IAc6d3S1XUuWh76pt0ZAxo9ZDjwKJ'; 
     
     // Unikalna nazwa pliku (np. wesele_171500000_432.jpg)
     $extension = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
