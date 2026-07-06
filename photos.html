@@ -81,7 +81,6 @@
                     type="file"
                     id="fileInput"
                     accept="image/*"
-                    
                     style="display: none"
                 />
 
@@ -117,8 +116,8 @@
                 if (fileInput.files.length > 0) {
                     fileNameDiv.innerText =
                         "Wybrano: " + fileInput.files[0].name;
-                    uploadBtn.disabled = false; // Odblokowujemy przycisk
-                    uploadBtn.style.backgroundColor = "#28a745"; // Zmieniamy kolor na zielony
+                    uploadBtn.disabled = false;
+                    uploadBtn.style.backgroundColor = "#28a745";
                 }
             });
 
@@ -129,7 +128,7 @@
                 if (!file) return;
 
                 statusDiv.innerHTML =
-                    "Wysyłanie zdjęcia... Proszę nie zamykać strony. ⏳";
+                    "Wysyłanie zdjęcia... Prosimy nie zamykać strony. ⏳";
                 statusDiv.style.color = "#333";
                 uploadBtn.disabled = true;
 
