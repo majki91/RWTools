@@ -81,7 +81,7 @@
                     type="file"
                     id="fileInput"
                     accept="image/*"
-                    capture="environment"
+                    
                     style="display: none"
                 />
 
@@ -113,14 +113,14 @@
             const statusDiv = document.getElementById("status");
             const form = document.getElementById("weddingForm");
 
-            fileInput.addEventListener('change', () => {
-    if (fileInput.files.length > 0) {
-        fileNameDiv.innerText = "Wybrano: " + fileInput.files[0].name;
-        uploadBtn.disabled = false; // Odblokowujemy przycisk
-        uploadBtn.style.backgroundColor = "#28a745"; // Zmieniamy kolor na zielony
-    }
-});
-
+            fileInput.addEventListener("change", () => {
+                if (fileInput.files.length > 0) {
+                    fileNameDiv.innerText =
+                        "Wybrano: " + fileInput.files[0].name;
+                    uploadBtn.disabled = false; // Odblokowujemy przycisk
+                    uploadBtn.style.backgroundColor = "#28a745"; // Zmieniamy kolor na zielony
+                }
+            });
 
             form.addEventListener("submit", async e => {
                 e.preventDefault();
