@@ -82,6 +82,7 @@
                     id="fileInput"
                     accept="image/*"
                     style="display: none"
+                    multiple="true"
                 />
 
                 <label for="fileInput" class="btn-select"
@@ -116,8 +117,8 @@
                 if (fileInput.files.length > 0) {
                     fileNameDiv.innerText =
                         "Wybrano: " + fileInput.files[0].name;
-                    uploadBtn.disabled = false; 
-                    uploadBtn.style.backgroundColor = "#28a745"; 
+                    uploadBtn.disabled = false;
+                    uploadBtn.style.backgroundColor = "#28a745";
                 }
             });
 
