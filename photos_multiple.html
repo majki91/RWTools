@@ -107,60 +107,79 @@
         </div>
 
         <script>
-            const fileInput = document.getElementById("fileInput");
-            const uploadBtn = document.getElementById("uploadBtn");
-            const fileNameDiv = document.getElementById("fileName");
-            const statusDiv = document.getElementById("status");
-            const form = document.getElementById("weddingForm");
+    const fileInput = document.getElementById("fileInput");
+    const uploadBtn = document.getElementById("uploadBtn");
+    const fileNameDiv = document.getElementById("fileName");
+    const statusDiv = document.getElementById("status");
+    const form = document.getElementById("weddingForm");
 
-            fileInput.addEventListener("change", () => {
-                if (fileInput.files.length > 0) {
-                    fileNameDiv.innerText =
-                        "Wybrano: " + fileInput.files[0].name;
-                    uploadBtn.disabled = false;
-                    uploadBtn.style.backgroundColor = "#28a745";
+   
+    fileInput.addEventListener("change", () => {
+        const filesCount = fileInput.files.length;
+        if (filesCount > 0) {
+            if (filesCount === 1) {
+                fileNameDiv.innerText = "Wybrano: " + fileInput.files[0].name;
+            } else {
+                fileNameDiv.innerText = "Wybrano zdjęć: " + filesCount;
+            }
+            uploadBtn.disabled = false;
+            uploadBtn.style.backgroundColor = "#28a745";
+            uploadBtn.style.display = "block";
+        }
+    });
+
+    form.addEventListener("submit", async e => {
+        e.preventDefault();
+
+        const files = fileInput.files;
+        if (files.length === 0) return;
+
+        uploadBtn.disabled = true;
+        let successCount = 0;
+
+
+        for (let i = 0; i < files.length; i++) {
+
+            statusDiv.innerHTML = `Wysyłanie zdjęcia ${i + 1} z ${files.length}... Proszę nie zamykać strony. ⏳`;
+            statusDiv.style.color = "#333";
+
+            const formData = new FormData();
+            formData.append("photo", files[i]); 
+
+            try {
+                const response = await fetch("upload.php", {
+                    method: "POST",
+                    body: formData
+                });
+
+                if (response.ok) {
+                    successCount++;
+                } else {
+                    console.error(`Błąd przy wysyłaniu pliku: ${files[i].name}`);
                 }
-            });
+            } catch (error) {
+                console.error("Błąd połączenia z serwerem przy pliku: " + files[i].name);
+            }
+        }
 
-            form.addEventListener("submit", async e => {
-                e.preventDefault();
 
-                const file = fileInput.files[0];
-                if (!file) return;
+        if (successCount === files.length) {
+            statusDiv.innerHTML = "Dziękujemy! Wszystkie zdjęcia zostały dodane do albumu. ❤️ 🎉";
+            statusDiv.style.color = "green";
+            form.reset();
+            fileNameDiv.innerText = "";
+            uploadBtn.style.display = "none";
+        } else if (successCount > 0) {
+            statusDiv.innerHTML = `Przesłano ${successCount} z ${files.length} zdjęć. Przy reszcie wystąpił błąd, spróbuj ponownie! ⚠️`;
+            statusDiv.style.color = "orange";
+            uploadBtn.disabled = false;
+        } else {
+            statusDiv.innerHTML = "Coś poszło nie tak. Serwer odrzucił pliki. Spróbuj jeszcze raz! 😢";
+            statusDiv.style.color = "red";
+            uploadBtn.disabled = false;
+        }
+    });
+</script>
 
-                statusDiv.innerHTML =
-                    "Wysyłanie zdjęcia... Proszę nie zamykać strony. ⏳";
-                statusDiv.style.color = "#333";
-                uploadBtn.disabled = true;
-
-                const formData = new FormData();
-                formData.append("photo", file);
-
-                try {
-                    const response = await fetch("upload.php", {
-                        method: "POST",
-                        body: formData
-                    });
-
-                    if (response.ok) {
-                        statusDiv.innerHTML =
-                            "Dziękujemy! Zdjęcie zostało dodane do albumu. ❤️ 🎉";
-                        statusDiv.style.color = "green";
-                        form.reset();
-                        fileNameDiv.innerText = "";
-                        uploadBtn.style.display = "none";
-                    } else {
-                        statusDiv.innerHTML =
-                            "Coś poszło nie tak. Spróbuj przesłać jeszcze raz! 😢";
-                        statusDiv.style.color = "red";
-                    }
-                } catch (error) {
-                    statusDiv.innerHTML = "Błąd połączenia z serwerem.";
-                    statusDiv.style.color = "red";
-                } finally {
-                    uploadBtn.disabled = false;
-                }
-            });
-        </script>
     </body>
 </html>
