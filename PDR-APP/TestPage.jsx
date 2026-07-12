@@ -6,7 +6,9 @@ export default function TestPage({
     cars,
     setCars,
     repairs,
-    setRepairs
+    setRepairs,
+    orders,
+    setOrders
 }) {
     const today = new Date().toISOString().split("T")[0];
 
@@ -36,11 +38,22 @@ export default function TestPage({
     const [editYear, setEditYear] = useState("");
     const [editRegistration, setEditRegistration] = useState("");
 
+    const [selectedOrderId, setSelectedOrderId] = useState(null);
+    const [orderNumber, setOrderNumber] = useState("");
+    const [date, setDate] = useState(today);
+    const [orderStatus, setOrderStatus] = useState("Otwarte");
+    const [orderNotes, setOrderNotes] = useState("");
+    const [addOrderForm, setAddOrderForm] = useState(false);
+    const [editingOrderId, setEditingOrderId] = useState("");
+    const [editOrderNumber, setEditOrderNumber] = useState("");
+    const [editDate, setEditDate] = useState("");
+
     const [panel, setPanel] = useState("");
     const [price, setPrice] = useState(0);
     const [rabat, setRabat] = useState(0);
     const [status, setStatus] = useState("Nowa");
-    const [date, setDate] = useState(today);
+
+    const [addRepairForm, setAddRepairForm] = useState(false);
     const [description, setDescription] = useState("");
     const [isDisassembly, setIsDisassembly] = useState(false);
     const [disassemblyTime, setDisassemblyTime] = useState(0);
@@ -52,7 +65,6 @@ export default function TestPage({
     const [isSharp, setIsSharp] = useState(false);
     const [isDeep, setIsDeep] = useState(false);
     const [quantity, setQuantity] = useState(1);
-    const [orderNumber, setOrderNumber] = useState("");
     const [estimatedRepairTime, setEstimatedRepairTime] = useState(0);
     const [actualRepairTime, setActualRepairTime] = useState(0);
     const [paid, setPaid] = useState("Nieopłacone");
@@ -64,13 +76,6 @@ export default function TestPage({
 
     let modifiers = 0;
     let disassemblyPrice = Number(disassemblyTime * 50);
-    let actualPrice =
-        calculateFinalPrice({
-            price,
-            modifiers,
-            isDisassembly,
-            disassemblyTime
-        }) * quantity;
 
     if (isAluminium) modifiers += 25;
     if (isGlue) modifiers += 10;
@@ -80,11 +85,19 @@ export default function TestPage({
     if (isSharp) modifiers += 10;
     if (isDeep) modifiers += 15;
 
+    let actualPrice =
+        calculateFinalPrice({
+            price,
+            modifiers,
+            isDisassembly,
+            disassemblyTime
+        }) * quantity;
+
     useEffect(() => {
         const year = new Date().getFullYear();
-        const suggestion = `${year}/${repairs.length + 1}`;
+        const suggestion = `${year}/${orders.length + 1}`;
         setOrderNumber(suggestion);
-    }, [repairs.length]);
+    }, [orders.length]);
 
     function calculateFinalPrice(r) {
         const base = Number(r.price);
@@ -104,8 +117,6 @@ export default function TestPage({
         return (
             <div>
                 <li style={{ listStyleType: "none" }}>
-                    <p>Naprawa:{r.orderNumber}</p>
-                    <p>Termin: {r.date}</p>
                     <h3>{r.panel}</h3>
                     <p>Opis: {r.description}</p>
                     <p>
@@ -176,14 +187,14 @@ export default function TestPage({
                     <select
                         style={{ marginLeft: "1rem" }}
                         value={r.status}
-                        onChange={e => changeStatus(r.id, e.target.value)}
+                        onChange={e => changeRepairStatus(r, e.target.value)}
                     >
                         <option value="Nowa">Nowa</option>
                         <option value="W trakcie">W trakcie</option>
                         <option value="Zrobiona">Zrobiona</option>
                     </select>
                     <button onClick={() => startEditRepair(r)}>✏️</button>
-                    <button onClick={() => deleteRepair(r.id)}>❌</button>
+                    <button onClick={() => deleteRepair(r)}>❌</button>
                     {r.status === "Zrobiona" && (
                         <div>
                             <p>
@@ -257,6 +268,7 @@ export default function TestPage({
     function closeClient() {
         setSelectedCarId(null);
         setSelectedClientId(null);
+        setSelectedOrderId(null);
     }
 
     function addClient() {
@@ -278,14 +290,19 @@ export default function TestPage({
         const clientCarIds = cars
             .filter(c => c.clientId === id)
             .map(c => c.carId);
+
+        const clientOrderIds = orders
+            .filter(o => clientCarIds.includes(o.carId))
+            .map(o => o.id);
+
         const confirmDelete = window.confirm("Na pewno chcesz usunąć?");
 
         if (!confirmDelete) return;
 
         setClients(clients.filter(c => c.clientId !== id));
         setCars(cars.filter(c => c.clientId !== id));
-        setRepairs(repairs.filter(r => !clientCarIds.includes(r.carId)));
-        // setRepairs(repairs.filter(r => r.carId !== id));
+        setOrders(orders.filter(o => !clientOrderIds.includes(o.id)));
+        setRepairs(repairs.filter(r => !clientOrderIds.includes(r.orderId)));
         closeClient();
     }
 
@@ -333,11 +350,18 @@ export default function TestPage({
         setAddCarForm(false);
     }
 
+    function closeCar() {
+        setSelectedCarId(null);
+        setSelectedOrderId(null);
+    }
+
     function deleteCar(id) {
         const confirmDelete = window.confirm("Na pewno chcesz usunąć?");
         if (!confirmDelete) return;
         setCars(cars.filter(c => c.carId !== id));
+        setOrders(orders.filter(o => o.carId !== id));
         setRepairs(repairs.filter(r => r.carId !== id));
+        setSelectedCarId(null);
     }
     function startEditCar(c) {
         setEditingCarId(c.carId);
@@ -365,22 +389,99 @@ export default function TestPage({
         setEditingCarId(null);
     }
 
+    //funkcje zlecenia
+
+    function addOrder() {
+        const newOrder = {
+            id: Date.now() + Math.random(),
+            orderNumber: orderNumber,
+            date: date,
+            clientId: selectedClientId,
+            carId: selectedCarId,
+            orderStatus: orderStatus,
+            history: [
+                {
+                    date: new Date().toLocaleDateString(),
+                    orderStatus: orderStatus
+                }
+            ]
+        };
+
+        setOrders([...orders, newOrder]);
+        setAddOrderForm(false);
+        setDate(today);
+        setOrderStatus("Otwarte");
+        setOrderNotes("");
+    }
+
+    function changeOrderStatus(id, newStatus) {
+        setOrders(
+            orders.map(o =>
+                o.id === id
+                    ? o.status != newStatus
+                        ? {
+                              ...o,
+                              orderStatus: newStatus,
+                              history: [
+                                  ...o.history,
+                                  {
+                                      date: new Date().toLocaleDateString(),
+                                      orderStatus: newStatus
+                                  }
+                              ]
+                          }
+                        : o
+                    : o
+            )
+        );
+    }
+
+    function deleteOrder(id) {
+        const confirmDelete = window.confirm("Na pewno chcesz usunąć?");
+        if (!confirmDelete) return;
+        setOrders(orders.filter(o => o.id !== id));
+        setRepairs(repairs.filter(r => r.orderId !== id));
+
+        setSelectedOrderId(null);
+    }
+    function startEditOrder(o) {
+        setEditingOrderId(o.id);
+        setEditOrderNumber(o.orderNumber);
+        setEditDate(o.date);
+    }
+
+    function saveOrderEdit() {
+        setOrders(
+            orders.map(o =>
+                o.id === editingOrderId
+                    ? {
+                          ...o,
+                          orderNumber: editOrderNumber,
+                          date: editDate
+                      }
+                    : o
+            )
+        );
+
+        setEditingOrderId(null);
+        setEditDate("");
+        setEditOrderNumber("");
+    }
+
     //funkcje wgniecenia
     function addRepair() {
         const newRepair = {
             id: Date.now() + Math.random(),
-            orderNumber: orderNumber,
+            orderId: selectedOrderId,
             carId: selectedCarId,
             panel: panel,
             price: Number(price),
-            rabat: rabat,
-
+            rabat: Number(rabat),
             modifiers: Number(modifiers),
             status: status,
             history: [
                 { date: new Date().toLocaleDateString(), status: status }
             ],
-            date: date,
             description: description,
             isDisassembly: isDisassembly,
             disassemblyTime: disassemblyTime,
@@ -392,12 +493,28 @@ export default function TestPage({
             isSharp: isSharp,
             isDeep: isDeep,
             quantity: quantity,
-            estimatedRepairTime: estimatedRepairTime,
-            actualRepairTime: actualRepairTime,
+            estimatedRepairTime: Number(estimatedRepairTime),
+            actualRepairTime: Number(actualRepairTime),
             paid: paid
         };
 
         setRepairs([...repairs, newRepair]);
+        setOrders(
+            orders.map(o =>
+                o.id === selectedOrderId
+                    ? {
+                          ...o,
+                          history: [
+                              ...o.history,
+                              {
+                                  date: new Date().toLocaleDateString(),
+                                  action: "Dodano naprawę :" + panel
+                              }
+                          ]
+                      }
+                    : o
+            )
+        );
 
         setPanel("");
         setPrice(0);
@@ -417,12 +534,30 @@ export default function TestPage({
         setActualRepairTime(0);
         setPaid("Nieopłacone");
         setRabat(0);
+        setStatus("Nowa");
+        setAddRepairForm(false);
     }
 
-    function deleteRepair(id) {
+    function deleteRepair(r) {
         const confirmDelete = window.confirm("Na pewno chcesz usunąć?");
         if (!confirmDelete) return;
-        setRepairs(repairs.filter(r => r.id !== id));
+        setOrders(
+            orders.map(o =>
+                o.id === r.orderId
+                    ? {
+                          ...o,
+                          history: [
+                              ...o.history,
+                              {
+                                  date: new Date().toLocaleDateString(),
+                                  action: "Usunięto naprawę :" + r.panel
+                              }
+                          ]
+                      }
+                    : o
+            )
+        );
+        setRepairs(repairs.filter(repair => repair.id !== r.id));
     }
     function startEditRepair(r) {
         setEditingRepairId(r.id);
@@ -443,6 +578,7 @@ export default function TestPage({
         setActualRepairTime(r.actualRepairTime);
         setPaid(r.paid);
         setRabat(r.rabat);
+        setAddRepairForm(true);
     }
 
     function handleSaveRepair() {
@@ -494,24 +630,45 @@ export default function TestPage({
         setRabat(0);
     }
 
-    function changeStatus(id, newStatus) {
+    function changeRepairStatus(r, newStatus) {
         setRepairs(
-            repairs.map(r =>
-                r.id === id
-                    ? r.status != newStatus
+            repairs.map(repair =>
+                repair.id === r.id
+                    ? repair.status != newStatus
                         ? {
-                              ...r,
+                              ...repair,
                               status: newStatus,
                               history: [
-                                  ...r.history,
+                                  ...repair.history,
                                   {
                                       date: new Date().toLocaleDateString(),
                                       status: newStatus
                                   }
                               ]
                           }
-                        : r
-                    : r
+                        : repair
+                    : repair
+            )
+        );
+
+        setOrders(
+            orders.map(o =>
+                o.id === r.orderId
+                    ? {
+                          ...o,
+                          history: [
+                              ...o.history,
+                              {
+                                  date: new Date().toLocaleDateString(),
+                                  action:
+                                      "Zmieniono status naprawy " +
+                                      r.panel +
+                                      ":" +
+                                      newStatus
+                              }
+                          ]
+                      }
+                    : o
             )
         );
     }
@@ -523,7 +680,7 @@ export default function TestPage({
     }
 
     const totalRepairsPrice = repairs
-        .filter(r => selectedCarId === r.carId)
+        .filter(r => selectedOrderId === r.orderId)
         .reduce(
             (sum, r) =>
                 sum +
@@ -534,6 +691,7 @@ export default function TestPage({
 
     const selectedCar = cars.find(c => c.carId === selectedCarId);
     const selectedClient = clients.find(c => c.clientId === selectedClientId);
+    const selectedOrder = orders.find(o => o.id === selectedOrderId);
     return (
         <div style={{ padding: 20 }}>
             <div>
@@ -650,7 +808,7 @@ export default function TestPage({
                 {selectedClientId === null ? (
                     ""
                 ) : (
-                    <div>
+                    <div style={{ marginBottom: "2rem" }}>
                         <h2>
                             Klient: {selectedClient?.clientName}{" "}
                             {selectedClient?.clientSurname}
@@ -790,273 +948,491 @@ export default function TestPage({
                         justifyContent: "flex-start"
                     }}
                 >
-                    <p>
-                        Naprawy auta: {selectedCar?.carName}{" "}
-                        {selectedCar?.model}{" "}
-                    </p>
+                    <div id="zlecenia">
+                        Zlecenia auta:
+                        {selectedCar?.carName} {selectedCar?.model}
+                        <p>
+                            <button onClick={() => setAddOrderForm(true)}>
+                                Dodaj zlecenie
+                            </button>
+                        </p>
+                        {addOrderForm && (
+                            <div style={{ marginBottom: "2rem" }}>
+                                {" "}
+                                <input
+                                    value={orderNumber}
+                                    onChange={e =>
+                                        setOrderNumber(e.target.value)
+                                    }
+                                />
+                                <input
+                                    type="date"
+                                    value={date}
+                                    onChange={e => setDate(e.target.value)}
+                                />
+                                <button onClick={() => addOrder()}>
+                                    Dodaj
+                                </button>
+                            </div>
+                        )}
+                        {editingOrderId && (
+                            <div style={{ marginBottom: "2rem" }}>
+                                <h2>Edycja zlecenia</h2>
+
+                                <input
+                                    value={editOrderNumber}
+                                    onChange={e =>
+                                        setEditOrderNumber(e.target.value)
+                                    }
+                                />
+                                <input
+                                    type="date"
+                                    value={editDate}
+                                    onChange={e => setEditDate(e.target.value)}
+                                />
+
+                                <button onClick={() => saveOrderEdit()}>
+                                    Zapisz
+                                </button>
+                                <button onClick={() => setEditingOrderId(null)}>
+                                    Anuluj
+                                </button>
+                            </div>
+                        )}
+                        {orders.length === 0 ? (
+                            <span style={{ color: "red" }}>
+                                lista jest pusta
+                            </span>
+                        ) : (
+                            orders
+                                .filter(o => o.carId === selectedCarId)
+                                .map(o => (
+                                    <li
+                                        style={{ listStyleType: "none" }}
+                                        key={o.id}
+                                    >
+                                        <div
+                                            style={{
+                                                border: "1px solid black",
+
+                                                marginBottom: "5px"
+                                            }}
+                                        >
+                                            <p
+                                                style={{ color: "blue" }}
+                                                onClick={() =>
+                                                    setSelectedOrderId(o.id)
+                                                }
+                                            >
+                                                Numer zlecenia:{o.orderNumber}
+                                            </p>
+                                            <p>
+                                                Status:{o.orderStatus}
+                                                <select
+                                                    style={{
+                                                        marginLeft: "1rem"
+                                                    }}
+                                                    value={o.orderStatus}
+                                                    onChange={e =>
+                                                        changeOrderStatus(
+                                                            o.id,
+                                                            e.target.value
+                                                        )
+                                                    }
+                                                >
+                                                    <option value="Otwarte">
+                                                        Otwarte
+                                                    </option>
+                                                    <option value="Zamknięte">
+                                                        Zamknięte
+                                                    </option>
+                                                </select>
+                                            </p>
+                                            <p>Płatność: 🔴</p>
+                                            <p>Notatki:</p>
+                                            <p>Data otwarcia:{o.date}</p>
+                                            <p>Data zamknięcia:</p>
+                                            <div style={{ fontSize: 8 }}>
+                                                <h3>Historia</h3>
+                                                <ul>
+                                                    {o.history.map((h, i) => (
+                                                        <li key={i}>
+                                                            {h.date} –{" "}
+                                                            {h.orderStatus}
+                                                            {h.action}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <button
+                                            onClick={() => startEditOrder(o)}
+                                        >
+                                            ✏️
+                                        </button>
+                                        <button
+                                            onClick={() => deleteOrder(o.id)}
+                                        >
+                                            ❌
+                                        </button>
+                                    </li>
+                                ))
+                        )}
+                    </div>
                     {selectedCarId === null ? (
                         ""
                     ) : (
-                        <button onClick={() => setSelectedCarId(null)}>
-                            Zamknij auto
-                        </button>
+                        <button onClick={() => closeCar()}>Zamknij auto</button>
                     )}
-                    <h3>Lista napraw</h3>
-                    <select onChange={e => setRepairFilter(e.target.value)}>
-                        <option>Wszystkie</option>
-                        <option>Nowa</option>
-                        <option>W trakcie</option>
-                        <option>Zrobiona</option>
-                    </select>
-                    <ul
-                        style={{
-                            paddingBottom: "1rem"
-                        }}
-                    >
-                        {repairs
-                            .filter(r => selectedCarId === r.carId)
-                            .filter(r =>
-                                repairFilter === "Wszystkie"
-                                    ? true
-                                    : r.status === repairFilter
-                            )
-                            .map(r => (
-                                <RepairItem r={r} key={r.id} />
-                            ))}
-                    </ul>
-                    <p>Suma wszystkich napraw: {totalRepairsPrice} zł</p>
-                    <h2>
-                        {editingRepairId != null
-                            ? "Edytuj wgniecenia"
-                            : "Dodaj wgniecenia"}
-                    </h2>
-                    <input
-                        value={orderNumber}
-                        onChange={e => setOrderNumber(e.target.value)}
-                    />
-                    <input
-                        type="date"
-                        value={date}
-                        onChange={e => setDate(e.target.value)}
-                    />
-                    <select
-                        value={panel}
-                        onChange={e => setPanel(e.target.value)}
-                    >
-                        <option value="" disabled>
-                            Wybierz część
-                        </option>
+                    {selectedOrderId === null ? (
+                        ""
+                    ) : (
+                        <div
+                            style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "flex-start"
+                            }}
+                        >
+                            <p>
+                                Naprawy zlecenia:{" "}
+                                {selectedOrder?.orderNumber}{" "}
+                            </p>
+                            <p>
+                                Naprawy auta: {selectedCar?.carName}{" "}
+                                {selectedCar?.model}
+                            </p>
+                            <h3>Lista napraw</h3>
+                            <select
+                                onChange={e => setRepairFilter(e.target.value)}
+                            >
+                                <option>Wszystkie</option>
+                                <option>Nowa</option>
+                                <option>W trakcie</option>
+                                <option>Zrobiona</option>
+                            </select>
+                            <ul
+                                style={{
+                                    paddingBottom: "1rem"
+                                }}
+                            >
+                                {repairs.length === 0 ? (
+                                    <span style={{ color: "red" }}>
+                                        lista jest pusta
+                                    </span>
+                                ) : (
+                                    ""
+                                )}
+                                {repairs
+                                    .filter(r => selectedCarId === r.carId)
+                                    .filter(r =>
+                                        repairFilter === "Wszystkie"
+                                            ? true
+                                            : r.status === repairFilter
+                                    )
+                                    .map(r => (
+                                        <RepairItem r={r} key={r.id} />
+                                    ))}
+                            </ul>
+                            <p>
+                                Suma wszystkich napraw: {totalRepairsPrice} zł
+                            </p>
+                            <button onClick={() => setAddRepairForm(true)}>
+                                Dodaj naprawę
+                            </button>
+                            {addRepairForm && (
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        justifyContent: "flex-start"
+                                    }}
+                                >
+                                    <h2>
+                                        {editingRepairId != null
+                                            ? "Edytuj wgniecenia"
+                                            : "Dodaj wgniecenia"}
+                                    </h2>
+                                    <select
+                                        value={panel}
+                                        onChange={e => setPanel(e.target.value)}
+                                    >
+                                        <option value="" disabled>
+                                            Wybierz część
+                                        </option>
 
-                        <optgroup label="Przód">
-                            <option value="Maska">Maska</option>
-                            <option value="Zderzak przedni">
-                                Zderzak przedni
-                            </option>
-                            <option value="Błotnik lewy przód">
-                                Błotnik lewy przód
-                            </option>
-                            <option value="Błotnik prawy przód">
-                                Błotnik prawy przód
-                            </option>
-                            <option value="Słupek A lewy">Słupek A lewy</option>
-                            <option value="Słupek A prawy">
-                                Słupek A prawy
-                            </option>
-                        </optgroup>
+                                        <optgroup label="Przód">
+                                            <option value="Maska">Maska</option>
+                                            <option value="Zderzak przedni">
+                                                Zderzak przedni
+                                            </option>
+                                            <option value="Błotnik lewy przód">
+                                                Błotnik lewy przód
+                                            </option>
+                                            <option value="Błotnik prawy przód">
+                                                Błotnik prawy przód
+                                            </option>
+                                            <option value="Słupek A lewy">
+                                                Słupek A lewy
+                                            </option>
+                                            <option value="Słupek A prawy">
+                                                Słupek A prawy
+                                            </option>
+                                        </optgroup>
 
-                        <optgroup label="Bok">
-                            <option value="Drzwi lewe przednie">
-                                Drzwi lewe przednie
-                            </option>
-                            <option value="Drzwi prawe przednie">
-                                Drzwi prawe przednie
-                            </option>
-                            <option value="Drzwi lewe tylne">
-                                Drzwi lewe tylne
-                            </option>
-                            <option value="Drzwi prawe tylne">
-                                Drzwi prawe tylne
-                            </option>
-                            <option value="Próg lewy">Próg lewy</option>
-                            <option value="Próg prawy">Próg prawy</option>
-                            <option value="Słupek B lewy">Słupek B lewy</option>
-                            <option value="Słupek B prawy">
-                                Słupek B prawy
-                            </option>
-                        </optgroup>
+                                        <optgroup label="Bok">
+                                            <option value="Drzwi lewe przednie">
+                                                Drzwi lewe przednie
+                                            </option>
+                                            <option value="Drzwi prawe przednie">
+                                                Drzwi prawe przednie
+                                            </option>
+                                            <option value="Drzwi lewe tylne">
+                                                Drzwi lewe tylne
+                                            </option>
+                                            <option value="Drzwi prawe tylne">
+                                                Drzwi prawe tylne
+                                            </option>
+                                            <option value="Próg lewy">
+                                                Próg lewy
+                                            </option>
+                                            <option value="Próg prawy">
+                                                Próg prawy
+                                            </option>
+                                            <option value="Słupek B lewy">
+                                                Słupek B lewy
+                                            </option>
+                                            <option value="Słupek B prawy">
+                                                Słupek B prawy
+                                            </option>
+                                        </optgroup>
 
-                        <optgroup label="Tył">
-                            <option value="Klapa bagażnika">
-                                Klapa bagażnika
-                            </option>
-                            <option value="Zderzak tylny">Zderzak tylny</option>
-                            <option value="Błotnik lewy tył">
-                                Błotnik lewy tył
-                            </option>
-                            <option value="Błotnik prawy tył">
-                                Błotnik prawy tył
-                            </option>
-                            <option value="Słupek C lewy">Słupek C lewy</option>
-                            <option value="Słupek C prawy">
-                                Słupek C prawy
-                            </option>
-                        </optgroup>
+                                        <optgroup label="Tył">
+                                            <option value="Klapa bagażnika">
+                                                Klapa bagażnika
+                                            </option>
+                                            <option value="Zderzak tylny">
+                                                Zderzak tylny
+                                            </option>
+                                            <option value="Błotnik lewy tył">
+                                                Błotnik lewy tył
+                                            </option>
+                                            <option value="Błotnik prawy tył">
+                                                Błotnik prawy tył
+                                            </option>
+                                            <option value="Słupek C lewy">
+                                                Słupek C lewy
+                                            </option>
+                                            <option value="Słupek C prawy">
+                                                Słupek C prawy
+                                            </option>
+                                        </optgroup>
 
-                        <optgroup label="Inne">
-                            <option value="Dach">Dach</option>
-                            <option value="Inne">Inne</option>
-                        </optgroup>
-                    </select>
-                    <select
-                        onChange={e => setPrice(e.target.value)}
-                        defaultValue=""
-                    >
-                        <option value="" disabled>
-                            Wybierz rozmiar
-                        </option>
-                        <option value="100">0-30mm(S)</option>
-                        <option value="200">30-60mm(M)</option>
-                        <option value="400">60-100mm(L)</option>
-                        <option value="600">100mm+(XL)</option>
-                    </select>
-                    Cena:
-                    <input
-                        placeholder="Cena"
-                        value={price}
-                        onChange={e => setPrice(e.target.value)}
-                    />
-                    Opis:
-                    <textarea
-                        style={{ height: "3rem" }}
-                        placeholder="Opis:"
-                        value={description}
-                        onChange={e => setDescription(e.target.value)}
-                    />
-                    Szacowany czas naprawy: {estimatedRepairTime} h
-                    <input
-                        style={{ width: "80%" }}
-                        type="range"
-                        min="0"
-                        max="30"
-                        step="0.5"
-                        value={estimatedRepairTime}
-                        onChange={e => setEstimatedRepairTime(e.target.value)}
-                    />
-                    <p>
-                        <input
-                            type="checkbox"
-                            checked={isDisassembly}
-                            onChange={e => setIsDisassembly(e.target.checked)}
-                        />
-                        Demontaż
-                        {isDisassembly && (
-                            <input
-                                value={disassemblyTime}
-                                onChange={e =>
-                                    setDisassemblyTime(e.target.value)
-                                }
-                                placeholder="Czas demontażu w h"
-                            />
-                        )}
-                    </p>
-                    <div
-                        style={{
-                            display: "flex",
-                            flexDirection: "column"
-                        }}
-                    >
-                        <p>
-                            <input
-                                type="checkbox"
-                                checked={isAluminium}
-                                onChange={e => setIsAluminium(e.target.checked)}
-                            />
-                            <span>Aluminium(25%)</span>
-                        </p>
-                        <p>
-                            <input
-                                type="checkbox"
-                                checked={isGlue}
-                                onChange={e => setIsGlue(e.target.checked)}
-                            />
-                            <span>Klej(10%)</span>
-                        </p>
-                        <p>
-                            <input
-                                type="checkbox"
-                                checked={isEdge}
-                                onChange={e => setIsEdge(e.target.checked)}
-                            />
-                            <span>Rant(15%)</span>
-                        </p>
-                        <p>
-                            <input
-                                type="checkbox"
-                                checked={isReinforcement}
-                                onChange={e =>
-                                    setIsReinforcement(e.target.checked)
-                                }
-                            />
-                            <span> Wzmocnienie(10%)</span>
-                        </p>
-                        <p>
-                            <input
-                                type="checkbox"
-                                checked={isHSS}
-                                onChange={e => setIsHSS(e.target.checked)}
-                            />
-                            <span>Twarda blacha(20%)</span>
-                        </p>
-                        <p>
-                            <input
-                                type="checkbox"
-                                checked={isSharp}
-                                onChange={e => setIsSharp(e.target.checked)}
-                            />
-                            <span> Ostra(10%)</span>
-                        </p>
-                        <p>
-                            <input
-                                type="checkbox"
-                                checked={isDeep}
-                                onChange={e => setIsDeep(e.target.checked)}
-                            />
-                            <span>Głęboka(15%)</span>
-                        </p>
-                    </div>
-                    <p>Bazowa cena wgniecenia:{price} zł</p>
-                    <p>Modyfikatory: {modifiers}%</p>
-                    {isDisassembly ? <p>Demontaż:{disassemblyPrice} zł</p> : ""}
-                    <p>
-                        Aktualna cena wgniecenia:
-                        {Number(price) +
-                            price * (Number(modifiers) / 100) +
-                            (isDisassembly ? disassemblyTime * 50 : 0) *
-                                quantity}
-                        zł
-                    </p>
-                    <p>
-                        {" "}
-                        Rabat:{" "}
-                        <input
-                            onChange={e => setRabat(e.target.value)}
-                            value={rabat}
-                        />
-                    </p>
-                    <input
-                        value={quantity}
-                        onChange={e => setQuantity(e.target.value)}
-                        placeholder="Ilosć"
-                    />
-                    <button
-                        onClick={
-                            editingRepairId === null
-                                ? addRepair
-                                : handleSaveRepair
-                        }
-                    >
-                        {editingRepairId != null ? "Zapisz" : "Dodaj"}
-                    </button>
+                                        <optgroup label="Inne">
+                                            <option value="Dach">Dach</option>
+                                            <option value="Inne">Inne</option>
+                                        </optgroup>
+                                    </select>
+                                    <select
+                                        onChange={e => setPrice(e.target.value)}
+                                        defaultValue=""
+                                    >
+                                        <option value="" disabled>
+                                            Wybierz rozmiar
+                                        </option>
+                                        <option value="100">0-30mm(S)</option>
+                                        <option value="200">30-60mm(M)</option>
+                                        <option value="400">60-100mm(L)</option>
+                                        <option value="600">100mm+(XL)</option>
+                                    </select>
+                                    Cena:
+                                    <input
+                                        placeholder="Cena"
+                                        value={price}
+                                        onChange={e => setPrice(e.target.value)}
+                                    />
+                                    Opis:
+                                    <textarea
+                                        style={{ height: "3rem" }}
+                                        placeholder="Opis:"
+                                        value={description}
+                                        onChange={e =>
+                                            setDescription(e.target.value)
+                                        }
+                                    />
+                                    Szacowany czas naprawy:{" "}
+                                    {estimatedRepairTime} h
+                                    <input
+                                        style={{ width: "80%" }}
+                                        type="range"
+                                        min="0"
+                                        max="30"
+                                        step="0.5"
+                                        value={estimatedRepairTime}
+                                        onChange={e =>
+                                            setEstimatedRepairTime(
+                                                e.target.value
+                                            )
+                                        }
+                                    />
+                                    <p>
+                                        <input
+                                            type="checkbox"
+                                            checked={isDisassembly}
+                                            onChange={e =>
+                                                setIsDisassembly(
+                                                    e.target.checked
+                                                )
+                                            }
+                                        />
+                                        Demontaż
+                                        {isDisassembly && (
+                                            <input
+                                                value={disassemblyTime}
+                                                onChange={e =>
+                                                    setDisassemblyTime(
+                                                        e.target.value
+                                                    )
+                                                }
+                                                placeholder="Czas demontażu w h"
+                                            />
+                                        )}
+                                    </p>
+                                    <div
+                                        style={{
+                                            display: "flex",
+                                            flexDirection: "column"
+                                        }}
+                                    >
+                                        <p>
+                                            <input
+                                                type="checkbox"
+                                                checked={isAluminium}
+                                                onChange={e =>
+                                                    setIsAluminium(
+                                                        e.target.checked
+                                                    )
+                                                }
+                                            />
+                                            <span>Aluminium(25%)</span>
+                                        </p>
+                                        <p>
+                                            <input
+                                                type="checkbox"
+                                                checked={isGlue}
+                                                onChange={e =>
+                                                    setIsGlue(e.target.checked)
+                                                }
+                                            />
+                                            <span>Klej(10%)</span>
+                                        </p>
+                                        <p>
+                                            <input
+                                                type="checkbox"
+                                                checked={isEdge}
+                                                onChange={e =>
+                                                    setIsEdge(e.target.checked)
+                                                }
+                                            />
+                                            <span>Rant(15%)</span>
+                                        </p>
+                                        <p>
+                                            <input
+                                                type="checkbox"
+                                                checked={isReinforcement}
+                                                onChange={e =>
+                                                    setIsReinforcement(
+                                                        e.target.checked
+                                                    )
+                                                }
+                                            />
+                                            <span> Wzmocnienie(10%)</span>
+                                        </p>
+                                        <p>
+                                            <input
+                                                type="checkbox"
+                                                checked={isHSS}
+                                                onChange={e =>
+                                                    setIsHSS(e.target.checked)
+                                                }
+                                            />
+                                            <span>Twarda blacha(20%)</span>
+                                        </p>
+                                        <p>
+                                            <input
+                                                type="checkbox"
+                                                checked={isSharp}
+                                                onChange={e =>
+                                                    setIsSharp(e.target.checked)
+                                                }
+                                            />
+                                            <span> Ostra(10%)</span>
+                                        </p>
+                                        <p>
+                                            <input
+                                                type="checkbox"
+                                                checked={isDeep}
+                                                onChange={e =>
+                                                    setIsDeep(e.target.checked)
+                                                }
+                                            />
+                                            <span>Głęboka(15%)</span>
+                                        </p>
+                                    </div>
+                                    <p>Bazowa cena wgniecenia:{price} zł</p>
+                                    <p>Modyfikatory: {modifiers}%</p>
+                                    {isDisassembly ? (
+                                        <p>Demontaż:{disassemblyPrice} zł</p>
+                                    ) : (
+                                        ""
+                                    )}
+                                    <p>
+                                        Aktualna cena wgniecenia:
+                                        {Number(price) +
+                                            price * (Number(modifiers) / 100) +
+                                            (isDisassembly
+                                                ? disassemblyTime * 50
+                                                : 0) *
+                                                quantity}
+                                        zł
+                                    </p>
+                                    <p>
+                                        {" "}
+                                        Rabat:{" "}
+                                        <input
+                                            onChange={e =>
+                                                setRabat(e.target.value)
+                                            }
+                                            value={rabat}
+                                        />
+                                    </p>
+                                    <input
+                                        value={quantity}
+                                        onChange={e =>
+                                            setQuantity(e.target.value)
+                                        }
+                                        placeholder="Ilosć"
+                                    />
+                                    <button
+                                        onClick={
+                                            editingRepairId === null
+                                                ? addRepair
+                                                : handleSaveRepair
+                                        }
+                                    >
+                                        {editingRepairId != null
+                                            ? "Zapisz"
+                                            : "Dodaj"}
+                                    </button>
+                                    <button
+                                        onClick={() => setAddRepairForm(false)}
+                                    >
+                                        Anuluj
+                                    </button>
+                                </div>
+                            )}
+                        </div>
+                    )}
                 </div>
             )}
         </div>
