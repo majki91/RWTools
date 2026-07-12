@@ -4,45 +4,55 @@ import ClientsContext from "./context/ClientsContext";
 import Dashboard from "./pages/Dashboard";
 import TestPage from "./pages/TestPage";
 
-
-
 function App() {
+    //localStorage.clear();
     const [clients, setClients] = useState([]);
     const [cars, setCars] = useState([]);
     const [repairs, setRepairs] = useState([]);
-    
+    const [orders, setOrders] = useState([]);
+
     useEffect(() => {
-    const savedRepairs = localStorage.getItem("repairs");
+        const savedRepairs = localStorage.getItem("repairs");
 
-    if (savedRepairs) {
-        setRepairs(JSON.parse(savedRepairs));
-    }
-}, []);
-useEffect(() => {
-    const savedCars = localStorage.getItem("cars");
+        if (savedRepairs) {
+            setRepairs(JSON.parse(savedRepairs));
+        }
+    }, []);
+    useEffect(() => {
+        const savedOrders = localStorage.getItem("orders");
 
-    if (savedCars) {
-        setCars(JSON.parse(savedCars));
-    }
-}, []);
-useEffect(() => {
-    const savedClients = localStorage.getItem("clients");
+        if (savedOrders) {
+            setOrders(JSON.parse(savedOrders));
+        }
+    }, []);
+    useEffect(() => {
+        const savedCars = localStorage.getItem("cars");
 
-    if (savedClients) {
-        setClients(JSON.parse(savedClients));
-    }
-}, []);
+        if (savedCars) {
+            setCars(JSON.parse(savedCars));
+        }
+    }, []);
+    useEffect(() => {
+        const savedClients = localStorage.getItem("clients");
 
-useEffect(() => {
-    localStorage.setItem("repairs", JSON.stringify(repairs));
-}, [repairs]);
-useEffect(() => {
-    localStorage.setItem("cars", JSON.stringify(cars));
-}, [cars]);
-useEffect(() => {
-    localStorage.setItem("clients", JSON.stringify(clients));
-}, [clients]);
-    
+        if (savedClients) {
+            setClients(JSON.parse(savedClients));
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem("repairs", JSON.stringify(repairs));
+    }, [repairs]);
+    useEffect(() => {
+        localStorage.setItem("orders", JSON.stringify(orders));
+    }, [orders]);
+    useEffect(() => {
+        localStorage.setItem("cars", JSON.stringify(cars));
+    }, [cars]);
+    useEffect(() => {
+        localStorage.setItem("clients", JSON.stringify(clients));
+    }, [clients]);
+
     return (
         <div
             style={{
@@ -72,6 +82,7 @@ useEffect(() => {
                             clients={clients}
                             cars={cars}
                             repairs={repairs}
+                            orders={orders}
                         />
                     }
                 />
@@ -85,6 +96,8 @@ useEffect(() => {
                             setCars={setCars}
                             repairs={repairs}
                             setRepairs={setRepairs}
+                            orders={orders}
+                            setOrders={setOrders}
                         />
                     }
                 />
