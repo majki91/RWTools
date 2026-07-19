@@ -214,7 +214,7 @@ export default function TestPage({
                                 <select
                                     value={r.paid}
                                     onChange={e =>
-                                        updateRepair(r.id, {
+                                        updateRepair(r, {
                                             paid: e.target.value
                                         })
                                     }
@@ -235,7 +235,7 @@ export default function TestPage({
                                 step="0.5"
                                 value={r.actualRepairTime}
                                 onChange={e =>
-                                    updateRepair(r.id, {
+                                    updateRepair(r, {
                                         actualRepairTime: e.target.value
                                     })
                                 }
@@ -673,10 +673,32 @@ export default function TestPage({
         );
     }
 
-    function updateRepair(id, changes) {
+    function updateRepair(r, changes) {
         setRepairs(repairs =>
-            repairs.map(r => (r.id === id ? { ...r, ...changes } : r))
-        );
+            repairs.map(rep => (rep.id === r.id ? { ...rep, ...changes } : rep))
+        ); //changes to obiekt
+        if ("paid" in changes) {
+            setOrders(
+                orders.map(o =>
+                    o.id === r.orderId
+                        ? {
+                              ...o,
+                              history: [
+                                  ...o.history,
+                                  {
+                                      date: new Date().toLocaleDateString(),
+                                      action:
+                                          "Zmieniono status płatności " +
+                                          r.panel +
+                                          " : " +
+                                          changes.paid
+                                  }
+                              ]
+                          }
+                        : o
+                )
+            );
+        }
     }
 
     const totalRepairsPrice = repairs
@@ -688,6 +710,8 @@ export default function TestPage({
                 Number(r.rabat),
             0
         );
+
+    
 
     const selectedCar = cars.find(c => c.carId === selectedCarId);
     const selectedClient = clients.find(c => c.clientId === selectedClientId);
@@ -1043,13 +1067,18 @@ export default function TestPage({
                                                     <option value="Otwarte">
                                                         Otwarte
                                                     </option>
+                                                    <option value="Oczekiwanie na płatność">
+                                                        Oczekiwanie na płatność
+                                                    </option>
                                                     <option value="Zamknięte">
                                                         Zamknięte
                                                     </option>
                                                 </select>
                                             </p>
-                                            <p>Płatność: 🔴</p>
+
                                             <p>Notatki:</p>
+
+                                            
                                             <p>Data otwarcia:{o.date}</p>
                                             <p>Data zamknięcia:</p>
                                             <div style={{ fontSize: 8 }}>
